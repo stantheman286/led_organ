@@ -9,5 +9,5 @@ This project is modified version of the following light organ:
 
 http://www.waitingforfriday.com/index.php/LED_Colour_Organ
 
-It uses the individually-addressible RGB LED strip from Adafruit (www.adafruit.com/306) along with the above circuit to provide a colorful display for ambient music.
+It uses the individually-addressible RGB LED strip from Adafruit (www.adafruit.com/products/306) along with the above circuit to provide a colorful display for ambient music.
 
