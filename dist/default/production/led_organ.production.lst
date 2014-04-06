@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.30 build 55553 
-                                                                                               Wed Apr  2 03:52:35 2014
+                                                                                               Sat Apr  5 23:13:13 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 55553
      1                           	processor	18F24J10
@@ -12,194 +12,288 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
      6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
      7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
      8                           	psect	text1,global,reloc=2,class=CODE,delta=1
-     9                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
-    10                           	psect	rparam,global,class=COMRAM,space=1,delta=1
-    11  0000                     _ADCON1	set	4033
-    12  0000                     _LATA	set	3977
-    13  0000                     _LATB	set	3978
-    14  0000                     _LATC	set	3979
-    15  0000                     _PORTA	set	3968
-    16  0000                     _TRISA	set	3986
-    17                           
-    18 ;;
-    19 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
-    20 ;;
-    21 ;; *************** function _main *****************
-    22 ;; Defined at:
-    23 ;;		line 45 in file "main.c"
-    24 ;; Parameters:    Size  Location     Type
-    25 ;;  argc            2    2[COMRAM] int 
-    26 ;;  argv            3    4[COMRAM] PTR PTR unsigned char 
-    27 ;; Auto vars:     Size  Location     Type
-    28 ;;		None
-    29 ;; Return value:  Size  Location     Type
-    30 ;;                  2    2[COMRAM] int 
-    31 ;; Registers used:
-    32 ;;		wreg, status,2, status,0, cstack
-    33 ;; Tracked objects:
-    34 ;;		On entry : 0/0
-    35 ;;		On exit  : 0/0
-    36 ;;		Unchanged: 0/0
-    37 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
-    38 ;;      Params:         5       0       0       0       0
-    39 ;;      Locals:         0       0       0       0       0
-    40 ;;      Temps:          1       0       0       0       0
-    41 ;;      Totals:         6       0       0       0       0
-    42 ;;Total ram usage:        6 bytes
-    43 ;; Hardware stack levels required when called:    1
-    44 ;; This function calls:
-    45 ;;		_blink
-    46 ;; This function is called by:
-    47 ;;		Startup code after reset
-    48 ;; This function uses a non-reentrant model
-    49 ;;
-    50                           
-    51                           	psect	text0
-    52  003FC8                     __ptext0:
-    53                           	opt stack 0
-    54  003FC8                     _main:
-    55                           	opt stack 30
-    56                           
-    57                           ;main.c: 48: LATA = 0x00;
-    58                           
-    59                           ;incstack = 0
-    60  003FC8  0E00               	movlw	0
-    61  003FCA  6E89               	movwf	3977,c	;volatile
-    62                           
-    63                           ;main.c: 49: LATB = 0x00;
-    64  003FCC  0E00               	movlw	0
-    65  003FCE  6E8A               	movwf	3978,c	;volatile
-    66                           
-    67                           ;main.c: 50: LATC = 0x00;
-    68  003FD0  0E00               	movlw	0
-    69  003FD2  6E8B               	movwf	3979,c	;volatile
-    70                           
-    71                           ;main.c: 53: ADCON1 = 0x00;
-    72  003FD4  0E00               	movlw	0
-    73  003FD6  6EC1               	movwf	4033,c	;volatile
-    74                           
-    75                           ;main.c: 56: TRISA |= 0x01;
-    76  003FD8  8092               	bsf	3986,0,c	;volatile
-    77  003FDA                     l611:
-    78                           
-    79                           ;main.c: 59: {
-    80                           ;main.c: 60: blink(0x01);
-    81  003FDA  0E00               	movlw	0
-    82  003FDC  6E02               	movwf	blink@LED+1,c
-    83  003FDE  0E01               	movlw	1
-    84  003FE0  6E01               	movwf	blink@LED,c
-    85  003FE2  ECDA  F01F         	call	_blink	;wreg free
-    86                           
-    87                           ;main.c: 61: _delay((unsigned long)((1000)*(31000/4000.0)));
-    88  003FE6  0E0B               	movlw	11
-    89  003FE8  6E08               	movwf	??_main& (0+255),c
-    90  003FEA  0E0F               	movlw	15
-    91  003FEC                     u17:
-    92  003FEC  2EE8               	decfsz	wreg,f,c
-    93  003FEE  D7FE               	goto	u17
-    94  003FF0  2E08               	decfsz	??_main& (0+255),f,c
-    95  003FF2  D7FC               	goto	u17
-    96  003FF4  F000               	nop	
-    97  003FF6  D7F1               	goto	l611
-    98  003FF8                     __end_of_main:
-    99                           	opt stack 0
-   100                           wreg	equ	0xFE8
-   101                           
-   102                           	psect	cinit
-   103  003FAE                     __pcinit:
-   104                           	opt stack 0
-   105  003FAE                     start_initialization:
-   106                           	opt stack 0
-   107  003FAE                     __initialization:
-   108                           	opt stack 0
-   109  003FAE                     end_of_initialization:
-   110                           	opt stack 0
-   111  003FAE                     __end_of__initialization:
-   112                           	opt stack 0
-   113  003FAE  0100               	movlb	0
-   114  003FB0  EFE4  F01F         	goto	_main	;jump to C main() function
-   115                           wreg	equ	0xFE8
-   116                           
-   117                           	psect	cstackCOMRAM
-   118  000001                     __pcstackCOMRAM:
-   119                           	opt stack 0
-   120  000001                     blink@LED:
-   121                           	opt stack 0
-   122                           
-   123                           ; 2 bytes @ 0x0
-   124  000001                     	ds	2
-   125  000003                     
-   126                           ; 2 bytes @ 0x2
-   127  000003                     	ds	2
-   128  000005                     
-   129                           ; 3 bytes @ 0x4
-   130  000005                     	ds	3
-   131  000008                     ??_main:
-   132                           
-   133                           ; 0 bytes @ 0x7
-   134  000008                     	ds	1
-   135                           wreg	equ	0xFE8
-   136                           
-   137 ;; *************** function _blink *****************
-   138 ;; Defined at:
-   139 ;;		line 67 in file "main.c"
-   140 ;; Parameters:    Size  Location     Type
-   141 ;;  LED             2    0[COMRAM] unsigned int 
-   142 ;; Auto vars:     Size  Location     Type
-   143 ;;		None
-   144 ;; Return value:  Size  Location     Type
-   145 ;;		None               void
-   146 ;; Registers used:
-   147 ;;		wreg, status,2, status,0
-   148 ;; Tracked objects:
-   149 ;;		On entry : 0/0
-   150 ;;		On exit  : 0/0
-   151 ;;		Unchanged: 0/0
-   152 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
-   153 ;;      Params:         2       0       0       0       0
-   154 ;;      Locals:         0       0       0       0       0
-   155 ;;      Temps:          0       0       0       0       0
-   156 ;;      Totals:         2       0       0       0       0
-   157 ;;Total ram usage:        2 bytes
-   158 ;; Hardware stack levels used:    1
-   159 ;; This function calls:
-   160 ;;		Nothing
-   161 ;; This function is called by:
-   162 ;;		_main
-   163 ;; This function uses a non-reentrant model
-   164 ;;
-   165                           
-   166                           	psect	text1
-   167  003FB4                     __ptext1:
-   168                           	opt stack 0
-   169  003FB4                     _blink:
-   170                           	opt stack 30
+     9                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    10                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    11                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    12  0000                     _ADCON1	set	4033
+    13  0000                     _LATA	set	3977
+    14  0000                     _LATB	set	3978
+    15  0000                     _LATC	set	3979
+    16  0000                     _PORTB	set	3969
+    17  0000                     _PORTC	set	3970
+    18  0000                     _TRISB	set	3987
+    19  0000                     _TRISC	set	3988
+    20                           
+    21                           ; 0 bytes @ 0x7
+    22 ;;
+    23 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    24 ;;
+    25 ;; *************** function _main *****************
+    26 ;; Defined at:
+    27 ;;		line 49 in file "main.c"
+    28 ;; Parameters:    Size  Location     Type
+    29 ;;  argc            2    2[COMRAM] int 
+    30 ;;  argv            3    4[COMRAM] PTR PTR unsigned char 
+    31 ;; Auto vars:     Size  Location     Type
+    32 ;;		None
+    33 ;; Return value:  Size  Location     Type
+    34 ;;                  2    2[COMRAM] int 
+    35 ;; Registers used:
+    36 ;;		wreg, status,2, status,0, cstack
+    37 ;; Tracked objects:
+    38 ;;		On entry : 0/0
+    39 ;;		On exit  : 0/0
+    40 ;;		Unchanged: 0/0
+    41 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+    42 ;;      Params:         5       0       0       0       0
+    43 ;;      Locals:         0       0       0       0       0
+    44 ;;      Temps:          0       0       0       0       0
+    45 ;;      Totals:         5       0       0       0       0
+    46 ;;Total ram usage:        5 bytes
+    47 ;; Hardware stack levels required when called:    1
+    48 ;; This function calls:
+    49 ;;		_blink_b
+    50 ;;		_blink_c
+    51 ;; This function is called by:
+    52 ;;		Startup code after reset
+    53 ;; This function uses a non-reentrant model
+    54 ;;
+    55                           
+    56                           	psect	text0
+    57  003F9C                     __ptext0:
+    58                           	opt stack 0
+    59  003F9C                     _main:
+    60                           	opt stack 30
+    61                           
+    62                           ;main.c: 52: LATA = 0x00;
+    63                           
+    64                           ;incstack = 0
+    65  003F9C  0E00               	movlw	0
+    66  003F9E  6E89               	movwf	3977,c	;volatile
+    67                           
+    68                           ;main.c: 53: LATB = 0x00;
+    69  003FA0  0E00               	movlw	0
+    70  003FA2  6E8A               	movwf	3978,c	;volatile
+    71                           
+    72                           ;main.c: 54: LATC = 0x00;
+    73  003FA4  0E00               	movlw	0
+    74  003FA6  6E8B               	movwf	3979,c	;volatile
+    75                           
+    76                           ;main.c: 57: ADCON1 = 0x0F;
+    77  003FA8  0E0F               	movlw	15
+    78  003FAA  6EC1               	movwf	4033,c	;volatile
+    79                           
+    80                           ;main.c: 60: TRISB = 0x00;
+    81  003FAC  0E00               	movlw	0
+    82  003FAE  6E93               	movwf	3987,c	;volatile
+    83                           
+    84                           ;main.c: 61: TRISC = 0x00;
+    85  003FB0  0E00               	movlw	0
+    86  003FB2  6E94               	movwf	3988,c	;volatile
+    87  003FB4                     l624:
+    88                           
+    89                           ;main.c: 64: {
+    90                           ;main.c: 65: blink_b(0x20);
+    91  003FB4  0E00               	movlw	0
+    92  003FB6  6E02               	movwf	blink_b@LED+1,c
+    93  003FB8  0E20               	movlw	32
+    94  003FBA  6E01               	movwf	blink_b@LED,c
+    95  003FBC  ECB8  F01F         	call	_blink_b	;wreg free
+    96                           
+    97                           ;main.c: 66: _delay((unsigned long)((150)*(31000/4000.0)));
+    98  003FC0  0EE8               	movlw	232
+    99  003FC2                     u17:
+   100  003FC2  D000               	nop2	
+   101  003FC4  2EE8               	decfsz	wreg,f,c
+   102  003FC6  D7FD               	goto	u17
+   103  003FC8  D000               	nop2		;nop
+   104                           
+   105                           ;main.c: 67: blink_b(0x01);
+   106  003FCA  0E00               	movlw	0
+   107  003FCC  6E02               	movwf	blink_b@LED+1,c
+   108  003FCE  0E01               	movlw	1
+   109  003FD0  6E01               	movwf	blink_b@LED,c
+   110  003FD2  ECB8  F01F         	call	_blink_b	;wreg free
+   111                           
+   112                           ;main.c: 68: _delay((unsigned long)((150)*(31000/4000.0)));
+   113  003FD6  0EE8               	movlw	232
+   114  003FD8                     u27:
+   115  003FD8  D000               	nop2	
+   116  003FDA  2EE8               	decfsz	wreg,f,c
+   117  003FDC  D7FD               	goto	u27
+   118  003FDE  D000               	nop2		;nop
+   119                           
+   120                           ;main.c: 69: blink_c(0x01);
+   121  003FE0  0E00               	movlw	0
+   122  003FE2  6E02               	movwf	blink_c@LED+1,c
+   123  003FE4  0E01               	movlw	1
+   124  003FE6  6E01               	movwf	blink_c@LED,c
+   125  003FE8  ECC3  F01F         	call	_blink_c	;wreg free
+   126                           
+   127                           ;main.c: 70: _delay((unsigned long)((150)*(31000/4000.0)));
+   128  003FEC  0EE8               	movlw	232
+   129  003FEE                     u37:
+   130  003FEE  D000               	nop2	
+   131  003FF0  2EE8               	decfsz	wreg,f,c
+   132  003FF2  D7FD               	goto	u37
+   133  003FF4  D000               	nop2		;nop
+   134  003FF6  D7DE               	goto	l624
+   135  003FF8                     __end_of_main:
+   136                           	opt stack 0
+   137                           wreg	equ	0xFE8
+   138                           
+   139                           	psect	cinit
+   140  003F6A                     __pcinit:
+   141                           	opt stack 0
+   142  003F6A                     start_initialization:
+   143                           	opt stack 0
+   144  003F6A                     __initialization:
+   145                           	opt stack 0
+   146  003F6A                     end_of_initialization:
+   147                           	opt stack 0
+   148  003F6A                     __end_of__initialization:
+   149                           	opt stack 0
+   150  003F6A  0100               	movlb	0
+   151  003F6C  EFCE  F01F         	goto	_main	;jump to C main() function
+   152                           wreg	equ	0xFE8
+   153                           
+   154                           	psect	cstackCOMRAM
+   155  000001                     __pcstackCOMRAM:
+   156                           	opt stack 0
+   157  000001                     blink_b@LED:
+   158                           	opt stack 0
+   159  000001                     blink_c@LED:
+   160                           	opt stack 0
+   161                           
+   162                           ; 2 bytes @ 0x0
+   163  000001                     	ds	2
+   164  000003                     
+   165                           ; 2 bytes @ 0x2
+   166  000003                     	ds	2
+   167  000005                     
+   168                           ; 3 bytes @ 0x4
+   169  000005                     	ds	3
+   170  000008                     wreg	equ	0xFE8
    171                           
-   172                           ;main.c: 69: PORTA |= LED;
-   173                           
-   174                           ;incstack = 0
-   175  003FB4  5001               	movf	blink@LED,w,c
-   176  003FB6  1280               	iorwf	3968,f,c	;volatile
-   177                           
-   178                           ;main.c: 70: _delay((unsigned long)((75)*(31000/4000.0)));
-   179  003FB8  0EC1               	movlw	193
-   180  003FBA                     u27:
-   181  003FBA  2EE8               	decfsz	wreg,f,c
-   182  003FBC  D7FE               	goto	u27
-   183  003FBE  D000               	nop2		;nop
-   184                           
-   185                           ;main.c: 71: PORTA &= ~LED;
-   186  003FC0  5001               	movf	blink@LED,w,c
-   187  003FC2  0AFF               	xorlw	255
-   188  003FC4  1680               	andwf	3968,f,c	;volatile
-   189  003FC6  0012               	return	
-   190  003FC8                     __end_of_blink:
-   191                           	opt stack 0
-   192  0000                     wreg	equ	0xFE8
-   193                           wreg	equ	0xFE8
-   194                           
-   195                           	psect	rparam
-   196  0000                     wreg	equ	0xFE8
+   172 ;; *************** function _blink_c *****************
+   173 ;; Defined at:
+   174 ;;		line 84 in file "main.c"
+   175 ;; Parameters:    Size  Location     Type
+   176 ;;  LED             2    0[COMRAM] unsigned int 
+   177 ;; Auto vars:     Size  Location     Type
+   178 ;;		None
+   179 ;; Return value:  Size  Location     Type
+   180 ;;		None               void
+   181 ;; Registers used:
+   182 ;;		wreg, status,2, status,0
+   183 ;; Tracked objects:
+   184 ;;		On entry : 0/0
+   185 ;;		On exit  : 0/0
+   186 ;;		Unchanged: 0/0
+   187 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+   188 ;;      Params:         2       0       0       0       0
+   189 ;;      Locals:         0       0       0       0       0
+   190 ;;      Temps:          0       0       0       0       0
+   191 ;;      Totals:         2       0       0       0       0
+   192 ;;Total ram usage:        2 bytes
+   193 ;; Hardware stack levels used:    1
+   194 ;; This function calls:
+   195 ;;		Nothing
+   196 ;; This function is called by:
+   197 ;;		_main
+   198 ;; This function uses a non-reentrant model
+   199 ;;
+   200                           
+   201                           	psect	text1
+   202  003F86                     __ptext1:
+   203                           	opt stack 0
+   204  003F86                     _blink_c:
+   205                           	opt stack 30
+   206                           
+   207                           ;main.c: 86: PORTC |= LED;
+   208                           
+   209                           ;incstack = 0
+   210  003F86  5001               	movf	blink_c@LED,w,c
+   211  003F88  1282               	iorwf	3970,f,c	;volatile
+   212                           
+   213                           ;main.c: 87: _delay((unsigned long)((150)*(31000/4000.0)));
+   214  003F8A  0EE8               	movlw	232
+   215  003F8C                     u47:
+   216  003F8C  D000               	nop2	
+   217  003F8E  2EE8               	decfsz	wreg,f,c
+   218  003F90  D7FD               	goto	u47
+   219  003F92  D000               	nop2		;nop
+   220                           
+   221                           ;main.c: 88: PORTC &= ~LED;
+   222  003F94  5001               	movf	blink_c@LED,w,c
+   223  003F96  0AFF               	xorlw	255
+   224  003F98  1682               	andwf	3970,f,c	;volatile
+   225  003F9A  0012               	return	
+   226  003F9C                     __end_of_blink_c:
+   227                           	opt stack 0
+   228                           wreg	equ	0xFE8
+   229                           
+   230 ;; *************** function _blink_b *****************
+   231 ;; Defined at:
+   232 ;;		line 76 in file "main.c"
+   233 ;; Parameters:    Size  Location     Type
+   234 ;;  LED             2    0[COMRAM] unsigned int 
+   235 ;; Auto vars:     Size  Location     Type
+   236 ;;		None
+   237 ;; Return value:  Size  Location     Type
+   238 ;;		None               void
+   239 ;; Registers used:
+   240 ;;		wreg, status,2, status,0
+   241 ;; Tracked objects:
+   242 ;;		On entry : 0/0
+   243 ;;		On exit  : 0/0
+   244 ;;		Unchanged: 0/0
+   245 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+   246 ;;      Params:         2       0       0       0       0
+   247 ;;      Locals:         0       0       0       0       0
+   248 ;;      Temps:          0       0       0       0       0
+   249 ;;      Totals:         2       0       0       0       0
+   250 ;;Total ram usage:        2 bytes
+   251 ;; Hardware stack levels used:    1
+   252 ;; This function calls:
+   253 ;;		Nothing
+   254 ;; This function is called by:
+   255 ;;		_main
+   256 ;; This function uses a non-reentrant model
+   257 ;;
+   258                           
+   259                           	psect	text2
+   260  003F70                     __ptext2:
+   261                           	opt stack 0
+   262  003F70                     _blink_b:
+   263                           	opt stack 30
+   264                           
+   265                           ;main.c: 78: PORTB |= LED;
+   266                           
+   267                           ;incstack = 0
+   268  003F70  5001               	movf	blink_b@LED,w,c
+   269  003F72  1281               	iorwf	3969,f,c	;volatile
+   270                           
+   271                           ;main.c: 79: _delay((unsigned long)((150)*(31000/4000.0)));
+   272  003F74  0EE8               	movlw	232
+   273  003F76                     u57:
+   274  003F76  D000               	nop2	
+   275  003F78  2EE8               	decfsz	wreg,f,c
+   276  003F7A  D7FD               	goto	u57
+   277  003F7C  D000               	nop2		;nop
+   278                           
+   279                           ;main.c: 80: PORTB &= ~LED;
+   280  003F7E  5001               	movf	blink_b@LED,w,c
+   281  003F80  0AFF               	xorlw	255
+   282  003F82  1681               	andwf	3969,f,c	;volatile
+   283  003F84  0012               	return	
+   284  003F86                     __end_of_blink_b:
+   285                           	opt stack 0
+   286  0000                     wreg	equ	0xFE8
+   287                           wreg	equ	0xFE8
+   288                           
+   289                           	psect	rparam
+   290  0000                     wreg	equ	0xFE8
 
 
 Data Sizes:
@@ -212,7 +306,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM          127      8       8
+    COMRAM          127      7       7
     BANK0           128      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -224,7 +318,8 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMRAM
 
-    _main->_blink
+    _main->_blink_b
+    _main->_blink_c
 
 Critical Paths under _main in BANK0
 
@@ -247,11 +342,15 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 6     1      5      64
-                                              2 COMRAM     6     1      5
-                              _blink
+ (0) _main                                                 5     0      5     162
+                                              2 COMRAM     5     0      5
+                            _blink_b
+                            _blink_c
  ---------------------------------------------------------------------------------
- (1) _blink                                                2     0      2      64
+ (1) _blink_c                                              2     0      2      64
+                                              0 COMRAM     2     0      2
+ ---------------------------------------------------------------------------------
+ (1) _blink_b                                              2     0      2      98
                                               0 COMRAM     2     0      2
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 1
@@ -260,14 +359,15 @@ Call Graph Tables:
  Call Graph Graphs:
 
  _main (ROOT)
-   _blink
+   _blink_b
+   _blink_c
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
 BITCOMRAM           7F      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMRAM              7F      8       8       1        6.3%
+COMRAM              7F      7       7       1        5.5%
 STACK                0      0       0       2        0.0%
 BITBANK0            80      0       0       3        0.0%
 BANK0               80      0       0       4        0.0%
@@ -285,22 +385,26 @@ SFR                  0      0       0      40        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.30 build 55553 
-Symbol Table                                                                                   Wed Apr  2 03:52:35 2014
+Symbol Table                                                                                   Sat Apr  5 23:13:13 2014
 
-                     u17 3FEC                       u27 3FBA             __CFG_CP0$OFF 000000  
-                    l611 3FDA                      wreg 000FE8             __CFG_IESO$ON 000000  
+                     u17 3FC2                       u27 3FD8                       u37 3FEE  
+                     u47 3F8C                       u57 3F76             __CFG_CP0$OFF 000000  
+                    l624 3FB4                      wreg 000FE8             __CFG_IESO$ON 000000  
                    _LATA 000F89                     _LATB 000F8A                     _LATC 000F8B  
-          __CFG_FCMEN$ON 000000                     _main 3FC8                     start 0000  
-                  ?_main 0003                    _PORTA 000F80                    _TRISA 000F92  
-                  _blink 3FB4           __CFG_FOSC2$OFF 000000          __initialization 3FAE  
+          __CFG_FCMEN$ON 000000                     _main 3F9C                     start 0000  
+                  ?_main 0003                    _PORTB 000F81                    _PORTC 000F82  
+                  _TRISB 000F93                    _TRISC 000F94          __end_of_blink_b 3F86  
+        __end_of_blink_c 3F9C           __CFG_FOSC2$OFF 000000          __initialization 3F6A  
            __end_of_main 3FF8                   ??_main 0008            __activetblptr 000000  
-                 ?_blink 0001                   _ADCON1 000FC1           __CFG_WDTEN$OFF 000000  
-         __CFG_XINST$OFF 000000           __CFG_STVREN$ON 000000          __CFG_FOSC$ECPLL 000000  
-             __accesstop 0080  __end_of__initialization 3FAE           __pcstackCOMRAM 0001  
-          __end_of_blink 3FC8                  ??_blink 0003                  __Hparam 0000  
-                __Lparam 0000                  __pcinit 3FAE                  __ramtop 0400  
-                __ptext0 3FC8                  __ptext1 3FB4     end_of_initialization 3FAE  
-    start_initialization 3FAE      __CFG_CCP2MX$DEFAULT 000000           __size_of_blink 0014  
-       __CFG_WDTPS$32768 000000                 __Hrparam 0000                 __Lrparam 0000  
-          __size_of_main 0030                 blink@LED 0001                 main@argc 0003  
+                 _ADCON1 000FC1           __CFG_WDTEN$OFF 000000           __CFG_XINST$OFF 000000  
+         __CFG_STVREN$ON 000000                ??_blink_b 0003                ??_blink_c 0003  
+        __CFG_FOSC$ECPLL 000000               __accesstop 0080  __end_of__initialization 3F6A  
+         __pcstackCOMRAM 0001                  __Hparam 0000                  __Lparam 0000  
+                __pcinit 3F6A                  __ramtop 0400                  _blink_b 3F70  
+                _blink_c 3F86                  __ptext0 3F9C                  __ptext1 3F86  
+                __ptext2 3F70     end_of_initialization 3F6A               blink_b@LED 0001  
+             blink_c@LED 0001      start_initialization 3F6A      __CFG_CCP2MX$DEFAULT 000000  
+               ?_blink_b 0001                 ?_blink_c 0001         __CFG_WDTPS$32768 000000  
+               __Hrparam 0000                 __Lrparam 0000         __size_of_blink_b 0016  
+       __size_of_blink_c 0016            __size_of_main 005C                 main@argc 0003  
                main@argv 0005  

@@ -4825,7 +4825,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 
-# 19 "main.c"
+# 20 "main.c"
 #pragma config WDTEN = OFF
 #pragma config STVREN = ON
 #pragma config XINST = OFF
@@ -4845,8 +4845,9 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config CCP2MX = DEFAULT
 
-# 43
-void blink(unsigned int);
+# 46
+void blink_b(unsigned int);
+void blink_c(unsigned int);
 
 int main(int argc, char** argv) {
 
@@ -4856,24 +4857,37 @@ LATB = 0x00;
 LATC = 0x00;
 
 
-ADCON1 = 0x00;
+ADCON1 = 0x0F;
 
 
-TRISA |= 0x01;
+TRISB = 0x00;
+TRISC = 0x00;
 
 while(1)
 {
-blink(0x01);
-_delay((unsigned long)((1000)*(31000/4000.0)));
+blink_b(0x20);
+_delay((unsigned long)((150)*(31000/4000.0)));
+blink_b(0x01);
+_delay((unsigned long)((150)*(31000/4000.0)));
+blink_c(0x01);
+_delay((unsigned long)((150)*(31000/4000.0)));
 }
 
 }
 
 
-void blink(unsigned int LED)
+void blink_b(unsigned int LED)
 {
-PORTA |= LED;
-_delay((unsigned long)((75)*(31000/4000.0)));
-PORTA &= ~LED;
+PORTB |= LED;
+_delay((unsigned long)((150)*(31000/4000.0)));
+PORTB &= ~LED;
+}
+
+
+void blink_c(unsigned int LED)
+{
+PORTC |= LED;
+_delay((unsigned long)((150)*(31000/4000.0)));
+PORTC &= ~LED;
 }
 

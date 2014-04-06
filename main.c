@@ -14,6 +14,7 @@
  */
 
 // Configuration Settings
+#define USE_AND_OR
 
 // CONFIG1L
 #pragma config WDTEN = OFF      // Watchdog Timer Enable bit (WDT disabled (control is placed on SWDTEN bit))
@@ -37,10 +38,13 @@
 
 // Definitions
 #define _XTAL_FREQ 31000
+#define LED_RED 0x20
 #define LED_GRN 0x01
+#define LED_BLU 0x01
 
 // Function Prototypes
-void blink(unsigned int);
+void blink_b(unsigned int);
+void blink_c(unsigned int);
 
 int main(int argc, char** argv) {
 
@@ -50,24 +54,37 @@ int main(int argc, char** argv) {
     LATC = 0x00;
 
     // Disable analog I/O on all ports
-    ADCON1 = 0x00;
+    ADCON1 = 0x0F;
 
-    // Set RA0 as an output
-    TRISA |= 0x01;
+    // Set RB0, RC0 as outputs
+    TRISB = 0x00;
+    TRISC = 0x00;
 
     while(1)
     {
-        blink(LED_GRN);
-        __delay_ms(1000);
+        blink_b(LED_RED);
+        __delay_ms(150);
+        blink_b(LED_GRN);
+        __delay_ms(150);
+        blink_c(LED_BLU);
+        __delay_ms(150);
     }
     
 }
 
-// Blink the given LED
-void blink(unsigned int LED)
+// Blink the given LED on Port B
+void blink_b(unsigned int LED)
 {
-   PORTA |= LED;
-   __delay_ms(75);
-   PORTA &= ~LED;
+   PORTB |= LED;
+   __delay_ms(150);
+   PORTB &= ~LED;
+}
+
+// Blink the given LED on Port C
+void blink_c(unsigned int LED)
+{
+   PORTC |= LED;
+   __delay_ms(150);
+   PORTC &= ~LED;
 }
 

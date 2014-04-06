@@ -1,19 +1,25 @@
 __CFG_XINST$OFF 0 0 ABS 0
+__size_of_blink_b 0 0 ABS 0
+__size_of_blink_c 0 0 ABS 0
 __S0 3FFE 0 ABS 0
-__S1 9 0 ABS 0
+__S1 8 0 ABS 0
 __S2 0 0 ABS 0
 __Hintentry 0 0 ABS 0
 __Lintentry 0 0 ABS 0
 _LATA F89 0 ABS 0
 _LATB F8A 0 ABS 0
 _LATC F8B 0 ABS 0
-_main 3FC8 0 CODE 0
+blink_b@LED 1 0 COMRAM 1
+blink_c@LED 1 0 COMRAM 1
+_main 3F9C 0 CODE 0
 ___sp 0 0 STACK 2
 start 0 0 CODE 0
-_TRISA F92 0 ABS 0
-_PORTA F80 0 ABS 0
+_TRISB F93 0 ABS 0
+_TRISC F94 0 ABS 0
+_PORTB F81 0 ABS 0
 __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
+_PORTC F82 0 ABS 0
 __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
 __CFG_WDTPS$32768 0 0 ABS 0
@@ -28,7 +34,6 @@ __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 __Hcomram 0 0 ABS 0
 __Lcomram 0 0 ABS 0
-_blink 3FB4 0 CODE 0
 __Hsfr 0 0 ABS 0
 __Lsfr 0 0 ABS 0
 __Hbss 0 0 RAM 1
@@ -79,7 +84,7 @@ __end_of_main 3FF8 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
-end_of_initialization 3FAE 0 CODE 0
+end_of_initialization 3F6A 0 CODE 0
 __Hibigdata 0 0 CODE 0
 __Libigdata 0 0 CODE 0
 __Hifardata 0 0 CODE 0
@@ -98,12 +103,17 @@ __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
 __Htext1 0 0 ABS 0
 __Ltext1 0 0 ABS 0
-__ptext0 3FC8 0 CODE 0
-__ptext1 3FB4 0 CODE 0
+__ptext0 3F9C 0 CODE 0
+__Htext2 0 0 ABS 0
+__Ltext2 0 0 ABS 0
+__ptext1 3F86 0 CODE 0
+__ptext2 3F70 0 CODE 0
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
-__end_of__initialization 3FAE 0 CODE 0
+__end_of__initialization 3F6A 0 CODE 0
 __CFG_CCP2MX$DEFAULT 0 0 ABS 0
+_blink_b 3F70 0 CODE 0
+_blink_c 3F86 0 CODE 0
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
 __Hrdata 0 0 COMRAM 1
@@ -124,27 +134,25 @@ __Hnvbit 0 0 COMRAM 1
 __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
-__pcinit 3FAE 0 CODE 0
+__pcinit 3F6A 0 CODE 0
 __ramtop 400 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __size_of_main 0 0 ABS 0
 __Hconst 0 0 CODE 0
 __Lconst 0 0 CODE 0
-__size_of_blink 0 0 ABS 0
+__end_of_blink_c 3F9C 0 CODE 0
 ___extmem_base 20000 0 ABS 0
 ___inthi_sp 0 0 STACK 2
 __CFG_WDTEN$OFF 0 0 ABS 0
 ___intlo_sp 0 0 STACK 2
 __Hend_init 4 0 CODE 0
 __Lend_init 0 0 CODE 0
-blink@LED 1 0 COMRAM 1
 __Hjflash_buffer 3800 0 CODE 0
 __Ljflash_buffer 3800 0 CODE 0
 __CFG_CP0$OFF 0 0 ABS 0
 __smallconst 0 0 SMALLCONST 0
 __Hreset_vec 0 0 CODE 0
 __Lreset_vec 0 0 CODE 0
-__end_of_blink 3FC8 0 CODE 0
 __accesstop 80 0 ABS 0
 __Hintcode_body 0 0 ABS 0
 __Lintcode_body 0 0 ABS 0
@@ -152,42 +160,55 @@ intlevel0 0 0 CODE 0
 intlevel1 0 0 CODE 0
 intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
-start_initialization 3FAE 0 CODE 0
-__initialization 3FAE 0 CODE 0
+start_initialization 3F6A 0 CODE 0
+__end_of_blink_b 3F86 0 CODE 0
+__initialization 3F6A 0 CODE 0
 __activetblptr 0 0 ABS 0
 __CFG_FCMEN$ON 0 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
 config 3FF8 3FFD CONFIG 3FF8 0
-cstackCOMRAM 1 8 COMRAM 1 1
-text0 3FC8 3FF7 CODE 3FC8 0
-text1 3FB4 3FC7 CODE 3FB4 0
-cinit 3FAE 3FB3 CODE 3FAE 0
+cstackCOMRAM 1 7 COMRAM 1 1
+text0 3F9C 3FF7 CODE 3F9C 0
+text1 3F86 3F9B CODE 3F86 0
+text2 3F70 3F85 CODE 3F70 0
+cinit 3F6A 3F6F CODE 3F6A 0
 %locals
 dist/default/production/led_organ.production.obj
 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
-1013 3FC8 0 CODE 0
+1387 3F9C 0 CODE 0
 main.c
-45 3FC8 0 CODE 0
-48 3FC8 0 CODE 0
-49 3FCC 0 CODE 0
-50 3FD0 0 CODE 0
-53 3FD4 0 CODE 0
-56 3FD8 0 CODE 0
-60 3FDA 0 CODE 0
-61 3FE6 0 CODE 0
-64 3FF8 0 CODE 0
-/tmp/cgtNk4ILq
-443 3FAE 0 CODE 0
-445 3FAE 0 CODE 0
-448 3FAE 0 CODE 0
-454 3FAE 0 CODE 0
-455 3FAE 0 CODE 0
-456 3FB0 0 CODE 0
+49 3F9C 0 CODE 0
+52 3F9C 0 CODE 0
+53 3FA0 0 CODE 0
+54 3FA4 0 CODE 0
+57 3FA8 0 CODE 0
+60 3FAC 0 CODE 0
+61 3FB0 0 CODE 0
+65 3FB4 0 CODE 0
+66 3FC0 0 CODE 0
+67 3FCA 0 CODE 0
+68 3FD6 0 CODE 0
+69 3FE0 0 CODE 0
+70 3FEC 0 CODE 0
+73 3FF8 0 CODE 0
+/tmp/cgtTkdTAX
+448 3F6A 0 CODE 0
+450 3F6A 0 CODE 0
+453 3F6A 0 CODE 0
+459 3F6A 0 CODE 0
+460 3F6A 0 CODE 0
+461 3F6C 0 CODE 0
 main.c
-67 3FB4 0 CODE 0
-69 3FB4 0 CODE 0
-70 3FB8 0 CODE 0
-71 3FC0 0 CODE 0
-72 3FC6 0 CODE 0
+84 3F86 0 CODE 0
+86 3F86 0 CODE 0
+87 3F8A 0 CODE 0
+88 3F94 0 CODE 0
+89 3F9A 0 CODE 0
+main.c
+76 3F70 0 CODE 0
+78 3F70 0 CODE 0
+79 3F74 0 CODE 0
+80 3F7E 0 CODE 0
+81 3F84 0 CODE 0

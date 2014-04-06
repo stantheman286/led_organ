@@ -1,12 +1,12 @@
 ### HEXMate logfile and output summary ###
 ### Memory Usage ###
  Unused memory ranges:
-  4h - 3FADh
+  4h - 3F69h
   3FFEh - 3FFFh
   
  dist/default/production/led_organ.production.hex ranges:
   0h - 3h
-  3FAEh - 3FFDh
+  3F6Ah - 3FFDh
   
 ### Hex Memory Map ###
  Legend:
@@ -21,5 +21,6 @@
   X = Find & delete opcode
   1 = dist/default/production/led_organ.production.hex
 00000000: 1111------------------------------------------------------------
-00003F80: ----------------------------------------------111111111111111111
+00003F40: ------------------------------------------1111111111111111111111
+00003F80: 1111111111111111111111111111111111111111111111111111111111111111
 00003FC0: 11111111111111111111111111111111111111111111111111111111111111--

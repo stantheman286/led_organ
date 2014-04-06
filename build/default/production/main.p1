@@ -8,16 +8,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATC `Vuc ~T0 @X0 0 e@3979 ]
 "3383
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"1013
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"43 main.c
-[v _blink `(v ~T0 @X0 0 ef1`ui ]
+"1166
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"1387
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"46 main.c
+[v _blink_b `(v ~T0 @X0 0 ef1`ui ]
 [v F4073 `(v ~T0 @X0 1 tf1`ul ]
 "147 /opt/microchip/xc8/v1.30/include/pic18.h
 [v __delay `JF4073 ~T0 @X0 0 e ]
 [p i __delay ]
-"44 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
-[v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
+"47 main.c
+[v _blink_c `(v ~T0 @X0 0 ef1`ui ]
+"230 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
+[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
+"415
+[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -3699,94 +3705,134 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-"19 main.c
+"20 main.c
 [p x WDTEN=OFF ]
-"20
-[p x STVREN=ON ]
 "21
+[p x STVREN=ON ]
+"22
 [p x XINST=OFF ]
-"24
+"25
 [p x CP0=OFF ]
-"27
-[p x FOSC=ECPLL ]
 "28
-[p x FOSC2=OFF ]
+[p x FOSC=ECPLL ]
 "29
-[p x FCMEN=ON ]
+[p x FOSC2=OFF ]
 "30
+[p x FCMEN=ON ]
+"31
 [p x IESO=ON ]
-"33
+"34
 [p x WDTPS=32768 ]
-"36
+"37
 [p x CCP2MX=DEFAULT ]
-[; ;main.c: 43: void blink(unsigned int);
-"45
+[; ;main.c: 46: void blink_b(unsigned int);
+[; ;main.c: 47: void blink_c(unsigned int);
+"49
 [v _main `(i ~T0 @X0 1 ef2`i`**uc ]
 {
-[; ;main.c: 45: int main(int argc, char** argv) {
+[; ;main.c: 49: int main(int argc, char** argv) {
 [e :U _main ]
 [v _argc `i ~T0 @X0 1 r1 ]
 [v _argv `**uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;main.c: 48: LATA = 0x00;
-"48
+[; ;main.c: 52: LATA = 0x00;
+"52
 [e = _LATA -> -> 0 `i `uc ]
-[; ;main.c: 49: LATB = 0x00;
-"49
-[e = _LATB -> -> 0 `i `uc ]
-[; ;main.c: 50: LATC = 0x00;
-"50
-[e = _LATC -> -> 0 `i `uc ]
-[; ;main.c: 53: ADCON1 = 0x00;
+[; ;main.c: 53: LATB = 0x00;
 "53
-[e = _ADCON1 -> -> 0 `i `uc ]
-[; ;main.c: 56: TRISA |= 0x01;
-"56
-[e =| _TRISA -> -> 1 `i `uc ]
-[; ;main.c: 58: while(1)
-"58
-[e :U 436 ]
-[; ;main.c: 59: {
-"59
-{
-[; ;main.c: 60: blink(0x01);
+[e = _LATB -> -> 0 `i `uc ]
+[; ;main.c: 54: LATC = 0x00;
+"54
+[e = _LATC -> -> 0 `i `uc ]
+[; ;main.c: 57: ADCON1 = 0x0F;
+"57
+[e = _ADCON1 -> -> 15 `i `uc ]
+[; ;main.c: 60: TRISB = 0x00;
 "60
-[e ( _blink (1 -> -> 1 `i `ui ]
-[; ;main.c: 61: _delay((unsigned long)((1000)*(31000/4000.0)));
+[e = _TRISB -> -> 0 `i `uc ]
+[; ;main.c: 61: TRISC = 0x00;
 "61
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 31000 `i `d .4000.0 `ul ]
-"62
+[e = _TRISC -> -> 0 `i `uc ]
+[; ;main.c: 63: while(1)
+"63
+[e :U 436 ]
+[; ;main.c: 64: {
+"64
+{
+[; ;main.c: 65: blink_b(0x20);
+"65
+[e ( _blink_b (1 -> -> 32 `i `ui ]
+[; ;main.c: 66: _delay((unsigned long)((150)*(31000/4000.0)));
+"66
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 31000 `i `d .4000.0 `ul ]
+[; ;main.c: 67: blink_b(0x01);
+"67
+[e ( _blink_b (1 -> -> 1 `i `ui ]
+[; ;main.c: 68: _delay((unsigned long)((150)*(31000/4000.0)));
+"68
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 31000 `i `d .4000.0 `ul ]
+[; ;main.c: 69: blink_c(0x01);
+"69
+[e ( _blink_c (1 -> -> 1 `i `ui ]
+[; ;main.c: 70: _delay((unsigned long)((150)*(31000/4000.0)));
+"70
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 31000 `i `d .4000.0 `ul ]
+"71
 }
 [e :U 435 ]
-"58
+"63
 [e $U 436  ]
 [e :U 437 ]
-[; ;main.c: 62: }
-[; ;main.c: 64: }
-"64
+[; ;main.c: 71: }
+[; ;main.c: 73: }
+"73
 [e :UE 434 ]
 }
-"67
-[v _blink `(v ~T0 @X0 1 ef1`ui ]
-"68
+"76
+[v _blink_b `(v ~T0 @X0 1 ef1`ui ]
+"77
 {
-[; ;main.c: 67: void blink(unsigned int LED)
-[; ;main.c: 68: {
-[e :U _blink ]
-"67
+[; ;main.c: 76: void blink_b(unsigned int LED)
+[; ;main.c: 77: {
+[e :U _blink_b ]
+"76
 [v _LED `ui ~T0 @X0 1 r1 ]
-"68
+"77
 [f ]
-[; ;main.c: 69: PORTA |= LED;
-"69
-[e =| _PORTA -> _LED `uc ]
-[; ;main.c: 70: _delay((unsigned long)((75)*(31000/4000.0)));
-"70
-[e ( __delay (1 -> * -> -> 75 `i `d / -> -> 31000 `i `d .4000.0 `ul ]
-[; ;main.c: 71: PORTA &= ~LED;
-"71
-[e =& _PORTA -> ~ _LED `uc ]
-[; ;main.c: 72: }
-"72
+[; ;main.c: 78: PORTB |= LED;
+"78
+[e =| _PORTB -> _LED `uc ]
+[; ;main.c: 79: _delay((unsigned long)((150)*(31000/4000.0)));
+"79
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 31000 `i `d .4000.0 `ul ]
+[; ;main.c: 80: PORTB &= ~LED;
+"80
+[e =& _PORTB -> ~ _LED `uc ]
+[; ;main.c: 81: }
+"81
 [e :UE 438 ]
+}
+"84
+[v _blink_c `(v ~T0 @X0 1 ef1`ui ]
+"85
+{
+[; ;main.c: 84: void blink_c(unsigned int LED)
+[; ;main.c: 85: {
+[e :U _blink_c ]
+"84
+[v _LED `ui ~T0 @X0 1 r1 ]
+"85
+[f ]
+[; ;main.c: 86: PORTC |= LED;
+"86
+[e =| _PORTC -> _LED `uc ]
+[; ;main.c: 87: _delay((unsigned long)((150)*(31000/4000.0)));
+"87
+[e ( __delay (1 -> * -> -> 150 `i `d / -> -> 31000 `i `d .4000.0 `ul ]
+[; ;main.c: 88: PORTC &= ~LED;
+"88
+[e =& _PORTC -> ~ _LED `uc ]
+[; ;main.c: 89: }
+"89
+[e :UE 439 ]
 }
