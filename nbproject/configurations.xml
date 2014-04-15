@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>led_organ.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -13,6 +14,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.c</itemPath>
+      <itemPath>led.c</itemPath>
+      <itemPath>spi.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -20,6 +23,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>../../../../Dropbox/Documents/Projects/LED_Organ/led_organ</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="default" type="2">
@@ -55,7 +61,8 @@
       <HI-TECH-COMP>
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
-        <property key="extra-include-directories" value=""/>
+        <property key="extra-include-directories"
+                  value="/opt/microchip/xc8/v1.30/include"/>
         <property key="identifier-length" value="255"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>

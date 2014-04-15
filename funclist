@@ -1,5 +1,14 @@
-_main: CODE, 16284 0 92
-__initialization: CODE, 16234 0 0
-_blink_c: CODE, 16262 0 22
-_blink_b: CODE, 16240 0 22
-Total: 136
+_demoLEDs: CODE, 15200 0 1176
+_writeLEDSPI: CODE, 14198 0 14
+_main: CODE, 14278 0 32
+_setupSPI: CODE, 14212 0 16
+___lmul: CODE, 14516 0 86
+__initialization: CODE, 14250 0 22
+_srand: CODE, 14228 0 22
+_write_latch: CODE, 14438 0 78
+_send_frame: CODE, 14952 0 248
+_rand: CODE, 14602 0 106
+___lwmod: CODE, 14368 0 70
+___wmul: CODE, 14310 0 58
+_addRandom: CODE, 14708 0 244
+Total: 2172

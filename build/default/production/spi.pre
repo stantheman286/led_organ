@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "spi.c"
 
 # 8 "/opt/microchip/xc8/v1.30/include/stdio.h"
 typedef int ptrdiff_t;
@@ -4940,55 +4940,27 @@ extern void demoLEDs();
 extern void setupSPI();
 extern void writeLEDSPI(uint8_t);
 
-# 11 "main.c"
-void blink_b(unsigned int);
-void blink_c(unsigned int);
-
-int main(int argc, char** argv) {
+# 3 "spi.c"
+void setupSPI() {
 
 
-LATA = 0x00;
-LATB = 0x00;
-LATC = 0x00;
+TRISCbits.TRISC5= 0;
+TRISCbits.TRISC4= 1;
+TRISCbits.TRISC3= 0;
 
 
-ADCON1 = 0x0F;
+SSPSTAT = 0x40;
+SSPCON1 = 0x20;
 
+}
 
-TRISB = 0x00;
-
-
-
-setupSPI();
-
-while(1)
+void writeLEDSPI(uint8_t data)
 {
 
-PORTB |= 0x20;
+
+SSPBUF = data;
 
 
-demoLEDs();
-
-# 49
-}
+while(!SSPSTATbits.BF);
 
 }
-
-
-void blink_b(unsigned int LED)
-{
-PORTB |= LED;
-for(int i = 0 ; i < 100 ; i++)
-_delay((unsigned long)((5)*(20000000ULL/4000.0)));
-PORTB &= ~LED;
-}
-
-
-void blink_c(unsigned int LED)
-{
-PORTC |= LED;
-for(int i = 0 ; i < 100 ; i++)
-_delay((unsigned long)((5)*(20000000ULL/4000.0)));
-PORTC &= ~LED;
-}
-

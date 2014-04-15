@@ -1,5 +1,5 @@
 
-# 1 "main.c"
+# 1 "led.c"
 
 # 8 "/opt/microchip/xc8/v1.30/include/stdio.h"
 typedef int ptrdiff_t;
@@ -4940,55 +4940,107 @@ extern void demoLEDs();
 extern void setupSPI();
 extern void writeLEDSPI(uint8_t);
 
-# 11 "main.c"
-void blink_b(unsigned int);
-void blink_c(unsigned int);
+# 20 "led.c"
+uint32_t led_strip_colors[32];
 
-int main(int argc, char** argv) {
-
-
-LATA = 0x00;
-LATB = 0x00;
-LATC = 0x00;
+void write_latch(uint16_t len) {
 
 
-ADCON1 = 0x0F;
+len = ((len + 63) / 64) * 3;
 
-
-TRISB = 0x00;
-
-
-
-setupSPI();
-
-while(1)
-{
-
-PORTB |= 0x20;
-
-
-demoLEDs();
-
-# 49
+while(len>0) {
+writeLEDSPI(0x00);
+len--;
+}
 }
 
+void send_frame() {
+uint16_t i;
+uint8_t red,green,blue;
+
+for(i=0;i<32;i++) {
+blue = led_strip_colors[i] & 0xFF;
+green = (led_strip_colors[i] >> 8) & 0xFF;
+red = (led_strip_colors[i] >> 16) & 0xFF;
+writeLEDSPI((green|0x80));
+writeLEDSPI((red|0x80));
+writeLEDSPI((blue|0x80));
+}
+write_latch(32);
 }
 
+void addRandom(void) {
+uint16_t x;
+uint32_t new_color = 0;
 
-void blink_b(unsigned int LED)
+
+for(x = (32 - 1) ; x > 0 ; x--)
+led_strip_colors[x] = led_strip_colors[x - 1];
+
+
+for(x = 0 ; x < 3 ; x++){
+new_color <<= 8;
+new_color |= rand();
+}
+led_strip_colors[0] = new_color;
+}
+
+void demoLEDs()
 {
-PORTB |= LED;
-for(int i = 0 ; i < 100 ; i++)
+uint16_t i;
+
+for(i = 0 ; i < 400 ; i++)
 _delay((unsigned long)((5)*(20000000ULL/4000.0)));
-PORTB &= ~LED;
-}
+for(i = 0 ; i < 32 ; i++) {led_strip_colors[i] = 0;}
+send_frame();
 
+led_strip_colors[0] = 0xFF0000;
+led_strip_colors[1] = 0x00FF00;
+led_strip_colors[2] = 0x0000FF;
+led_strip_colors[3] = 0x00FFFF;
+led_strip_colors[4] = 0xFF00FF;
+led_strip_colors[5] = 0xFFFF00;
+send_frame();
 
-void blink_c(unsigned int LED)
-{
-PORTC |= LED;
-for(int i = 0 ; i < 100 ; i++)
+for(i = 0 ; i < 1000 ; i++)
 _delay((unsigned long)((5)*(20000000ULL/4000.0)));
-PORTC &= ~LED;
-}
 
+for(i=0;i<32;i++) {
+if((i%3) == 0) {led_strip_colors[i] = 0xFF0000;}
+if((i%3) == 1) {led_strip_colors[i] = 0xFFFFFF;}
+if((i%3) == 2) {led_strip_colors[i] = 0x0000FF;}
+}
+send_frame();
+
+
+for(i = 0 ; i < 2000 ; i++)
+_delay((unsigned long)((5)*(20000000ULL/4000.0)));
+
+for(i=0;i<32;i++) {
+if((i%2) == 0) {led_strip_colors[i] = 0x00FF00;}
+if((i%2) == 1) {led_strip_colors[i] = 0xFFFFFF;}
+}
+send_frame();
+
+for(i = 0 ; i < 2000 ; i++)
+_delay((unsigned long)((5)*(20000000ULL/4000.0)));
+
+for(i=0;i<32;i++) {
+if((i%2) == 0) {led_strip_colors[i] = 0x0000FF;}
+if((i%2) == 1) {led_strip_colors[i] = 0xFFFFFF;}
+}
+send_frame();
+
+for(i = 0 ; i < 2000 ; i++)
+_delay((unsigned long)((5)*(20000000ULL/4000.0)));
+
+for(i = 0 ; i < 32 ; i++) {led_strip_colors[i] = 0;}
+send_frame();
+
+while(1) {
+addRandom();
+send_frame();
+for(i = 0 ; i < 20 ; i++)
+_delay((unsigned long)((5)*(20000000ULL/4000.0)));
+}
+}

@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.30 build 55553 
-                                                                                               Sat Apr  5 23:13:13 2014
+                                                                                               Tue Apr 15 05:50:55 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 55553
      1                           	processor	18F24J10
@@ -10,304 +10,2025 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
      4                           	opt	lm
      5                           	psect	text0,global,reloc=2,class=CODE,delta=1
      6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
-     7                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
-     8                           	psect	text1,global,reloc=2,class=CODE,delta=1
-     9                           	psect	text2,global,reloc=2,class=CODE,delta=1
-    10                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
-    11                           	psect	rparam,global,class=COMRAM,space=1,delta=1
-    12  0000                     _ADCON1	set	4033
-    13  0000                     _LATA	set	3977
-    14  0000                     _LATB	set	3978
-    15  0000                     _LATC	set	3979
-    16  0000                     _PORTB	set	3969
-    17  0000                     _PORTC	set	3970
-    18  0000                     _TRISB	set	3987
-    19  0000                     _TRISC	set	3988
-    20                           
-    21                           ; 0 bytes @ 0x7
-    22 ;;
-    23 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-    24 ;;
-    25 ;; *************** function _main *****************
-    26 ;; Defined at:
-    27 ;;		line 49 in file "main.c"
-    28 ;; Parameters:    Size  Location     Type
-    29 ;;  argc            2    2[COMRAM] int 
-    30 ;;  argv            3    4[COMRAM] PTR PTR unsigned char 
-    31 ;; Auto vars:     Size  Location     Type
-    32 ;;		None
-    33 ;; Return value:  Size  Location     Type
-    34 ;;                  2    2[COMRAM] int 
-    35 ;; Registers used:
-    36 ;;		wreg, status,2, status,0, cstack
-    37 ;; Tracked objects:
-    38 ;;		On entry : 0/0
-    39 ;;		On exit  : 0/0
-    40 ;;		Unchanged: 0/0
-    41 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
-    42 ;;      Params:         5       0       0       0       0
-    43 ;;      Locals:         0       0       0       0       0
-    44 ;;      Temps:          0       0       0       0       0
-    45 ;;      Totals:         5       0       0       0       0
-    46 ;;Total ram usage:        5 bytes
-    47 ;; Hardware stack levels required when called:    1
-    48 ;; This function calls:
-    49 ;;		_blink_b
-    50 ;;		_blink_c
-    51 ;; This function is called by:
-    52 ;;		Startup code after reset
-    53 ;; This function uses a non-reentrant model
-    54 ;;
-    55                           
-    56                           	psect	text0
-    57  003F9C                     __ptext0:
-    58                           	opt stack 0
-    59  003F9C                     _main:
-    60                           	opt stack 30
-    61                           
-    62                           ;main.c: 52: LATA = 0x00;
-    63                           
-    64                           ;incstack = 0
-    65  003F9C  0E00               	movlw	0
-    66  003F9E  6E89               	movwf	3977,c	;volatile
-    67                           
-    68                           ;main.c: 53: LATB = 0x00;
-    69  003FA0  0E00               	movlw	0
-    70  003FA2  6E8A               	movwf	3978,c	;volatile
-    71                           
-    72                           ;main.c: 54: LATC = 0x00;
-    73  003FA4  0E00               	movlw	0
-    74  003FA6  6E8B               	movwf	3979,c	;volatile
-    75                           
-    76                           ;main.c: 57: ADCON1 = 0x0F;
-    77  003FA8  0E0F               	movlw	15
-    78  003FAA  6EC1               	movwf	4033,c	;volatile
-    79                           
-    80                           ;main.c: 60: TRISB = 0x00;
-    81  003FAC  0E00               	movlw	0
-    82  003FAE  6E93               	movwf	3987,c	;volatile
-    83                           
-    84                           ;main.c: 61: TRISC = 0x00;
-    85  003FB0  0E00               	movlw	0
-    86  003FB2  6E94               	movwf	3988,c	;volatile
-    87  003FB4                     l624:
-    88                           
-    89                           ;main.c: 64: {
-    90                           ;main.c: 65: blink_b(0x20);
-    91  003FB4  0E00               	movlw	0
-    92  003FB6  6E02               	movwf	blink_b@LED+1,c
-    93  003FB8  0E20               	movlw	32
-    94  003FBA  6E01               	movwf	blink_b@LED,c
-    95  003FBC  ECB8  F01F         	call	_blink_b	;wreg free
-    96                           
-    97                           ;main.c: 66: _delay((unsigned long)((150)*(31000/4000.0)));
-    98  003FC0  0EE8               	movlw	232
-    99  003FC2                     u17:
-   100  003FC2  D000               	nop2	
-   101  003FC4  2EE8               	decfsz	wreg,f,c
-   102  003FC6  D7FD               	goto	u17
-   103  003FC8  D000               	nop2		;nop
-   104                           
-   105                           ;main.c: 67: blink_b(0x01);
-   106  003FCA  0E00               	movlw	0
-   107  003FCC  6E02               	movwf	blink_b@LED+1,c
-   108  003FCE  0E01               	movlw	1
-   109  003FD0  6E01               	movwf	blink_b@LED,c
-   110  003FD2  ECB8  F01F         	call	_blink_b	;wreg free
-   111                           
-   112                           ;main.c: 68: _delay((unsigned long)((150)*(31000/4000.0)));
-   113  003FD6  0EE8               	movlw	232
-   114  003FD8                     u27:
-   115  003FD8  D000               	nop2	
-   116  003FDA  2EE8               	decfsz	wreg,f,c
-   117  003FDC  D7FD               	goto	u27
-   118  003FDE  D000               	nop2		;nop
-   119                           
-   120                           ;main.c: 69: blink_c(0x01);
-   121  003FE0  0E00               	movlw	0
-   122  003FE2  6E02               	movwf	blink_c@LED+1,c
-   123  003FE4  0E01               	movlw	1
-   124  003FE6  6E01               	movwf	blink_c@LED,c
-   125  003FE8  ECC3  F01F         	call	_blink_c	;wreg free
-   126                           
-   127                           ;main.c: 70: _delay((unsigned long)((150)*(31000/4000.0)));
-   128  003FEC  0EE8               	movlw	232
-   129  003FEE                     u37:
-   130  003FEE  D000               	nop2	
-   131  003FF0  2EE8               	decfsz	wreg,f,c
-   132  003FF2  D7FD               	goto	u37
-   133  003FF4  D000               	nop2		;nop
-   134  003FF6  D7DE               	goto	l624
-   135  003FF8                     __end_of_main:
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1
+     8                           	psect	bssBANK0,global,class=BANK0,space=1,delta=1
+     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1
+    10                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    11                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    21                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    22                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    23  0000                     _ADCON1	set	4033
+    24  0000                     _LATA	set	3977
+    25  0000                     _LATB	set	3978
+    26  0000                     _LATC	set	3979
+    27  0000                     _PORTB	set	3969
+    28  0000                     _PORTC	set	3970
+    29  0000                     _SSPBUF	set	4041
+    30  0000                     _SSPCON1	set	4038
+    31  0000                     _SSPSTAT	set	4039
+    32  0000                     _SSPSTATbits	set	4039
+    33  0000                     _TRISB	set	3987
+    34  0000                     _TRISCbits	set	3988
+    35                           
+    36                           ; 0 bytes @ 0x27
+    37 ;;
+    38 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+    39 ;;
+    40 ;; *************** function _main *****************
+    41 ;; Defined at:
+    42 ;;		line 14 in file "main.c"
+    43 ;; Parameters:    Size  Location     Type
+    44 ;;  argc            2   34[COMRAM] int 
+    45 ;;  argv            3   36[COMRAM] PTR PTR unsigned char 
+    46 ;; Auto vars:     Size  Location     Type
+    47 ;;		None
+    48 ;; Return value:  Size  Location     Type
+    49 ;;                  2   34[COMRAM] int 
+    50 ;; Registers used:
+    51 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+    52 ;; Tracked objects:
+    53 ;;		On entry : 0/0
+    54 ;;		On exit  : 0/0
+    55 ;;		Unchanged: 0/0
+    56 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+    57 ;;      Params:         5       0       0       0       0
+    58 ;;      Locals:         0       0       0       0       0
+    59 ;;      Temps:          0       0       0       0       0
+    60 ;;      Totals:         5       0       0       0       0
+    61 ;;Total ram usage:        5 bytes
+    62 ;; Hardware stack levels required when called:    4
+    63 ;; This function calls:
+    64 ;;		_demoLEDs
+    65 ;;		_setupSPI
+    66 ;; This function is called by:
+    67 ;;		Startup code after reset
+    68 ;; This function uses a non-reentrant model
+    69 ;;
+    70                           
+    71                           	psect	text0
+    72  0037C6                     __ptext0:
+    73                           	opt stack 0
+    74  0037C6                     _main:
+    75                           	opt stack 27
+    76                           
+    77                           ;main.c: 17: LATA = 0x00;
+    78                           
+    79                           ;incstack = 0
+    80  0037C6  0E00               	movlw	0
+    81  0037C8  6E89               	movwf	3977,c	;volatile
+    82                           
+    83                           ;main.c: 18: LATB = 0x00;
+    84  0037CA  0E00               	movlw	0
+    85  0037CC  6E8A               	movwf	3978,c	;volatile
+    86                           
+    87                           ;main.c: 19: LATC = 0x00;
+    88  0037CE  0E00               	movlw	0
+    89  0037D0  6E8B               	movwf	3979,c	;volatile
+    90                           
+    91                           ;main.c: 22: ADCON1 = 0x0F;
+    92  0037D2  0E0F               	movlw	15
+    93  0037D4  6EC1               	movwf	4033,c	;volatile
+    94                           
+    95                           ;main.c: 25: TRISB = 0x00;
+    96  0037D6  0E00               	movlw	0
+    97  0037D8  6E93               	movwf	3987,c	;volatile
+    98                           
+    99                           ;main.c: 29: setupSPI();
+   100  0037DA  ECC2  F01B         	call	_setupSPI	;wreg free
+   101  0037DE                     l1071:
+   102                           
+   103                           ;main.c: 32: {
+   104                           ;main.c: 34: PORTB |= 0x20;
+   105  0037DE  8A81               	bsf	3969,5,c	;volatile
+   106                           
+   107                           ;main.c: 37: demoLEDs();
+   108  0037E0  ECB0  F01D         	call	_demoLEDs	;wreg free
+   109  0037E4  D7FC               	goto	l1071
+   110  0037E6                     __end_of_main:
+   111                           	opt stack 0
+   112                           
+   113                           	psect	cinit
+   114  0037AA                     __pcinit:
+   115                           	opt stack 0
+   116  0037AA                     start_initialization:
+   117                           	opt stack 0
+   118  0037AA                     __initialization:
+   119                           	opt stack 0
+   120                           
+   121                           ; Clear objects allocated to BANK0 (128 bytes)
+   122  0037AA  EE00  F080         	lfsr	0,__pbssBANK0
+   123  0037AE  0E80               	movlw	128
+   124  0037B0                     clear_0:
+   125  0037B0  6AEE               	clrf	postinc0,c
+   126  0037B2  06E8               	decf	wreg,f,c
+   127  0037B4  E1FD               	bnz	clear_0
+   128                           
+   129                           ; Clear objects allocated to COMRAM (5 bytes)
+   130  0037B6  6A2C               	clrf	(__pbssCOMRAM+4)& (0+255),c
+   131  0037B8  6A2B               	clrf	(__pbssCOMRAM+3)& (0+255),c
+   132  0037BA  6A2A               	clrf	(__pbssCOMRAM+2)& (0+255),c
+   133  0037BC  6A29               	clrf	(__pbssCOMRAM+1)& (0+255),c
+   134  0037BE  6A28               	clrf	__pbssCOMRAM& (0+255),c
+   135  0037C0                     end_of_initialization:
    136                           	opt stack 0
-   137                           wreg	equ	0xFE8
-   138                           
-   139                           	psect	cinit
-   140  003F6A                     __pcinit:
-   141                           	opt stack 0
-   142  003F6A                     start_initialization:
-   143                           	opt stack 0
-   144  003F6A                     __initialization:
-   145                           	opt stack 0
-   146  003F6A                     end_of_initialization:
-   147                           	opt stack 0
-   148  003F6A                     __end_of__initialization:
-   149                           	opt stack 0
-   150  003F6A  0100               	movlb	0
-   151  003F6C  EFCE  F01F         	goto	_main	;jump to C main() function
-   152                           wreg	equ	0xFE8
-   153                           
-   154                           	psect	cstackCOMRAM
-   155  000001                     __pcstackCOMRAM:
-   156                           	opt stack 0
-   157  000001                     blink_b@LED:
+   137  0037C0                     __end_of__initialization:
+   138                           	opt stack 0
+   139  0037C0  0100               	movlb	0
+   140  0037C2  EFE3  F01B         	goto	_main	;jump to C main() function
+   141                           postinc0	equ	0xFEE
+   142                           wreg	equ	0xFE8
+   143                           
+   144                           	psect	bssCOMRAM
+   145  000028                     __pbssCOMRAM:
+   146                           	opt stack 0
+   147  000028                     _randx:
+   148                           	opt stack 0
+   149  000028                     	ds	4
+   150  00002C                     _randf:
+   151                           	opt stack 0
+   152  00002C                     	ds	1
+   153                           postinc0	equ	0xFEE
+   154                           wreg	equ	0xFE8
+   155                           
+   156                           	psect	bssBANK0
+   157  000080                     __pbssBANK0:
    158                           	opt stack 0
-   159  000001                     blink_c@LED:
+   159  000080                     _led_strip_colors:
    160                           	opt stack 0
-   161                           
-   162                           ; 2 bytes @ 0x0
-   163  000001                     	ds	2
-   164  000003                     
-   165                           ; 2 bytes @ 0x2
-   166  000003                     	ds	2
-   167  000005                     
-   168                           ; 3 bytes @ 0x4
-   169  000005                     	ds	3
-   170  000008                     wreg	equ	0xFE8
-   171                           
-   172 ;; *************** function _blink_c *****************
-   173 ;; Defined at:
-   174 ;;		line 84 in file "main.c"
-   175 ;; Parameters:    Size  Location     Type
-   176 ;;  LED             2    0[COMRAM] unsigned int 
-   177 ;; Auto vars:     Size  Location     Type
-   178 ;;		None
-   179 ;; Return value:  Size  Location     Type
-   180 ;;		None               void
-   181 ;; Registers used:
-   182 ;;		wreg, status,2, status,0
-   183 ;; Tracked objects:
-   184 ;;		On entry : 0/0
-   185 ;;		On exit  : 0/0
-   186 ;;		Unchanged: 0/0
-   187 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
-   188 ;;      Params:         2       0       0       0       0
-   189 ;;      Locals:         0       0       0       0       0
-   190 ;;      Temps:          0       0       0       0       0
-   191 ;;      Totals:         2       0       0       0       0
-   192 ;;Total ram usage:        2 bytes
-   193 ;; Hardware stack levels used:    1
-   194 ;; This function calls:
-   195 ;;		Nothing
-   196 ;; This function is called by:
-   197 ;;		_main
-   198 ;; This function uses a non-reentrant model
-   199 ;;
+   161  000080                     	ds	128
+   162                           postinc0	equ	0xFEE
+   163                           wreg	equ	0xFE8
+   164                           
+   165                           	psect	cstackCOMRAM
+   166  000001                     __pcstackCOMRAM:
+   167                           	opt stack 0
+   168  000001                     ?___lwmod:
+   169                           	opt stack 0
+   170  000001                     ?___wmul:
+   171                           	opt stack 0
+   172  000001                     ?___lmul:
+   173                           	opt stack 0
+   174  000001                     writeLEDSPI@data:
+   175                           	opt stack 0
+   176  000001                     ___lwmod@dividend:
+   177                           	opt stack 0
+   178  000001                     srand@x:
+   179                           	opt stack 0
+   180  000001                     ___wmul@multiplier:
+   181                           	opt stack 0
+   182  000001                     ___lmul@multiplier:
+   183                           	opt stack 0
+   184                           
+   185                           ; 4 bytes @ 0x0
+   186  000001                     	ds	2
+   187  000003                     ??_srand:
+   188  000003                     ___lwmod@divisor:
+   189                           	opt stack 0
+   190  000003                     ___wmul@multiplicand:
+   191                           	opt stack 0
+   192                           
+   193                           ; 2 bytes @ 0x2
+   194  000003                     	ds	2
+   195  000005                     ??___lwmod:
+   196  000005                     ___wmul@product:
+   197                           	opt stack 0
+   198  000005                     ___lmul@multiplicand:
+   199                           	opt stack 0
    200                           
-   201                           	psect	text1
-   202  003F86                     __ptext1:
-   203                           	opt stack 0
-   204  003F86                     _blink_c:
-   205                           	opt stack 30
-   206                           
-   207                           ;main.c: 86: PORTC |= LED;
-   208                           
-   209                           ;incstack = 0
-   210  003F86  5001               	movf	blink_c@LED,w,c
-   211  003F88  1282               	iorwf	3970,f,c	;volatile
-   212                           
-   213                           ;main.c: 87: _delay((unsigned long)((150)*(31000/4000.0)));
-   214  003F8A  0EE8               	movlw	232
-   215  003F8C                     u47:
-   216  003F8C  D000               	nop2	
-   217  003F8E  2EE8               	decfsz	wreg,f,c
-   218  003F90  D7FD               	goto	u47
-   219  003F92  D000               	nop2		;nop
+   201                           ; 4 bytes @ 0x4
+   202  000005                     	ds	1
+   203  000006                     ___lwmod@counter:
+   204                           	opt stack 0
+   205                           
+   206                           ; 1 bytes @ 0x5
+   207  000006                     	ds	1
+   208  000007                     write_latch@len:
+   209                           	opt stack 0
+   210                           
+   211                           ; 2 bytes @ 0x6
+   212  000007                     	ds	2
+   213  000009                     ??_write_latch:
+   214  000009                     ___lmul@product:
+   215                           	opt stack 0
+   216                           
+   217                           ; 4 bytes @ 0x8
+   218  000009                     	ds	3
+   219  00000C                     ??_send_frame:
    220                           
-   221                           ;main.c: 88: PORTC &= ~LED;
-   222  003F94  5001               	movf	blink_c@LED,w,c
-   223  003F96  0AFF               	xorlw	255
-   224  003F98  1682               	andwf	3970,f,c	;volatile
-   225  003F9A  0012               	return	
-   226  003F9C                     __end_of_blink_c:
-   227                           	opt stack 0
-   228                           wreg	equ	0xFE8
+   221                           ; 0 bytes @ 0xB
+   222  00000C                     	ds	1
+   223  00000D                     ?_rand:
+   224                           	opt stack 0
+   225                           
+   226                           ; 2 bytes @ 0xC
+   227  00000D                     	ds	2
+   228  00000F                     ??_rand:
    229                           
-   230 ;; *************** function _blink_b *****************
-   231 ;; Defined at:
-   232 ;;		line 76 in file "main.c"
-   233 ;; Parameters:    Size  Location     Type
-   234 ;;  LED             2    0[COMRAM] unsigned int 
-   235 ;; Auto vars:     Size  Location     Type
-   236 ;;		None
-   237 ;; Return value:  Size  Location     Type
-   238 ;;		None               void
-   239 ;; Registers used:
-   240 ;;		wreg, status,2, status,0
-   241 ;; Tracked objects:
-   242 ;;		On entry : 0/0
-   243 ;;		On exit  : 0/0
-   244 ;;		Unchanged: 0/0
-   245 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
-   246 ;;      Params:         2       0       0       0       0
-   247 ;;      Locals:         0       0       0       0       0
-   248 ;;      Temps:          0       0       0       0       0
-   249 ;;      Totals:         2       0       0       0       0
-   250 ;;Total ram usage:        2 bytes
-   251 ;; Hardware stack levels used:    1
-   252 ;; This function calls:
-   253 ;;		Nothing
-   254 ;; This function is called by:
-   255 ;;		_main
-   256 ;; This function uses a non-reentrant model
-   257 ;;
-   258                           
-   259                           	psect	text2
-   260  003F70                     __ptext2:
-   261                           	opt stack 0
-   262  003F70                     _blink_b:
-   263                           	opt stack 30
+   230                           ; 0 bytes @ 0xE
+   231  00000F                     	ds	3
+   232  000012                     send_frame@red:
+   233                           	opt stack 0
+   234                           
+   235                           ; 1 bytes @ 0x11
+   236  000012                     	ds	1
+   237  000013                     ??_addRandom:
+   238  000013                     send_frame@green:
+   239                           	opt stack 0
+   240                           
+   241                           ; 1 bytes @ 0x12
+   242  000013                     	ds	1
+   243  000014                     send_frame@blue:
+   244                           	opt stack 0
+   245                           
+   246                           ; 1 bytes @ 0x13
+   247  000014                     	ds	1
+   248  000015                     send_frame@i:
+   249                           	opt stack 0
+   250                           
+   251                           ; 2 bytes @ 0x14
+   252  000015                     	ds	4
+   253  000019                     addRandom@new_color:
+   254                           	opt stack 0
+   255                           
+   256                           ; 4 bytes @ 0x18
+   257  000019                     	ds	4
+   258  00001D                     addRandom@x:
+   259                           	opt stack 0
+   260                           
+   261                           ; 2 bytes @ 0x1C
+   262  00001D                     	ds	2
+   263  00001F                     ??_demoLEDs:
    264                           
-   265                           ;main.c: 78: PORTB |= LED;
-   266                           
-   267                           ;incstack = 0
-   268  003F70  5001               	movf	blink_b@LED,w,c
-   269  003F72  1281               	iorwf	3969,f,c	;volatile
-   270                           
-   271                           ;main.c: 79: _delay((unsigned long)((150)*(31000/4000.0)));
-   272  003F74  0EE8               	movlw	232
-   273  003F76                     u57:
-   274  003F76  D000               	nop2	
-   275  003F78  2EE8               	decfsz	wreg,f,c
-   276  003F7A  D7FD               	goto	u57
-   277  003F7C  D000               	nop2		;nop
-   278                           
-   279                           ;main.c: 80: PORTB &= ~LED;
-   280  003F7E  5001               	movf	blink_b@LED,w,c
-   281  003F80  0AFF               	xorlw	255
-   282  003F82  1681               	andwf	3969,f,c	;volatile
-   283  003F84  0012               	return	
-   284  003F86                     __end_of_blink_b:
-   285                           	opt stack 0
-   286  0000                     wreg	equ	0xFE8
-   287                           wreg	equ	0xFE8
-   288                           
-   289                           	psect	rparam
-   290  0000                     wreg	equ	0xFE8
+   265                           ; 0 bytes @ 0x1E
+   266  00001F                     	ds	2
+   267  000021                     demoLEDs@i:
+   268                           	opt stack 0
+   269                           
+   270                           ; 2 bytes @ 0x20
+   271  000021                     	ds	2
+   272  000023                     
+   273                           ; 2 bytes @ 0x22
+   274  000023                     	ds	2
+   275  000025                     
+   276                           ; 3 bytes @ 0x24
+   277  000025                     	ds	3
+   278  000028                     postinc0	equ	0xFEE
+   279                           wreg	equ	0xFE8
+   280                           
+   281 ;; *************** function _setupSPI *****************
+   282 ;; Defined at:
+   283 ;;		line 3 in file "spi.c"
+   284 ;; Parameters:    Size  Location     Type
+   285 ;;		None
+   286 ;; Auto vars:     Size  Location     Type
+   287 ;;		None
+   288 ;; Return value:  Size  Location     Type
+   289 ;;		None               void
+   290 ;; Registers used:
+   291 ;;		wreg, status,2
+   292 ;; Tracked objects:
+   293 ;;		On entry : 0/0
+   294 ;;		On exit  : 0/0
+   295 ;;		Unchanged: 0/0
+   296 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+   297 ;;      Params:         0       0       0       0       0
+   298 ;;      Locals:         0       0       0       0       0
+   299 ;;      Temps:          0       0       0       0       0
+   300 ;;      Totals:         0       0       0       0       0
+   301 ;;Total ram usage:        0 bytes
+   302 ;; Hardware stack levels used:    1
+   303 ;; This function calls:
+   304 ;;		Nothing
+   305 ;; This function is called by:
+   306 ;;		_main
+   307 ;; This function uses a non-reentrant model
+   308 ;;
+   309                           
+   310                           	psect	text1
+   311  003784                     __ptext1:
+   312                           	opt stack 0
+   313  003784                     _setupSPI:
+   314                           	opt stack 30
+   315                           
+   316                           ;spi.c: 6: TRISCbits.TRISC5= 0;
+   317                           
+   318                           ;incstack = 0
+   319  003784  9A94               	bcf	3988,5,c	;volatile
+   320                           
+   321                           ;spi.c: 7: TRISCbits.TRISC4= 1;
+   322  003786  8894               	bsf	3988,4,c	;volatile
+   323                           
+   324                           ;spi.c: 8: TRISCbits.TRISC3= 0;
+   325  003788  9694               	bcf	3988,3,c	;volatile
+   326                           
+   327                           ;spi.c: 11: SSPSTAT = 0x40;
+   328  00378A  0E40               	movlw	64
+   329  00378C  6EC7               	movwf	4039,c	;volatile
+   330                           
+   331                           ;spi.c: 12: SSPCON1 = 0x20;
+   332  00378E  0E20               	movlw	32
+   333  003790  6EC6               	movwf	4038,c	;volatile
+   334  003792  0012               	return	
+   335  003794                     __end_of_setupSPI:
+   336                           	opt stack 0
+   337                           postinc0	equ	0xFEE
+   338                           wreg	equ	0xFE8
+   339                           
+   340 ;; *************** function _demoLEDs *****************
+   341 ;; Defined at:
+   342 ;;		line 64 in file "led.c"
+   343 ;; Parameters:    Size  Location     Type
+   344 ;;		None
+   345 ;; Auto vars:     Size  Location     Type
+   346 ;;  i               2   32[COMRAM] unsigned int 
+   347 ;; Return value:  Size  Location     Type
+   348 ;;		None               void
+   349 ;; Registers used:
+   350 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   351 ;; Tracked objects:
+   352 ;;		On entry : 0/0
+   353 ;;		On exit  : 0/0
+   354 ;;		Unchanged: 0/0
+   355 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+   356 ;;      Params:         0       0       0       0       0
+   357 ;;      Locals:         2       0       0       0       0
+   358 ;;      Temps:          2       0       0       0       0
+   359 ;;      Totals:         4       0       0       0       0
+   360 ;;Total ram usage:        4 bytes
+   361 ;; Hardware stack levels used:    1
+   362 ;; Hardware stack levels required when called:    3
+   363 ;; This function calls:
+   364 ;;		___lwmod
+   365 ;;		_addRandom
+   366 ;;		_send_frame
+   367 ;; This function is called by:
+   368 ;;		_main
+   369 ;; This function uses a non-reentrant model
+   370 ;;
+   371                           
+   372                           	psect	text2
+   373  003B60                     __ptext2:
+   374                           	opt stack 0
+   375  003B60                     _demoLEDs:
+   376                           	opt stack 27
+   377                           
+   378                           ;led.c: 66: uint16_t i;
+   379                           ;led.c: 68: for(i = 0 ; i < 400 ; i++)
+   380                           
+   381                           ;incstack = 0
+   382  003B60  0E00               	movlw	0
+   383  003B62  6E22               	movwf	demoLEDs@i+1,c
+   384  003B64  0E00               	movlw	0
+   385  003B66  6E21               	movwf	demoLEDs@i,c
+   386  003B68  0E90               	movlw	144
+   387  003B6A  5C21               	subwf	demoLEDs@i,w,c
+   388  003B6C  0E01               	movlw	1
+   389  003B6E  5822               	subwfb	demoLEDs@i+1,w,c
+   390  003B70  B0D8               	btfsc	status,0,c
+   391  003B72  D00B               	goto	l913
+   392                           
+   393                           ;led.c: 69: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+   394  003B74  0E21               	movlw	33
+   395  003B76  6E1F               	movwf	??_demoLEDs& (0+255),c
+   396  003B78  0E76               	movlw	118
+   397  003B7A                     u507:
+   398  003B7A  2EE8               	decfsz	wreg,f,c
+   399  003B7C  D7FE               	goto	u507
+   400  003B7E  2E1F               	decfsz	??_demoLEDs& (0+255),f,c
+   401  003B80  D7FC               	goto	u507
+   402  003B82  D000               	nop2	
+   403  003B84  4A21               	infsnz	demoLEDs@i,f,c
+   404  003B86  2A22               	incf	demoLEDs@i+1,f,c
+   405  003B88  D7EF               	goto	L1
+   406  003B8A                     l913:
+   407                           
+   408                           ;led.c: 70: for(i = 0 ; i < 32 ; i++) {led_strip_colors[i] = 0;}
+   409  003B8A  0E00               	movlw	0
+   410  003B8C  6E22               	movwf	demoLEDs@i+1,c
+   411  003B8E  0E00               	movlw	0
+   412  003B90  6E21               	movwf	demoLEDs@i,c
+   413  003B92  0E20               	movlw	32
+   414  003B94  5C21               	subwf	demoLEDs@i,w,c
+   415  003B96  0E00               	movlw	0
+   416  003B98  5822               	subwfb	demoLEDs@i+1,w,c
+   417  003B9A  B0D8               	btfsc	status,0,c
+   418  003B9C  D01F               	goto	l925
+   419  003B9E  C021  F01F         	movff	demoLEDs@i,??_demoLEDs
+   420  003BA2  C022  F020         	movff	demoLEDs@i+1,??_demoLEDs+1
+   421  003BA6  90D8               	bcf	status,0,c
+   422  003BA8  361F               	rlcf	??_demoLEDs,f,c
+   423  003BAA  3620               	rlcf	??_demoLEDs+1,f,c
+   424  003BAC  90D8               	bcf	status,0,c
+   425  003BAE  361F               	rlcf	??_demoLEDs,f,c
+   426  003BB0  3620               	rlcf	??_demoLEDs+1,f,c
+   427  003BB2  0100               	movlb	0	; () banked
+   428  003BB4  0E80               	movlw	low _led_strip_colors
+   429  003BB6  241F               	addwf	??_demoLEDs,w,c
+   430  003BB8  6ED9               	movwf	fsr2l,c
+   431  003BBA  0100               	movlb	0	; () banked
+   432  003BBC  0E00               	movlw	high _led_strip_colors
+   433  003BBE  2020               	addwfc	??_demoLEDs+1,w,c
+   434  003BC0  6EDA               	movwf	fsr2h,c
+   435  003BC2  0E00               	movlw	0
+   436  003BC4  6EDE               	movwf	postinc2,c
+   437  003BC6  0E00               	movlw	0
+   438  003BC8  6EDE               	movwf	postinc2,c
+   439  003BCA  0E00               	movlw	0
+   440  003BCC  6EDE               	movwf	postinc2,c
+   441  003BCE  0E00               	movlw	0
+   442  003BD0  6EDD               	movwf	postdec2,c
+   443  003BD2  52DD               	movf	postdec2,f,c
+   444  003BD4  52DD               	movf	postdec2,f,c
+   445                           
+   446                           ; BSR set to: 0
+   447  003BD6  4A21               	infsnz	demoLEDs@i,f,c
+   448  003BD8  2A22               	incf	demoLEDs@i+1,f,c
+   449  003BDA  D7DB               	goto	L2
+   450  003BDC                     l925:
+   451                           
+   452                           ;led.c: 71: send_frame();
+   453  003BDC  EC34  F01D         	call	_send_frame	;wreg free
+   454                           
+   455                           ;led.c: 73: led_strip_colors[0] = 0xFF0000;
+   456  003BE0  0E00               	movlw	0
+   457  003BE2  0100               	movlb	0	; () banked
+   458  003BE4  0100               	movlb	0	; () banked
+   459  003BE6  6F80               	movwf	_led_strip_colors& (0+255),b
+   460  003BE8  0E00               	movlw	0
+   461  003BEA  0100               	movlb	0	; () banked
+   462  003BEC  6F81               	movwf	(_led_strip_colors+1)& (0+255),b
+   463  003BEE  0EFF               	movlw	255
+   464  003BF0  0100               	movlb	0	; () banked
+   465  003BF2  6F82               	movwf	(_led_strip_colors+2)& (0+255),b
+   466  003BF4  0E00               	movlw	0
+   467  003BF6  0100               	movlb	0	; () banked
+   468  003BF8  6F83               	movwf	(_led_strip_colors+3)& (0+255),b
+   469                           
+   470                           ; BSR set to: 0
+   471                           ;led.c: 74: led_strip_colors[1] = 0x00FF00;
+   472  003BFA  0E00               	movlw	0
+   473  003BFC  0100               	movlb	0	; () banked
+   474  003BFE  0100               	movlb	0	; () banked
+   475  003C00  6F84               	movwf	(_led_strip_colors+4)& (0+255),b
+   476  003C02  0EFF               	movlw	255
+   477  003C04  0100               	movlb	0	; () banked
+   478  003C06  6F85               	movwf	(_led_strip_colors+5)& (0+255),b
+   479  003C08  0E00               	movlw	0
+   480  003C0A  0100               	movlb	0	; () banked
+   481  003C0C  6F86               	movwf	(_led_strip_colors+6)& (0+255),b
+   482  003C0E  0E00               	movlw	0
+   483  003C10  0100               	movlb	0	; () banked
+   484  003C12  6F87               	movwf	(_led_strip_colors+7)& (0+255),b
+   485                           
+   486                           ; BSR set to: 0
+   487                           ;led.c: 75: led_strip_colors[2] = 0x0000FF;
+   488  003C14  0EFF               	movlw	255
+   489  003C16  0100               	movlb	0	; () banked
+   490  003C18  0100               	movlb	0	; () banked
+   491  003C1A  6F88               	movwf	(_led_strip_colors+8)& (0+255),b
+   492  003C1C  0E00               	movlw	0
+   493  003C1E  0100               	movlb	0	; () banked
+   494  003C20  6F89               	movwf	(_led_strip_colors+9)& (0+255),b
+   495  003C22  0E00               	movlw	0
+   496  003C24  0100               	movlb	0	; () banked
+   497  003C26  6F8A               	movwf	(_led_strip_colors+10)& (0+255),b
+   498  003C28  0E00               	movlw	0
+   499  003C2A  0100               	movlb	0	; () banked
+   500  003C2C  6F8B               	movwf	(_led_strip_colors+11)& (0+255),b
+   501                           
+   502                           ; BSR set to: 0
+   503                           ;led.c: 76: led_strip_colors[3] = 0x00FFFF;
+   504  003C2E  0EFF               	movlw	255
+   505  003C30  0100               	movlb	0	; () banked
+   506  003C32  0100               	movlb	0	; () banked
+   507  003C34  6F8C               	movwf	(_led_strip_colors+12)& (0+255),b
+   508  003C36  0EFF               	movlw	255
+   509  003C38  0100               	movlb	0	; () banked
+   510  003C3A  6F8D               	movwf	(_led_strip_colors+13)& (0+255),b
+   511  003C3C  0E00               	movlw	0
+   512  003C3E  0100               	movlb	0	; () banked
+   513  003C40  6F8E               	movwf	(_led_strip_colors+14)& (0+255),b
+   514  003C42  0E00               	movlw	0
+   515  003C44  0100               	movlb	0	; () banked
+   516  003C46  6F8F               	movwf	(_led_strip_colors+15)& (0+255),b
+   517                           
+   518                           ; BSR set to: 0
+   519                           ;led.c: 77: led_strip_colors[4] = 0xFF00FF;
+   520  003C48  0EFF               	movlw	255
+   521  003C4A  0100               	movlb	0	; () banked
+   522  003C4C  0100               	movlb	0	; () banked
+   523  003C4E  6F90               	movwf	(_led_strip_colors+16)& (0+255),b
+   524  003C50  0E00               	movlw	0
+   525  003C52  0100               	movlb	0	; () banked
+   526  003C54  6F91               	movwf	(_led_strip_colors+17)& (0+255),b
+   527  003C56  0EFF               	movlw	255
+   528  003C58  0100               	movlb	0	; () banked
+   529  003C5A  6F92               	movwf	(_led_strip_colors+18)& (0+255),b
+   530  003C5C  0E00               	movlw	0
+   531  003C5E  0100               	movlb	0	; () banked
+   532  003C60  6F93               	movwf	(_led_strip_colors+19)& (0+255),b
+   533                           
+   534                           ; BSR set to: 0
+   535                           ;led.c: 78: led_strip_colors[5] = 0xFFFF00;
+   536  003C62  0E00               	movlw	0
+   537  003C64  0100               	movlb	0	; () banked
+   538  003C66  0100               	movlb	0	; () banked
+   539  003C68  6F94               	movwf	(_led_strip_colors+20)& (0+255),b
+   540  003C6A  0EFF               	movlw	255
+   541  003C6C  0100               	movlb	0	; () banked
+   542  003C6E  6F95               	movwf	(_led_strip_colors+21)& (0+255),b
+   543  003C70  0EFF               	movlw	255
+   544  003C72  0100               	movlb	0	; () banked
+   545  003C74  6F96               	movwf	(_led_strip_colors+22)& (0+255),b
+   546  003C76  0E00               	movlw	0
+   547  003C78  0100               	movlb	0	; () banked
+   548  003C7A  6F97               	movwf	(_led_strip_colors+23)& (0+255),b
+   549                           
+   550                           ;led.c: 79: send_frame();
+   551  003C7C  EC34  F01D         	call	_send_frame	;wreg free
+   552                           
+   553                           ;led.c: 81: for(i = 0 ; i < 1000 ; i++)
+   554  003C80  0E00               	movlw	0
+   555  003C82  6E22               	movwf	demoLEDs@i+1,c
+   556  003C84  0E00               	movlw	0
+   557  003C86  6E21               	movwf	demoLEDs@i,c
+   558  003C88  0EE8               	movlw	232
+   559  003C8A  5C21               	subwf	demoLEDs@i,w,c
+   560  003C8C  0E03               	movlw	3
+   561  003C8E  5822               	subwfb	demoLEDs@i+1,w,c
+   562  003C90  B0D8               	btfsc	status,0,c
+   563  003C92  D00B               	goto	l949
+   564                           
+   565                           ;led.c: 82: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+   566  003C94  0E21               	movlw	33
+   567  003C96  6E1F               	movwf	??_demoLEDs& (0+255),c
+   568  003C98  0E76               	movlw	118
+   569  003C9A                     u517:
+   570  003C9A  2EE8               	decfsz	wreg,f,c
+   571  003C9C  D7FE               	goto	u517
+   572  003C9E  2E1F               	decfsz	??_demoLEDs& (0+255),f,c
+   573  003CA0  D7FC               	goto	u517
+   574  003CA2  D000               	nop2	
+   575  003CA4  4A21               	infsnz	demoLEDs@i,f,c
+   576  003CA6  2A22               	incf	demoLEDs@i+1,f,c
+   577  003CA8  D7EF               	goto	L3
+   578  003CAA                     l949:
+   579                           
+   580                           ;led.c: 84: for(i=0;i<32;i++) {
+   581  003CAA  0E00               	movlw	0
+   582  003CAC  6E22               	movwf	demoLEDs@i+1,c
+   583  003CAE  0E00               	movlw	0
+   584  003CB0  6E21               	movwf	demoLEDs@i,c
+   585  003CB2  0E20               	movlw	32
+   586  003CB4  5C21               	subwf	demoLEDs@i,w,c
+   587  003CB6  0E00               	movlw	0
+   588  003CB8  5822               	subwfb	demoLEDs@i+1,w,c
+   589  003CBA  B0D8               	btfsc	status,0,c
+   590  003CBC  D082               	goto	l971
+   591                           
+   592                           ;led.c: 85: if((i%3) == 0) {led_strip_colors[i] = 0xFF0000;}
+   593  003CBE  C021  F001         	movff	demoLEDs@i,___lwmod@dividend
+   594  003CC2  C022  F002         	movff	demoLEDs@i+1,___lwmod@dividend+1
+   595  003CC6  0E00               	movlw	0
+   596  003CC8  6E04               	movwf	___lwmod@divisor+1,c
+   597  003CCA  0E03               	movlw	3
+   598  003CCC  6E03               	movwf	___lwmod@divisor,c
+   599  003CCE  EC10  F01C         	call	___lwmod	;wreg free
+   600  003CD2  5002               	movf	?___lwmod+1,w,c
+   601  003CD4  1001               	iorwf	?___lwmod,w,c
+   602  003CD6  A4D8               	btfss	status,2,c
+   603  003CD8  D01C               	goto	l959
+   604  003CDA  C021  F01F         	movff	demoLEDs@i,??_demoLEDs
+   605  003CDE  C022  F020         	movff	demoLEDs@i+1,??_demoLEDs+1
+   606  003CE2  90D8               	bcf	status,0,c
+   607  003CE4  361F               	rlcf	??_demoLEDs,f,c
+   608  003CE6  3620               	rlcf	??_demoLEDs+1,f,c
+   609  003CE8  90D8               	bcf	status,0,c
+   610  003CEA  361F               	rlcf	??_demoLEDs,f,c
+   611  003CEC  3620               	rlcf	??_demoLEDs+1,f,c
+   612  003CEE  0100               	movlb	0	; () banked
+   613  003CF0  0E80               	movlw	low _led_strip_colors
+   614  003CF2  241F               	addwf	??_demoLEDs,w,c
+   615  003CF4  6ED9               	movwf	fsr2l,c
+   616  003CF6  0100               	movlb	0	; () banked
+   617  003CF8  0E00               	movlw	high _led_strip_colors
+   618  003CFA  2020               	addwfc	??_demoLEDs+1,w,c
+   619  003CFC  6EDA               	movwf	fsr2h,c
+   620  003CFE  0E00               	movlw	0
+   621  003D00  6EDE               	movwf	postinc2,c
+   622  003D02  0E00               	movlw	0
+   623  003D04  6EDE               	movwf	postinc2,c
+   624  003D06  0EFF               	movlw	255
+   625  003D08  6EDE               	movwf	postinc2,c
+   626  003D0A  0E00               	movlw	0
+   627  003D0C  6EDD               	movwf	postdec2,c
+   628  003D0E  52DD               	movf	postdec2,f,c
+   629  003D10  52DD               	movf	postdec2,f,c
+   630  003D12                     l959:
+   631                           
+   632                           ;led.c: 86: if((i%3) == 1) {led_strip_colors[i] = 0xFFFFFF;}
+   633  003D12  C021  F001         	movff	demoLEDs@i,___lwmod@dividend
+   634  003D16  C022  F002         	movff	demoLEDs@i+1,___lwmod@dividend+1
+   635  003D1A  0E00               	movlw	0
+   636  003D1C  6E04               	movwf	___lwmod@divisor+1,c
+   637  003D1E  0E03               	movlw	3
+   638  003D20  6E03               	movwf	___lwmod@divisor,c
+   639  003D22  EC10  F01C         	call	___lwmod	;wreg free
+   640  003D26  0401               	decf	?___lwmod,w,c
+   641  003D28  1002               	iorwf	?___lwmod+1,w,c
+   642  003D2A  A4D8               	btfss	status,2,c
+   643  003D2C  D01C               	goto	l963
+   644  003D2E  C021  F01F         	movff	demoLEDs@i,??_demoLEDs
+   645  003D32  C022  F020         	movff	demoLEDs@i+1,??_demoLEDs+1
+   646  003D36  90D8               	bcf	status,0,c
+   647  003D38  361F               	rlcf	??_demoLEDs,f,c
+   648  003D3A  3620               	rlcf	??_demoLEDs+1,f,c
+   649  003D3C  90D8               	bcf	status,0,c
+   650  003D3E  361F               	rlcf	??_demoLEDs,f,c
+   651  003D40  3620               	rlcf	??_demoLEDs+1,f,c
+   652  003D42  0100               	movlb	0	; () banked
+   653  003D44  0E80               	movlw	low _led_strip_colors
+   654  003D46  241F               	addwf	??_demoLEDs,w,c
+   655  003D48  6ED9               	movwf	fsr2l,c
+   656  003D4A  0100               	movlb	0	; () banked
+   657  003D4C  0E00               	movlw	high _led_strip_colors
+   658  003D4E  2020               	addwfc	??_demoLEDs+1,w,c
+   659  003D50  6EDA               	movwf	fsr2h,c
+   660  003D52  0EFF               	movlw	255
+   661  003D54  6EDE               	movwf	postinc2,c
+   662  003D56  0EFF               	movlw	255
+   663  003D58  6EDE               	movwf	postinc2,c
+   664  003D5A  0EFF               	movlw	255
+   665  003D5C  6EDE               	movwf	postinc2,c
+   666  003D5E  0E00               	movlw	0
+   667  003D60  6EDD               	movwf	postdec2,c
+   668  003D62  52DD               	movf	postdec2,f,c
+   669  003D64  52DD               	movf	postdec2,f,c
+   670  003D66                     l963:
+   671                           
+   672                           ;led.c: 87: if((i%3) == 2) {led_strip_colors[i] = 0x0000FF;}
+   673  003D66  C021  F001         	movff	demoLEDs@i,___lwmod@dividend
+   674  003D6A  C022  F002         	movff	demoLEDs@i+1,___lwmod@dividend+1
+   675  003D6E  0E00               	movlw	0
+   676  003D70  6E04               	movwf	___lwmod@divisor+1,c
+   677  003D72  0E03               	movlw	3
+   678  003D74  6E03               	movwf	___lwmod@divisor,c
+   679  003D76  EC10  F01C         	call	___lwmod	;wreg free
+   680  003D7A  5001               	movf	?___lwmod,w,c
+   681  003D7C  0A02               	xorlw	2
+   682  003D7E  1002               	iorwf	?___lwmod+1,w,c
+   683  003D80  A4D8               	btfss	status,2,c
+   684  003D82  D01C               	goto	l967
+   685  003D84  C021  F01F         	movff	demoLEDs@i,??_demoLEDs
+   686  003D88  C022  F020         	movff	demoLEDs@i+1,??_demoLEDs+1
+   687  003D8C  90D8               	bcf	status,0,c
+   688  003D8E  361F               	rlcf	??_demoLEDs,f,c
+   689  003D90  3620               	rlcf	??_demoLEDs+1,f,c
+   690  003D92  90D8               	bcf	status,0,c
+   691  003D94  361F               	rlcf	??_demoLEDs,f,c
+   692  003D96  3620               	rlcf	??_demoLEDs+1,f,c
+   693  003D98  0100               	movlb	0	; () banked
+   694  003D9A  0E80               	movlw	low _led_strip_colors
+   695  003D9C  241F               	addwf	??_demoLEDs,w,c
+   696  003D9E  6ED9               	movwf	fsr2l,c
+   697  003DA0  0100               	movlb	0	; () banked
+   698  003DA2  0E00               	movlw	high _led_strip_colors
+   699  003DA4  2020               	addwfc	??_demoLEDs+1,w,c
+   700  003DA6  6EDA               	movwf	fsr2h,c
+   701  003DA8  0EFF               	movlw	255
+   702  003DAA  6EDE               	movwf	postinc2,c
+   703  003DAC  0E00               	movlw	0
+   704  003DAE  6EDE               	movwf	postinc2,c
+   705  003DB0  0E00               	movlw	0
+   706  003DB2  6EDE               	movwf	postinc2,c
+   707  003DB4  0E00               	movlw	0
+   708  003DB6  6EDD               	movwf	postdec2,c
+   709  003DB8  52DD               	movf	postdec2,f,c
+   710  003DBA  52DD               	movf	postdec2,f,c
+   711  003DBC                     l967:
+   712  003DBC  4A21               	infsnz	demoLEDs@i,f,c
+   713  003DBE  2A22               	incf	demoLEDs@i+1,f,c
+   714  003DC0  D778               	goto	L4
+   715  003DC2                     l971:
+   716                           
+   717                           ;led.c: 88: }
+   718                           ;led.c: 89: send_frame();
+   719  003DC2  EC34  F01D         	call	_send_frame	;wreg free
+   720                           
+   721                           ;led.c: 92: for(i = 0 ; i < 2000 ; i++)
+   722  003DC6  0E00               	movlw	0
+   723  003DC8  6E22               	movwf	demoLEDs@i+1,c
+   724  003DCA  0E00               	movlw	0
+   725  003DCC  6E21               	movwf	demoLEDs@i,c
+   726  003DCE  0ED0               	movlw	208
+   727  003DD0  5C21               	subwf	demoLEDs@i,w,c
+   728  003DD2  0E07               	movlw	7
+   729  003DD4  5822               	subwfb	demoLEDs@i+1,w,c
+   730  003DD6  B0D8               	btfsc	status,0,c
+   731  003DD8  D00B               	goto	l983
+   732                           
+   733                           ;led.c: 93: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+   734  003DDA  0E21               	movlw	33
+   735  003DDC  6E1F               	movwf	??_demoLEDs& (0+255),c
+   736  003DDE  0E76               	movlw	118
+   737  003DE0                     u527:
+   738  003DE0  2EE8               	decfsz	wreg,f,c
+   739  003DE2  D7FE               	goto	u527
+   740  003DE4  2E1F               	decfsz	??_demoLEDs& (0+255),f,c
+   741  003DE6  D7FC               	goto	u527
+   742  003DE8  D000               	nop2	
+   743  003DEA  4A21               	infsnz	demoLEDs@i,f,c
+   744  003DEC  2A22               	incf	demoLEDs@i+1,f,c
+   745  003DEE  D7EF               	goto	L5
+   746  003DF0                     l983:
+   747                           
+   748                           ;led.c: 95: for(i=0;i<32;i++) {
+   749  003DF0  0E00               	movlw	0
+   750  003DF2  6E22               	movwf	demoLEDs@i+1,c
+   751  003DF4  0E00               	movlw	0
+   752  003DF6  6E21               	movwf	demoLEDs@i,c
+   753  003DF8  0E20               	movlw	32
+   754  003DFA  5C21               	subwf	demoLEDs@i,w,c
+   755  003DFC  0E00               	movlw	0
+   756  003DFE  5822               	subwfb	demoLEDs@i+1,w,c
+   757  003E00  B0D8               	btfsc	status,0,c
+   758  003E02  D03F               	goto	l999
+   759                           
+   760                           ;led.c: 96: if((i%2) == 0) {led_strip_colors[i] = 0x00FF00;}
+   761  003E04  B021               	btfsc	demoLEDs@i,0,c
+   762  003E06  D01C               	goto	l991
+   763  003E08  C021  F01F         	movff	demoLEDs@i,??_demoLEDs
+   764  003E0C  C022  F020         	movff	demoLEDs@i+1,??_demoLEDs+1
+   765  003E10  90D8               	bcf	status,0,c
+   766  003E12  361F               	rlcf	??_demoLEDs,f,c
+   767  003E14  3620               	rlcf	??_demoLEDs+1,f,c
+   768  003E16  90D8               	bcf	status,0,c
+   769  003E18  361F               	rlcf	??_demoLEDs,f,c
+   770  003E1A  3620               	rlcf	??_demoLEDs+1,f,c
+   771  003E1C  0100               	movlb	0	; () banked
+   772  003E1E  0E80               	movlw	low _led_strip_colors
+   773  003E20  241F               	addwf	??_demoLEDs,w,c
+   774  003E22  6ED9               	movwf	fsr2l,c
+   775  003E24  0100               	movlb	0	; () banked
+   776  003E26  0E00               	movlw	high _led_strip_colors
+   777  003E28  2020               	addwfc	??_demoLEDs+1,w,c
+   778  003E2A  6EDA               	movwf	fsr2h,c
+   779  003E2C  0E00               	movlw	0
+   780  003E2E  6EDE               	movwf	postinc2,c
+   781  003E30  0EFF               	movlw	255
+   782  003E32  6EDE               	movwf	postinc2,c
+   783  003E34  0E00               	movlw	0
+   784  003E36  6EDE               	movwf	postinc2,c
+   785  003E38  0E00               	movlw	0
+   786  003E3A  6EDD               	movwf	postdec2,c
+   787  003E3C  52DD               	movf	postdec2,f,c
+   788  003E3E  52DD               	movf	postdec2,f,c
+   789  003E40                     l991:
+   790                           
+   791                           ;led.c: 97: if((i%2) == 1) {led_strip_colors[i] = 0xFFFFFF;}
+   792  003E40  A021               	btfss	demoLEDs@i,0,c
+   793  003E42  D01C               	goto	l995
+   794  003E44  C021  F01F         	movff	demoLEDs@i,??_demoLEDs
+   795  003E48  C022  F020         	movff	demoLEDs@i+1,??_demoLEDs+1
+   796  003E4C  90D8               	bcf	status,0,c
+   797  003E4E  361F               	rlcf	??_demoLEDs,f,c
+   798  003E50  3620               	rlcf	??_demoLEDs+1,f,c
+   799  003E52  90D8               	bcf	status,0,c
+   800  003E54  361F               	rlcf	??_demoLEDs,f,c
+   801  003E56  3620               	rlcf	??_demoLEDs+1,f,c
+   802  003E58  0100               	movlb	0	; () banked
+   803  003E5A  0E80               	movlw	low _led_strip_colors
+   804  003E5C  241F               	addwf	??_demoLEDs,w,c
+   805  003E5E  6ED9               	movwf	fsr2l,c
+   806  003E60  0100               	movlb	0	; () banked
+   807  003E62  0E00               	movlw	high _led_strip_colors
+   808  003E64  2020               	addwfc	??_demoLEDs+1,w,c
+   809  003E66  6EDA               	movwf	fsr2h,c
+   810  003E68  0EFF               	movlw	255
+   811  003E6A  6EDE               	movwf	postinc2,c
+   812  003E6C  0EFF               	movlw	255
+   813  003E6E  6EDE               	movwf	postinc2,c
+   814  003E70  0EFF               	movlw	255
+   815  003E72  6EDE               	movwf	postinc2,c
+   816  003E74  0E00               	movlw	0
+   817  003E76  6EDD               	movwf	postdec2,c
+   818  003E78  52DD               	movf	postdec2,f,c
+   819  003E7A  52DD               	movf	postdec2,f,c
+   820  003E7C                     l995:
+   821  003E7C  4A21               	infsnz	demoLEDs@i,f,c
+   822  003E7E  2A22               	incf	demoLEDs@i+1,f,c
+   823  003E80  D7BB               	goto	L6
+   824  003E82                     l999:
+   825                           
+   826                           ;led.c: 98: }
+   827                           ;led.c: 99: send_frame();
+   828  003E82  EC34  F01D         	call	_send_frame	;wreg free
+   829                           
+   830                           ;led.c: 101: for(i = 0 ; i < 2000 ; i++)
+   831  003E86  0E00               	movlw	0
+   832  003E88  6E22               	movwf	demoLEDs@i+1,c
+   833  003E8A  0E00               	movlw	0
+   834  003E8C  6E21               	movwf	demoLEDs@i,c
+   835  003E8E  0ED0               	movlw	208
+   836  003E90  5C21               	subwf	demoLEDs@i,w,c
+   837  003E92  0E07               	movlw	7
+   838  003E94  5822               	subwfb	demoLEDs@i+1,w,c
+   839  003E96  B0D8               	btfsc	status,0,c
+   840  003E98  D00B               	goto	l1011
+   841                           
+   842                           ;led.c: 102: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+   843  003E9A  0E21               	movlw	33
+   844  003E9C  6E1F               	movwf	??_demoLEDs& (0+255),c
+   845  003E9E  0E76               	movlw	118
+   846  003EA0                     u537:
+   847  003EA0  2EE8               	decfsz	wreg,f,c
+   848  003EA2  D7FE               	goto	u537
+   849  003EA4  2E1F               	decfsz	??_demoLEDs& (0+255),f,c
+   850  003EA6  D7FC               	goto	u537
+   851  003EA8  D000               	nop2	
+   852  003EAA  4A21               	infsnz	demoLEDs@i,f,c
+   853  003EAC  2A22               	incf	demoLEDs@i+1,f,c
+   854  003EAE  D7EF               	goto	L7
+   855  003EB0                     l1011:
+   856                           
+   857                           ;led.c: 104: for(i=0;i<32;i++) {
+   858  003EB0  0E00               	movlw	0
+   859  003EB2  6E22               	movwf	demoLEDs@i+1,c
+   860  003EB4  0E00               	movlw	0
+   861  003EB6  6E21               	movwf	demoLEDs@i,c
+   862  003EB8  0E20               	movlw	32
+   863  003EBA  5C21               	subwf	demoLEDs@i,w,c
+   864  003EBC  0E00               	movlw	0
+   865  003EBE  5822               	subwfb	demoLEDs@i+1,w,c
+   866  003EC0  B0D8               	btfsc	status,0,c
+   867  003EC2  D03F               	goto	l1027
+   868                           
+   869                           ;led.c: 105: if((i%2) == 0) {led_strip_colors[i] = 0x0000FF;}
+   870  003EC4  B021               	btfsc	demoLEDs@i,0,c
+   871  003EC6  D01C               	goto	l1019
+   872  003EC8  C021  F01F         	movff	demoLEDs@i,??_demoLEDs
+   873  003ECC  C022  F020         	movff	demoLEDs@i+1,??_demoLEDs+1
+   874  003ED0  90D8               	bcf	status,0,c
+   875  003ED2  361F               	rlcf	??_demoLEDs,f,c
+   876  003ED4  3620               	rlcf	??_demoLEDs+1,f,c
+   877  003ED6  90D8               	bcf	status,0,c
+   878  003ED8  361F               	rlcf	??_demoLEDs,f,c
+   879  003EDA  3620               	rlcf	??_demoLEDs+1,f,c
+   880  003EDC  0100               	movlb	0	; () banked
+   881  003EDE  0E80               	movlw	low _led_strip_colors
+   882  003EE0  241F               	addwf	??_demoLEDs,w,c
+   883  003EE2  6ED9               	movwf	fsr2l,c
+   884  003EE4  0100               	movlb	0	; () banked
+   885  003EE6  0E00               	movlw	high _led_strip_colors
+   886  003EE8  2020               	addwfc	??_demoLEDs+1,w,c
+   887  003EEA  6EDA               	movwf	fsr2h,c
+   888  003EEC  0EFF               	movlw	255
+   889  003EEE  6EDE               	movwf	postinc2,c
+   890  003EF0  0E00               	movlw	0
+   891  003EF2  6EDE               	movwf	postinc2,c
+   892  003EF4  0E00               	movlw	0
+   893  003EF6  6EDE               	movwf	postinc2,c
+   894  003EF8  0E00               	movlw	0
+   895  003EFA  6EDD               	movwf	postdec2,c
+   896  003EFC  52DD               	movf	postdec2,f,c
+   897  003EFE  52DD               	movf	postdec2,f,c
+   898  003F00                     l1019:
+   899                           
+   900                           ;led.c: 106: if((i%2) == 1) {led_strip_colors[i] = 0xFFFFFF;}
+   901  003F00  A021               	btfss	demoLEDs@i,0,c
+   902  003F02  D01C               	goto	l1023
+   903  003F04  C021  F01F         	movff	demoLEDs@i,??_demoLEDs
+   904  003F08  C022  F020         	movff	demoLEDs@i+1,??_demoLEDs+1
+   905  003F0C  90D8               	bcf	status,0,c
+   906  003F0E  361F               	rlcf	??_demoLEDs,f,c
+   907  003F10  3620               	rlcf	??_demoLEDs+1,f,c
+   908  003F12  90D8               	bcf	status,0,c
+   909  003F14  361F               	rlcf	??_demoLEDs,f,c
+   910  003F16  3620               	rlcf	??_demoLEDs+1,f,c
+   911  003F18  0100               	movlb	0	; () banked
+   912  003F1A  0E80               	movlw	low _led_strip_colors
+   913  003F1C  241F               	addwf	??_demoLEDs,w,c
+   914  003F1E  6ED9               	movwf	fsr2l,c
+   915  003F20  0100               	movlb	0	; () banked
+   916  003F22  0E00               	movlw	high _led_strip_colors
+   917  003F24  2020               	addwfc	??_demoLEDs+1,w,c
+   918  003F26  6EDA               	movwf	fsr2h,c
+   919  003F28  0EFF               	movlw	255
+   920  003F2A  6EDE               	movwf	postinc2,c
+   921  003F2C  0EFF               	movlw	255
+   922  003F2E  6EDE               	movwf	postinc2,c
+   923  003F30  0EFF               	movlw	255
+   924  003F32  6EDE               	movwf	postinc2,c
+   925  003F34  0E00               	movlw	0
+   926  003F36  6EDD               	movwf	postdec2,c
+   927  003F38  52DD               	movf	postdec2,f,c
+   928  003F3A  52DD               	movf	postdec2,f,c
+   929  003F3C                     l1023:
+   930  003F3C  4A21               	infsnz	demoLEDs@i,f,c
+   931  003F3E  2A22               	incf	demoLEDs@i+1,f,c
+   932  003F40  D7BB               	goto	L8
+   933  003F42                     l1027:
+   934                           
+   935                           ;led.c: 107: }
+   936                           ;led.c: 108: send_frame();
+   937  003F42  EC34  F01D         	call	_send_frame	;wreg free
+   938                           
+   939                           ;led.c: 110: for(i = 0 ; i < 2000 ; i++)
+   940  003F46  0E00               	movlw	0
+   941  003F48  6E22               	movwf	demoLEDs@i+1,c
+   942  003F4A  0E00               	movlw	0
+   943  003F4C  6E21               	movwf	demoLEDs@i,c
+   944  003F4E  0ED0               	movlw	208
+   945  003F50  5C21               	subwf	demoLEDs@i,w,c
+   946  003F52  0E07               	movlw	7
+   947  003F54  5822               	subwfb	demoLEDs@i+1,w,c
+   948  003F56  B0D8               	btfsc	status,0,c
+   949  003F58  D00B               	goto	l1039
+   950                           
+   951                           ;led.c: 111: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+   952  003F5A  0E21               	movlw	33
+   953  003F5C  6E1F               	movwf	??_demoLEDs& (0+255),c
+   954  003F5E  0E76               	movlw	118
+   955  003F60                     u547:
+   956  003F60  2EE8               	decfsz	wreg,f,c
+   957  003F62  D7FE               	goto	u547
+   958  003F64  2E1F               	decfsz	??_demoLEDs& (0+255),f,c
+   959  003F66  D7FC               	goto	u547
+   960  003F68  D000               	nop2	
+   961  003F6A  4A21               	infsnz	demoLEDs@i,f,c
+   962  003F6C  2A22               	incf	demoLEDs@i+1,f,c
+   963  003F6E  D7EF               	goto	L9
+   964  003F70                     l1039:
+   965                           
+   966                           ;led.c: 113: for(i = 0 ; i < 32 ; i++) {led_strip_colors[i] = 0;}
+   967  003F70  0E00               	movlw	0
+   968  003F72  6E22               	movwf	demoLEDs@i+1,c
+   969  003F74  0E00               	movlw	0
+   970  003F76  6E21               	movwf	demoLEDs@i,c
+   971  003F78  0E20               	movlw	32
+   972  003F7A  5C21               	subwf	demoLEDs@i,w,c
+   973  003F7C  0E00               	movlw	0
+   974  003F7E  5822               	subwfb	demoLEDs@i+1,w,c
+   975  003F80  B0D8               	btfsc	status,0,c
+   976  003F82  D01F               	goto	l1051
+   977  003F84  C021  F01F         	movff	demoLEDs@i,??_demoLEDs
+   978  003F88  C022  F020         	movff	demoLEDs@i+1,??_demoLEDs+1
+   979  003F8C  90D8               	bcf	status,0,c
+   980  003F8E  361F               	rlcf	??_demoLEDs,f,c
+   981  003F90  3620               	rlcf	??_demoLEDs+1,f,c
+   982  003F92  90D8               	bcf	status,0,c
+   983  003F94  361F               	rlcf	??_demoLEDs,f,c
+   984  003F96  3620               	rlcf	??_demoLEDs+1,f,c
+   985  003F98  0100               	movlb	0	; () banked
+   986  003F9A  0E80               	movlw	low _led_strip_colors
+   987  003F9C  241F               	addwf	??_demoLEDs,w,c
+   988  003F9E  6ED9               	movwf	fsr2l,c
+   989  003FA0  0100               	movlb	0	; () banked
+   990  003FA2  0E00               	movlw	high _led_strip_colors
+   991  003FA4  2020               	addwfc	??_demoLEDs+1,w,c
+   992  003FA6  6EDA               	movwf	fsr2h,c
+   993  003FA8  0E00               	movlw	0
+   994  003FAA  6EDE               	movwf	postinc2,c
+   995  003FAC  0E00               	movlw	0
+   996  003FAE  6EDE               	movwf	postinc2,c
+   997  003FB0  0E00               	movlw	0
+   998  003FB2  6EDE               	movwf	postinc2,c
+   999  003FB4  0E00               	movlw	0
+  1000  003FB6  6EDD               	movwf	postdec2,c
+  1001  003FB8  52DD               	movf	postdec2,f,c
+  1002  003FBA  52DD               	movf	postdec2,f,c
+  1003                           
+  1004                           ; BSR set to: 0
+  1005  003FBC  4A21               	infsnz	demoLEDs@i,f,c
+  1006  003FBE  2A22               	incf	demoLEDs@i+1,f,c
+  1007  003FC0  D7DB               	goto	L10
+  1008  003FC2                     l1051:
+  1009                           
+  1010                           ;led.c: 114: send_frame();
+  1011  003FC2  EC34  F01D         	call	_send_frame	;wreg free
+  1012  003FC6                     l1053:
+  1013                           
+  1014                           ;led.c: 117: addRandom();
+  1015  003FC6  ECBA  F01C         	call	_addRandom	;wreg free
+  1016                           
+  1017                           ;led.c: 118: send_frame();
+  1018  003FCA  EC34  F01D         	call	_send_frame	;wreg free
+  1019                           
+  1020                           ;led.c: 119: for(i = 0 ; i < 20 ; i++)
+  1021  003FCE  0E00               	movlw	0
+  1022  003FD0  6E22               	movwf	demoLEDs@i+1,c
+  1023  003FD2  0E00               	movlw	0
+  1024  003FD4  6E21               	movwf	demoLEDs@i,c
+  1025  003FD6  0E14               	movlw	20
+  1026  003FD8  5C21               	subwf	demoLEDs@i,w,c
+  1027  003FDA  0E00               	movlw	0
+  1028  003FDC  5822               	subwfb	demoLEDs@i+1,w,c
+  1029  003FDE  B0D8               	btfsc	status,0,c
+  1030  003FE0  D7F2               	goto	l1053
+  1031                           
+  1032                           ;led.c: 120: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+  1033  003FE2  0E21               	movlw	33
+  1034  003FE4  6E1F               	movwf	??_demoLEDs& (0+255),c
+  1035  003FE6  0E76               	movlw	118
+  1036  003FE8                     u557:
+  1037  003FE8  2EE8               	decfsz	wreg,f,c
+  1038  003FEA  D7FE               	goto	u557
+  1039  003FEC  2E1F               	decfsz	??_demoLEDs& (0+255),f,c
+  1040  003FEE  D7FC               	goto	u557
+  1041  003FF0  D000               	nop2	
+  1042  003FF2  4A21               	infsnz	demoLEDs@i,f,c
+  1043  003FF4  2A22               	incf	demoLEDs@i+1,f,c
+  1044  003FF6  D7EF               	goto	L11
+  1045  003FF8                     __end_of_demoLEDs:
+  1046                           	opt stack 0
+  1047                           postinc0	equ	0xFEE
+  1048                           wreg	equ	0xFE8
+  1049                           postinc2	equ	0xFDE
+  1050                           postdec2	equ	0xFDD
+  1051                           fsr2h	equ	0xFDA
+  1052                           fsr2l	equ	0xFD9
+  1053                           status	equ	0xFD8
+  1054                           
+  1055 ;; *************** function _send_frame *****************
+  1056 ;; Defined at:
+  1057 ;;		line 33 in file "led.c"
+  1058 ;; Parameters:    Size  Location     Type
+  1059 ;;		None
+  1060 ;; Auto vars:     Size  Location     Type
+  1061 ;;  i               2   20[COMRAM] unsigned int 
+  1062 ;;  blue            1   19[COMRAM] unsigned char 
+  1063 ;;  green           1   18[COMRAM] unsigned char 
+  1064 ;;  red             1   17[COMRAM] unsigned char 
+  1065 ;; Return value:  Size  Location     Type
+  1066 ;;		None               void
+  1067 ;; Registers used:
+  1068 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+  1069 ;; Tracked objects:
+  1070 ;;		On entry : 0/0
+  1071 ;;		On exit  : 0/0
+  1072 ;;		Unchanged: 0/0
+  1073 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+  1074 ;;      Params:         0       0       0       0       0
+  1075 ;;      Locals:         5       0       0       0       0
+  1076 ;;      Temps:          6       0       0       0       0
+  1077 ;;      Totals:        11       0       0       0       0
+  1078 ;;Total ram usage:       11 bytes
+  1079 ;; Hardware stack levels used:    1
+  1080 ;; Hardware stack levels required when called:    2
+  1081 ;; This function calls:
+  1082 ;;		_writeLEDSPI
+  1083 ;;		_write_latch
+  1084 ;; This function is called by:
+  1085 ;;		_demoLEDs
+  1086 ;; This function uses a non-reentrant model
+  1087 ;;
+  1088                           
+  1089                           	psect	text3
+  1090  003A68                     __ptext3:
+  1091                           	opt stack 0
+  1092  003A68                     _send_frame:
+  1093                           	opt stack 27
+  1094                           
+  1095                           ;led.c: 34: uint16_t i;
+  1096                           ;led.c: 35: uint8_t red,green,blue;
+  1097                           ;led.c: 37: for(i=0;i<32;i++) {
+  1098                           
+  1099                           ;incstack = 0
+  1100  003A68  0E00               	movlw	0
+  1101  003A6A  6E16               	movwf	send_frame@i+1,c
+  1102  003A6C  0E00               	movlw	0
+  1103  003A6E  6E15               	movwf	send_frame@i,c
+  1104  003A70  0E20               	movlw	32
+  1105  003A72  5C15               	subwf	send_frame@i,w,c
+  1106  003A74  0E00               	movlw	0
+  1107  003A76  5816               	subwfb	send_frame@i+1,w,c
+  1108  003A78  B0D8               	btfsc	status,0,c
+  1109  003A7A  D06B               	goto	l875
+  1110                           
+  1111                           ;led.c: 38: blue = led_strip_colors[i] & 0xFF;
+  1112  003A7C  C015  F00C         	movff	send_frame@i,??_send_frame
+  1113  003A80  C016  F00D         	movff	send_frame@i+1,??_send_frame+1
+  1114  003A84  90D8               	bcf	status,0,c
+  1115  003A86  360C               	rlcf	??_send_frame,f,c
+  1116  003A88  360D               	rlcf	??_send_frame+1,f,c
+  1117  003A8A  90D8               	bcf	status,0,c
+  1118  003A8C  360C               	rlcf	??_send_frame,f,c
+  1119  003A8E  360D               	rlcf	??_send_frame+1,f,c
+  1120  003A90  0100               	movlb	0	; () banked
+  1121  003A92  0E80               	movlw	low _led_strip_colors
+  1122  003A94  240C               	addwf	??_send_frame,w,c
+  1123  003A96  6ED9               	movwf	fsr2l,c
+  1124  003A98  0100               	movlb	0	; () banked
+  1125  003A9A  0E00               	movlw	high _led_strip_colors
+  1126  003A9C  200D               	addwfc	??_send_frame+1,w,c
+  1127  003A9E  6EDA               	movwf	fsr2h,c
+  1128  003AA0  50DF               	movf	indf2,w,c
+  1129  003AA2  6E14               	movwf	send_frame@blue,c
+  1130                           
+  1131                           ;led.c: 39: green = (led_strip_colors[i] >> 8) & 0xFF;
+  1132  003AA4  C015  F00C         	movff	send_frame@i,??_send_frame
+  1133  003AA8  C016  F00D         	movff	send_frame@i+1,??_send_frame+1
+  1134  003AAC  90D8               	bcf	status,0,c
+  1135  003AAE  360C               	rlcf	??_send_frame,f,c
+  1136  003AB0  360D               	rlcf	??_send_frame+1,f,c
+  1137  003AB2  90D8               	bcf	status,0,c
+  1138  003AB4  360C               	rlcf	??_send_frame,f,c
+  1139  003AB6  360D               	rlcf	??_send_frame+1,f,c
+  1140  003AB8  0100               	movlb	0	; () banked
+  1141  003ABA  0E80               	movlw	low _led_strip_colors
+  1142  003ABC  240C               	addwf	??_send_frame,w,c
+  1143  003ABE  6ED9               	movwf	fsr2l,c
+  1144  003AC0  0100               	movlb	0	; () banked
+  1145  003AC2  0E00               	movlw	high _led_strip_colors
+  1146  003AC4  200D               	addwfc	??_send_frame+1,w,c
+  1147  003AC6  6EDA               	movwf	fsr2h,c
+  1148  003AC8  CFDE F00E          	movff	postinc2,??_send_frame+2
+  1149  003ACC  CFDE F00F          	movff	postinc2,??_send_frame+3
+  1150  003AD0  CFDE F010          	movff	postinc2,??_send_frame+4
+  1151  003AD4  CFDE F011          	movff	postinc2,??_send_frame+5
+  1152  003AD8  C00F  F00E         	movff	??_send_frame+3,??_send_frame+2
+  1153  003ADC  C010  F00F         	movff	??_send_frame+4,??_send_frame+3
+  1154  003AE0  C011  F010         	movff	??_send_frame+5,??_send_frame+4
+  1155  003AE4  6A11               	clrf	??_send_frame+5,c
+  1156  003AE6  500E               	movf	??_send_frame+2,w,c
+  1157  003AE8  6E13               	movwf	send_frame@green,c
+  1158                           
+  1159                           ;led.c: 40: red = (led_strip_colors[i] >> 16) & 0xFF;
+  1160  003AEA  C015  F00C         	movff	send_frame@i,??_send_frame
+  1161  003AEE  C016  F00D         	movff	send_frame@i+1,??_send_frame+1
+  1162  003AF2  90D8               	bcf	status,0,c
+  1163  003AF4  360C               	rlcf	??_send_frame,f,c
+  1164  003AF6  360D               	rlcf	??_send_frame+1,f,c
+  1165  003AF8  90D8               	bcf	status,0,c
+  1166  003AFA  360C               	rlcf	??_send_frame,f,c
+  1167  003AFC  360D               	rlcf	??_send_frame+1,f,c
+  1168  003AFE  0100               	movlb	0	; () banked
+  1169  003B00  0E80               	movlw	low _led_strip_colors
+  1170  003B02  240C               	addwf	??_send_frame,w,c
+  1171  003B04  6ED9               	movwf	fsr2l,c
+  1172  003B06  0100               	movlb	0	; () banked
+  1173  003B08  0E00               	movlw	high _led_strip_colors
+  1174  003B0A  200D               	addwfc	??_send_frame+1,w,c
+  1175  003B0C  6EDA               	movwf	fsr2h,c
+  1176  003B0E  CFDE F00E          	movff	postinc2,??_send_frame+2
+  1177  003B12  CFDE F00F          	movff	postinc2,??_send_frame+3
+  1178  003B16  CFDE F010          	movff	postinc2,??_send_frame+4
+  1179  003B1A  CFDE F011          	movff	postinc2,??_send_frame+5
+  1180  003B1E  0E11               	movlw	17
+  1181  003B20  D005               	goto	u150
+  1182  003B22                     u155:
+  1183  003B22  90D8               	bcf	status,0,c
+  1184  003B24  3211               	rrcf	??_send_frame+5,f,c
+  1185  003B26  3210               	rrcf	??_send_frame+4,f,c
+  1186  003B28  320F               	rrcf	??_send_frame+3,f,c
+  1187  003B2A  320E               	rrcf	??_send_frame+2,f,c
+  1188  003B2C                     u150:
+  1189  003B2C  2EE8               	decfsz	wreg,f,c
+  1190  003B2E  D7F9               	goto	u155
+  1191  003B30  500E               	movf	??_send_frame+2,w,c
+  1192  003B32  6E12               	movwf	send_frame@red,c
+  1193                           
+  1194                           ; BSR set to: 0
+  1195                           ;led.c: 41: writeLEDSPI((green|0x80));
+  1196  003B34  5013               	movf	send_frame@green,w,c
+  1197  003B36  0980               	iorlw	128
+  1198  003B38  ECBB  F01B         	call	_writeLEDSPI
+  1199                           
+  1200                           ;led.c: 42: writeLEDSPI((red|0x80));
+  1201  003B3C  5012               	movf	send_frame@red,w,c
+  1202  003B3E  0980               	iorlw	128
+  1203  003B40  ECBB  F01B         	call	_writeLEDSPI
+  1204                           
+  1205                           ;led.c: 43: writeLEDSPI((blue|0x80));
+  1206  003B44  5014               	movf	send_frame@blue,w,c
+  1207  003B46  0980               	iorlw	128
+  1208  003B48  ECBB  F01B         	call	_writeLEDSPI
+  1209  003B4C  4A15               	infsnz	send_frame@i,f,c
+  1210  003B4E  2A16               	incf	send_frame@i+1,f,c
+  1211  003B50  D78F               	goto	L12
+  1212  003B52                     l875:
+  1213                           
+  1214                           ;led.c: 44: }
+  1215                           ;led.c: 45: write_latch(32);
+  1216  003B52  0E00               	movlw	0
+  1217  003B54  6E08               	movwf	write_latch@len+1,c
+  1218  003B56  0E20               	movlw	32
+  1219  003B58  6E07               	movwf	write_latch@len,c
+  1220  003B5A  EC33  F01C         	call	_write_latch	;wreg free
+  1221  003B5E  0012               	return	
+  1222  003B60                     __end_of_send_frame:
+  1223                           	opt stack 0
+  1224                           postinc0	equ	0xFEE
+  1225                           wreg	equ	0xFE8
+  1226                           indf2	equ	0xFDF
+  1227                           postinc2	equ	0xFDE
+  1228                           postdec2	equ	0xFDD
+  1229                           fsr2h	equ	0xFDA
+  1230                           fsr2l	equ	0xFD9
+  1231                           status	equ	0xFD8
+  1232                           
+  1233 ;; *************** function _write_latch *****************
+  1234 ;; Defined at:
+  1235 ;;		line 22 in file "led.c"
+  1236 ;; Parameters:    Size  Location     Type
+  1237 ;;  len             2    6[COMRAM] unsigned int 
+  1238 ;; Auto vars:     Size  Location     Type
+  1239 ;;		None
+  1240 ;; Return value:  Size  Location     Type
+  1241 ;;		None               void
+  1242 ;; Registers used:
+  1243 ;;		wreg, status,2, status,0, prodl, prodh, cstack
+  1244 ;; Tracked objects:
+  1245 ;;		On entry : 0/0
+  1246 ;;		On exit  : 0/0
+  1247 ;;		Unchanged: 0/0
+  1248 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+  1249 ;;      Params:         2       0       0       0       0
+  1250 ;;      Locals:         0       0       0       0       0
+  1251 ;;      Temps:          3       0       0       0       0
+  1252 ;;      Totals:         5       0       0       0       0
+  1253 ;;Total ram usage:        5 bytes
+  1254 ;; Hardware stack levels used:    1
+  1255 ;; Hardware stack levels required when called:    1
+  1256 ;; This function calls:
+  1257 ;;		___wmul
+  1258 ;;		_writeLEDSPI
+  1259 ;; This function is called by:
+  1260 ;;		_send_frame
+  1261 ;; This function uses a non-reentrant model
+  1262 ;;
+  1263                           
+  1264                           	psect	text4
+  1265  003866                     __ptext4:
+  1266                           	opt stack 0
+  1267  003866                     _write_latch:
+  1268                           	opt stack 27
+  1269                           
+  1270                           ;led.c: 25: len = ((len + 63) / 64) * 3;
+  1271                           
+  1272                           ;incstack = 0
+  1273  003866  0E3F               	movlw	63
+  1274  003868  2407               	addwf	write_latch@len,w,c
+  1275  00386A  6E09               	movwf	??_write_latch& (0+255),c
+  1276  00386C  0E00               	movlw	0
+  1277  00386E  2008               	addwfc	write_latch@len+1,w,c
+  1278  003870  6E0A               	movwf	(??_write_latch+1)& (0+255),c
+  1279  003872  0E06               	movlw	6
+  1280  003874  6E0B               	movwf	(??_write_latch+2)& (0+255),c
+  1281  003876                     u115:
+  1282  003876  90D8               	bcf	status,0,c
+  1283  003878  320A               	rrcf	??_write_latch+1,f,c
+  1284  00387A  3209               	rrcf	??_write_latch,f,c
+  1285  00387C  2E0B               	decfsz	(??_write_latch+2)& (0+255),f,c
+  1286  00387E  D7FB               	goto	u115
+  1287  003880  C009  F001         	movff	??_write_latch,___wmul@multiplier
+  1288  003884  C00A  F002         	movff	??_write_latch+1,___wmul@multiplier+1
+  1289  003888  0E00               	movlw	0
+  1290  00388A  6E04               	movwf	___wmul@multiplicand+1,c
+  1291  00388C  0E03               	movlw	3
+  1292  00388E  6E03               	movwf	___wmul@multiplicand,c
+  1293  003890  ECF3  F01B         	call	___wmul	;wreg free
+  1294  003894  C001  F007         	movff	?___wmul,write_latch@len
+  1295  003898  C002  F008         	movff	?___wmul+1,write_latch@len+1
+  1296                           
+  1297                           ;led.c: 27: while(len>0) {
+  1298  00389C  D006               	goto	l847
+  1299  00389E                     l843:
+  1300                           
+  1301                           ;led.c: 28: writeLEDSPI(0x00);
+  1302  00389E  0E00               	movlw	0
+  1303  0038A0  ECBB  F01B         	call	_writeLEDSPI
+  1304                           
+  1305                           ;led.c: 29: len--;
+  1306  0038A4  0607               	decf	write_latch@len,f,c
+  1307  0038A6  A0D8               	btfss	status,0,c
+  1308  0038A8  0608               	decf	write_latch@len+1,f,c
+  1309  0038AA                     l847:
+  1310  0038AA  5008               	movf	write_latch@len+1,w,c
+  1311  0038AC  1007               	iorwf	write_latch@len,w,c
+  1312  0038AE  B4D8               	btfsc	status,2,c
+  1313  0038B0  0012               	return	
+  1314  0038B2  D7F5               	goto	l843
+  1315  0038B4                     __end_of_write_latch:
+  1316                           	opt stack 0
+  1317                           postinc0	equ	0xFEE
+  1318                           wreg	equ	0xFE8
+  1319                           indf2	equ	0xFDF
+  1320                           postinc2	equ	0xFDE
+  1321                           postdec2	equ	0xFDD
+  1322                           fsr2h	equ	0xFDA
+  1323                           fsr2l	equ	0xFD9
+  1324                           status	equ	0xFD8
+  1325                           
+  1326 ;; *************** function _writeLEDSPI *****************
+  1327 ;; Defined at:
+  1328 ;;		line 16 in file "spi.c"
+  1329 ;; Parameters:    Size  Location     Type
+  1330 ;;  data            1    wreg     unsigned char 
+  1331 ;; Auto vars:     Size  Location     Type
+  1332 ;;  data            1    0[COMRAM] unsigned char 
+  1333 ;; Return value:  Size  Location     Type
+  1334 ;;		None               void
+  1335 ;; Registers used:
+  1336 ;;		wreg
+  1337 ;; Tracked objects:
+  1338 ;;		On entry : 0/0
+  1339 ;;		On exit  : 0/0
+  1340 ;;		Unchanged: 0/0
+  1341 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+  1342 ;;      Params:         0       0       0       0       0
+  1343 ;;      Locals:         1       0       0       0       0
+  1344 ;;      Temps:          0       0       0       0       0
+  1345 ;;      Totals:         1       0       0       0       0
+  1346 ;;Total ram usage:        1 bytes
+  1347 ;; Hardware stack levels used:    1
+  1348 ;; This function calls:
+  1349 ;;		Nothing
+  1350 ;; This function is called by:
+  1351 ;;		_write_latch
+  1352 ;;		_send_frame
+  1353 ;; This function uses a non-reentrant model
+  1354 ;;
+  1355                           
+  1356                           	psect	text5
+  1357  003776                     __ptext5:
+  1358                           	opt stack 0
+  1359  003776                     _writeLEDSPI:
+  1360                           	opt stack 27
+  1361                           
+  1362                           ;incstack = 0
+  1363                           ;writeLEDSPI@data stored from wreg
+  1364  003776  CFE8 F001          	movff	wreg,writeLEDSPI@data
+  1365                           
+  1366                           ;spi.c: 20: SSPBUF = data;
+  1367  00377A  C001  FFC9         	movff	writeLEDSPI@data,4041	;volatile
+  1368  00377E                     l113:
+  1369  00377E  B0C7               	btfsc	4039,0,c	;volatile
+  1370  003780  0012               	return	
+  1371  003782  D7FD               	goto	l113
+  1372  003784                     __end_of_writeLEDSPI:
+  1373                           	opt stack 0
+  1374                           postinc0	equ	0xFEE
+  1375                           wreg	equ	0xFE8
+  1376                           indf2	equ	0xFDF
+  1377                           postinc2	equ	0xFDE
+  1378                           postdec2	equ	0xFDD
+  1379                           fsr2h	equ	0xFDA
+  1380                           fsr2l	equ	0xFD9
+  1381                           status	equ	0xFD8
+  1382                           
+  1383 ;; *************** function ___wmul *****************
+  1384 ;; Defined at:
+  1385 ;;		line 4 in file "/opt/microchip/xc8/v1.30/sources/common/wmul.c"
+  1386 ;; Parameters:    Size  Location     Type
+  1387 ;;  multiplier      2    0[COMRAM] unsigned int 
+  1388 ;;  multiplicand    2    2[COMRAM] unsigned int 
+  1389 ;; Auto vars:     Size  Location     Type
+  1390 ;;  product         2    4[COMRAM] unsigned int 
+  1391 ;; Return value:  Size  Location     Type
+  1392 ;;                  2    0[COMRAM] unsigned int 
+  1393 ;; Registers used:
+  1394 ;;		wreg, status,2, status,0, prodl, prodh
+  1395 ;; Tracked objects:
+  1396 ;;		On entry : 0/0
+  1397 ;;		On exit  : 0/0
+  1398 ;;		Unchanged: 0/0
+  1399 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+  1400 ;;      Params:         4       0       0       0       0
+  1401 ;;      Locals:         2       0       0       0       0
+  1402 ;;      Temps:          0       0       0       0       0
+  1403 ;;      Totals:         6       0       0       0       0
+  1404 ;;Total ram usage:        6 bytes
+  1405 ;; Hardware stack levels used:    1
+  1406 ;; This function calls:
+  1407 ;;		Nothing
+  1408 ;; This function is called by:
+  1409 ;;		_write_latch
+  1410 ;; This function uses a non-reentrant model
+  1411 ;;
+  1412                           
+  1413                           	psect	text6
+  1414  0037E6                     __ptext6:
+  1415                           	opt stack 0
+  1416  0037E6                     ___wmul:
+  1417                           	opt stack 27
+  1418                           
+  1419                           ;incstack = 0
+  1420  0037E6  5001               	movf	___wmul@multiplier,w,c
+  1421  0037E8  0203               	mulwf	___wmul@multiplicand,c
+  1422  0037EA  CFF3 F005          	movff	prodl,___wmul@product
+  1423  0037EE  CFF4 F006          	movff	prodh,___wmul@product+1
+  1424  0037F2  5001               	movf	___wmul@multiplier,w,c
+  1425  0037F4  0204               	mulwf	___wmul@multiplicand+1,c
+  1426  0037F6  CFF3 FFF4          	movff	prodl,prodh
+  1427  0037FA  6AF3               	clrf	prodl,c
+  1428  0037FC  50F3               	movf	prodl,w,c
+  1429  0037FE  2605               	addwf	___wmul@product,f,c
+  1430  003800  50F4               	movf	prodh,w,c
+  1431  003802  2206               	addwfc	___wmul@product+1,f,c
+  1432  003804  5002               	movf	___wmul@multiplier+1,w,c
+  1433  003806  0203               	mulwf	___wmul@multiplicand,c
+  1434  003808  CFF3 FFF4          	movff	prodl,prodh
+  1435  00380C  6AF3               	clrf	prodl,c
+  1436  00380E  50F3               	movf	prodl,w,c
+  1437  003810  2605               	addwf	___wmul@product,f,c
+  1438  003812  50F4               	movf	prodh,w,c
+  1439  003814  2206               	addwfc	___wmul@product+1,f,c
+  1440  003816  C005  F001         	movff	___wmul@product,?___wmul
+  1441  00381A  C006  F002         	movff	___wmul@product+1,?___wmul+1
+  1442  00381E  0012               	return	
+  1443  003820                     __end_of___wmul:
+  1444                           	opt stack 0
+  1445                           prodh	equ	0xFF4
+  1446                           prodl	equ	0xFF3
+  1447                           postinc0	equ	0xFEE
+  1448                           wreg	equ	0xFE8
+  1449                           indf2	equ	0xFDF
+  1450                           postinc2	equ	0xFDE
+  1451                           postdec2	equ	0xFDD
+  1452                           fsr2h	equ	0xFDA
+  1453                           fsr2l	equ	0xFD9
+  1454                           status	equ	0xFD8
+  1455                           
+  1456 ;; *************** function _addRandom *****************
+  1457 ;; Defined at:
+  1458 ;;		line 48 in file "led.c"
+  1459 ;; Parameters:    Size  Location     Type
+  1460 ;;		None
+  1461 ;; Auto vars:     Size  Location     Type
+  1462 ;;  new_color       4   24[COMRAM] unsigned long 
+  1463 ;;  x               2   28[COMRAM] unsigned int 
+  1464 ;; Return value:  Size  Location     Type
+  1465 ;;		None               void
+  1466 ;; Registers used:
+  1467 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, cstack
+  1468 ;; Tracked objects:
+  1469 ;;		On entry : 0/0
+  1470 ;;		On exit  : 0/0
+  1471 ;;		Unchanged: 0/0
+  1472 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+  1473 ;;      Params:         0       0       0       0       0
+  1474 ;;      Locals:         6       0       0       0       0
+  1475 ;;      Temps:          6       0       0       0       0
+  1476 ;;      Totals:        12       0       0       0       0
+  1477 ;;Total ram usage:       12 bytes
+  1478 ;; Hardware stack levels used:    1
+  1479 ;; Hardware stack levels required when called:    2
+  1480 ;; This function calls:
+  1481 ;;		_rand
+  1482 ;; This function is called by:
+  1483 ;;		_demoLEDs
+  1484 ;; This function uses a non-reentrant model
+  1485 ;;
+  1486                           
+  1487                           	psect	text7
+  1488  003974                     __ptext7:
+  1489                           	opt stack 0
+  1490  003974                     _addRandom:
+  1491                           	opt stack 27
+  1492                           
+  1493                           ;led.c: 49: uint16_t x;
+  1494                           ;led.c: 50: uint32_t new_color = 0;
+  1495                           
+  1496                           ;incstack = 0
+  1497  003974  0E00               	movlw	0
+  1498  003976  6E19               	movwf	addRandom@new_color,c
+  1499  003978  0E00               	movlw	0
+  1500  00397A  6E1A               	movwf	addRandom@new_color+1,c
+  1501  00397C  0E00               	movlw	0
+  1502  00397E  6E1B               	movwf	addRandom@new_color+2,c
+  1503  003980  0E00               	movlw	0
+  1504  003982  6E1C               	movwf	addRandom@new_color+3,c
+  1505                           
+  1506                           ;led.c: 53: for(x = (32 - 1) ; x > 0 ; x--)
+  1507  003984  0E00               	movlw	0
+  1508  003986  6E1E               	movwf	addRandom@x+1,c
+  1509  003988  0E1F               	movlw	31
+  1510  00398A  6E1D               	movwf	addRandom@x,c
+  1511  00398C  501E               	movf	addRandom@x+1,w,c
+  1512  00398E  101D               	iorwf	addRandom@x,w,c
+  1513  003990  B4D8               	btfsc	status,2,c
+  1514  003992  D03A               	goto	l889
+  1515                           
+  1516                           ;led.c: 54: led_strip_colors[x] = led_strip_colors[x - 1];
+  1517  003994  0EFC               	movlw	252
+  1518  003996  6E13               	movwf	??_addRandom& (0+255),c
+  1519  003998  0EFF               	movlw	255
+  1520  00399A  6E14               	movwf	(??_addRandom+1)& (0+255),c
+  1521  00399C  C01D  F015         	movff	addRandom@x,??_addRandom+2
+  1522  0039A0  C01E  F016         	movff	addRandom@x+1,??_addRandom+3
+  1523  0039A4  90D8               	bcf	status,0,c
+  1524  0039A6  3615               	rlcf	??_addRandom+2,f,c
+  1525  0039A8  3616               	rlcf	??_addRandom+3,f,c
+  1526  0039AA  90D8               	bcf	status,0,c
+  1527  0039AC  3615               	rlcf	??_addRandom+2,f,c
+  1528  0039AE  3616               	rlcf	??_addRandom+3,f,c
+  1529  0039B0  5013               	movf	??_addRandom,w,c
+  1530  0039B2  2615               	addwf	??_addRandom+2,f,c
+  1531  0039B4  5014               	movf	??_addRandom+1,w,c
+  1532  0039B6  2216               	addwfc	??_addRandom+3,f,c
+  1533  0039B8  0100               	movlb	0	; () banked
+  1534  0039BA  0E80               	movlw	low _led_strip_colors
+  1535  0039BC  2415               	addwf	??_addRandom+2,w,c
+  1536  0039BE  6ED9               	movwf	fsr2l,c
+  1537  0039C0  0100               	movlb	0	; () banked
+  1538  0039C2  0E00               	movlw	high _led_strip_colors
+  1539  0039C4  2016               	addwfc	??_addRandom+3,w,c
+  1540  0039C6  6EDA               	movwf	fsr2h,c
+  1541  0039C8  C01D  F017         	movff	addRandom@x,??_addRandom+4
+  1542  0039CC  C01E  F018         	movff	addRandom@x+1,??_addRandom+5
+  1543  0039D0  90D8               	bcf	status,0,c
+  1544  0039D2  3617               	rlcf	??_addRandom+4,f,c
+  1545  0039D4  3618               	rlcf	??_addRandom+5,f,c
+  1546  0039D6  90D8               	bcf	status,0,c
+  1547  0039D8  3617               	rlcf	??_addRandom+4,f,c
+  1548  0039DA  3618               	rlcf	??_addRandom+5,f,c
+  1549  0039DC  0100               	movlb	0	; () banked
+  1550  0039DE  0E80               	movlw	low _led_strip_colors
+  1551  0039E0  2417               	addwf	??_addRandom+4,w,c
+  1552  0039E2  6EE1               	movwf	fsr1l,c
+  1553  0039E4  0100               	movlb	0	; () banked
+  1554  0039E6  0E00               	movlw	high _led_strip_colors
+  1555  0039E8  2018               	addwfc	??_addRandom+5,w,c
+  1556  0039EA  6EE2               	movwf	fsr1h,c
+  1557  0039EC  CFDE FFE6          	movff	postinc2,postinc1
+  1558  0039F0  CFDE FFE6          	movff	postinc2,postinc1
+  1559  0039F4  CFDE FFE6          	movff	postinc2,postinc1
+  1560  0039F8  CFDD FFE5          	movff	postdec2,postdec1
+  1561  0039FC  52E5               	movf	postdec1,f,c
+  1562  0039FE  52E5               	movf	postdec1,f,c
+  1563                           
+  1564                           ; BSR set to: 0
+  1565  003A00  061D               	decf	addRandom@x,f,c
+  1566  003A02  A0D8               	btfss	status,0,c
+  1567  003A04  061E               	decf	addRandom@x+1,f,c
+  1568  003A06  D7C2               	goto	L13
+  1569  003A08                     l889:
+  1570                           
+  1571                           ;led.c: 57: for(x = 0 ; x < 3 ; x++){
+  1572  003A08  0E00               	movlw	0
+  1573  003A0A  6E1E               	movwf	addRandom@x+1,c
+  1574  003A0C  0E00               	movlw	0
+  1575  003A0E  6E1D               	movwf	addRandom@x,c
+  1576  003A10  0E03               	movlw	3
+  1577  003A12  5C1D               	subwf	addRandom@x,w,c
+  1578  003A14  0E00               	movlw	0
+  1579  003A16  581E               	subwfb	addRandom@x+1,w,c
+  1580  003A18  B0D8               	btfsc	status,0,c
+  1581  003A1A  D01D               	goto	l61
+  1582                           
+  1583                           ;led.c: 58: new_color <<= 8;
+  1584  003A1C  C01B  F01C         	movff	addRandom@new_color+2,addRandom@new_color+3
+  1585  003A20  C01A  F01B         	movff	addRandom@new_color+1,addRandom@new_color+2
+  1586  003A24  C019  F01A         	movff	addRandom@new_color,addRandom@new_color+1
+  1587  003A28  6A19               	clrf	addRandom@new_color,c
+  1588                           
+  1589                           ;led.c: 59: new_color |= rand();
+  1590  003A2A  EC85  F01C         	call	_rand	;wreg free
+  1591  003A2E  C00D  F013         	movff	?_rand,??_addRandom
+  1592  003A32  C00E  F014         	movff	?_rand+1,??_addRandom+1
+  1593  003A36  0E00               	movlw	0
+  1594  003A38  BE14               	btfsc	(??_addRandom+1)& (0+255),7,c
+  1595  003A3A  0EFF               	movlw	255
+  1596  003A3C  6E15               	movwf	(??_addRandom+2)& (0+255),c
+  1597  003A3E  6E16               	movwf	(??_addRandom+3)& (0+255),c
+  1598  003A40  5013               	movf	??_addRandom,w,c
+  1599  003A42  1219               	iorwf	addRandom@new_color,f,c
+  1600  003A44  5014               	movf	??_addRandom+1,w,c
+  1601  003A46  121A               	iorwf	addRandom@new_color+1,f,c
+  1602  003A48  5015               	movf	??_addRandom+2,w,c
+  1603  003A4A  121B               	iorwf	addRandom@new_color+2,f,c
+  1604  003A4C  5016               	movf	??_addRandom+3,w,c
+  1605  003A4E  121C               	iorwf	addRandom@new_color+3,f,c
+  1606  003A50  4A1D               	infsnz	addRandom@x,f,c
+  1607  003A52  2A1E               	incf	addRandom@x+1,f,c
+  1608  003A54  D7DD               	goto	L14
+  1609  003A56                     l61:
+  1610                           
+  1611                           ;led.c: 60: }
+  1612                           ;led.c: 61: led_strip_colors[0] = new_color;
+  1613  003A56  C019  F080         	movff	addRandom@new_color,_led_strip_colors
+  1614  003A5A  C01A  F081         	movff	addRandom@new_color+1,_led_strip_colors+1
+  1615  003A5E  C01B  F082         	movff	addRandom@new_color+2,_led_strip_colors+2
+  1616  003A62  C01C  F083         	movff	addRandom@new_color+3,_led_strip_colors+3
+  1617  003A66  0012               	return	
+  1618  003A68                     __end_of_addRandom:
+  1619                           	opt stack 0
+  1620                           prodh	equ	0xFF4
+  1621                           prodl	equ	0xFF3
+  1622                           postinc0	equ	0xFEE
+  1623                           wreg	equ	0xFE8
+  1624                           postinc1	equ	0xFE6
+  1625                           postdec1	equ	0xFE5
+  1626                           fsr1h	equ	0xFE2
+  1627                           fsr1l	equ	0xFE1
+  1628                           indf2	equ	0xFDF
+  1629                           postinc2	equ	0xFDE
+  1630                           postdec2	equ	0xFDD
+  1631                           fsr2h	equ	0xFDA
+  1632                           fsr2l	equ	0xFD9
+  1633                           status	equ	0xFD8
+  1634                           
+  1635 ;; *************** function _rand *****************
+  1636 ;; Defined at:
+  1637 ;;		line 13 in file "/opt/microchip/xc8/v1.30/sources/common/rand.c"
+  1638 ;; Parameters:    Size  Location     Type
+  1639 ;;		None
+  1640 ;; Auto vars:     Size  Location     Type
+  1641 ;;		None
+  1642 ;; Return value:  Size  Location     Type
+  1643 ;;                  2   12[COMRAM] int 
+  1644 ;; Registers used:
+  1645 ;;		wreg, status,2, status,0, cstack
+  1646 ;; Tracked objects:
+  1647 ;;		On entry : 0/0
+  1648 ;;		On exit  : 0/0
+  1649 ;;		Unchanged: 0/0
+  1650 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+  1651 ;;      Params:         2       0       0       0       0
+  1652 ;;      Locals:         0       0       0       0       0
+  1653 ;;      Temps:          4       0       0       0       0
+  1654 ;;      Totals:         6       0       0       0       0
+  1655 ;;Total ram usage:        6 bytes
+  1656 ;; Hardware stack levels used:    1
+  1657 ;; Hardware stack levels required when called:    1
+  1658 ;; This function calls:
+  1659 ;;		___lmul
+  1660 ;;		_srand
+  1661 ;; This function is called by:
+  1662 ;;		_addRandom
+  1663 ;; This function uses a non-reentrant model
+  1664 ;;
+  1665                           
+  1666                           	psect	text8
+  1667  00390A                     __ptext8:
+  1668                           	opt stack 0
+  1669  00390A                     _rand:
+  1670                           	opt stack 27
+  1671                           
+  1672                           ;incstack = 0
+  1673  00390A  662C               	tstfsz	_randf,c
+  1674  00390C  D006               	goto	l853
+  1675  00390E  0E00               	movlw	0
+  1676  003910  6E02               	movwf	srand@x+1,c
+  1677  003912  0E01               	movlw	1
+  1678  003914  6E01               	movwf	srand@x,c
+  1679  003916  ECCA  F01B         	call	_srand	;wreg free
+  1680  00391A                     l853:
+  1681  00391A  C028  F001         	movff	_randx,___lmul@multiplier
+  1682  00391E  C029  F002         	movff	_randx+1,___lmul@multiplier+1
+  1683  003922  C02A  F003         	movff	_randx+2,___lmul@multiplier+2
+  1684  003926  C02B  F004         	movff	_randx+3,___lmul@multiplier+3
+  1685  00392A  0E6D               	movlw	109
+  1686  00392C  6E05               	movwf	___lmul@multiplicand,c
+  1687  00392E  0E4E               	movlw	78
+  1688  003930  6E06               	movwf	___lmul@multiplicand+1,c
+  1689  003932  0EC6               	movlw	198
+  1690  003934  6E07               	movwf	___lmul@multiplicand+2,c
+  1691  003936  0E41               	movlw	65
+  1692  003938  6E08               	movwf	___lmul@multiplicand+3,c
+  1693  00393A  EC5A  F01C         	call	___lmul	;wreg free
+  1694  00393E  C001  F00F         	movff	?___lmul,??_rand
+  1695  003942  C002  F010         	movff	?___lmul+1,??_rand+1
+  1696  003946  C003  F011         	movff	?___lmul+2,??_rand+2
+  1697  00394A  C004  F012         	movff	?___lmul+3,??_rand+3
+  1698  00394E  0E39               	movlw	57
+  1699  003950  240F               	addwf	??_rand,w,c
+  1700  003952  6E28               	movwf	_randx,c
+  1701  003954  0E30               	movlw	48
+  1702  003956  2010               	addwfc	??_rand+1,w,c
+  1703  003958  6E29               	movwf	_randx+1,c
+  1704  00395A  0E00               	movlw	0
+  1705  00395C  2011               	addwfc	??_rand+2,w,c
+  1706  00395E  6E2A               	movwf	_randx+2,c
+  1707  003960  0E00               	movlw	0
+  1708  003962  2012               	addwfc	??_rand+3,w,c
+  1709  003964  6E2B               	movwf	_randx+3,c
+  1710  003966  0EFF               	movlw	255
+  1711  003968  142A               	andwf	(_randx+2)& (0+255),w,c
+  1712  00396A  6E0D               	movwf	?_rand,c
+  1713  00396C  0E7F               	movlw	127
+  1714  00396E  142B               	andwf	(_randx+3)& (0+255),w,c
+  1715  003970  6E0E               	movwf	?_rand+1,c
+  1716  003972  0012               	return	
+  1717  003974                     __end_of_rand:
+  1718                           	opt stack 0
+  1719                           prodh	equ	0xFF4
+  1720                           prodl	equ	0xFF3
+  1721                           postinc0	equ	0xFEE
+  1722                           wreg	equ	0xFE8
+  1723                           postinc1	equ	0xFE6
+  1724                           postdec1	equ	0xFE5
+  1725                           fsr1h	equ	0xFE2
+  1726                           fsr1l	equ	0xFE1
+  1727                           indf2	equ	0xFDF
+  1728                           postinc2	equ	0xFDE
+  1729                           postdec2	equ	0xFDD
+  1730                           fsr2h	equ	0xFDA
+  1731                           fsr2l	equ	0xFD9
+  1732                           status	equ	0xFD8
+  1733                           
+  1734 ;; *************** function _srand *****************
+  1735 ;; Defined at:
+  1736 ;;		line 7 in file "/opt/microchip/xc8/v1.30/sources/common/rand.c"
+  1737 ;; Parameters:    Size  Location     Type
+  1738 ;;  x               2    0[COMRAM] unsigned int 
+  1739 ;; Auto vars:     Size  Location     Type
+  1740 ;;		None
+  1741 ;; Return value:  Size  Location     Type
+  1742 ;;		None               void
+  1743 ;; Registers used:
+  1744 ;;		status,2
+  1745 ;; Tracked objects:
+  1746 ;;		On entry : 0/0
+  1747 ;;		On exit  : 0/0
+  1748 ;;		Unchanged: 0/0
+  1749 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+  1750 ;;      Params:         2       0       0       0       0
+  1751 ;;      Locals:         0       0       0       0       0
+  1752 ;;      Temps:          1       0       0       0       0
+  1753 ;;      Totals:         3       0       0       0       0
+  1754 ;;Total ram usage:        3 bytes
+  1755 ;; Hardware stack levels used:    1
+  1756 ;; This function calls:
+  1757 ;;		Nothing
+  1758 ;; This function is called by:
+  1759 ;;		_rand
+  1760 ;; This function uses a non-reentrant model
+  1761 ;;
+  1762                           
+  1763                           	psect	text9
+  1764  003794                     __ptext9:
+  1765                           	opt stack 0
+  1766  003794                     _srand:
+  1767                           	opt stack 27
+  1768                           
+  1769                           ;incstack = 0
+  1770  003794  C001  F028         	movff	srand@x,_randx
+  1771  003798  C002  F029         	movff	srand@x+1,_randx+1
+  1772  00379C  6A2A               	clrf	_randx+2,c
+  1773  00379E  6A2B               	clrf	_randx+3,c
+  1774  0037A0  6E03               	movwf	??_srand& (0+255),c
+  1775  0037A2  0E01               	movlw	1
+  1776  0037A4  6E2C               	movwf	_randf,c
+  1777  0037A6  5003               	movf	??_srand& (0+255),w,c
+  1778  0037A8  0012               	return	
+  1779  0037AA                     __end_of_srand:
+  1780                           	opt stack 0
+  1781                           prodh	equ	0xFF4
+  1782                           prodl	equ	0xFF3
+  1783                           postinc0	equ	0xFEE
+  1784                           wreg	equ	0xFE8
+  1785                           postinc1	equ	0xFE6
+  1786                           postdec1	equ	0xFE5
+  1787                           fsr1h	equ	0xFE2
+  1788                           fsr1l	equ	0xFE1
+  1789                           indf2	equ	0xFDF
+  1790                           postinc2	equ	0xFDE
+  1791                           postdec2	equ	0xFDD
+  1792                           fsr2h	equ	0xFDA
+  1793                           fsr2l	equ	0xFD9
+  1794                           status	equ	0xFD8
+  1795                           
+  1796 ;; *************** function ___lmul *****************
+  1797 ;; Defined at:
+  1798 ;;		line 2 in file "/opt/microchip/xc8/v1.30/sources/common/lmul.c"
+  1799 ;; Parameters:    Size  Location     Type
+  1800 ;;  multiplier      4    0[COMRAM] unsigned long 
+  1801 ;;  multiplicand    4    4[COMRAM] unsigned long 
+  1802 ;; Auto vars:     Size  Location     Type
+  1803 ;;  product         4    8[COMRAM] unsigned long 
+  1804 ;; Return value:  Size  Location     Type
+  1805 ;;                  4    0[COMRAM] unsigned long 
+  1806 ;; Registers used:
+  1807 ;;		wreg, status,2, status,0
+  1808 ;; Tracked objects:
+  1809 ;;		On entry : 0/0
+  1810 ;;		On exit  : 0/0
+  1811 ;;		Unchanged: 0/0
+  1812 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+  1813 ;;      Params:         8       0       0       0       0
+  1814 ;;      Locals:         4       0       0       0       0
+  1815 ;;      Temps:          0       0       0       0       0
+  1816 ;;      Totals:        12       0       0       0       0
+  1817 ;;Total ram usage:       12 bytes
+  1818 ;; Hardware stack levels used:    1
+  1819 ;; This function calls:
+  1820 ;;		Nothing
+  1821 ;; This function is called by:
+  1822 ;;		_rand
+  1823 ;; This function uses a non-reentrant model
+  1824 ;;
+  1825                           
+  1826                           	psect	text10
+  1827  0038B4                     __ptext10:
+  1828                           	opt stack 0
+  1829  0038B4                     ___lmul:
+  1830                           	opt stack 27
+  1831                           
+  1832                           ;incstack = 0
+  1833  0038B4  0E00               	movlw	0
+  1834  0038B6  6E09               	movwf	___lmul@product,c
+  1835  0038B8  0E00               	movlw	0
+  1836  0038BA  6E0A               	movwf	___lmul@product+1,c
+  1837  0038BC  0E00               	movlw	0
+  1838  0038BE  6E0B               	movwf	___lmul@product+2,c
+  1839  0038C0  0E00               	movlw	0
+  1840  0038C2  6E0C               	movwf	___lmul@product+3,c
+  1841  0038C4                     l809:
+  1842  0038C4  A001               	btfss	___lmul@multiplier,0,c
+  1843  0038C6  D008               	goto	l813
+  1844  0038C8  5005               	movf	___lmul@multiplicand,w,c
+  1845  0038CA  2609               	addwf	___lmul@product,f,c
+  1846  0038CC  5006               	movf	___lmul@multiplicand+1,w,c
+  1847  0038CE  220A               	addwfc	___lmul@product+1,f,c
+  1848  0038D0  5007               	movf	___lmul@multiplicand+2,w,c
+  1849  0038D2  220B               	addwfc	___lmul@product+2,f,c
+  1850  0038D4  5008               	movf	___lmul@multiplicand+3,w,c
+  1851  0038D6  220C               	addwfc	___lmul@product+3,f,c
+  1852  0038D8                     l813:
+  1853  0038D8  90D8               	bcf	status,0,c
+  1854  0038DA  3605               	rlcf	___lmul@multiplicand,f,c
+  1855  0038DC  3606               	rlcf	___lmul@multiplicand+1,f,c
+  1856  0038DE  3607               	rlcf	___lmul@multiplicand+2,f,c
+  1857  0038E0  3608               	rlcf	___lmul@multiplicand+3,f,c
+  1858  0038E2  90D8               	bcf	status,0,c
+  1859  0038E4  3204               	rrcf	___lmul@multiplier+3,f,c
+  1860  0038E6  3203               	rrcf	___lmul@multiplier+2,f,c
+  1861  0038E8  3202               	rrcf	___lmul@multiplier+1,f,c
+  1862  0038EA  3201               	rrcf	___lmul@multiplier,f,c
+  1863  0038EC  5004               	movf	___lmul@multiplier+3,w,c
+  1864  0038EE  1001               	iorwf	___lmul@multiplier,w,c
+  1865  0038F0  1002               	iorwf	___lmul@multiplier+1,w,c
+  1866  0038F2  1003               	iorwf	___lmul@multiplier+2,w,c
+  1867  0038F4  A4D8               	btfss	status,2,c
+  1868  0038F6  D7E6               	goto	l809
+  1869  0038F8  C009  F001         	movff	___lmul@product,?___lmul
+  1870  0038FC  C00A  F002         	movff	___lmul@product+1,?___lmul+1
+  1871  003900  C00B  F003         	movff	___lmul@product+2,?___lmul+2
+  1872  003904  C00C  F004         	movff	___lmul@product+3,?___lmul+3
+  1873  003908  0012               	return	
+  1874  00390A                     __end_of___lmul:
+  1875                           	opt stack 0
+  1876                           prodh	equ	0xFF4
+  1877                           prodl	equ	0xFF3
+  1878                           postinc0	equ	0xFEE
+  1879                           wreg	equ	0xFE8
+  1880                           postinc1	equ	0xFE6
+  1881                           postdec1	equ	0xFE5
+  1882                           fsr1h	equ	0xFE2
+  1883                           fsr1l	equ	0xFE1
+  1884                           indf2	equ	0xFDF
+  1885                           postinc2	equ	0xFDE
+  1886                           postdec2	equ	0xFDD
+  1887                           fsr2h	equ	0xFDA
+  1888                           fsr2l	equ	0xFD9
+  1889                           status	equ	0xFD8
+  1890                           
+  1891 ;; *************** function ___lwmod *****************
+  1892 ;; Defined at:
+  1893 ;;		line 8 in file "/opt/microchip/xc8/v1.30/sources/common/lwmod.c"
+  1894 ;; Parameters:    Size  Location     Type
+  1895 ;;  dividend        2    0[COMRAM] unsigned int 
+  1896 ;;  divisor         2    2[COMRAM] unsigned int 
+  1897 ;; Auto vars:     Size  Location     Type
+  1898 ;;  counter         1    5[COMRAM] unsigned char 
+  1899 ;; Return value:  Size  Location     Type
+  1900 ;;                  2    0[COMRAM] unsigned int 
+  1901 ;; Registers used:
+  1902 ;;		wreg, status,2, status,0
+  1903 ;; Tracked objects:
+  1904 ;;		On entry : 0/0
+  1905 ;;		On exit  : 0/0
+  1906 ;;		Unchanged: 0/0
+  1907 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3
+  1908 ;;      Params:         4       0       0       0       0
+  1909 ;;      Locals:         1       0       0       0       0
+  1910 ;;      Temps:          1       0       0       0       0
+  1911 ;;      Totals:         6       0       0       0       0
+  1912 ;;Total ram usage:        6 bytes
+  1913 ;; Hardware stack levels used:    1
+  1914 ;; This function calls:
+  1915 ;;		Nothing
+  1916 ;; This function is called by:
+  1917 ;;		_demoLEDs
+  1918 ;; This function uses a non-reentrant model
+  1919 ;;
+  1920                           
+  1921                           	psect	text11
+  1922  003820                     __ptext11:
+  1923                           	opt stack 0
+  1924  003820                     ___lwmod:
+  1925                           	opt stack 29
+  1926                           
+  1927                           ;incstack = 0
+  1928  003820  5004               	movf	___lwmod@divisor+1,w,c
+  1929  003822  1003               	iorwf	___lwmod@divisor,w,c
+  1930  003824  B4D8               	btfsc	status,2,c
+  1931  003826  D01A               	goto	l632
+  1932  003828  6E05               	movwf	??___lwmod& (0+255),c
+  1933  00382A  0E01               	movlw	1
+  1934  00382C  6E06               	movwf	___lwmod@counter,c
+  1935  00382E  5005               	movf	??___lwmod& (0+255),w,c
+  1936  003830  D004               	goto	l823
+  1937  003832                     l821:
+  1938  003832  90D8               	bcf	status,0,c
+  1939  003834  3603               	rlcf	___lwmod@divisor,f,c
+  1940  003836  3604               	rlcf	___lwmod@divisor+1,f,c
+  1941  003838  2A06               	incf	___lwmod@counter,f,c
+  1942  00383A                     l823:
+  1943  00383A  AE04               	btfss	___lwmod@divisor+1,7,c
+  1944  00383C  D7FA               	goto	l821
+  1945  00383E                     l825:
+  1946  00383E  5003               	movf	___lwmod@divisor,w,c
+  1947  003840  5C01               	subwf	___lwmod@dividend,w,c
+  1948  003842  5004               	movf	___lwmod@divisor+1,w,c
+  1949  003844  5802               	subwfb	___lwmod@dividend+1,w,c
+  1950  003846  A0D8               	btfss	status,0,c
+  1951  003848  D004               	goto	l829
+  1952  00384A  5003               	movf	___lwmod@divisor,w,c
+  1953  00384C  5E01               	subwf	___lwmod@dividend,f,c
+  1954  00384E  5004               	movf	___lwmod@divisor+1,w,c
+  1955  003850  5A02               	subwfb	___lwmod@dividend+1,f,c
+  1956  003852                     l829:
+  1957  003852  90D8               	bcf	status,0,c
+  1958  003854  3204               	rrcf	___lwmod@divisor+1,f,c
+  1959  003856  3203               	rrcf	___lwmod@divisor,f,c
+  1960  003858  2E06               	decfsz	___lwmod@counter,f,c
+  1961  00385A  D7F1               	goto	l825
+  1962  00385C                     l632:
+  1963  00385C  C001  F001         	movff	___lwmod@dividend,?___lwmod
+  1964  003860  C002  F002         	movff	___lwmod@dividend+1,?___lwmod+1
+  1965  003864  0012               	return	
+  1966  003866                     __end_of___lwmod:
+  1967                           	opt stack 0
+  1968  0000                     prodh	equ	0xFF4
+  1969                           prodl	equ	0xFF3
+  1970                           postinc0	equ	0xFEE
+  1971                           wreg	equ	0xFE8
+  1972                           postinc1	equ	0xFE6
+  1973                           postdec1	equ	0xFE5
+  1974                           fsr1h	equ	0xFE2
+  1975                           fsr1l	equ	0xFE1
+  1976                           indf2	equ	0xFDF
+  1977                           postinc2	equ	0xFDE
+  1978                           postdec2	equ	0xFDD
+  1979                           fsr2h	equ	0xFDA
+  1980                           fsr2l	equ	0xFD9
+  1981                           status	equ	0xFD8
+  1982                           prodh	equ	0xFF4
+  1983                           prodl	equ	0xFF3
+  1984                           postinc0	equ	0xFEE
+  1985                           wreg	equ	0xFE8
+  1986                           postinc1	equ	0xFE6
+  1987                           postdec1	equ	0xFE5
+  1988                           fsr1h	equ	0xFE2
+  1989                           fsr1l	equ	0xFE1
+  1990                           indf2	equ	0xFDF
+  1991                           postinc2	equ	0xFDE
+  1992                           postdec2	equ	0xFDD
+  1993                           fsr2h	equ	0xFDA
+  1994                           fsr2l	equ	0xFD9
+  1995                           status	equ	0xFD8
+  1996                           
+  1997                           	psect	rparam
+  1998  0000                     prodh	equ	0xFF4
+  1999                           prodl	equ	0xFF3
+  2000                           postinc0	equ	0xFEE
+  2001                           wreg	equ	0xFE8
+  2002                           postinc1	equ	0xFE6
+  2003                           postdec1	equ	0xFE5
+  2004                           fsr1h	equ	0xFE2
+  2005                           fsr1l	equ	0xFE1
+  2006                           indf2	equ	0xFDF
+  2007                           postinc2	equ	0xFDE
+  2008                           postdec2	equ	0xFDD
+  2009                           fsr2h	equ	0xFDA
+  2010                           fsr2l	equ	0xFD9
+  2011                           status	equ	0xFD8
 
 
 Data Sizes:
     Strings     0
     Constant    0
     Data        0
-    BSS         0
+    BSS         133
     Persistent  0
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM          127      7       7
-    BANK0           128      0       0
+    COMRAM          127     39      44
+    BANK0           128      0     128
     BANK1           256      0       0
     BANK2           256      0       0
     BANK3           256      0       0
@@ -318,8 +2039,12 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMRAM
 
-    _main->_blink_b
-    _main->_blink_c
+    _main->_demoLEDs
+    _demoLEDs->_addRandom
+    _send_frame->_write_latch
+    _write_latch->___wmul
+    _addRandom->_rand
+    _rand->___lmul
 
 Critical Paths under _main in BANK0
 
@@ -342,69 +2067,157 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 5     0      5     162
-                                              2 COMRAM     5     0      5
-                            _blink_b
-                            _blink_c
+ (0) _main                                                 5     0      5    1600
+                                             34 COMRAM     5     0      5
+                           _demoLEDs
+                           _setupSPI
  ---------------------------------------------------------------------------------
- (1) _blink_c                                              2     0      2      64
-                                              0 COMRAM     2     0      2
+ (1) _setupSPI                                             0     0      0       0
  ---------------------------------------------------------------------------------
- (1) _blink_b                                              2     0      2      98
-                                              0 COMRAM     2     0      2
+ (1) _demoLEDs                                             4     4      0    1600
+                                             30 COMRAM     4     4      0
+                            ___lwmod
+                          _addRandom
+                         _send_frame
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 1
+ (2) _send_frame                                          11    11      0     387
+                                             11 COMRAM    11    11      0
+                        _writeLEDSPI
+                        _write_latch
+ ---------------------------------------------------------------------------------
+ (3) _write_latch                                          5     3      2     252
+                                              6 COMRAM     5     3      2
+                             ___wmul
+                        _writeLEDSPI
+ ---------------------------------------------------------------------------------
+ (4) _writeLEDSPI                                          1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (4) ___wmul                                               6     2      4     173
+                                              0 COMRAM     6     2      4
+ ---------------------------------------------------------------------------------
+ (2) _addRandom                                           12    12      0     334
+                                             18 COMRAM    12    12      0
+                               _rand
+ ---------------------------------------------------------------------------------
+ (3) _rand                                                 6     4      2     229
+                                             12 COMRAM     6     4      2
+                             ___lmul
+                              _srand
+ ---------------------------------------------------------------------------------
+ (4) _srand                                                3     1      2      49
+                                              0 COMRAM     3     1      2
+ ---------------------------------------------------------------------------------
+ (4) ___lmul                                              12     4      8     180
+                                              0 COMRAM    12     4      8
+ ---------------------------------------------------------------------------------
+ (2) ___lwmod                                              6     2      4     309
+                                              0 COMRAM     6     2      4
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
  ---------------------------------------------------------------------------------
 
  Call Graph Graphs:
 
  _main (ROOT)
-   _blink_b
-   _blink_c
+   _demoLEDs
+     ___lwmod
+     _addRandom
+       _rand
+         ___lmul
+         _srand
+     _send_frame
+       _writeLEDSPI
+       _write_latch
+         ___wmul
+         _writeLEDSPI
+   _setupSPI
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BITCOMRAM           7F      0       0       0        0.0%
-NULL                 0      0       0       0        0.0%
-CODE                 0      0       0       0        0.0%
-COMRAM              7F      7       7       1        5.5%
-STACK                0      0       0       2        0.0%
-BITBANK0            80      0       0       3        0.0%
-BANK0               80      0       0       4        0.0%
-BITBANK1           100      0       0       5        0.0%
-BANK1              100      0       0       6        0.0%
-BITBANK2           100      0       0       7        0.0%
-BANK2              100      0       0       8        0.0%
+BIGRAM             3FF      0       0      12        0.0%
 BITBANK3           100      0       0       9        0.0%
 BANK3              100      0       0      10        0.0%
-ABS                  0      0       0      11        0.0%
-BIGRAM             3FF      0       0      12        0.0%
-DATA                 0      0       0      13        0.0%
+BITBANK2           100      0       0       7        0.0%
+BANK2              100      0       0       8        0.0%
+BITBANK1           100      0       0       5        0.0%
+BANK1              100      0       0       6        0.0%
+BITBANK0            80      0       0       3        0.0%
+BANK0               80      0      80       4      100.0%
+BITCOMRAM           7F      0       0       0        0.0%
+COMRAM              7F     27      2C       1       34.6%
 BITSFR               0      0       0      40        0.0%
 SFR                  0      0       0      40        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      AC      11        0.0%
+DATA                 0      0      AC      13        0.0%
+CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.30 build 55553 
-Symbol Table                                                                                   Sat Apr  5 23:13:13 2014
+Symbol Table                                                                                   Tue Apr 15 05:50:55 2014
 
-                     u17 3FC2                       u27 3FD8                       u37 3FEE  
-                     u47 3F8C                       u57 3F76             __CFG_CP0$OFF 000000  
-                    l624 3FB4                      wreg 000FE8             __CFG_IESO$ON 000000  
-                   _LATA 000F89                     _LATB 000F8A                     _LATC 000F8B  
-          __CFG_FCMEN$ON 000000                     _main 3F9C                     start 0000  
-                  ?_main 0003                    _PORTB 000F81                    _PORTC 000F82  
-                  _TRISB 000F93                    _TRISC 000F94          __end_of_blink_b 3F86  
-        __end_of_blink_c 3F9C           __CFG_FOSC2$OFF 000000          __initialization 3F6A  
-           __end_of_main 3FF8                   ??_main 0008            __activetblptr 000000  
-                 _ADCON1 000FC1           __CFG_WDTEN$OFF 000000           __CFG_XINST$OFF 000000  
-         __CFG_STVREN$ON 000000                ??_blink_b 0003                ??_blink_c 0003  
-        __CFG_FOSC$ECPLL 000000               __accesstop 0080  __end_of__initialization 3F6A  
-         __pcstackCOMRAM 0001                  __Hparam 0000                  __Lparam 0000  
-                __pcinit 3F6A                  __ramtop 0400                  _blink_b 3F70  
-                _blink_c 3F86                  __ptext0 3F9C                  __ptext1 3F86  
-                __ptext2 3F70     end_of_initialization 3F6A               blink_b@LED 0001  
-             blink_c@LED 0001      start_initialization 3F6A      __CFG_CCP2MX$DEFAULT 000000  
-               ?_blink_b 0001                 ?_blink_c 0001         __CFG_WDTPS$32768 000000  
-               __Hrparam 0000                 __Lrparam 0000         __size_of_blink_b 0016  
-       __size_of_blink_c 0016            __size_of_main 005C                 main@argc 0003  
-               main@argv 0005  
+            _SSPSTATbits 000FC7                       l61 3A56      ___wmul@multiplicand 0003  
+           __CFG_CP0$OFF 000000                      l113 377E                      l632 385C  
+                    l821 3832                      l813 38D8                      l823 383A  
+                    l825 383E                      l809 38C4                      l913 3B8A  
+                    l843 389E                      l829 3852                      l853 391A  
+                    l925 3BDC                      l847 38AA                      l875 3B52  
+                    l963 3D66                      l971 3DC2                      l949 3CAA  
+                    l991 3E40                      l983 3DF0                      l967 3DBC  
+                    l959 3D12                      l889 3A08                      l995 3E7C  
+                    l999 3E82                      u115 3876                      u150 3B2C  
+                    u155 3B22                      u507 3B7A                      u517 3C9A  
+                    u527 3DE0                      u537 3EA0                      u547 3F60  
+                    u557 3FE8           send_frame@blue 0014                      wreg 000FE8  
+           __CFG_IESO$ON 000000             __CFG_FOSC$EC 000000                     l1011 3EB0  
+                   l1023 3F3C                     l1051 3FC2                     l1019 3F00  
+                   l1027 3F42                     l1053 3FC6                     l1039 3F70  
+                   l1071 37DE                     _LATA 000F89                     _LATB 000F8A  
+                   _LATC 000F8B            __CFG_FCMEN$ON 000000                     _main 37C6  
+                   _rand 390A                     fsr1l 000FE1                     indf2 000FDF  
+                   fsr2l 000FD9                     prodh 000FF4                     prodl 000FF3  
+                   start 0000          send_frame@green 0013            __CFG_FOSC2$ON 000000  
+            _writeLEDSPI 3776                    ?_main 0023                    ?_rand 000D  
+        __end_of___lwmod 3866                    _PORTB 000F81                    _PORTC 000F82  
+                  _TRISB 000F93      ___lmul@multiplicand 0005              _write_latch 3866  
+         write_latch@len 0007                    _randf 002C                    _randx 0028  
+                  _srand 3794                    status 000FD8          __initialization 37AA  
+           __end_of_main 37E6             __end_of_rand 3974                   ??_main 0028  
+                 ??_rand 000F            __activetblptr 000000                   _ADCON1 000FC1  
+                 ?_srand 0001           __CFG_WDTEN$OFF 000000                   _SSPBUF 000FC9  
+       __end_of_demoLEDs 3FF8           __CFG_XINST$OFF 000000                   ___lmul 38B4  
+                 ___wmul 37E6           __CFG_STVREN$ON 000000                ??___lwmod 0005  
+                 clear_0 37B0         __end_of_setupSPI 3794                   srand@x 0001  
+     __size_of_addRandom 00F4               __accesstop 0080  __end_of__initialization 37C0  
+         __pcstackCOMRAM 0001            __end_of_srand 37AA               addRandom@x 001D  
+                ??_srand 0003               __pbssBANK0 0080          writeLEDSPI@data 0001  
+           ?_writeLEDSPI 0001                  ?___lmul 0001                  ?___wmul 0001  
+         ___lmul@product 0009        __end_of_addRandom 3A68                ?_demoLEDs 0001  
+           ?_write_latch 0007                  _SSPCON1 000FC6                  _SSPSTAT 000FC7  
+            send_frame@i 0015                  __Hparam 0000                  __Lparam 0000  
+              ?_setupSPI 0001          __size_of___lmul 0056          __size_of___wmul 003A  
+                ___lwmod 3820                  __pcinit 37AA                  __ramtop 0400  
+                __ptext0 37C6                  __ptext1 3784                  __ptext2 3B60  
+                __ptext3 3A68                  __ptext4 3866                  __ptext5 3776  
+                __ptext6 37E6                  __ptext7 3974                  __ptext8 390A  
+                __ptext9 3794               ??_demoLEDs 001F     end_of_initialization 37C0  
+             _send_frame 3A68         _led_strip_colors 0080               ??_setupSPI 0001  
+                postdec1 000FE5                  postdec2 000FDD                  postinc0 000FEE  
+                postinc1 000FE6                  postinc2 000FDE                _TRISCbits 000F94  
+          send_frame@red 0012           __end_of___lmul 390A     __size_of_writeLEDSPI 000E  
+         __end_of___wmul 3820      start_initialization 37AA     __size_of_write_latch 004E  
+            ?_send_frame 0001                 ??___lmul 0009                 ??___wmul 0005  
+            __pbssCOMRAM 0028                _addRandom 3974        __size_of_demoLEDs 0498  
+    __CFG_CCP2MX$DEFAULT 000000                 ?___lwmod 0001        __size_of_setupSPI 0010  
+    __size_of_send_frame 00F8               ?_addRandom 0001                demoLEDs@i 0021  
+         __size_of_srand 0016           ___wmul@product 0005         __CFG_WDTPS$32768 000000  
+      ___wmul@multiplier 0001       addRandom@new_color 0019        ___lmul@multiplier 0001  
+               __Hrparam 0000                 __Lrparam 0000         __size_of___lwmod 0046  
+               _demoLEDs 3B60              ??_addRandom 0013                 __ptext10 38B4  
+               __ptext11 3820             ??_send_frame 000C            __size_of_main 0020  
+          __size_of_rand 006A            ??_writeLEDSPI 0001                 _setupSPI 3784  
+               main@argc 0023                 main@argv 0025       __end_of_send_frame 3B60  
+          ??_write_latch 0009         ___lwmod@dividend 0001      __end_of_writeLEDSPI 3784  
+        ___lwmod@divisor 0003          ___lwmod@counter 0006      __end_of_write_latch 38B4  

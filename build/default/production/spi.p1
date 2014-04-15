@@ -1,27 +1,76 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"625 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"749
-[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
-"881
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
-"3383
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"1166
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"53 led_organ.h
-[v _setupSPI `(v ~T0 @X0 0 ef ]
-"230 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
-[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
-"52 led_organ.h
-[v _demoLEDs `(v ~T0 @X0 0 ef ]
-[v F4101 `(v ~T0 @X0 1 tf1`ul ]
-"147 /opt/microchip/xc8/v1.30/include/pic18.h
-[v __delay `JF4101 ~T0 @X0 0 e ]
-[p i __delay ]
-"415 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
-[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
+[s S77 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S77 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+[s S78 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S78 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+[u S76 `S77 1 `S78 1 ]
+[n S76 . . . ]
+"1419 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
+[v _TRISCbits `VS76 ~T0 @X0 0 e@3988 ]
+"4342
+[v _SSPSTAT `Vuc ~T0 @X0 0 e@4039 ]
+"4063
+[v _SSPCON1 `Vuc ~T0 @X0 0 e@4038 ]
+"5320
+[v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
+[s S247 :2 `uc 1 :1 `uc 1 ]
+[n S247 . . R_NOT_W ]
+[s S248 :5 `uc 1 :1 `uc 1 ]
+[n S248 . . D_NOT_A ]
+[s S249 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S249 . BF UA R_nW S P D_nA CKE SMP ]
+[s S250 :2 `uc 1 :1 `uc 1 ]
+[n S250 . . R_NOT_W ]
+[s S251 :5 `uc 1 :1 `uc 1 ]
+[n S251 . . D_NOT_A ]
+[s S252 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S252 . . R_W . D_A ]
+[s S253 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S253 . . I2C_READ I2C_START I2C_STOP I2C_DAT ]
+[s S254 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S254 . . nW . nA ]
+[s S255 :2 `uc 1 :1 `uc 1 ]
+[n S255 . . NOT_WRITE ]
+[s S256 :5 `uc 1 :1 `uc 1 ]
+[n S256 . . NOT_ADDRESS ]
+[s S257 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S257 . . nWRITE . nADDRESS ]
+[s S258 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S258 . . READ_WRITE . DATA_ADDRESS ]
+[s S259 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S259 . . R . D ]
+[s S260 :5 `uc 1 :1 `uc 1 ]
+[n S260 . . DA ]
+[s S261 :2 `uc 1 :1 `uc 1 ]
+[n S261 . . RW ]
+[s S262 :3 `uc 1 :1 `uc 1 ]
+[n S262 . . START ]
+[s S263 :4 `uc 1 :1 `uc 1 ]
+[n S263 . . STOP ]
+[s S264 :2 `uc 1 :1 `uc 1 ]
+[n S264 . . NOT_W ]
+[s S265 :5 `uc 1 :1 `uc 1 ]
+[n S265 . . NOT_A ]
+[s S266 :1 `uc 1 ]
+[n S266 . BF1 ]
+[s S267 :6 `uc 1 :1 `uc 1 ]
+[n S267 . . CKE1 ]
+[s S268 :5 `uc 1 :1 `uc 1 ]
+[n S268 . . DA1 ]
+[s S269 :2 `uc 1 :1 `uc 1 ]
+[n S269 . . RW1 ]
+[s S270 :7 `uc 1 :1 `uc 1 ]
+[n S270 . . SMP1 ]
+[s S271 :3 `uc 1 :1 `uc 1 ]
+[n S271 . . START1 ]
+[s S272 :4 `uc 1 :1 `uc 1 ]
+[n S272 . . STOP1 ]
+[s S273 :1 `uc 1 :1 `uc 1 ]
+[n S273 . . UA1 ]
+[u S246 `S247 1 `S248 1 `S249 1 `S250 1 `S251 1 `S252 1 `S253 1 `S254 1 `S255 1 `S256 1 `S257 1 `S258 1 `S259 1 `S260 1 `S261 1 `S262 1 `S263 1 `S264 1 `S265 1 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
+[n S246 . . . . . . . . . . . . . . . . . . . . . . . . . . . . ]
+"4480
+[v _SSPSTATbits `VS246 ~T0 @X0 0 e@4039 ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -3754,130 +3803,53 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;led_organ.h: 52: extern void demoLEDs();
 [; ;led_organ.h: 53: extern void setupSPI();
 [; ;led_organ.h: 54: extern void writeLEDSPI(uint8_t);
-[; ;main.c: 11: void blink_b(unsigned int);
-[; ;main.c: 12: void blink_c(unsigned int);
-"14 main.c
-[v _main `(i ~T0 @X0 1 ef2`i`**uc ]
+"3 spi.c
+[v _setupSPI `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 14: int main(int argc, char** argv) {
-[e :U _main ]
-[v _argc `i ~T0 @X0 1 r1 ]
-[v _argv `**uc ~T0 @X0 1 r2 ]
+[; ;spi.c: 3: void setupSPI() {
+[e :U _setupSPI ]
 [f ]
-[; ;main.c: 17: LATA = 0x00;
-"17
-[e = _LATA -> -> 0 `i `uc ]
-[; ;main.c: 18: LATB = 0x00;
-"18
-[e = _LATB -> -> 0 `i `uc ]
-[; ;main.c: 19: LATC = 0x00;
-"19
-[e = _LATC -> -> 0 `i `uc ]
-[; ;main.c: 22: ADCON1 = 0x0F;
-"22
-[e = _ADCON1 -> -> 15 `i `uc ]
-[; ;main.c: 25: TRISB = 0x00;
-"25
-[e = _TRISB -> -> 0 `i `uc ]
-[; ;main.c: 29: setupSPI();
-"29
-[e ( _setupSPI ..  ]
-[; ;main.c: 31: while(1)
-"31
-[e :U 436 ]
-[; ;main.c: 32: {
-"32
-{
-[; ;main.c: 34: PORTB |= 0x20;
-"34
-[e =| _PORTB -> -> 32 `i `uc ]
-[; ;main.c: 37: demoLEDs();
-"37
-[e ( _demoLEDs ..  ]
-"49
-}
-[e :U 435 ]
-"31
-[e $U 436  ]
-[e :U 437 ]
-[; ;main.c: 49: }
-[; ;main.c: 51: }
-"51
+[; ;spi.c: 6: TRISCbits.TRISC5= 0;
+"6
+[e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
+[; ;spi.c: 7: TRISCbits.TRISC4= 1;
+"7
+[e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
+[; ;spi.c: 8: TRISCbits.TRISC3= 0;
+"8
+[e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
+[; ;spi.c: 11: SSPSTAT = 0x40;
+"11
+[e = _SSPSTAT -> -> 64 `i `uc ]
+[; ;spi.c: 12: SSPCON1 = 0x20;
+"12
+[e = _SSPCON1 -> -> 32 `i `uc ]
+[; ;spi.c: 14: }
+"14
 [e :UE 434 ]
 }
-"54
-[v _blink_b `(v ~T0 @X0 1 ef1`ui ]
-"55
+"16
+[v _writeLEDSPI `(v ~T0 @X0 1 ef1`uc ]
+"17
 {
-[; ;main.c: 54: void blink_b(unsigned int LED)
-[; ;main.c: 55: {
-[e :U _blink_b ]
-"54
-[v _LED `ui ~T0 @X0 1 r1 ]
-"55
+[; ;spi.c: 16: void writeLEDSPI(uint8_t data)
+[; ;spi.c: 17: {
+[e :U _writeLEDSPI ]
+"16
+[v _data `uc ~T0 @X0 1 r1 ]
+"17
 [f ]
-[; ;main.c: 56: PORTB |= LED;
-"56
-[e =| _PORTB -> _LED `uc ]
-[; ;main.c: 57: for(int i = 0 ; i < 100 ; i++)
-"57
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 100 `i 439  ]
-[e $U 440  ]
-"58
-[e :U 439 ]
-[; ;main.c: 58: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"57
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 100 `i 439  ]
-[e :U 440 ]
-"58
-}
-[; ;main.c: 59: PORTB &= ~LED;
-"59
-[e =& _PORTB -> ~ _LED `uc ]
-[; ;main.c: 60: }
-"60
-[e :UE 438 ]
-}
-"63
-[v _blink_c `(v ~T0 @X0 1 ef1`ui ]
-"64
-{
-[; ;main.c: 63: void blink_c(unsigned int LED)
-[; ;main.c: 64: {
-[e :U _blink_c ]
-"63
-[v _LED `ui ~T0 @X0 1 r1 ]
-"64
-[f ]
-[; ;main.c: 65: PORTC |= LED;
-"65
-[e =| _PORTC -> _LED `uc ]
-[; ;main.c: 66: for(int i = 0 ; i < 100 ; i++)
-"66
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 100 `i 443  ]
-[e $U 444  ]
-"67
-[e :U 443 ]
-[; ;main.c: 67: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"66
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 100 `i 443  ]
-[e :U 444 ]
-"67
-}
-[; ;main.c: 68: PORTC &= ~LED;
-"68
-[e =& _PORTC -> ~ _LED `uc ]
-[; ;main.c: 69: }
-"69
-[e :UE 442 ]
+[; ;spi.c: 20: SSPBUF = data;
+"20
+[e = _SSPBUF _data ]
+[; ;spi.c: 23: while(!SSPSTATbits.BF);
+"23
+[e $U 436  ]
+[e :U 437 ]
+[e :U 436 ]
+[e $ ! != -> . . _SSPSTATbits 2 0 `i -> -> -> 0 `i `Vuc `i 437  ]
+[e :U 438 ]
+[; ;spi.c: 25: }
+"25
+[e :UE 435 ]
 }
