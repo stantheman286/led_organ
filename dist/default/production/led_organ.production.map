@@ -5,7 +5,7 @@ Linker command line:
 --edf=/opt/microchip/xc8/v1.30/dat/en_msgs.txt -cs \
   -h+dist/default/production/led_organ.production.sym \
   --cmf=dist/default/production/led_organ.production.cmf -z -Q18F24J10 \
-  -o/tmp/cgtLR73Dr -Mdist/default/production/led_organ.production.map -E1 \
+  -o/tmp/cgtyfjQ4O -Mdist/default/production/led_organ.production.map -E1 \
   -ver=XC8 -ASTACK=0100h-03ffh -pstack=STACK -ACODE=00h-03FF7h \
   -ACONST=00h-03FF7h -ASMALLCONST=0400h-04FFhx59,03F00h-03FF7h \
   -AMEDIUMCONST=0400h-03FF7h -ACOMRAM=01h-07Fh -AABS1=00h-03FFh \
@@ -18,7 +18,7 @@ Linker command line:
   -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
-  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtKlJJpm.obj \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtHM2GTz.obj \
   dist/default/production/led_organ.production.obj 
 
 Object code version is 3.11
@@ -31,7 +31,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtKlJJpm.obj
+/tmp/cgtHM2GTz.obj
                 end_init                              0        0        4        0       0
                 config                             3FF8     3FF8        6     3FF8       0
 dist/default/production/led_organ.production.obj

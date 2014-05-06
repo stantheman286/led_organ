@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtKlJJpm.obj
+$/tmp/cgtHM2GTz.obj
 end_init CODE 0 0 0 4 1
 config CONFIG 0 3FF8 3FF8 6 1
 $dist/default/production/led_organ.production.obj
@@ -85,23 +85,23 @@ $dist/default/production/led_organ.production.obj
 "/opt/microchip/xc8/v1.30/sources/pic18/plib/SPI/spi1writ.c":26 37A8 text6 CODE
 "/opt/microchip/xc8/v1.30/sources/pic18/plib/SPI/spi1writ.c":24 37AA text6 CODE
 "/opt/microchip/xc8/v1.30/sources/pic18/plib/SPI/spi1writ.c":26 37AC text6 CODE
-"/tmp/cgtqEJqK5":977 37AC cinit CODE
-"/tmp/cgtqEJqK5":979 37AC cinit CODE
-"/tmp/cgtqEJqK5":982 37AC cinit CODE
-"/tmp/cgtqEJqK5":1000 37AC cinit CODE
-"/tmp/cgtqEJqK5":1001 37B0 cinit CODE
-"/tmp/cgtqEJqK5":1002 37B2 cinit CODE
-"/tmp/cgtqEJqK5":1003 37B2 cinit CODE
-"/tmp/cgtqEJqK5":1004 37B4 cinit CODE
-"/tmp/cgtqEJqK5":1005 37B6 cinit CODE
-"/tmp/cgtqEJqK5":1008 37B8 cinit CODE
-"/tmp/cgtqEJqK5":1009 37BA cinit CODE
-"/tmp/cgtqEJqK5":1010 37BC cinit CODE
-"/tmp/cgtqEJqK5":1011 37BE cinit CODE
-"/tmp/cgtqEJqK5":1012 37C0 cinit CODE
-"/tmp/cgtqEJqK5":1018 37C2 cinit CODE
-"/tmp/cgtqEJqK5":1019 37C2 cinit CODE
-"/tmp/cgtqEJqK5":1020 37C4 cinit CODE
+"/tmp/cgtE6Er3o":977 37AC cinit CODE
+"/tmp/cgtE6Er3o":979 37AC cinit CODE
+"/tmp/cgtE6Er3o":982 37AC cinit CODE
+"/tmp/cgtE6Er3o":1000 37AC cinit CODE
+"/tmp/cgtE6Er3o":1001 37B0 cinit CODE
+"/tmp/cgtE6Er3o":1002 37B2 cinit CODE
+"/tmp/cgtE6Er3o":1003 37B2 cinit CODE
+"/tmp/cgtE6Er3o":1004 37B4 cinit CODE
+"/tmp/cgtE6Er3o":1005 37B6 cinit CODE
+"/tmp/cgtE6Er3o":1008 37B8 cinit CODE
+"/tmp/cgtE6Er3o":1009 37BA cinit CODE
+"/tmp/cgtE6Er3o":1010 37BC cinit CODE
+"/tmp/cgtE6Er3o":1011 37BE cinit CODE
+"/tmp/cgtE6Er3o":1012 37C0 cinit CODE
+"/tmp/cgtE6Er3o":1018 37C2 cinit CODE
+"/tmp/cgtE6Er3o":1019 37C2 cinit CODE
+"/tmp/cgtE6Er3o":1020 37C4 cinit CODE
 "/opt/microchip/xc8/v1.30/include/pic18f24j10.h":1419 37C8 text0 CODE
 "/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":14 37C8 text0 CODE
 "/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":17 37C8 text0 CODE
@@ -250,8 +250,8 @@ _LATB F8A 0 ABS 0 - dist/default/production/led_organ.production.obj
 _LATC F8B 0 ABS 0 - dist/default/production/led_organ.production.obj
 _rand 390A 0 CODE 0 text8 dist/default/production/led_organ.production.obj
 _main 37C8 0 CODE 0 text0 dist/default/production/led_organ.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgtKlJJpm.obj
-start 0 0 CODE 0 init /tmp/cgtKlJJpm.obj
+___sp 0 0 STACK 2 stack /tmp/cgtHM2GTz.obj
+start 0 0 CODE 0 init /tmp/cgtHM2GTz.obj
 __CFG_FOSC$EC 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 _TRISB F93 0 ABS 0 - dist/default/production/led_organ.production.obj
 _PORTB F81 0 ABS 0 - dist/default/production/led_organ.production.obj
@@ -315,11 +315,11 @@ __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/led_organ.production.o
 __Hdata 0 0 ABS 0 data dist/default/production/led_organ.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production/led_organ.production.obj
 srand@x 1 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
-stackhi 3FF 0 ABS 0 - /tmp/cgtKlJJpm.obj
+stackhi 3FF 0 ABS 0 - /tmp/cgtHM2GTz.obj
 __size_of_addRandom 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production/led_organ.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production/led_organ.production.obj
-stacklo 100 0 ABS 0 - /tmp/cgtKlJJpm.obj
+stacklo 100 0 ABS 0 - /tmp/cgtHM2GTz.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/led_organ.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/led_organ.production.obj
 ___lmul 38B4 0 CODE 0 text10 dist/default/production/led_organ.production.obj
@@ -432,8 +432,8 @@ __Lnvbit 0 0 COMRAM 1 nvbit dist/default/production/led_organ.production.obj
 __Hcinit 0 0 ABS 0 cinit dist/default/production/led_organ.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/default/production/led_organ.production.obj
 __pcinit 37AC 0 CODE 0 cinit dist/default/production/led_organ.production.obj
-__ramtop 400 0 RAM 0 ramtop /tmp/cgtKlJJpm.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtKlJJpm.obj
+__ramtop 400 0 RAM 0 ramtop /tmp/cgtHM2GTz.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtHM2GTz.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 __Hconst 0 0 CODE 0 const dist/default/production/led_organ.production.obj
 __Lconst 0 0 CODE 0 const dist/default/production/led_organ.production.obj
@@ -453,13 +453,13 @@ __Ltext11 0 0 ABS 0 text11 dist/default/production/led_organ.production.obj
 __ptext11 3820 0 CODE 0 text11 dist/default/production/led_organ.production.obj
 __end_of_rand 3974 0 CODE 0 text8 dist/default/production/led_organ.production.obj
 write_latch@len 7 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
-___extmem_base 20000 0 ABS 0 - /tmp/cgtKlJJpm.obj
+___extmem_base 20000 0 ABS 0 - /tmp/cgtHM2GTz.obj
 __size_of_demoLEDs 0 0 ABS 0 - dist/default/production/led_organ.production.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/cgtKlJJpm.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgtHM2GTz.obj
 __end_of___lwmod 3866 0 CODE 0 text11 dist/default/production/led_organ.production.obj
 ___lwmod@divisor 3 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production/led_organ.production.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/cgtKlJJpm.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgtHM2GTz.obj
 __size_of_WriteSPI1 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 __size_of_write_latch 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 __Hend_init 4 0 CODE 0 end_init dist/default/production/led_organ.production.obj
@@ -467,17 +467,17 @@ __Lend_init 0 0 CODE 0 end_init dist/default/production/led_organ.production.obj
 __Hjflash_buffer 3800 0 CODE 0 jflash_buffer dist/default/production/led_organ.production.obj
 __Ljflash_buffer 3800 0 CODE 0 jflash_buffer dist/default/production/led_organ.production.obj
 __CFG_CP0$OFF 0 0 ABS 0 - dist/default/production/led_organ.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtKlJJpm.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtHM2GTz.obj
 __size_of___wmul 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 __Hreset_vec 0 0 CODE 0 reset_vec dist/default/production/led_organ.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production/led_organ.production.obj
-__accesstop 80 0 ABS 0 - /tmp/cgtKlJJpm.obj
+__accesstop 80 0 ABS 0 - /tmp/cgtHM2GTz.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/led_organ.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/led_organ.production.obj
-intlevel0 0 0 CODE 0 text /tmp/cgtKlJJpm.obj
-intlevel1 0 0 CODE 0 text /tmp/cgtKlJJpm.obj
-intlevel2 0 0 CODE 0 text /tmp/cgtKlJJpm.obj
-intlevel3 0 0 CODE 0 text /tmp/cgtKlJJpm.obj
+intlevel0 0 0 CODE 0 text /tmp/cgtHM2GTz.obj
+intlevel1 0 0 CODE 0 text /tmp/cgtHM2GTz.obj
+intlevel2 0 0 CODE 0 text /tmp/cgtHM2GTz.obj
+intlevel3 0 0 CODE 0 text /tmp/cgtHM2GTz.obj
 __size_of___lmul 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 _SSP1CON1bits FC6 0 ABS 0 - dist/default/production/led_organ.production.obj
 _setupSPI 376C 0 CODE 0 text1 dist/default/production/led_organ.production.obj
