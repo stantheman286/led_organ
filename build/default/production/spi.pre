@@ -4953,14 +4953,3 @@ SSPSTAT = 0x40;
 SSPCON1 = 0x20;
 
 }
-
-void writeLEDSPI(uint8_t data)
-{
-
-
-SSPBUF = data;
-
-
-while(!SSPSTATbits.BF);
-
-}

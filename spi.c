@@ -12,14 +12,3 @@ void setupSPI() {
     SSPCON1 = 0x20;        // Enable SPI Master with Fosc/4
 
 }
-
-void writeLEDSPI(uint8_t data)
-{
-
-  // Start Data transmission
-  SSPBUF = data;
-
-  // Wait for Data Transmit/Receipt complete
-  while(!SSPSTATbits.BF);
-
-}

@@ -11,66 +11,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SSPSTAT `Vuc ~T0 @X0 0 e@4039 ]
 "4063
 [v _SSPCON1 `Vuc ~T0 @X0 0 e@4038 ]
-"5320
-[v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
-[s S247 :2 `uc 1 :1 `uc 1 ]
-[n S247 . . R_NOT_W ]
-[s S248 :5 `uc 1 :1 `uc 1 ]
-[n S248 . . D_NOT_A ]
-[s S249 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S249 . BF UA R_nW S P D_nA CKE SMP ]
-[s S250 :2 `uc 1 :1 `uc 1 ]
-[n S250 . . R_NOT_W ]
-[s S251 :5 `uc 1 :1 `uc 1 ]
-[n S251 . . D_NOT_A ]
-[s S252 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S252 . . R_W . D_A ]
-[s S253 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S253 . . I2C_READ I2C_START I2C_STOP I2C_DAT ]
-[s S254 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S254 . . nW . nA ]
-[s S255 :2 `uc 1 :1 `uc 1 ]
-[n S255 . . NOT_WRITE ]
-[s S256 :5 `uc 1 :1 `uc 1 ]
-[n S256 . . NOT_ADDRESS ]
-[s S257 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S257 . . nWRITE . nADDRESS ]
-[s S258 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S258 . . READ_WRITE . DATA_ADDRESS ]
-[s S259 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S259 . . R . D ]
-[s S260 :5 `uc 1 :1 `uc 1 ]
-[n S260 . . DA ]
-[s S261 :2 `uc 1 :1 `uc 1 ]
-[n S261 . . RW ]
-[s S262 :3 `uc 1 :1 `uc 1 ]
-[n S262 . . START ]
-[s S263 :4 `uc 1 :1 `uc 1 ]
-[n S263 . . STOP ]
-[s S264 :2 `uc 1 :1 `uc 1 ]
-[n S264 . . NOT_W ]
-[s S265 :5 `uc 1 :1 `uc 1 ]
-[n S265 . . NOT_A ]
-[s S266 :1 `uc 1 ]
-[n S266 . BF1 ]
-[s S267 :6 `uc 1 :1 `uc 1 ]
-[n S267 . . CKE1 ]
-[s S268 :5 `uc 1 :1 `uc 1 ]
-[n S268 . . DA1 ]
-[s S269 :2 `uc 1 :1 `uc 1 ]
-[n S269 . . RW1 ]
-[s S270 :7 `uc 1 :1 `uc 1 ]
-[n S270 . . SMP1 ]
-[s S271 :3 `uc 1 :1 `uc 1 ]
-[n S271 . . START1 ]
-[s S272 :4 `uc 1 :1 `uc 1 ]
-[n S272 . . STOP1 ]
-[s S273 :1 `uc 1 :1 `uc 1 ]
-[n S273 . . UA1 ]
-[u S246 `S247 1 `S248 1 `S249 1 `S250 1 `S251 1 `S252 1 `S253 1 `S254 1 `S255 1 `S256 1 `S257 1 `S258 1 `S259 1 `S260 1 `S261 1 `S262 1 `S263 1 `S264 1 `S265 1 `S266 1 `S267 1 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 ]
-[n S246 . . . . . . . . . . . . . . . . . . . . . . . . . . . . ]
-"4480
-[v _SSPSTATbits `VS246 ~T0 @X0 0 e@4039 ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -3827,29 +3767,4 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;spi.c: 14: }
 "14
 [e :UE 434 ]
-}
-"16
-[v _writeLEDSPI `(v ~T0 @X0 1 ef1`uc ]
-"17
-{
-[; ;spi.c: 16: void writeLEDSPI(uint8_t data)
-[; ;spi.c: 17: {
-[e :U _writeLEDSPI ]
-"16
-[v _data `uc ~T0 @X0 1 r1 ]
-"17
-[f ]
-[; ;spi.c: 20: SSPBUF = data;
-"20
-[e = _SSPBUF _data ]
-[; ;spi.c: 23: while(!SSPSTATbits.BF);
-"23
-[e $U 436  ]
-[e :U 437 ]
-[e :U 436 ]
-[e $ ! != -> . . _SSPSTATbits 2 0 `i -> -> -> 0 `i `Vuc `i 437  ]
-[e :U 438 ]
-[; ;spi.c: 25: }
-"25
-[e :UE 435 ]
 }
