@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
     while(1)
     {
         // Turn on LED
-        PORTB |= LED_RED;
+//        PORTB |= LED_RED;
 
         // Demo LED Bar
         demoLEDs();

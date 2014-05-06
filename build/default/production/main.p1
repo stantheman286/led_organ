@@ -12,10 +12,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
 "53 led_organ.h
 [v _setupSPI `(v ~T0 @X0 0 ef ]
+"52
+[v _demoLEDs `(v ~T0 @X0 0 ef ]
 "230 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
 [v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
-"52 led_organ.h
-[v _demoLEDs `(v ~T0 @X0 0 ef ]
 [v F4101 `(v ~T0 @X0 1 tf1`ul ]
 "147 /opt/microchip/xc8/v1.30/include/pic18.h
 [v __delay `JF4101 ~T0 @X0 0 e ]
@@ -3788,96 +3788,93 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 32: {
 "32
 {
-[; ;main.c: 34: PORTB |= 0x20;
-"34
-[e =| _PORTB -> -> 32 `i `uc ]
 [; ;main.c: 37: demoLEDs();
 "37
 [e ( _demoLEDs ..  ]
-"49
+"48
 }
 [e :U 435 ]
 "31
 [e $U 436  ]
 [e :U 437 ]
-[; ;main.c: 49: }
-[; ;main.c: 51: }
-"51
+[; ;main.c: 48: }
+[; ;main.c: 50: }
+"50
 [e :UE 434 ]
 }
-"54
+"53
 [v _blink_b `(v ~T0 @X0 1 ef1`ui ]
-"55
-{
-[; ;main.c: 54: void blink_b(unsigned int LED)
-[; ;main.c: 55: {
-[e :U _blink_b ]
 "54
+{
+[; ;main.c: 53: void blink_b(unsigned int LED)
+[; ;main.c: 54: {
+[e :U _blink_b ]
+"53
 [v _LED `ui ~T0 @X0 1 r1 ]
-"55
+"54
 [f ]
-[; ;main.c: 56: PORTB |= LED;
-"56
+[; ;main.c: 55: PORTB |= LED;
+"55
 [e =| _PORTB -> _LED `uc ]
-[; ;main.c: 57: for(int i = 0 ; i < 100 ; i++)
-"57
+[; ;main.c: 56: for(int i = 0 ; i < 100 ; i++)
+"56
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $ < _i -> 100 `i 439  ]
 [e $U 440  ]
-"58
-[e :U 439 ]
-[; ;main.c: 58: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
 "57
+[e :U 439 ]
+[; ;main.c: 57: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
+"56
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 100 `i 439  ]
 [e :U 440 ]
-"58
+"57
 }
-[; ;main.c: 59: PORTB &= ~LED;
-"59
+[; ;main.c: 58: PORTB &= ~LED;
+"58
 [e =& _PORTB -> ~ _LED `uc ]
-[; ;main.c: 60: }
-"60
+[; ;main.c: 59: }
+"59
 [e :UE 438 ]
 }
-"63
+"62
 [v _blink_c `(v ~T0 @X0 1 ef1`ui ]
-"64
-{
-[; ;main.c: 63: void blink_c(unsigned int LED)
-[; ;main.c: 64: {
-[e :U _blink_c ]
 "63
+{
+[; ;main.c: 62: void blink_c(unsigned int LED)
+[; ;main.c: 63: {
+[e :U _blink_c ]
+"62
 [v _LED `ui ~T0 @X0 1 r1 ]
-"64
+"63
 [f ]
-[; ;main.c: 65: PORTC |= LED;
-"65
+[; ;main.c: 64: PORTC |= LED;
+"64
 [e =| _PORTC -> _LED `uc ]
-[; ;main.c: 66: for(int i = 0 ; i < 100 ; i++)
-"66
+[; ;main.c: 65: for(int i = 0 ; i < 100 ; i++)
+"65
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $ < _i -> 100 `i 443  ]
 [e $U 444  ]
-"67
-[e :U 443 ]
-[; ;main.c: 67: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
 "66
+[e :U 443 ]
+[; ;main.c: 66: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
+"65
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 100 `i 443  ]
 [e :U 444 ]
-"67
+"66
 }
-[; ;main.c: 68: PORTC &= ~LED;
-"68
+[; ;main.c: 67: PORTC &= ~LED;
+"67
 [e =& _PORTC -> ~ _LED `uc ]
-[; ;main.c: 69: }
-"69
+[; ;main.c: 68: }
+"68
 [e :UE 442 ]
 }

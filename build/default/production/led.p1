@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"54 led_organ.h
-[v _writeLEDSPI `(v ~T0 @X0 0 ef1`uc ]
+"240 /opt/microchip/xc8/v1.30/include/plib/spi.h
+[v _WriteSPI1 `(c ~T0 @X0 0 ef1`uc ]
 "72 /opt/microchip/xc8/v1.30/include/stdlib.h
 [v _rand `(i ~T0 @X0 0 ef ]
 [v F4101 `(v ~T0 @X0 1 tf1`ul ]
@@ -3757,9 +3757,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 435  ]
 [e :U 436 ]
 {
-[; ;led.c: 28: writeLEDSPI(0x00);
+[; ;led.c: 28: WriteSPI1(0x00);
 "28
-[e ( _writeLEDSPI (1 -> -> 0 `i `uc ]
+[e ( _WriteSPI1 (1 -> -> 0 `i `uc ]
 [; ;led.c: 29: len--;
 "29
 [e -- _len -> -> 1 `i `ui ]
@@ -3805,15 +3805,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;led.c: 40: red = (led_strip_colors[i] >> 16) & 0xFF;
 "40
 [e = _red -> & >> *U + &U _led_strip_colors * -> _i `ux -> -> # *U &U _led_strip_colors `ui `ux -> 16 `i -> -> -> 255 `i `l `ul `uc ]
-[; ;led.c: 41: writeLEDSPI((green|0x80));
+[; ;led.c: 41: WriteSPI1((green|0x80));
 "41
-[e ( _writeLEDSPI (1 -> | -> _green `i -> 128 `i `uc ]
-[; ;led.c: 42: writeLEDSPI((red|0x80));
+[e ( _WriteSPI1 (1 -> | -> _green `i -> 128 `i `uc ]
+[; ;led.c: 42: WriteSPI1((red|0x80));
 "42
-[e ( _writeLEDSPI (1 -> | -> _red `i -> 128 `i `uc ]
-[; ;led.c: 43: writeLEDSPI((blue|0x80));
+[e ( _WriteSPI1 (1 -> | -> _red `i -> 128 `i `uc ]
+[; ;led.c: 43: WriteSPI1((blue|0x80));
 "43
-[e ( _writeLEDSPI (1 -> | -> _blue `i -> 128 `i `uc ]
+[e ( _WriteSPI1 (1 -> | -> _blue `i -> 128 `i `uc ]
 "44
 }
 "37
@@ -3933,202 +3933,202 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;led.c: 71: send_frame();
 "71
 [e ( _send_frame ..  ]
-[; ;led.c: 73: led_strip_colors[0] = 0xFF0000;
-"73
-[e = *U + &U _led_strip_colors * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16711680 `l `ul ]
-[; ;led.c: 74: led_strip_colors[1] = 0x00FF00;
+[; ;led.c: 74: led_strip_colors[0] = 0xFF0000;
 "74
-[e = *U + &U _led_strip_colors * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 65280 `ui `ul ]
-[; ;led.c: 75: led_strip_colors[2] = 0x0000FF;
+[e = *U + &U _led_strip_colors * -> -> -> 0 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16711680 `l `ul ]
+[; ;led.c: 75: led_strip_colors[1] = 0x00FF00;
 "75
-[e = *U + &U _led_strip_colors * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> -> 255 `i `l `ul ]
-[; ;led.c: 76: led_strip_colors[3] = 0x00FFFF;
+[e = *U + &U _led_strip_colors * -> -> -> 1 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 65280 `ui `ul ]
+[; ;led.c: 76: led_strip_colors[2] = 0x0000FF;
 "76
-[e = *U + &U _led_strip_colors * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 65535 `ui `ul ]
-[; ;led.c: 77: led_strip_colors[4] = 0xFF00FF;
+[e = *U + &U _led_strip_colors * -> -> -> 2 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> -> 255 `i `l `ul ]
+[; ;led.c: 77: led_strip_colors[3] = 0x00FFFF;
 "77
-[e = *U + &U _led_strip_colors * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16711935 `l `ul ]
-[; ;led.c: 78: led_strip_colors[5] = 0xFFFF00;
+[e = *U + &U _led_strip_colors * -> -> -> 3 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 65535 `ui `ul ]
+[; ;led.c: 78: led_strip_colors[4] = 0xFF00FF;
 "78
-[e = *U + &U _led_strip_colors * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16776960 `l `ul ]
-[; ;led.c: 79: send_frame();
+[e = *U + &U _led_strip_colors * -> -> -> 4 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16711935 `l `ul ]
+[; ;led.c: 79: led_strip_colors[5] = 0xFFFF00;
 "79
+[e = *U + &U _led_strip_colors * -> -> -> 5 `i `ui `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16776960 `l `ul ]
+[; ;led.c: 80: send_frame();
+"80
 [e ( _send_frame ..  ]
-[; ;led.c: 81: for(i = 0 ; i < 1000 ; i++)
-"81
+[; ;led.c: 82: for(i = 0 ; i < 1000 ; i++)
+"82
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 1000 `i `ui 456  ]
 [e $U 457  ]
-"82
+"83
 [e :U 456 ]
-[; ;led.c: 82: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+[; ;led.c: 83: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"81
+"82
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 1000 `i `ui 456  ]
 [e :U 457 ]
-"82
+"83
 }
-[; ;led.c: 84: for(i=0;i<32;i++) {
-"84
+[; ;led.c: 85: for(i=0;i<32;i++) {
+"85
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 32 `i `ui 459  ]
 [e $U 460  ]
 [e :U 459 ]
 {
-[; ;led.c: 85: if((i%3) == 0) {led_strip_colors[i] = 0xFF0000;}
-"85
+[; ;led.c: 86: if((i%3) == 0) {led_strip_colors[i] = 0xFF0000;}
+"86
 [e $ ! == % _i -> -> 3 `i `ui -> -> 0 `i `ui 462  ]
 {
 [e = *U + &U _led_strip_colors * -> _i `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16711680 `l `ul ]
 }
 [e :U 462 ]
-[; ;led.c: 86: if((i%3) == 1) {led_strip_colors[i] = 0xFFFFFF;}
-"86
+[; ;led.c: 87: if((i%3) == 1) {led_strip_colors[i] = 0xFFFFFF;}
+"87
 [e $ ! == % _i -> -> 3 `i `ui -> -> 1 `i `ui 463  ]
 {
 [e = *U + &U _led_strip_colors * -> _i `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16777215 `l `ul ]
 }
 [e :U 463 ]
-[; ;led.c: 87: if((i%3) == 2) {led_strip_colors[i] = 0x0000FF;}
-"87
+[; ;led.c: 88: if((i%3) == 2) {led_strip_colors[i] = 0x0000FF;}
+"88
 [e $ ! == % _i -> -> 3 `i `ui -> -> 2 `i `ui 464  ]
 {
 [e = *U + &U _led_strip_colors * -> _i `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> -> 255 `i `l `ul ]
 }
 [e :U 464 ]
-"88
+"89
 }
-"84
+"85
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 32 `i `ui 459  ]
 [e :U 460 ]
-"88
-}
-[; ;led.c: 88: }
-[; ;led.c: 89: send_frame();
 "89
+}
+[; ;led.c: 89: }
+[; ;led.c: 90: send_frame();
+"90
 [e ( _send_frame ..  ]
-[; ;led.c: 92: for(i = 0 ; i < 2000 ; i++)
-"92
+[; ;led.c: 93: for(i = 0 ; i < 2000 ; i++)
+"93
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 2000 `i `ui 465  ]
 [e $U 466  ]
-"93
+"94
 [e :U 465 ]
-[; ;led.c: 93: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+[; ;led.c: 94: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"92
+"93
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 2000 `i `ui 465  ]
 [e :U 466 ]
-"93
+"94
 }
-[; ;led.c: 95: for(i=0;i<32;i++) {
-"95
+[; ;led.c: 96: for(i=0;i<32;i++) {
+"96
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 32 `i `ui 468  ]
 [e $U 469  ]
 [e :U 468 ]
 {
-[; ;led.c: 96: if((i%2) == 0) {led_strip_colors[i] = 0x00FF00;}
-"96
+[; ;led.c: 97: if((i%2) == 0) {led_strip_colors[i] = 0x00FF00;}
+"97
 [e $ ! == % _i -> -> 2 `i `ui -> -> 0 `i `ui 471  ]
 {
 [e = *U + &U _led_strip_colors * -> _i `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 65280 `ui `ul ]
 }
 [e :U 471 ]
-[; ;led.c: 97: if((i%2) == 1) {led_strip_colors[i] = 0xFFFFFF;}
-"97
+[; ;led.c: 98: if((i%2) == 1) {led_strip_colors[i] = 0xFFFFFF;}
+"98
 [e $ ! == % _i -> -> 2 `i `ui -> -> 1 `i `ui 472  ]
 {
 [e = *U + &U _led_strip_colors * -> _i `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16777215 `l `ul ]
 }
 [e :U 472 ]
-"98
+"99
 }
-"95
+"96
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 32 `i `ui 468  ]
 [e :U 469 ]
-"98
-}
-[; ;led.c: 98: }
-[; ;led.c: 99: send_frame();
 "99
+}
+[; ;led.c: 99: }
+[; ;led.c: 100: send_frame();
+"100
 [e ( _send_frame ..  ]
-[; ;led.c: 101: for(i = 0 ; i < 2000 ; i++)
-"101
+[; ;led.c: 102: for(i = 0 ; i < 2000 ; i++)
+"102
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 2000 `i `ui 473  ]
 [e $U 474  ]
-"102
+"103
 [e :U 473 ]
-[; ;led.c: 102: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+[; ;led.c: 103: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"101
+"102
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 2000 `i `ui 473  ]
 [e :U 474 ]
-"102
+"103
 }
-[; ;led.c: 104: for(i=0;i<32;i++) {
-"104
+[; ;led.c: 105: for(i=0;i<32;i++) {
+"105
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 32 `i `ui 476  ]
 [e $U 477  ]
 [e :U 476 ]
 {
-[; ;led.c: 105: if((i%2) == 0) {led_strip_colors[i] = 0x0000FF;}
-"105
+[; ;led.c: 106: if((i%2) == 0) {led_strip_colors[i] = 0x0000FF;}
+"106
 [e $ ! == % _i -> -> 2 `i `ui -> -> 0 `i `ui 479  ]
 {
 [e = *U + &U _led_strip_colors * -> _i `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> -> 255 `i `l `ul ]
 }
 [e :U 479 ]
-[; ;led.c: 106: if((i%2) == 1) {led_strip_colors[i] = 0xFFFFFF;}
-"106
+[; ;led.c: 107: if((i%2) == 1) {led_strip_colors[i] = 0xFFFFFF;}
+"107
 [e $ ! == % _i -> -> 2 `i `ui -> -> 1 `i `ui 480  ]
 {
 [e = *U + &U _led_strip_colors * -> _i `ux -> -> # *U &U _led_strip_colors `ui `ux -> -> 16777215 `l `ul ]
 }
 [e :U 480 ]
-"107
+"108
 }
-"104
+"105
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 32 `i `ui 476  ]
 [e :U 477 ]
-"107
-}
-[; ;led.c: 107: }
-[; ;led.c: 108: send_frame();
 "108
+}
+[; ;led.c: 108: }
+[; ;led.c: 109: send_frame();
+"109
 [e ( _send_frame ..  ]
-[; ;led.c: 110: for(i = 0 ; i < 2000 ; i++)
-"110
+[; ;led.c: 111: for(i = 0 ; i < 2000 ; i++)
+"111
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 2000 `i `ui 481  ]
 [e $U 482  ]
-"111
+"112
 [e :U 481 ]
-[; ;led.c: 111: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+[; ;led.c: 112: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"110
+"111
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 2000 `i `ui 481  ]
 [e :U 482 ]
-"111
+"112
 }
-[; ;led.c: 113: for(i = 0 ; i < 32 ; i++) {led_strip_colors[i] = 0;}
-"113
+[; ;led.c: 114: for(i = 0 ; i < 32 ; i++) {led_strip_colors[i] = 0;}
+"114
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 32 `i `ui 484  ]
@@ -4141,43 +4141,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ < _i -> -> 32 `i `ui 484  ]
 [e :U 485 ]
 }
-[; ;led.c: 114: send_frame();
-"114
+[; ;led.c: 115: send_frame();
+"115
 [e ( _send_frame ..  ]
-[; ;led.c: 116: while(1) {
-"116
+[; ;led.c: 117: while(1) {
+"117
 [e :U 488 ]
 {
-[; ;led.c: 117: addRandom();
-"117
-[e ( _addRandom ..  ]
-[; ;led.c: 118: send_frame();
+[; ;led.c: 118: addRandom();
 "118
-[e ( _send_frame ..  ]
-[; ;led.c: 119: for(i = 0 ; i < 20 ; i++)
+[e ( _addRandom ..  ]
+[; ;led.c: 119: send_frame();
 "119
+[e ( _send_frame ..  ]
+[; ;led.c: 120: for(i = 0 ; i < 20 ; i++)
+"120
 {
 [e = _i -> -> 0 `i `ui ]
 [e $ < _i -> -> 20 `i `ui 490  ]
 [e $U 491  ]
-"120
+"121
 [e :U 490 ]
-[; ;led.c: 120: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
+[; ;led.c: 121: _delay((unsigned long)((5)*(20000000ULL/4000.0)));
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 20000000 `ul `d .4000.0 `ul ]
-"119
+"120
 [e ++ _i -> -> 1 `i `ui ]
 [e $ < _i -> -> 20 `i `ui 490  ]
 [e :U 491 ]
-"120
-}
 "121
 }
+"122
+}
 [e :U 487 ]
-"116
+"117
 [e $U 488  ]
 [e :U 489 ]
-[; ;led.c: 121: }
 [; ;led.c: 122: }
-"122
+[; ;led.c: 124: }
+"124
 [e :UE 449 ]
 }

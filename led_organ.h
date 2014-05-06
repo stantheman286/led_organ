@@ -16,7 +16,7 @@ extern "C" {
 #include <stdlib.h>
 #include <stdint.h>
 #include <xc.h>
-//#include <spi.h>
+#include <spi.h>
 
 // Configuration Settings
 #define USE_AND_OR

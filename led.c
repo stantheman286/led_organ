@@ -25,7 +25,7 @@ void write_latch(uint16_t len) {
   len = ((len + 63) / 64) * 3;
 
   while(len>0) {
-    writeLEDSPI(0x00);
+    WriteSPI(0x00);
     len--;
   }
 }
@@ -38,9 +38,9 @@ void send_frame() {
     blue = led_strip_colors[i] & 0xFF;
     green = (led_strip_colors[i] >> 8) & 0xFF;
     red = (led_strip_colors[i] >> 16) & 0xFF;
-    writeLEDSPI((green|0x80));
-    writeLEDSPI((red|0x80));
-    writeLEDSPI((blue|0x80));
+    WriteSPI((green|0x80));
+    WriteSPI((red|0x80));
+    WriteSPI((blue|0x80));
   }
   write_latch(LED_STRIP_LEN);
 }
@@ -69,6 +69,7 @@ void demoLEDs()
         __delay_ms(5);
     for(i = 0 ; i < LED_STRIP_LEN ; i++) {led_strip_colors[i] = 0;}
     send_frame();
+    
 
     led_strip_colors[0] = 0xFF0000;  // red
     led_strip_colors[1] = 0x00FF00;  // green
@@ -119,4 +120,5 @@ void demoLEDs()
       for(i = 0 ; i < 20 ; i++)
         __delay_ms(5);
     }
+  
 }

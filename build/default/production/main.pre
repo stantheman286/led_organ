@@ -4964,12 +4964,12 @@ setupSPI();
 while(1)
 {
 
-PORTB |= 0x20;
+
 
 
 demoLEDs();
 
-# 49
+# 48
 }
 
 }
