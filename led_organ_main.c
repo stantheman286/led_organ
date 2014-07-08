@@ -49,15 +49,15 @@
 
 void main(void)
 {
-	// Configure on-board ADC
-	// Vss and Vdd as voltage references
-	ADCON1 = 0b00001011;
+  // Configure on-board ADC
+  // Vss and Vdd as voltage references
+  ADCON1 = 0b00001011;
 
-	// Configure the ADC acquisition time according to the datasheet
-	ADCON2 = 0b10110101; // Note: output is right justified
-
-	// Configure ports as inputs (1) or outputs(0)
-	TRISA = 0b00001111;
+  // Configure the ADC acquisition time according to the datasheet
+  ADCON2 = 0b10110101; // Note: output is right justified
+  
+  // Configure ports as inputs (1) or outputs(0)
+  TRISA = 0b00001111;
 	
 //MS: STOP
 	TRISB = 0b00000000;

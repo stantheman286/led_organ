@@ -31,27 +31,27 @@
 // Reads an ADC convertor and returns 0-1023
 int readADC(unsigned char ADCnumber)
 {
-	int result;
+  int result;
 
-	// Select the desired ADC and start the conversion
-	switch(ADCnumber)
-	{
-		case HIGHADC : 	ADCON0 = 0b00000001; 	// Start the ADC conversion on AN0
-						break;
-		case MIDADC : 	ADCON0 = 0b00000101; 	// Start the ADC conversion on AN1
-						break;
-		case LOWADC : 	ADCON0 = 0b00001001; 	// Start the ADC conversion on AN2
-						break;
-		case MAINADC : 	ADCON0 = 0b00001101; 	// Start the ADC conversion on AN3
-						break;
-	}
+  // Select the desired ADC and start the conversion
+  switch(ADCnumber)
+  {
+    case HIGHADC: ADCON0 = 0b00000001;  // Start the ADC conversion on AN0
+                  break;
+    case MIDADC:  ADCON0 = 0b00000101;  // Start the ADC conversion on AN1
+                  break;
+    case LOWADC:  ADCON0 = 0b00001001;  // Start the ADC conversion on AN2
+                  break;
+    case MAINADC: ADCON0 = 0b00001101;  // Start the ADC conversion on AN3
+                  break;
+  }
 
-	// Wait for the ADC conversion to complete
-	while(GODONE);
+  // Wait for the ADC conversion to complete
+  while(GODONE);
 
-	// Get the ADC result (1023 = +5v (5000 milliVolts)
-	result = ADRESL;
-	result += (ADRESH << 8);
+  // Get the ADC result (1023 = +5v (5000 milliVolts)
+  result = ADRESL;
+  result += (ADRESH << 8);
 
-	return result;
+  return result;
 }
