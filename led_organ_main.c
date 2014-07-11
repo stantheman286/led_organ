@@ -29,8 +29,7 @@
 #include <htc.h>
 
 // Local includes
-#include "hardware.h"
-#include "spi.h"
+#include "led_organ.h"
 #include "adc.h"
 
 //// PIC 18F2550 fuse configuration:
@@ -50,27 +49,32 @@
 void main(void)
 {
   // Configure on-board ADC
-  // Vss and Vdd as voltage references
-  ADCON1 = 0b00001011;
+  // Enable AN3-0, Vss and Vdd as voltage references
+  ADCON1 = 0x0B;
 
   // Configure the ADC acquisition time according to the datasheet
-  ADCON2 = 0b10110101; // Note: output is right justified
+  ADCON2 = 0xB5; // Note: output is right justified
   
   // Configure ports as inputs (1) or outputs(0)
-  TRISA = 0b00001111;
-	
-//MS: STOP
-	TRISB = 0b00000000;
-	TRISC = 0b00110000;
+  TRISA = 0x0F; // Set AN0-3 set as inputs
+	TRISB = 0x00; // RB5, LED output
+  TRISC = 0x00;
+  
+  //MS: TODO, add my other code
+
+//	TRISC = 0b00110000; //MS: Was for SPDT for select
 
 	// Clear all ports
-	PORTA = 0b00000000;
-	PORTB = 0b00000000;
-	PORTC = 0b00000000;
+	PORTA = 0x00;
+	PORTB = 0x00;
+	PORTC = 0x00;
 
 	// Disable the USB device
-	UCON = 0b00000000;
-	UCFG = 0b00001000;
+//	UCON = 0b00000000;  //MS: not implemented on my PIC
+//	UCFG = 0b00001000;
+    
+  // Setup SPI Interface
+  setupSPI();
 
 	// Variables for raw volume levels
 	int highLevel = 0;
@@ -84,16 +88,16 @@ void main(void)
 	// light transition when TOMTE is not running in colour organ
 	// mode.  It increments the tick counter 100 times a second.
 	//
-	// Fosc is 48,000,000 so Fosc/4 is 12,000,000 ticks/sec
-	// meaning 10,000 microseconds is 10,000 * 12 = 120,000 ticks
-	// so with a 1:32 prescaler we need to flag every 3,750 ticks
+  // Fosc is 20,000,000 so Fosc/4 is 5,000,000 ticks/sec
+	// meaning 10,000 microseconds is 10,000 * 5 = 50,000 ticks
+	// so with a 1:32 prescaler we need to flag every 1563 ticks
 	// for 1/10 of a second which means TMR0L should be
-	// 65535 - 3750 = 61785 (0xF159).
+	// 65535 - 1563 = 63972 (0xF9E4).
 	TMR0IF = 0;			// Clear the timer0 interrupt flag
-	TMR0H = 0xF1;
-	TMR0L = 0x59;		// Reset the timer0 counter
+	TMR0H = 0xF9;
+	TMR0L = 0xE4;		// Reset the timer0 counter
 
-	T0CON = 0b10000100; // Timer0 on, 16-bit and 1:32 prescaler
+	T0CON = 0x84; // Timer0 on, 16-bit and 1:32 prescaler
 
 	// Set the initial input gain level
 	int currentGainLevel = 80; // 0-255
@@ -132,6 +136,10 @@ void main(void)
 
 	while(1)
 	{
+        
+    // MS: TODO Demo LED Bar
+    //    demoLEDs();
+
 		// Update the tick counter
 		if (TMR0IF == 1)
 		{
@@ -139,8 +147,8 @@ void main(void)
 			if (tickCounter > 1000) tickCounter = 0;
 
 			// Reset timer 0
-			TMR0H = 0xF1;
-			TMR0L = 0x59;		// Reset the timer0 counter
+	    TMR0H = 0xF9;
+	    TMR0L = 0xE4;		// Reset the timer0 counter
 			TMR0IF = 0;			// Clear the timer0 interrupt flag
 		}
 

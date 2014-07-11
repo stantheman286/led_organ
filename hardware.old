@@ -24,8 +24,8 @@
 #ifndef _HARDWARE_H_
 #define _HARDWARE_H_
 
-// Fosc frequency (48 Mhz)
-#define _XTAL_FREQ 48000000
+// Fosc frequency (20 Mhz)
+#define _XTAL_FREQ 20000000
 
 // Common useful definitions
 #define ON 	1
@@ -36,18 +36,18 @@
 #define TRUE	1
 
 // Peak indicator LEDs
-#define HIGHPEAK	RB2
-#define MIDPEAK		RB3
-#define LOWPEAK		RB4
+#define HIGHPEAK	RB5
+#define MIDPEAK		RB4
+#define LOWPEAK		RB3
 
 // LED string outputs
-#define HIGHSTRING	RC0
-#define MIDSTRING	RC1
-#define LOWSTRING	RC2
+#define HIGHSTRING	RB2
+#define MIDSTRING	RB1
+#define LOWSTRING	RB0
 
 // Toggle Switch pins
-#define SWITCHLOW	RC5
-#define SWITCHHIGH	RC4
+#define SWITCHLOW	0 //MS: manually assigned for now instead of pins
+#define SWITCHHIGH  0
 
 // ADC defintions
 #define HIGHADC		0
