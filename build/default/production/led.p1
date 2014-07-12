@@ -3716,29 +3716,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-"25 led_organ.h
+"26 led_organ.h
 [p x WDTEN=OFF ]
-"26
-[p x STVREN=ON ]
 "27
+[p x STVREN=ON ]
+"28
 [p x XINST=OFF ]
-"30
+"31
 [p x CP0=OFF ]
-"33
-[p x FOSC=EC ]
 "34
-[p x FOSC2=ON ]
+[p x FOSC=EC ]
 "35
-[p x FCMEN=ON ]
+[p x FOSC2=ON ]
 "36
+[p x FCMEN=ON ]
+"37
 [p x IESO=ON ]
-"39
+"40
 [p x WDTPS=32768 ]
-"42
+"43
 [p x CCP2MX=DEFAULT ]
-[; ;led_organ.h: 52: extern void demoLEDs();
-[; ;led_organ.h: 53: extern void setupSPI();
-[; ;led_organ.h: 54: extern void writeLEDSPI(uint8_t);
+[; ;led_organ.h: 111: extern void demoLEDs();
+[; ;led_organ.h: 112: extern void setupSPI();
+[; ;led_organ.h: 113: extern void writeLEDSPI(uint8_t);
+[; ;led_organ.h: 114: extern void setGainLevel(unsigned char);
+[; ;led_organ.h: 115: extern int readMyADC(unsigned char);
 "20 led.c
 [v _led_strip_colors `ul ~T0 @X0 -> 32 `i e ]
 [; ;led.c: 20: uint32_t led_strip_colors[32];

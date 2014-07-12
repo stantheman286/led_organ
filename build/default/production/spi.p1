@@ -11,6 +11,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _SSPSTAT `Vuc ~T0 @X0 0 e@4039 ]
 "4063
 [v _SSPCON1 `Vuc ~T0 @X0 0 e@4038 ]
+"7434
+[v _SSPIF `Vb ~T0 @X0 0 e@31987 ]
+"5320
+[v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
 [; ;stdio.h: 8: typedef int ptrdiff_t;
 [; ;stdio.h: 9: typedef unsigned size_t;
 [; ;stdio.h: 10: typedef unsigned short wchar_t;
@@ -3720,51 +3724,109 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-"25 led_organ.h
+"26 led_organ.h
 [p x WDTEN=OFF ]
-"26
-[p x STVREN=ON ]
 "27
+[p x STVREN=ON ]
+"28
 [p x XINST=OFF ]
-"30
+"31
 [p x CP0=OFF ]
-"33
-[p x FOSC=EC ]
 "34
-[p x FOSC2=ON ]
+[p x FOSC=EC ]
 "35
-[p x FCMEN=ON ]
+[p x FOSC2=ON ]
 "36
+[p x FCMEN=ON ]
+"37
 [p x IESO=ON ]
-"39
+"40
 [p x WDTPS=32768 ]
-"42
+"43
 [p x CCP2MX=DEFAULT ]
-[; ;led_organ.h: 52: extern void demoLEDs();
-[; ;led_organ.h: 53: extern void setupSPI();
-[; ;led_organ.h: 54: extern void writeLEDSPI(uint8_t);
+[; ;led_organ.h: 111: extern void demoLEDs();
+[; ;led_organ.h: 112: extern void setupSPI();
+[; ;led_organ.h: 113: extern void writeLEDSPI(uint8_t);
+[; ;led_organ.h: 114: extern void setGainLevel(unsigned char);
+[; ;led_organ.h: 115: extern int readMyADC(unsigned char);
 "3 spi.c
 [v _setupSPI `(v ~T0 @X0 1 ef ]
 {
 [; ;spi.c: 3: void setupSPI() {
 [e :U _setupSPI ]
 [f ]
-[; ;spi.c: 6: TRISCbits.TRISC5= 0;
+[; ;spi.c: 6: TRISCbits.TRISC5 = 0;
 "6
 [e = . . _TRISCbits 0 5 -> -> 0 `i `uc ]
-[; ;spi.c: 7: TRISCbits.TRISC4= 1;
+[; ;spi.c: 7: TRISCbits.TRISC4 = 1;
 "7
 [e = . . _TRISCbits 0 4 -> -> 1 `i `uc ]
-[; ;spi.c: 8: TRISCbits.TRISC3= 0;
+[; ;spi.c: 8: TRISCbits.TRISC3 = 0;
 "8
 [e = . . _TRISCbits 0 3 -> -> 0 `i `uc ]
-[; ;spi.c: 11: SSPSTAT = 0x40;
+[; ;spi.c: 11: TRISCbits.TRISC0 = 1;
 "11
-[e = _SSPSTAT -> -> 64 `i `uc ]
-[; ;spi.c: 12: SSPCON1 = 0x20;
-"12
-[e = _SSPCON1 -> -> 32 `i `uc ]
-[; ;spi.c: 14: }
+[e = . . _TRISCbits 0 0 -> -> 1 `i `uc ]
+[; ;spi.c: 14: SSPSTAT = 0x40;
 "14
+[e = _SSPSTAT -> -> 64 `i `uc ]
+[; ;spi.c: 15: SSPCON1 = 0x20;
+"15
+[e = _SSPCON1 -> -> 32 `i `uc ]
+[; ;spi.c: 17: }
+"17
 [e :UE 434 ]
+}
+"20
+[v _setGainLevel `(v ~T0 @X0 1 ef1`uc ]
+"21
+{
+[; ;spi.c: 20: void setGainLevel(unsigned char gainLevel)
+[; ;spi.c: 21: {
+[e :U _setGainLevel ]
+"20
+[v _gainLevel `uc ~T0 @X0 1 r1 ]
+"21
+[f ]
+[; ;spi.c: 23: SSPSTAT = 0xC0;
+"23
+[e = _SSPSTAT -> -> 192 `i `uc ]
+[; ;spi.c: 26: SSPCON1 = 0x20;
+"26
+[e = _SSPCON1 -> -> 32 `i `uc ]
+[; ;spi.c: 30: TRISCbits.RC0 = 0;
+"30
+[e = . . _TRISCbits 1 0 -> -> 0 `i `uc ]
+[; ;spi.c: 33: SSPIF = 0;
+"33
+[e = _SSPIF -> -> 0 `i `b ]
+[; ;spi.c: 34: SSPBUF = 0x13;
+"34
+[e = _SSPBUF -> -> 19 `i `uc ]
+[; ;spi.c: 35: while(!SSPIF);
+"35
+[e $U 436  ]
+[e :U 437 ]
+[e :U 436 ]
+[e $ ! _SSPIF 437  ]
+[e :U 438 ]
+[; ;spi.c: 38: SSPIF = 0;
+"38
+[e = _SSPIF -> -> 0 `i `b ]
+[; ;spi.c: 39: SSPBUF = gainLevel;
+"39
+[e = _SSPBUF _gainLevel ]
+[; ;spi.c: 40: while(!SSPIF);
+"40
+[e $U 439  ]
+[e :U 440 ]
+[e :U 439 ]
+[e $ ! _SSPIF 440  ]
+[e :U 441 ]
+[; ;spi.c: 43: TRISCbits.RC0 = 1;
+"43
+[e = . . _TRISCbits 1 0 -> -> 1 `i `uc ]
+[; ;spi.c: 44: }
+"44
+[e :UE 435 ]
 }

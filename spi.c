@@ -27,7 +27,7 @@ void setGainLevel(unsigned char gainLevel)
 							    // Speed is Fosc/4
 
 	// Enable chip serial
-	RC0 = 0;
+	TRISCbits.RC0 = 0;
 
 	// Send SET command
 	SSPIF = 0;
@@ -40,6 +40,6 @@ void setGainLevel(unsigned char gainLevel)
 	while(!SSPIF); // Wait for transmit to complete
 
 	// Disable chip serial
-	RC0 = 1;
+	TRISCbits.RC0 = 1;
 }
 

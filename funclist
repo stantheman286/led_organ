@@ -1,14 +1,7 @@
-_demoLEDs: CODE, 15200 0 1176
-_main: CODE, 14280 0 30
-_setupSPI: CODE, 14188 0 16
-___lmul: CODE, 14516 0 86
-__initialization: CODE, 14252 0 22
-_srand: CODE, 14204 0 22
-_write_latch: CODE, 14438 0 78
-_send_frame: CODE, 14952 0 248
-_rand: CODE, 14602 0 106
-___lwmod: CODE, 14368 0 70
-___wmul: CODE, 14310 0 58
-_WriteSPI1: CODE, 14226 0 26
-_addRandom: CODE, 14708 0 244
-Total: 2182
+___aldiv: CODE, 13170 0 264
+_setGainLevel: CODE, 13058 0 38
+_main: CODE, 13434 0 2942
+_setupSPI: CODE, 13008 0 18
+__initialization: CODE, 13026 0 22
+_readMyADC: CODE, 13096 0 74
+Total: 3358

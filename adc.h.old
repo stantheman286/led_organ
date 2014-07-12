@@ -25,6 +25,5 @@
 #define _ADC_H_
 
 // function prototypes
-int readADC(unsigned char ADCnumber);
 
 #endif

@@ -4915,7 +4915,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 
-# 25 "led_organ.h"
+# 26 "led_organ.h"
 #pragma config WDTEN = OFF
 #pragma config STVREN = ON
 #pragma config XINST = OFF
@@ -4935,21 +4935,54 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config CCP2MX = DEFAULT
 
-# 52
+# 111
 extern void demoLEDs();
 extern void setupSPI();
 extern void writeLEDSPI(uint8_t);
+extern void setGainLevel(unsigned char);
+extern int readMyADC(unsigned char);
 
 # 3 "spi.c"
 void setupSPI() {
 
 
-TRISCbits.TRISC5= 0;
-TRISCbits.TRISC4= 1;
-TRISCbits.TRISC3= 0;
+TRISCbits.TRISC5 = 0;
+TRISCbits.TRISC4 = 1;
+TRISCbits.TRISC3 = 0;
+
+
+TRISCbits.TRISC0 = 1;
 
 
 SSPSTAT = 0x40;
 SSPCON1 = 0x20;
 
 }
+
+
+void setGainLevel(unsigned char gainLevel)
+{
+
+SSPSTAT = 0xC0;
+
+
+SSPCON1 = 0x20;
+
+
+
+TRISCbits.RC0 = 0;
+
+
+SSPIF = 0;
+SSPBUF = 0x13;
+while(!SSPIF);
+
+
+SSPIF = 0;
+SSPBUF = gainLevel;
+while(!SSPIF);
+
+
+TRISCbits.RC0 = 1;
+}
+

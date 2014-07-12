@@ -4915,7 +4915,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 
-# 25 "led_organ.h"
+# 26 "led_organ.h"
 #pragma config WDTEN = OFF
 #pragma config STVREN = ON
 #pragma config XINST = OFF
@@ -4935,60 +4935,558 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config CCP2MX = DEFAULT
 
-# 52
+# 111
 extern void demoLEDs();
 extern void setupSPI();
 extern void writeLEDSPI(uint8_t);
+extern void setGainLevel(unsigned char);
+extern int readMyADC(unsigned char);
 
-# 11 "main.c"
-void blink_b(unsigned int);
-void blink_c(unsigned int);
-
-int main(int argc, char** argv) {
-
-
-LATA = 0x00;
-LATB = 0x00;
-LATC = 0x00;
+# 45 "main.c"
+void main(void)
+{
 
 
-ADCON1 = 0x0F;
+ADCON1 = 0x0B;
 
 
+ADCON2 = 0xB5;
+
+
+TRISA = 0x0F;
 TRISB = 0x00;
+TRISC = 0x00;
 
+# 64
+PORTA = 0x00;
+PORTB = 0x00;
+PORTC = 0x00;
 
-
+# 73
 setupSPI();
+
+
+int highLevel = 0;
+int midLevel = 0;
+int lowLevel = 0;
+int mainLevel = 0;
+
+# 92
+TMR0IF = 0;
+TMR0H = 0xF9;
+TMR0L = 0xE4;
+
+T0CON = 0x84;
+
+
+int currentGainLevel = 80;
+setGainLevel(currentGainLevel);
+
+
+int sampleCount = 0;
+long total = 0;
+int average = 0;
+
+
+int PWMcount = 0;
+int lowPWM = 0;
+int midPWM = 0;
+int highPWM = 0;
+int fadeCounter = 0;
+
+
+unsigned char mode = 0;
+
+
+int tickCounter = 0;
+
+
+unsigned char patternNumber = 0;
+unsigned char sequenceNumber = 0;
+int stepNumber = 0;
+int currentStep = 0;
+unsigned char brightness = 0;
+int sequenceRepeats = 0;
+
+
+int soundDetectedCount = 0;
+unsigned char soundFlag = 0;
+int clapCounter = 0;
 
 while(1)
 {
 
-
-
-
-demoLEDs();
-
-# 48
-}
-
-}
-
-
-void blink_b(unsigned int LED)
+# 140
+if (TMR0IF == 1)
 {
-PORTB |= LED;
-for(int i = 0 ; i < 100 ; i++)
-_delay((unsigned long)((5)*(20000000ULL/4000.0)));
-PORTB &= ~LED;
+tickCounter++;
+if (tickCounter > 1000) tickCounter = 0;
+
+
+TMR0H = 0xF9;
+TMR0L = 0xE4;
+TMR0IF = 0;
 }
 
 
-void blink_c(unsigned int LED)
+highLevel = readMyADC(0);
+
+# 158
+if (0 == 1 && 0 == 0)
 {
-PORTC |= LED;
-for(int i = 0 ; i < 100 ; i++)
-_delay((unsigned long)((5)*(20000000ULL/4000.0)));
-PORTC &= ~LED;
+if (mode != 0)
+{
+mode = 0;
+
+
+TRISBbits.RB3 = 0;
+TRISBbits.RB4 = 0;
+TRISBbits.RB5 = 0;
+TRISBbits.RB0 = 0;
+TRISBbits.RB1 = 0;
+TRISBbits.RB2 = 0;
+
+
+patternNumber = 0;
+sequenceNumber = 0;
+stepNumber = 0;
+currentStep = 0;
+brightness = 0;
+sequenceRepeats = 0;
+}
 }
 
+if (0 == 0 && 0 == 0)
+{
+if (mode != 1)
+{
+mode = 1;
+
+
+TRISBbits.RB3 = 0;
+TRISBbits.RB4 = 0;
+TRISBbits.RB5 = 0;
+TRISBbits.RB0 = 0;
+TRISBbits.RB1 = 0;
+TRISBbits.RB2 = 0;
+}
+}
+
+if (0 == 0 && 0 == 1)
+{
+if (mode != 2)
+{
+mode = 2;
+
+
+TRISBbits.RB3 = 0;
+TRISBbits.RB4 = 0;
+TRISBbits.RB5 = 0;
+TRISBbits.RB0 = 0;
+TRISBbits.RB1 = 0;
+TRISBbits.RB2 = 0;
+}
+}
+
+
+total += mainLevel;
+sampleCount++;
+
+if (sampleCount == 200)
+{
+average = total / sampleCount;
+
+
+if (currentGainLevel <= 250 && currentGainLevel >= 10)
+{
+if (average < 100) currentGainLevel += 4;
+if (average > 100) currentGainLevel -= 4;
+}
+else
+{
+if (currentGainLevel < 10) currentGainLevel = 10 + 1;
+if (currentGainLevel > 250) currentGainLevel = 250 - 1;
+}
+
+setGainLevel(currentGainLevel);
+
+sampleCount = 0;
+total = 0;
+}
+
+
+
+if (mode == 1)
+{
+if (soundFlag == 0)
+{
+if (average >= 80) soundDetectedCount++; else soundDetectedCount = 0;
+if (soundDetectedCount > 1500)
+{
+soundFlag = 1;
+soundDetectedCount = 0;
+}
+}
+else
+{
+if (average < 50) soundDetectedCount++; else soundDetectedCount = 0;
+if (soundDetectedCount > 10000)
+{
+soundFlag = 0;
+soundDetectedCount = 0;
+}
+}
+
+if (soundFlag == 0) TRISBbits.RB3 = 1; else TRISBbits.RB3 = 0;
+
+
+if (soundFlag == 1) mode = 2; else mode = 0;
+}
+
+
+if (mode == 0)
+{
+
+if ((highLevel > 600) && (clapCounter == 0))
+{
+clapCounter = 1;
+}
+
+if (clapCounter > 0) clapCounter++;
+if (clapCounter > 1000)
+{
+if (highLevel < 600)
+{
+
+clapCounter = 0;
+patternNumber++;
+sequenceNumber = 0;
+stepNumber = 0;
+currentStep = 0;
+brightness = 0;
+sequenceRepeats = 0;
+if (patternNumber > 4) patternNumber = 0;
+}
+else clapCounter = 1;
+}
+
+if (clapCounter > 0) TRISBbits.RB5 = 1; else TRISBbits.RB5 = 0;
+
+
+if (patternNumber == 0)
+{
+if (sequenceNumber == 0)
+{
+if (currentStep != stepNumber)
+{
+currentStep = stepNumber;
+if (currentStep < 16) brightness += 2; else brightness -= 2;
+}
+highPWM = brightness;
+} else highPWM = 0;
+
+if (sequenceNumber == 1)
+{
+if (currentStep != stepNumber)
+{
+currentStep = stepNumber;
+
+if (currentStep < 16) brightness += 2; else brightness -= 2;
+}
+midPWM = brightness;
+} else if (sequenceNumber != 3) midPWM = 0;
+
+if (sequenceNumber == 2)
+{
+if (currentStep != stepNumber)
+{
+currentStep = stepNumber;
+if (currentStep < 16) brightness += 2; else brightness -= 2;
+}
+lowPWM = brightness;
+} else lowPWM = 0;
+
+if (sequenceNumber == 3)
+{
+if (currentStep != stepNumber)
+{
+currentStep = stepNumber;
+
+if (currentStep < 16) brightness += 2; else brightness -= 2;
+}
+midPWM = brightness;
+} else if (sequenceNumber != 1) midPWM = 0;
+
+if (tickCounter > 6)
+{
+stepNumber++;
+tickCounter = 0;
+
+if (stepNumber == 31)
+{
+stepNumber = 0;
+sequenceNumber++;
+brightness = 0;
+
+if (sequenceNumber == 4)
+{
+sequenceNumber = 0;
+sequenceRepeats++;
+if (sequenceRepeats > 10)
+{
+sequenceRepeats = 0;
+patternNumber++;
+}
+}
+}
+}
+}
+
+
+if (patternNumber == 1)
+{
+highPWM = 31;
+midPWM = 31;
+lowPWM = 31;
+
+if (tickCounter > 8)
+{
+stepNumber++;
+tickCounter = 0;
+
+if (stepNumber == 3)
+{
+stepNumber = 0;
+sequenceNumber++;
+brightness = 0;
+
+if (sequenceNumber == 5)
+{
+sequenceNumber = 0;
+sequenceRepeats++;
+if (sequenceRepeats > 40)
+{
+sequenceRepeats = 0;
+patternNumber++;
+}
+}
+}
+}
+}
+
+
+if (patternNumber == 2)
+{
+if (sequenceNumber == 0)
+{
+if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+if (stepNumber == 1) midPWM = 31; else midPWM = 0;
+if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
+}
+
+if (sequenceNumber == 1)
+{
+if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+if (stepNumber == 1) lowPWM = 31; else lowPWM = 0;
+if (stepNumber == 2) midPWM = 31; else midPWM = 0;
+}
+
+if (sequenceNumber == 2)
+{
+if (stepNumber == 0) lowPWM = 31; else lowPWM = 0;
+if (stepNumber == 1) highPWM = 31; else highPWM = 0;
+if (stepNumber == 2) midPWM = 31; else midPWM = 0;
+}
+
+if (sequenceNumber == 3)
+{
+if (stepNumber == 0) lowPWM = 31; else highPWM = 0;
+if (stepNumber == 1) midPWM = 31; else lowPWM = 0;
+if (stepNumber == 2) highPWM = 31; else midPWM = 0;
+}
+
+if (sequenceNumber == 4)
+{
+if (stepNumber == 0) midPWM = 31; else midPWM = 0;
+if (stepNumber == 1) highPWM = 31; else highPWM = 0;
+if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
+}
+
+if (tickCounter > 8)
+{
+stepNumber++;
+tickCounter = 0;
+
+if (stepNumber == 3)
+{
+stepNumber = 0;
+sequenceNumber++;
+brightness = 0;
+
+if (sequenceNumber == 5)
+{
+sequenceNumber = 0;
+sequenceRepeats++;
+if (sequenceRepeats > 30)
+{
+sequenceRepeats = 0;
+patternNumber++;
+}
+}
+}
+}
+}
+
+
+if (patternNumber == 3)
+{
+if (sequenceNumber == 0)
+{
+if (currentStep != stepNumber)
+{
+currentStep = stepNumber;
+if (currentStep < 16) brightness += 2; else brightness -= 2;
+}
+highPWM = brightness;
+midPWM = brightness;
+lowPWM = brightness;
+}
+
+if (tickCounter > 3)
+{
+stepNumber++;
+tickCounter = 0;
+
+if (stepNumber == 31)
+{
+stepNumber = 0;
+sequenceNumber++;
+brightness = 0;
+
+if (sequenceNumber == 1)
+{
+sequenceNumber = 0;
+sequenceRepeats++;
+if (sequenceRepeats > 60)
+{
+sequenceRepeats = 0;
+patternNumber++;
+}
+}
+}
+}
+}
+
+
+if (patternNumber == 4)
+{
+if (sequenceNumber == 0)
+{
+if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+if (stepNumber == 1) midPWM = 31; else if (stepNumber != 3) midPWM = 0;
+if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
+if (stepNumber == 3) midPWM = 31; else if (stepNumber != 1) midPWM = 0;
+}
+
+if (tickCounter > 8)
+{
+stepNumber++;
+tickCounter = 0;
+
+if (stepNumber == 4)
+{
+stepNumber = 0;
+sequenceNumber++;
+brightness = 0;
+
+if (sequenceNumber == 1)
+{
+sequenceNumber = 0;
+sequenceRepeats++;
+if (sequenceRepeats > 100)
+{
+sequenceRepeats = 0;
+patternNumber++;
+}
+}
+}
+}
+}
+
+
+if (patternNumber > 4) patternNumber = 0;
+
+
+if (highPWM > PWMcount) TRISBbits.RB2 = 1; else TRISBbits.RB2 = 0;
+if (midPWM > PWMcount) TRISBbits.RB1 = 1; else TRISBbits.RB1 = 0;
+if (lowPWM > PWMcount) TRISBbits.RB0 = 1; else TRISBbits.RB0 = 0;
+
+
+PWMcount++;
+if (PWMcount > 31) PWMcount = 0;
+}
+
+
+if (mode == 2)
+{
+
+if (fadeCounter == 0)
+{
+if (highPWM > 0) highPWM--;
+if (midPWM > 0) midPWM--;
+if (lowPWM > 0) lowPWM--;
+}
+
+
+if (highLevel > 150) highPWM = 31;
+if (midLevel > 520) midPWM = 31;
+if (lowLevel > 470) lowPWM = 31;
+
+
+if (highPWM > PWMcount) TRISBbits.RB2 = 1; else TRISBbits.RB2 = 0;
+if (midPWM > PWMcount) TRISBbits.RB1 = 1; else TRISBbits.RB1 = 0;
+if (lowPWM > PWMcount) TRISBbits.RB0 = 1; else TRISBbits.RB0 = 0;
+
+
+if (highPWM > PWMcount) TRISBbits.RB5 = 1; else TRISBbits.RB5 = 0;
+if (midPWM > PWMcount) TRISBbits.RB4 = 1; else TRISBbits.RB4 = 0;
+if (lowPWM > PWMcount) TRISBbits.RB3 = 1; else TRISBbits.RB3 = 0;
+
+
+PWMcount++;
+if (PWMcount > 31) PWMcount = 0;
+
+
+fadeCounter++;
+if (fadeCounter > 30) fadeCounter = 0;
+}
+}
+}
+
+
+int readMyADC(unsigned char ADCnumber)
+{
+int result;
+
+
+switch(ADCnumber)
+{
+case 0: ADCON0 = 0b00000001;
+break;
+case 1: ADCON0 = 0b00000101;
+break;
+case 2: ADCON0 = 0b00001001;
+break;
+case 3: ADCON0 = 0b00001101;
+break;
+}
+
+
+while(GODONE);
+
+
+result = ADRESL;
+result += (ADRESH << 8);
+
+return result;
+}

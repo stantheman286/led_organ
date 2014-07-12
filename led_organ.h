@@ -58,14 +58,14 @@ extern "C" {
 #define TRUE	1
 
 // Peak indicator LEDs
-#define HIGHPEAK	RB5
-#define MIDPEAK		RB4
-#define LOWPEAK		RB3
+#define HIGHPEAK	TRISBbits.RB5
+#define MIDPEAK		TRISBbits.RB4
+#define LOWPEAK		TRISBbits.RB3
 
 // LED string outputs
-#define HIGHSTRING	RB2
-#define MIDSTRING	RB1
-#define LOWSTRING	RB0
+#define HIGHSTRING	TRISBbits.RB2
+#define MIDSTRING	TRISBbits.RB1
+#define LOWSTRING	TRISBbits.RB0
 
 // Toggle Switch pins
 #define SWITCHLOW	0 //MS: manually assigned for now instead of pins
@@ -111,7 +111,8 @@ extern "C" {
 extern void demoLEDs();
 extern void setupSPI();
 extern void writeLEDSPI(uint8_t);
-void setGainLevel(unsigned char gainLevel);
+extern void setGainLevel(unsigned char);
+extern int readMyADC(unsigned char);
 
 #ifdef	__cplusplus
 }

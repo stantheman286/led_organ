@@ -4915,7 +4915,7 @@ extern __nonreentrant void _delaywdt(unsigned long);
 extern __nonreentrant void _delay3(unsigned char);
 
 
-# 25 "led_organ.h"
+# 26 "led_organ.h"
 #pragma config WDTEN = OFF
 #pragma config STVREN = ON
 #pragma config XINST = OFF
@@ -4935,10 +4935,12 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config CCP2MX = DEFAULT
 
-# 52
+# 111
 extern void demoLEDs();
 extern void setupSPI();
 extern void writeLEDSPI(uint8_t);
+extern void setGainLevel(unsigned char);
+extern int readMyADC(unsigned char);
 
 # 20 "led.c"
 uint32_t led_strip_colors[32];

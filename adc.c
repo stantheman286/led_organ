@@ -21,15 +21,10 @@
 
 ************************************************************************/
 
-// Global includes
-#include <htc.h>
-
-// Local includes
-#include "hardware.h"
-#include "adc.h"
+#include "led_organ.h"
 
 // Reads an ADC convertor and returns 0-1023
-int readADC(unsigned char ADCnumber)
+int readMyADC(unsigned char ADCnumber)
 {
   int result;
 
