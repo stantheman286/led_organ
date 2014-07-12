@@ -58,17 +58,17 @@ extern "C" {
 #define TRUE	1
 
 // Peak indicator LEDs
-#define HIGHPEAK	TRISBbits.RB5
-#define MIDPEAK		TRISBbits.RB4
-#define LOWPEAK		TRISBbits.RB3
+#define HIGHPEAK	PORTBbits.RB5
+#define MIDPEAK		PORTBbits.RB4
+#define LOWPEAK		PORTBbits.RB3
 
 // LED string outputs
-#define HIGHSTRING	TRISBbits.RB2
-#define MIDSTRING	TRISBbits.RB1
-#define LOWSTRING	TRISBbits.RB0
+#define HIGHSTRING	PORTBbits.RB2
+#define MIDSTRING	PORTBbits.RB1
+#define LOWSTRING	PORTBbits.RB0
 
 // Toggle Switch pins
-#define SWITCHLOW	0 //MS: manually assigned for now instead of pins
+#define SWITCHLOW   0 //MS: manually assigned for now instead of pins
 #define SWITCHHIGH  0
 
 // ADC defintions

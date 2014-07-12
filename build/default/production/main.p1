@@ -30,14 +30,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _setGainLevel `(v ~T0 @X0 0 ef1`uc ]
 "115
 [v _readMyADC `(i ~T0 @X0 0 ef1`uc ]
-[s S71 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S71 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
-[s S72 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S72 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-[u S70 `S71 1 `S72 1 ]
-[n S70 . . . ]
-"1198 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
-[v _TRISBbits `VS70 ~T0 @X0 0 e@3987 ]
+[s S20 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+[s S21 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S21 . INT0 INT1 INT2 CCP2 KBI0 KBI1 KBI2 KBI3 ]
+[s S22 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S22 . AN12 AN10 AN8 AN9 AN11 T0CKI PGC PGD ]
+[s S23 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
+[n S23 . FLT0 . C1OUT ]
+[s S24 :3 `uc 1 :1 `uc 1 ]
+[n S24 . . CCP2_PA2 ]
+[u S19 `S20 1 `S21 1 `S22 1 `S23 1 `S24 1 ]
+[n S19 . . . . . . ]
+"276 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
+[v _PORTBbits `VS19 ~T0 @X0 0 e@3969 ]
 "3473
 [v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
 "6970
@@ -3932,1123 +3938,1123 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 134: {
 "134
 {
-[; ;main.c: 140: if (TMR0IF == 1)
-"140
-[e $ ! == -> _TMR0IF `i -> 1 `i 438  ]
-[; ;main.c: 141: {
+[; ;main.c: 141: if (TMR0IF == 1)
 "141
-{
-[; ;main.c: 142: tickCounter++;
+[e $ ! == -> _TMR0IF `i -> 1 `i 438  ]
+[; ;main.c: 142: {
 "142
-[e ++ _tickCounter -> 1 `i ]
-[; ;main.c: 143: if (tickCounter > 1000) tickCounter = 0;
+{
+[; ;main.c: 143: tickCounter++;
 "143
+[e ++ _tickCounter -> 1 `i ]
+[; ;main.c: 144: if (tickCounter > 1000) tickCounter = 0;
+"144
 [e $ ! > _tickCounter -> 1000 `i 439  ]
 [e = _tickCounter -> 0 `i ]
 [e :U 439 ]
-[; ;main.c: 146: TMR0H = 0xF9;
-"146
-[e = _TMR0H -> -> 249 `i `uc ]
-[; ;main.c: 147: TMR0L = 0xE4;
+[; ;main.c: 147: TMR0H = 0xF9;
 "147
-[e = _TMR0L -> -> 228 `i `uc ]
-[; ;main.c: 148: TMR0IF = 0;
+[e = _TMR0H -> -> 249 `i `uc ]
+[; ;main.c: 148: TMR0L = 0xE4;
 "148
-[e = _TMR0IF -> -> 0 `i `b ]
+[e = _TMR0L -> -> 228 `i `uc ]
+[; ;main.c: 149: TMR0IF = 0;
 "149
+[e = _TMR0IF -> -> 0 `i `b ]
+"150
 }
 [e :U 438 ]
-[; ;main.c: 149: }
-[; ;main.c: 152: highLevel = readMyADC(0);
-"152
+[; ;main.c: 150: }
+[; ;main.c: 153: highLevel = readMyADC(0);
+"153
 [e = _highLevel ( _readMyADC (1 -> -> 0 `i `uc ]
-[; ;main.c: 158: if (0 == 1 && 0 == 0)
-"158
-[e $ ! && == -> 0 `i -> 1 `i == -> 0 `i -> 0 `i 440  ]
-[; ;main.c: 159: {
+[; ;main.c: 159: if (0 == 1 && 0 == 0)
 "159
-{
-[; ;main.c: 160: if (mode != 0)
+[e $ ! && == -> 0 `i -> 1 `i == -> 0 `i -> 0 `i 440  ]
+[; ;main.c: 160: {
 "160
-[e $ ! != -> _mode `i -> 0 `i 441  ]
-[; ;main.c: 161: {
-"161
 {
-[; ;main.c: 162: mode = 0;
+[; ;main.c: 161: if (mode != 0)
+"161
+[e $ ! != -> _mode `i -> 0 `i 441  ]
+[; ;main.c: 162: {
 "162
+{
+[; ;main.c: 163: mode = 0;
+"163
 [e = _mode -> -> 0 `i `uc ]
-[; ;main.c: 165: TRISBbits.RB3 = 0;
-"165
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-[; ;main.c: 166: TRISBbits.RB4 = 0;
+[; ;main.c: 166: PORTBbits.RB3 = 0;
 "166
-[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
-[; ;main.c: 167: TRISBbits.RB5 = 0;
+[e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 167: PORTBbits.RB4 = 0;
 "167
-[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
-[; ;main.c: 168: TRISBbits.RB0 = 0;
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 168: PORTBbits.RB5 = 0;
 "168
-[e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 169: TRISBbits.RB1 = 0;
+[e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 169: PORTBbits.RB0 = 0;
 "169
-[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 170: TRISBbits.RB2 = 0;
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 170: PORTBbits.RB1 = 0;
 "170
-[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
-[; ;main.c: 173: patternNumber = 0;
-"173
-[e = _patternNumber -> -> 0 `i `uc ]
-[; ;main.c: 174: sequenceNumber = 0;
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 171: PORTBbits.RB2 = 0;
+"171
+[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 174: patternNumber = 0;
 "174
-[e = _sequenceNumber -> -> 0 `i `uc ]
-[; ;main.c: 175: stepNumber = 0;
+[e = _patternNumber -> -> 0 `i `uc ]
+[; ;main.c: 175: sequenceNumber = 0;
 "175
-[e = _stepNumber -> 0 `i ]
-[; ;main.c: 176: currentStep = 0;
+[e = _sequenceNumber -> -> 0 `i `uc ]
+[; ;main.c: 176: stepNumber = 0;
 "176
-[e = _currentStep -> 0 `i ]
-[; ;main.c: 177: brightness = 0;
+[e = _stepNumber -> 0 `i ]
+[; ;main.c: 177: currentStep = 0;
 "177
-[e = _brightness -> -> 0 `i `uc ]
-[; ;main.c: 178: sequenceRepeats = 0;
+[e = _currentStep -> 0 `i ]
+[; ;main.c: 178: brightness = 0;
 "178
-[e = _sequenceRepeats -> 0 `i ]
+[e = _brightness -> -> 0 `i `uc ]
+[; ;main.c: 179: sequenceRepeats = 0;
 "179
-}
-[e :U 441 ]
+[e = _sequenceRepeats -> 0 `i ]
 "180
 }
-[e :U 440 ]
-[; ;main.c: 179: }
-[; ;main.c: 180: }
-[; ;main.c: 182: if (0 == 0 && 0 == 0)
-"182
-[e $ ! && == -> 0 `i -> 0 `i == -> 0 `i -> 0 `i 442  ]
-[; ;main.c: 183: {
-"183
-{
-[; ;main.c: 184: if (mode != 1)
-"184
-[e $ ! != -> _mode `i -> 1 `i 443  ]
-[; ;main.c: 185: {
-"185
-{
-[; ;main.c: 186: mode = 1;
-"186
-[e = _mode -> -> 1 `i `uc ]
-[; ;main.c: 189: TRISBbits.RB3 = 0;
-"189
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-[; ;main.c: 190: TRISBbits.RB4 = 0;
-"190
-[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
-[; ;main.c: 191: TRISBbits.RB5 = 0;
-"191
-[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
-[; ;main.c: 192: TRISBbits.RB0 = 0;
-"192
-[e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 193: TRISBbits.RB1 = 0;
-"193
-[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 194: TRISBbits.RB2 = 0;
-"194
-[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
-"195
+[e :U 441 ]
+"181
 }
-[e :U 443 ]
+[e :U 440 ]
+[; ;main.c: 180: }
+[; ;main.c: 181: }
+[; ;main.c: 183: if (0 == 0 && 0 == 0)
+"183
+[e $ ! && == -> 0 `i -> 0 `i == -> 0 `i -> 0 `i 442  ]
+[; ;main.c: 184: {
+"184
+{
+[; ;main.c: 185: if (mode != 1)
+"185
+[e $ ! != -> _mode `i -> 1 `i 443  ]
+[; ;main.c: 186: {
+"186
+{
+[; ;main.c: 187: mode = 1;
+"187
+[e = _mode -> -> 1 `i `uc ]
+[; ;main.c: 190: PORTBbits.RB3 = 0;
+"190
+[e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 191: PORTBbits.RB4 = 0;
+"191
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 192: PORTBbits.RB5 = 0;
+"192
+[e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 193: PORTBbits.RB0 = 0;
+"193
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 194: PORTBbits.RB1 = 0;
+"194
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 195: PORTBbits.RB2 = 0;
+"195
+[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
 "196
 }
-[e :U 442 ]
-[; ;main.c: 195: }
-[; ;main.c: 196: }
-[; ;main.c: 198: if (0 == 0 && 0 == 1)
-"198
-[e $ ! && == -> 0 `i -> 0 `i == -> 0 `i -> 1 `i 444  ]
-[; ;main.c: 199: {
-"199
-{
-[; ;main.c: 200: if (mode != 2)
-"200
-[e $ ! != -> _mode `i -> 2 `i 445  ]
-[; ;main.c: 201: {
-"201
-{
-[; ;main.c: 202: mode = 2;
-"202
-[e = _mode -> -> 2 `i `uc ]
-[; ;main.c: 205: TRISBbits.RB3 = 0;
-"205
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
-[; ;main.c: 206: TRISBbits.RB4 = 0;
-"206
-[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
-[; ;main.c: 207: TRISBbits.RB5 = 0;
-"207
-[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
-[; ;main.c: 208: TRISBbits.RB0 = 0;
-"208
-[e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
-[; ;main.c: 209: TRISBbits.RB1 = 0;
-"209
-[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
-[; ;main.c: 210: TRISBbits.RB2 = 0;
-"210
-[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
-"211
+[e :U 443 ]
+"197
 }
-[e :U 445 ]
+[e :U 442 ]
+[; ;main.c: 196: }
+[; ;main.c: 197: }
+[; ;main.c: 199: if (0 == 0 && 0 == 1)
+"199
+[e $ ! && == -> 0 `i -> 0 `i == -> 0 `i -> 1 `i 444  ]
+[; ;main.c: 200: {
+"200
+{
+[; ;main.c: 201: if (mode != 2)
+"201
+[e $ ! != -> _mode `i -> 2 `i 445  ]
+[; ;main.c: 202: {
+"202
+{
+[; ;main.c: 203: mode = 2;
+"203
+[e = _mode -> -> 2 `i `uc ]
+[; ;main.c: 206: PORTBbits.RB3 = 0;
+"206
+[e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 207: PORTBbits.RB4 = 0;
+"207
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
+[; ;main.c: 208: PORTBbits.RB5 = 0;
+"208
+[e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 209: PORTBbits.RB0 = 0;
+"209
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 210: PORTBbits.RB1 = 0;
+"210
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
+[; ;main.c: 211: PORTBbits.RB2 = 0;
+"211
+[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
 "212
 }
+[e :U 445 ]
+"213
+}
 [e :U 444 ]
-[; ;main.c: 211: }
 [; ;main.c: 212: }
-[; ;main.c: 215: total += mainLevel;
-"215
-[e =+ _total -> _mainLevel `l ]
-[; ;main.c: 216: sampleCount++;
+[; ;main.c: 213: }
+[; ;main.c: 216: total += mainLevel;
 "216
+[e =+ _total -> _mainLevel `l ]
+[; ;main.c: 217: sampleCount++;
+"217
 [e ++ _sampleCount -> 1 `i ]
-[; ;main.c: 218: if (sampleCount == 200)
-"218
-[e $ ! == _sampleCount -> 200 `i 446  ]
-[; ;main.c: 219: {
+[; ;main.c: 219: if (sampleCount == 200)
 "219
-{
-[; ;main.c: 220: average = total / sampleCount;
+[e $ ! == _sampleCount -> 200 `i 446  ]
+[; ;main.c: 220: {
 "220
-[e = _average -> / _total -> _sampleCount `l `i ]
-[; ;main.c: 223: if (currentGainLevel <= 250 && currentGainLevel >= 10)
-"223
-[e $ ! && <= _currentGainLevel -> 250 `i >= _currentGainLevel -> 10 `i 447  ]
-[; ;main.c: 224: {
-"224
 {
-[; ;main.c: 225: if (average < 100) currentGainLevel += 4;
+[; ;main.c: 221: average = total / sampleCount;
+"221
+[e = _average -> / _total -> _sampleCount `l `i ]
+[; ;main.c: 224: if (currentGainLevel <= 250 && currentGainLevel >= 10)
+"224
+[e $ ! && <= _currentGainLevel -> 250 `i >= _currentGainLevel -> 10 `i 447  ]
+[; ;main.c: 225: {
 "225
+{
+[; ;main.c: 226: if (average < 100) currentGainLevel += 4;
+"226
 [e $ ! < _average -> 100 `i 448  ]
 [e =+ _currentGainLevel -> 4 `i ]
 [e :U 448 ]
-[; ;main.c: 226: if (average > 100) currentGainLevel -= 4;
-"226
+[; ;main.c: 227: if (average > 100) currentGainLevel -= 4;
+"227
 [e $ ! > _average -> 100 `i 449  ]
 [e =- _currentGainLevel -> 4 `i ]
 [e :U 449 ]
-"227
-}
-[; ;main.c: 227: }
-[e $U 450  ]
 "228
-[e :U 447 ]
-[; ;main.c: 228: else
-[; ;main.c: 229: {
+}
+[; ;main.c: 228: }
+[e $U 450  ]
 "229
-{
-[; ;main.c: 230: if (currentGainLevel < 10) currentGainLevel = 10 + 1;
+[e :U 447 ]
+[; ;main.c: 229: else
+[; ;main.c: 230: {
 "230
+{
+[; ;main.c: 231: if (currentGainLevel < 10) currentGainLevel = 10 + 1;
+"231
 [e $ ! < _currentGainLevel -> 10 `i 451  ]
 [e = _currentGainLevel + -> 10 `i -> 1 `i ]
 [e :U 451 ]
-[; ;main.c: 231: if (currentGainLevel > 250) currentGainLevel = 250 - 1;
-"231
+[; ;main.c: 232: if (currentGainLevel > 250) currentGainLevel = 250 - 1;
+"232
 [e $ ! > _currentGainLevel -> 250 `i 452  ]
 [e = _currentGainLevel - -> 250 `i -> 1 `i ]
 [e :U 452 ]
-"232
+"233
 }
 [e :U 450 ]
-[; ;main.c: 232: }
-[; ;main.c: 234: setGainLevel(currentGainLevel);
-"234
+[; ;main.c: 233: }
+[; ;main.c: 235: setGainLevel(currentGainLevel);
+"235
 [e ( _setGainLevel (1 -> _currentGainLevel `uc ]
-[; ;main.c: 236: sampleCount = 0;
-"236
-[e = _sampleCount -> 0 `i ]
-[; ;main.c: 237: total = 0;
+[; ;main.c: 237: sampleCount = 0;
 "237
-[e = _total -> -> 0 `i `l ]
+[e = _sampleCount -> 0 `i ]
+[; ;main.c: 238: total = 0;
 "238
+[e = _total -> -> 0 `i `l ]
+"239
 }
 [e :U 446 ]
-[; ;main.c: 238: }
-[; ;main.c: 242: if (mode == 1)
-"242
-[e $ ! == -> _mode `i -> 1 `i 453  ]
-[; ;main.c: 243: {
+[; ;main.c: 239: }
+[; ;main.c: 243: if (mode == 1)
 "243
-{
-[; ;main.c: 244: if (soundFlag == 0)
+[e $ ! == -> _mode `i -> 1 `i 453  ]
+[; ;main.c: 244: {
 "244
-[e $ ! == -> _soundFlag `i -> 0 `i 454  ]
-[; ;main.c: 245: {
-"245
 {
-[; ;main.c: 246: if (average >= 80) soundDetectedCount++; else soundDetectedCount = 0;
+[; ;main.c: 245: if (soundFlag == 0)
+"245
+[e $ ! == -> _soundFlag `i -> 0 `i 454  ]
+[; ;main.c: 246: {
 "246
+{
+[; ;main.c: 247: if (average >= 80) soundDetectedCount++; else soundDetectedCount = 0;
+"247
 [e $ ! >= _average -> 80 `i 455  ]
 [e ++ _soundDetectedCount -> 1 `i ]
 [e $U 456  ]
 [e :U 455 ]
 [e = _soundDetectedCount -> 0 `i ]
 [e :U 456 ]
-[; ;main.c: 247: if (soundDetectedCount > 1500)
-"247
-[e $ ! > _soundDetectedCount -> 1500 `i 457  ]
-[; ;main.c: 248: {
+[; ;main.c: 248: if (soundDetectedCount > 1500)
 "248
-{
-[; ;main.c: 249: soundFlag = 1;
+[e $ ! > _soundDetectedCount -> 1500 `i 457  ]
+[; ;main.c: 249: {
 "249
-[e = _soundFlag -> -> 1 `i `uc ]
-[; ;main.c: 250: soundDetectedCount = 0;
+{
+[; ;main.c: 250: soundFlag = 1;
 "250
-[e = _soundDetectedCount -> 0 `i ]
+[e = _soundFlag -> -> 1 `i `uc ]
+[; ;main.c: 251: soundDetectedCount = 0;
 "251
-}
-[e :U 457 ]
+[e = _soundDetectedCount -> 0 `i ]
 "252
 }
-[; ;main.c: 251: }
-[; ;main.c: 252: }
-[e $U 458  ]
+[e :U 457 ]
 "253
-[e :U 454 ]
-[; ;main.c: 253: else
-[; ;main.c: 254: {
+}
+[; ;main.c: 252: }
+[; ;main.c: 253: }
+[e $U 458  ]
 "254
-{
-[; ;main.c: 255: if (average < 50) soundDetectedCount++; else soundDetectedCount = 0;
+[e :U 454 ]
+[; ;main.c: 254: else
+[; ;main.c: 255: {
 "255
+{
+[; ;main.c: 256: if (average < 50) soundDetectedCount++; else soundDetectedCount = 0;
+"256
 [e $ ! < _average -> 50 `i 459  ]
 [e ++ _soundDetectedCount -> 1 `i ]
 [e $U 460  ]
 [e :U 459 ]
 [e = _soundDetectedCount -> 0 `i ]
 [e :U 460 ]
-[; ;main.c: 256: if (soundDetectedCount > 10000)
-"256
-[e $ ! > _soundDetectedCount -> 10000 `i 461  ]
-[; ;main.c: 257: {
+[; ;main.c: 257: if (soundDetectedCount > 10000)
 "257
-{
-[; ;main.c: 258: soundFlag = 0;
+[e $ ! > _soundDetectedCount -> 10000 `i 461  ]
+[; ;main.c: 258: {
 "258
-[e = _soundFlag -> -> 0 `i `uc ]
-[; ;main.c: 259: soundDetectedCount = 0;
+{
+[; ;main.c: 259: soundFlag = 0;
 "259
-[e = _soundDetectedCount -> 0 `i ]
+[e = _soundFlag -> -> 0 `i `uc ]
+[; ;main.c: 260: soundDetectedCount = 0;
 "260
-}
-[e :U 461 ]
+[e = _soundDetectedCount -> 0 `i ]
 "261
 }
+[e :U 461 ]
+"262
+}
 [e :U 458 ]
-[; ;main.c: 260: }
 [; ;main.c: 261: }
-[; ;main.c: 263: if (soundFlag == 0) TRISBbits.RB3 = 1; else TRISBbits.RB3 = 0;
-"263
+[; ;main.c: 262: }
+[; ;main.c: 264: if (soundFlag == 0) PORTBbits.RB3 = 1; else PORTBbits.RB3 = 0;
+"264
 [e $ ! == -> _soundFlag `i -> 0 `i 462  ]
-[e = . . _TRISBbits 1 3 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
 [e $U 463  ]
 [e :U 462 ]
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
 [e :U 463 ]
-[; ;main.c: 266: if (soundFlag == 1) mode = 2; else mode = 0;
-"266
+[; ;main.c: 267: if (soundFlag == 1) mode = 2; else mode = 0;
+"267
 [e $ ! == -> _soundFlag `i -> 1 `i 464  ]
 [e = _mode -> -> 2 `i `uc ]
 [e $U 465  ]
 [e :U 464 ]
 [e = _mode -> -> 0 `i `uc ]
 [e :U 465 ]
-"267
+"268
 }
 [e :U 453 ]
-[; ;main.c: 267: }
-[; ;main.c: 270: if (mode == 0)
-"270
-[e $ ! == -> _mode `i -> 0 `i 466  ]
-[; ;main.c: 271: {
+[; ;main.c: 268: }
+[; ;main.c: 271: if (mode == 0)
 "271
+[e $ ! == -> _mode `i -> 0 `i 466  ]
+[; ;main.c: 272: {
+"272
 {
-[; ;main.c: 273: if ((highLevel > 600) && (clapCounter == 0))
-"273
-[e $ ! && > _highLevel -> 600 `i == _clapCounter -> 0 `i 467  ]
-[; ;main.c: 274: {
+[; ;main.c: 274: if ((highLevel > 600) && (clapCounter == 0))
 "274
-{
-[; ;main.c: 275: clapCounter = 1;
+[e $ ! && > _highLevel -> 600 `i == _clapCounter -> 0 `i 467  ]
+[; ;main.c: 275: {
 "275
-[e = _clapCounter -> 1 `i ]
+{
+[; ;main.c: 276: clapCounter = 1;
 "276
+[e = _clapCounter -> 1 `i ]
+"277
 }
 [e :U 467 ]
-[; ;main.c: 276: }
-[; ;main.c: 278: if (clapCounter > 0) clapCounter++;
-"278
+[; ;main.c: 277: }
+[; ;main.c: 279: if (clapCounter > 0) clapCounter++;
+"279
 [e $ ! > _clapCounter -> 0 `i 468  ]
 [e ++ _clapCounter -> 1 `i ]
 [e :U 468 ]
-[; ;main.c: 279: if (clapCounter > 1000)
-"279
-[e $ ! > _clapCounter -> 1000 `i 469  ]
-[; ;main.c: 280: {
+[; ;main.c: 280: if (clapCounter > 1000)
 "280
-{
-[; ;main.c: 281: if (highLevel < 600)
+[e $ ! > _clapCounter -> 1000 `i 469  ]
+[; ;main.c: 281: {
 "281
-[e $ ! < _highLevel -> 600 `i 470  ]
-[; ;main.c: 282: {
-"282
 {
-[; ;main.c: 284: clapCounter = 0;
-"284
-[e = _clapCounter -> 0 `i ]
-[; ;main.c: 285: patternNumber++;
+[; ;main.c: 282: if (highLevel < 600)
+"282
+[e $ ! < _highLevel -> 600 `i 470  ]
+[; ;main.c: 283: {
+"283
+{
+[; ;main.c: 285: clapCounter = 0;
 "285
-[e ++ _patternNumber -> -> 1 `i `uc ]
-[; ;main.c: 286: sequenceNumber = 0;
+[e = _clapCounter -> 0 `i ]
+[; ;main.c: 286: patternNumber++;
 "286
-[e = _sequenceNumber -> -> 0 `i `uc ]
-[; ;main.c: 287: stepNumber = 0;
+[e ++ _patternNumber -> -> 1 `i `uc ]
+[; ;main.c: 287: sequenceNumber = 0;
 "287
-[e = _stepNumber -> 0 `i ]
-[; ;main.c: 288: currentStep = 0;
+[e = _sequenceNumber -> -> 0 `i `uc ]
+[; ;main.c: 288: stepNumber = 0;
 "288
-[e = _currentStep -> 0 `i ]
-[; ;main.c: 289: brightness = 0;
+[e = _stepNumber -> 0 `i ]
+[; ;main.c: 289: currentStep = 0;
 "289
-[e = _brightness -> -> 0 `i `uc ]
-[; ;main.c: 290: sequenceRepeats = 0;
+[e = _currentStep -> 0 `i ]
+[; ;main.c: 290: brightness = 0;
 "290
-[e = _sequenceRepeats -> 0 `i ]
-[; ;main.c: 291: if (patternNumber > 4) patternNumber = 0;
+[e = _brightness -> -> 0 `i `uc ]
+[; ;main.c: 291: sequenceRepeats = 0;
 "291
+[e = _sequenceRepeats -> 0 `i ]
+[; ;main.c: 292: if (patternNumber > 4) patternNumber = 0;
+"292
 [e $ ! > -> _patternNumber `i -> 4 `i 471  ]
 [e = _patternNumber -> -> 0 `i `uc ]
 [e :U 471 ]
-"292
-}
-[; ;main.c: 292: }
-[e $U 472  ]
 "293
+}
+[; ;main.c: 293: }
+[e $U 472  ]
+"294
 [e :U 470 ]
-[; ;main.c: 293: else clapCounter = 1;
+[; ;main.c: 294: else clapCounter = 1;
 [e = _clapCounter -> 1 `i ]
 [e :U 472 ]
-"294
+"295
 }
 [e :U 469 ]
-[; ;main.c: 294: }
-[; ;main.c: 296: if (clapCounter > 0) TRISBbits.RB5 = 1; else TRISBbits.RB5 = 0;
-"296
+[; ;main.c: 295: }
+[; ;main.c: 297: if (clapCounter > 0) PORTBbits.RB5 = 1; else PORTBbits.RB5 = 0;
+"297
 [e $ ! > _clapCounter -> 0 `i 473  ]
-[e = . . _TRISBbits 1 5 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
 [e $U 474  ]
 [e :U 473 ]
-[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
 [e :U 474 ]
-[; ;main.c: 299: if (patternNumber == 0)
-"299
-[e $ ! == -> _patternNumber `i -> 0 `i 475  ]
-[; ;main.c: 300: {
+[; ;main.c: 300: if (patternNumber == 0)
 "300
-{
-[; ;main.c: 301: if (sequenceNumber == 0)
+[e $ ! == -> _patternNumber `i -> 0 `i 475  ]
+[; ;main.c: 301: {
 "301
-[e $ ! == -> _sequenceNumber `i -> 0 `i 476  ]
-[; ;main.c: 302: {
+{
+[; ;main.c: 302: if (sequenceNumber == 0)
 "302
-{
-[; ;main.c: 303: if (currentStep != stepNumber)
+[e $ ! == -> _sequenceNumber `i -> 0 `i 476  ]
+[; ;main.c: 303: {
 "303
-[e $ ! != _currentStep _stepNumber 477  ]
-[; ;main.c: 304: {
-"304
 {
-[; ;main.c: 305: currentStep = stepNumber;
+[; ;main.c: 304: if (currentStep != stepNumber)
+"304
+[e $ ! != _currentStep _stepNumber 477  ]
+[; ;main.c: 305: {
 "305
-[e = _currentStep _stepNumber ]
-[; ;main.c: 306: if (currentStep < 16) brightness += 2; else brightness -= 2;
+{
+[; ;main.c: 306: currentStep = stepNumber;
 "306
+[e = _currentStep _stepNumber ]
+[; ;main.c: 307: if (currentStep < 16) brightness += 2; else brightness -= 2;
+"307
 [e $ ! < _currentStep -> 16 `i 478  ]
 [e =+ _brightness -> -> 2 `i `uc ]
 [e $U 479  ]
 [e :U 478 ]
 [e =- _brightness -> -> 2 `i `uc ]
 [e :U 479 ]
-"307
+"308
 }
 [e :U 477 ]
-[; ;main.c: 307: }
-[; ;main.c: 308: highPWM = brightness;
-"308
-[e = _highPWM -> _brightness `i ]
+[; ;main.c: 308: }
+[; ;main.c: 309: highPWM = brightness;
 "309
+[e = _highPWM -> _brightness `i ]
+"310
 }
-[; ;main.c: 309: } else highPWM = 0;
+[; ;main.c: 310: } else highPWM = 0;
 [e $U 480  ]
 [e :U 476 ]
 [e = _highPWM -> 0 `i ]
 [e :U 480 ]
-[; ;main.c: 311: if (sequenceNumber == 1)
-"311
-[e $ ! == -> _sequenceNumber `i -> 1 `i 481  ]
-[; ;main.c: 312: {
+[; ;main.c: 312: if (sequenceNumber == 1)
 "312
-{
-[; ;main.c: 313: if (currentStep != stepNumber)
+[e $ ! == -> _sequenceNumber `i -> 1 `i 481  ]
+[; ;main.c: 313: {
 "313
-[e $ ! != _currentStep _stepNumber 482  ]
-[; ;main.c: 314: {
-"314
 {
-[; ;main.c: 315: currentStep = stepNumber;
+[; ;main.c: 314: if (currentStep != stepNumber)
+"314
+[e $ ! != _currentStep _stepNumber 482  ]
+[; ;main.c: 315: {
 "315
+{
+[; ;main.c: 316: currentStep = stepNumber;
+"316
 [e = _currentStep _stepNumber ]
-[; ;main.c: 317: if (currentStep < 16) brightness += 2; else brightness -= 2;
-"317
+[; ;main.c: 318: if (currentStep < 16) brightness += 2; else brightness -= 2;
+"318
 [e $ ! < _currentStep -> 16 `i 483  ]
 [e =+ _brightness -> -> 2 `i `uc ]
 [e $U 484  ]
 [e :U 483 ]
 [e =- _brightness -> -> 2 `i `uc ]
 [e :U 484 ]
-"318
+"319
 }
 [e :U 482 ]
-[; ;main.c: 318: }
-[; ;main.c: 319: midPWM = brightness;
-"319
-[e = _midPWM -> _brightness `i ]
+[; ;main.c: 319: }
+[; ;main.c: 320: midPWM = brightness;
 "320
+[e = _midPWM -> _brightness `i ]
+"321
 }
-[; ;main.c: 320: } else if (sequenceNumber != 3) midPWM = 0;
+[; ;main.c: 321: } else if (sequenceNumber != 3) midPWM = 0;
 [e $U 485  ]
 [e :U 481 ]
 [e $ ! != -> _sequenceNumber `i -> 3 `i 486  ]
 [e = _midPWM -> 0 `i ]
 [e :U 486 ]
-"322
-[e :U 485 ]
-[; ;main.c: 322: if (sequenceNumber == 2)
-[e $ ! == -> _sequenceNumber `i -> 2 `i 487  ]
-[; ;main.c: 323: {
 "323
-{
-[; ;main.c: 324: if (currentStep != stepNumber)
+[e :U 485 ]
+[; ;main.c: 323: if (sequenceNumber == 2)
+[e $ ! == -> _sequenceNumber `i -> 2 `i 487  ]
+[; ;main.c: 324: {
 "324
-[e $ ! != _currentStep _stepNumber 488  ]
-[; ;main.c: 325: {
-"325
 {
-[; ;main.c: 326: currentStep = stepNumber;
+[; ;main.c: 325: if (currentStep != stepNumber)
+"325
+[e $ ! != _currentStep _stepNumber 488  ]
+[; ;main.c: 326: {
 "326
-[e = _currentStep _stepNumber ]
-[; ;main.c: 327: if (currentStep < 16) brightness += 2; else brightness -= 2;
+{
+[; ;main.c: 327: currentStep = stepNumber;
 "327
+[e = _currentStep _stepNumber ]
+[; ;main.c: 328: if (currentStep < 16) brightness += 2; else brightness -= 2;
+"328
 [e $ ! < _currentStep -> 16 `i 489  ]
 [e =+ _brightness -> -> 2 `i `uc ]
 [e $U 490  ]
 [e :U 489 ]
 [e =- _brightness -> -> 2 `i `uc ]
 [e :U 490 ]
-"328
+"329
 }
 [e :U 488 ]
-[; ;main.c: 328: }
-[; ;main.c: 329: lowPWM = brightness;
-"329
-[e = _lowPWM -> _brightness `i ]
+[; ;main.c: 329: }
+[; ;main.c: 330: lowPWM = brightness;
 "330
+[e = _lowPWM -> _brightness `i ]
+"331
 }
-[; ;main.c: 330: } else lowPWM = 0;
+[; ;main.c: 331: } else lowPWM = 0;
 [e $U 491  ]
 [e :U 487 ]
 [e = _lowPWM -> 0 `i ]
 [e :U 491 ]
-[; ;main.c: 332: if (sequenceNumber == 3)
-"332
-[e $ ! == -> _sequenceNumber `i -> 3 `i 492  ]
-[; ;main.c: 333: {
+[; ;main.c: 333: if (sequenceNumber == 3)
 "333
-{
-[; ;main.c: 334: if (currentStep != stepNumber)
+[e $ ! == -> _sequenceNumber `i -> 3 `i 492  ]
+[; ;main.c: 334: {
 "334
-[e $ ! != _currentStep _stepNumber 493  ]
-[; ;main.c: 335: {
-"335
 {
-[; ;main.c: 336: currentStep = stepNumber;
+[; ;main.c: 335: if (currentStep != stepNumber)
+"335
+[e $ ! != _currentStep _stepNumber 493  ]
+[; ;main.c: 336: {
 "336
+{
+[; ;main.c: 337: currentStep = stepNumber;
+"337
 [e = _currentStep _stepNumber ]
-[; ;main.c: 338: if (currentStep < 16) brightness += 2; else brightness -= 2;
-"338
+[; ;main.c: 339: if (currentStep < 16) brightness += 2; else brightness -= 2;
+"339
 [e $ ! < _currentStep -> 16 `i 494  ]
 [e =+ _brightness -> -> 2 `i `uc ]
 [e $U 495  ]
 [e :U 494 ]
 [e =- _brightness -> -> 2 `i `uc ]
 [e :U 495 ]
-"339
+"340
 }
 [e :U 493 ]
-[; ;main.c: 339: }
-[; ;main.c: 340: midPWM = brightness;
-"340
-[e = _midPWM -> _brightness `i ]
+[; ;main.c: 340: }
+[; ;main.c: 341: midPWM = brightness;
 "341
+[e = _midPWM -> _brightness `i ]
+"342
 }
-[; ;main.c: 341: } else if (sequenceNumber != 1) midPWM = 0;
+[; ;main.c: 342: } else if (sequenceNumber != 1) midPWM = 0;
 [e $U 496  ]
 [e :U 492 ]
 [e $ ! != -> _sequenceNumber `i -> 1 `i 497  ]
 [e = _midPWM -> 0 `i ]
 [e :U 497 ]
-"343
-[e :U 496 ]
-[; ;main.c: 343: if (tickCounter > 6)
-[e $ ! > _tickCounter -> 6 `i 498  ]
-[; ;main.c: 344: {
 "344
-{
-[; ;main.c: 345: stepNumber++;
+[e :U 496 ]
+[; ;main.c: 344: if (tickCounter > 6)
+[e $ ! > _tickCounter -> 6 `i 498  ]
+[; ;main.c: 345: {
 "345
-[e ++ _stepNumber -> 1 `i ]
-[; ;main.c: 346: tickCounter = 0;
+{
+[; ;main.c: 346: stepNumber++;
 "346
+[e ++ _stepNumber -> 1 `i ]
+[; ;main.c: 347: tickCounter = 0;
+"347
 [e = _tickCounter -> 0 `i ]
-[; ;main.c: 348: if (stepNumber == 31)
-"348
-[e $ ! == _stepNumber -> 31 `i 499  ]
-[; ;main.c: 349: {
+[; ;main.c: 349: if (stepNumber == 31)
 "349
-{
-[; ;main.c: 350: stepNumber = 0;
+[e $ ! == _stepNumber -> 31 `i 499  ]
+[; ;main.c: 350: {
 "350
-[e = _stepNumber -> 0 `i ]
-[; ;main.c: 351: sequenceNumber++;
+{
+[; ;main.c: 351: stepNumber = 0;
 "351
-[e ++ _sequenceNumber -> -> 1 `i `uc ]
-[; ;main.c: 352: brightness = 0;
+[e = _stepNumber -> 0 `i ]
+[; ;main.c: 352: sequenceNumber++;
 "352
+[e ++ _sequenceNumber -> -> 1 `i `uc ]
+[; ;main.c: 353: brightness = 0;
+"353
 [e = _brightness -> -> 0 `i `uc ]
-[; ;main.c: 354: if (sequenceNumber == 4)
-"354
-[e $ ! == -> _sequenceNumber `i -> 4 `i 500  ]
-[; ;main.c: 355: {
+[; ;main.c: 355: if (sequenceNumber == 4)
 "355
-{
-[; ;main.c: 356: sequenceNumber = 0;
+[e $ ! == -> _sequenceNumber `i -> 4 `i 500  ]
+[; ;main.c: 356: {
 "356
-[e = _sequenceNumber -> -> 0 `i `uc ]
-[; ;main.c: 357: sequenceRepeats++;
-"357
-[e ++ _sequenceRepeats -> 1 `i ]
-[; ;main.c: 358: if (sequenceRepeats > 10)
-"358
-[e $ ! > _sequenceRepeats -> 10 `i 501  ]
-[; ;main.c: 359: {
-"359
 {
-[; ;main.c: 360: sequenceRepeats = 0;
+[; ;main.c: 357: sequenceNumber = 0;
+"357
+[e = _sequenceNumber -> -> 0 `i `uc ]
+[; ;main.c: 358: sequenceRepeats++;
+"358
+[e ++ _sequenceRepeats -> 1 `i ]
+[; ;main.c: 359: if (sequenceRepeats > 10)
+"359
+[e $ ! > _sequenceRepeats -> 10 `i 501  ]
+[; ;main.c: 360: {
 "360
-[e = _sequenceRepeats -> 0 `i ]
-[; ;main.c: 361: patternNumber++;
+{
+[; ;main.c: 361: sequenceRepeats = 0;
 "361
-[e ++ _patternNumber -> -> 1 `i `uc ]
+[e = _sequenceRepeats -> 0 `i ]
+[; ;main.c: 362: patternNumber++;
 "362
-}
-[e :U 501 ]
+[e ++ _patternNumber -> -> 1 `i `uc ]
 "363
 }
-[e :U 500 ]
+[e :U 501 ]
 "364
 }
-[e :U 499 ]
+[e :U 500 ]
 "365
 }
-[e :U 498 ]
+[e :U 499 ]
 "366
 }
+[e :U 498 ]
+"367
+}
 [e :U 475 ]
-[; ;main.c: 362: }
 [; ;main.c: 363: }
 [; ;main.c: 364: }
 [; ;main.c: 365: }
 [; ;main.c: 366: }
-[; ;main.c: 369: if (patternNumber == 1)
-"369
-[e $ ! == -> _patternNumber `i -> 1 `i 502  ]
-[; ;main.c: 370: {
+[; ;main.c: 367: }
+[; ;main.c: 370: if (patternNumber == 1)
 "370
-{
-[; ;main.c: 371: highPWM = 31;
+[e $ ! == -> _patternNumber `i -> 1 `i 502  ]
+[; ;main.c: 371: {
 "371
-[e = _highPWM -> 31 `i ]
-[; ;main.c: 372: midPWM = 31;
+{
+[; ;main.c: 372: highPWM = 31;
 "372
-[e = _midPWM -> 31 `i ]
-[; ;main.c: 373: lowPWM = 31;
+[e = _highPWM -> 31 `i ]
+[; ;main.c: 373: midPWM = 31;
 "373
+[e = _midPWM -> 31 `i ]
+[; ;main.c: 374: lowPWM = 31;
+"374
 [e = _lowPWM -> 31 `i ]
-[; ;main.c: 375: if (tickCounter > 8)
-"375
-[e $ ! > _tickCounter -> 8 `i 503  ]
-[; ;main.c: 376: {
+[; ;main.c: 376: if (tickCounter > 8)
 "376
-{
-[; ;main.c: 377: stepNumber++;
+[e $ ! > _tickCounter -> 8 `i 503  ]
+[; ;main.c: 377: {
 "377
-[e ++ _stepNumber -> 1 `i ]
-[; ;main.c: 378: tickCounter = 0;
+{
+[; ;main.c: 378: stepNumber++;
 "378
+[e ++ _stepNumber -> 1 `i ]
+[; ;main.c: 379: tickCounter = 0;
+"379
 [e = _tickCounter -> 0 `i ]
-[; ;main.c: 380: if (stepNumber == 3)
-"380
-[e $ ! == _stepNumber -> 3 `i 504  ]
-[; ;main.c: 381: {
+[; ;main.c: 381: if (stepNumber == 3)
 "381
-{
-[; ;main.c: 382: stepNumber = 0;
+[e $ ! == _stepNumber -> 3 `i 504  ]
+[; ;main.c: 382: {
 "382
-[e = _stepNumber -> 0 `i ]
-[; ;main.c: 383: sequenceNumber++;
+{
+[; ;main.c: 383: stepNumber = 0;
 "383
-[e ++ _sequenceNumber -> -> 1 `i `uc ]
-[; ;main.c: 384: brightness = 0;
+[e = _stepNumber -> 0 `i ]
+[; ;main.c: 384: sequenceNumber++;
 "384
+[e ++ _sequenceNumber -> -> 1 `i `uc ]
+[; ;main.c: 385: brightness = 0;
+"385
 [e = _brightness -> -> 0 `i `uc ]
-[; ;main.c: 386: if (sequenceNumber == 5)
-"386
-[e $ ! == -> _sequenceNumber `i -> 5 `i 505  ]
-[; ;main.c: 387: {
+[; ;main.c: 387: if (sequenceNumber == 5)
 "387
-{
-[; ;main.c: 388: sequenceNumber = 0;
+[e $ ! == -> _sequenceNumber `i -> 5 `i 505  ]
+[; ;main.c: 388: {
 "388
-[e = _sequenceNumber -> -> 0 `i `uc ]
-[; ;main.c: 389: sequenceRepeats++;
-"389
-[e ++ _sequenceRepeats -> 1 `i ]
-[; ;main.c: 390: if (sequenceRepeats > 40)
-"390
-[e $ ! > _sequenceRepeats -> 40 `i 506  ]
-[; ;main.c: 391: {
-"391
 {
-[; ;main.c: 392: sequenceRepeats = 0;
+[; ;main.c: 389: sequenceNumber = 0;
+"389
+[e = _sequenceNumber -> -> 0 `i `uc ]
+[; ;main.c: 390: sequenceRepeats++;
+"390
+[e ++ _sequenceRepeats -> 1 `i ]
+[; ;main.c: 391: if (sequenceRepeats > 40)
+"391
+[e $ ! > _sequenceRepeats -> 40 `i 506  ]
+[; ;main.c: 392: {
 "392
-[e = _sequenceRepeats -> 0 `i ]
-[; ;main.c: 393: patternNumber++;
+{
+[; ;main.c: 393: sequenceRepeats = 0;
 "393
-[e ++ _patternNumber -> -> 1 `i `uc ]
+[e = _sequenceRepeats -> 0 `i ]
+[; ;main.c: 394: patternNumber++;
 "394
-}
-[e :U 506 ]
+[e ++ _patternNumber -> -> 1 `i `uc ]
 "395
 }
-[e :U 505 ]
+[e :U 506 ]
 "396
 }
-[e :U 504 ]
+[e :U 505 ]
 "397
 }
-[e :U 503 ]
+[e :U 504 ]
 "398
 }
+[e :U 503 ]
+"399
+}
 [e :U 502 ]
-[; ;main.c: 394: }
 [; ;main.c: 395: }
 [; ;main.c: 396: }
 [; ;main.c: 397: }
 [; ;main.c: 398: }
-[; ;main.c: 401: if (patternNumber == 2)
-"401
-[e $ ! == -> _patternNumber `i -> 2 `i 507  ]
-[; ;main.c: 402: {
+[; ;main.c: 399: }
+[; ;main.c: 402: if (patternNumber == 2)
 "402
-{
-[; ;main.c: 403: if (sequenceNumber == 0)
+[e $ ! == -> _patternNumber `i -> 2 `i 507  ]
+[; ;main.c: 403: {
 "403
-[e $ ! == -> _sequenceNumber `i -> 0 `i 508  ]
-[; ;main.c: 404: {
-"404
 {
-[; ;main.c: 405: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+[; ;main.c: 404: if (sequenceNumber == 0)
+"404
+[e $ ! == -> _sequenceNumber `i -> 0 `i 508  ]
+[; ;main.c: 405: {
 "405
+{
+[; ;main.c: 406: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+"406
 [e $ ! == _stepNumber -> 0 `i 509  ]
 [e = _highPWM -> 31 `i ]
 [e $U 510  ]
 [e :U 509 ]
 [e = _highPWM -> 0 `i ]
 [e :U 510 ]
-[; ;main.c: 406: if (stepNumber == 1) midPWM = 31; else midPWM = 0;
-"406
+[; ;main.c: 407: if (stepNumber == 1) midPWM = 31; else midPWM = 0;
+"407
 [e $ ! == _stepNumber -> 1 `i 511  ]
 [e = _midPWM -> 31 `i ]
 [e $U 512  ]
 [e :U 511 ]
 [e = _midPWM -> 0 `i ]
 [e :U 512 ]
-[; ;main.c: 407: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
-"407
+[; ;main.c: 408: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
+"408
 [e $ ! == _stepNumber -> 2 `i 513  ]
 [e = _lowPWM -> 31 `i ]
 [e $U 514  ]
 [e :U 513 ]
 [e = _lowPWM -> 0 `i ]
 [e :U 514 ]
-"408
+"409
 }
 [e :U 508 ]
-[; ;main.c: 408: }
-[; ;main.c: 410: if (sequenceNumber == 1)
-"410
-[e $ ! == -> _sequenceNumber `i -> 1 `i 515  ]
-[; ;main.c: 411: {
+[; ;main.c: 409: }
+[; ;main.c: 411: if (sequenceNumber == 1)
 "411
-{
-[; ;main.c: 412: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+[e $ ! == -> _sequenceNumber `i -> 1 `i 515  ]
+[; ;main.c: 412: {
 "412
+{
+[; ;main.c: 413: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+"413
 [e $ ! == _stepNumber -> 0 `i 516  ]
 [e = _highPWM -> 31 `i ]
 [e $U 517  ]
 [e :U 516 ]
 [e = _highPWM -> 0 `i ]
 [e :U 517 ]
-[; ;main.c: 413: if (stepNumber == 1) lowPWM = 31; else lowPWM = 0;
-"413
+[; ;main.c: 414: if (stepNumber == 1) lowPWM = 31; else lowPWM = 0;
+"414
 [e $ ! == _stepNumber -> 1 `i 518  ]
 [e = _lowPWM -> 31 `i ]
 [e $U 519  ]
 [e :U 518 ]
 [e = _lowPWM -> 0 `i ]
 [e :U 519 ]
-[; ;main.c: 414: if (stepNumber == 2) midPWM = 31; else midPWM = 0;
-"414
+[; ;main.c: 415: if (stepNumber == 2) midPWM = 31; else midPWM = 0;
+"415
 [e $ ! == _stepNumber -> 2 `i 520  ]
 [e = _midPWM -> 31 `i ]
 [e $U 521  ]
 [e :U 520 ]
 [e = _midPWM -> 0 `i ]
 [e :U 521 ]
-"415
+"416
 }
 [e :U 515 ]
-[; ;main.c: 415: }
-[; ;main.c: 417: if (sequenceNumber == 2)
-"417
-[e $ ! == -> _sequenceNumber `i -> 2 `i 522  ]
-[; ;main.c: 418: {
+[; ;main.c: 416: }
+[; ;main.c: 418: if (sequenceNumber == 2)
 "418
-{
-[; ;main.c: 419: if (stepNumber == 0) lowPWM = 31; else lowPWM = 0;
+[e $ ! == -> _sequenceNumber `i -> 2 `i 522  ]
+[; ;main.c: 419: {
 "419
+{
+[; ;main.c: 420: if (stepNumber == 0) lowPWM = 31; else lowPWM = 0;
+"420
 [e $ ! == _stepNumber -> 0 `i 523  ]
 [e = _lowPWM -> 31 `i ]
 [e $U 524  ]
 [e :U 523 ]
 [e = _lowPWM -> 0 `i ]
 [e :U 524 ]
-[; ;main.c: 420: if (stepNumber == 1) highPWM = 31; else highPWM = 0;
-"420
+[; ;main.c: 421: if (stepNumber == 1) highPWM = 31; else highPWM = 0;
+"421
 [e $ ! == _stepNumber -> 1 `i 525  ]
 [e = _highPWM -> 31 `i ]
 [e $U 526  ]
 [e :U 525 ]
 [e = _highPWM -> 0 `i ]
 [e :U 526 ]
-[; ;main.c: 421: if (stepNumber == 2) midPWM = 31; else midPWM = 0;
-"421
+[; ;main.c: 422: if (stepNumber == 2) midPWM = 31; else midPWM = 0;
+"422
 [e $ ! == _stepNumber -> 2 `i 527  ]
 [e = _midPWM -> 31 `i ]
 [e $U 528  ]
 [e :U 527 ]
 [e = _midPWM -> 0 `i ]
 [e :U 528 ]
-"422
+"423
 }
 [e :U 522 ]
-[; ;main.c: 422: }
-[; ;main.c: 424: if (sequenceNumber == 3)
-"424
-[e $ ! == -> _sequenceNumber `i -> 3 `i 529  ]
-[; ;main.c: 425: {
+[; ;main.c: 423: }
+[; ;main.c: 425: if (sequenceNumber == 3)
 "425
-{
-[; ;main.c: 426: if (stepNumber == 0) lowPWM = 31; else highPWM = 0;
+[e $ ! == -> _sequenceNumber `i -> 3 `i 529  ]
+[; ;main.c: 426: {
 "426
+{
+[; ;main.c: 427: if (stepNumber == 0) lowPWM = 31; else highPWM = 0;
+"427
 [e $ ! == _stepNumber -> 0 `i 530  ]
 [e = _lowPWM -> 31 `i ]
 [e $U 531  ]
 [e :U 530 ]
 [e = _highPWM -> 0 `i ]
 [e :U 531 ]
-[; ;main.c: 427: if (stepNumber == 1) midPWM = 31; else lowPWM = 0;
-"427
+[; ;main.c: 428: if (stepNumber == 1) midPWM = 31; else lowPWM = 0;
+"428
 [e $ ! == _stepNumber -> 1 `i 532  ]
 [e = _midPWM -> 31 `i ]
 [e $U 533  ]
 [e :U 532 ]
 [e = _lowPWM -> 0 `i ]
 [e :U 533 ]
-[; ;main.c: 428: if (stepNumber == 2) highPWM = 31; else midPWM = 0;
-"428
+[; ;main.c: 429: if (stepNumber == 2) highPWM = 31; else midPWM = 0;
+"429
 [e $ ! == _stepNumber -> 2 `i 534  ]
 [e = _highPWM -> 31 `i ]
 [e $U 535  ]
 [e :U 534 ]
 [e = _midPWM -> 0 `i ]
 [e :U 535 ]
-"429
+"430
 }
 [e :U 529 ]
-[; ;main.c: 429: }
-[; ;main.c: 431: if (sequenceNumber == 4)
-"431
-[e $ ! == -> _sequenceNumber `i -> 4 `i 536  ]
-[; ;main.c: 432: {
+[; ;main.c: 430: }
+[; ;main.c: 432: if (sequenceNumber == 4)
 "432
-{
-[; ;main.c: 433: if (stepNumber == 0) midPWM = 31; else midPWM = 0;
+[e $ ! == -> _sequenceNumber `i -> 4 `i 536  ]
+[; ;main.c: 433: {
 "433
+{
+[; ;main.c: 434: if (stepNumber == 0) midPWM = 31; else midPWM = 0;
+"434
 [e $ ! == _stepNumber -> 0 `i 537  ]
 [e = _midPWM -> 31 `i ]
 [e $U 538  ]
 [e :U 537 ]
 [e = _midPWM -> 0 `i ]
 [e :U 538 ]
-[; ;main.c: 434: if (stepNumber == 1) highPWM = 31; else highPWM = 0;
-"434
+[; ;main.c: 435: if (stepNumber == 1) highPWM = 31; else highPWM = 0;
+"435
 [e $ ! == _stepNumber -> 1 `i 539  ]
 [e = _highPWM -> 31 `i ]
 [e $U 540  ]
 [e :U 539 ]
 [e = _highPWM -> 0 `i ]
 [e :U 540 ]
-[; ;main.c: 435: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
-"435
+[; ;main.c: 436: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
+"436
 [e $ ! == _stepNumber -> 2 `i 541  ]
 [e = _lowPWM -> 31 `i ]
 [e $U 542  ]
 [e :U 541 ]
 [e = _lowPWM -> 0 `i ]
 [e :U 542 ]
-"436
+"437
 }
 [e :U 536 ]
-[; ;main.c: 436: }
-[; ;main.c: 438: if (tickCounter > 8)
-"438
-[e $ ! > _tickCounter -> 8 `i 543  ]
-[; ;main.c: 439: {
+[; ;main.c: 437: }
+[; ;main.c: 439: if (tickCounter > 8)
 "439
-{
-[; ;main.c: 440: stepNumber++;
+[e $ ! > _tickCounter -> 8 `i 543  ]
+[; ;main.c: 440: {
 "440
-[e ++ _stepNumber -> 1 `i ]
-[; ;main.c: 441: tickCounter = 0;
+{
+[; ;main.c: 441: stepNumber++;
 "441
+[e ++ _stepNumber -> 1 `i ]
+[; ;main.c: 442: tickCounter = 0;
+"442
 [e = _tickCounter -> 0 `i ]
-[; ;main.c: 443: if (stepNumber == 3)
-"443
-[e $ ! == _stepNumber -> 3 `i 544  ]
-[; ;main.c: 444: {
+[; ;main.c: 444: if (stepNumber == 3)
 "444
-{
-[; ;main.c: 445: stepNumber = 0;
+[e $ ! == _stepNumber -> 3 `i 544  ]
+[; ;main.c: 445: {
 "445
-[e = _stepNumber -> 0 `i ]
-[; ;main.c: 446: sequenceNumber++;
+{
+[; ;main.c: 446: stepNumber = 0;
 "446
-[e ++ _sequenceNumber -> -> 1 `i `uc ]
-[; ;main.c: 447: brightness = 0;
+[e = _stepNumber -> 0 `i ]
+[; ;main.c: 447: sequenceNumber++;
 "447
+[e ++ _sequenceNumber -> -> 1 `i `uc ]
+[; ;main.c: 448: brightness = 0;
+"448
 [e = _brightness -> -> 0 `i `uc ]
-[; ;main.c: 449: if (sequenceNumber == 5)
-"449
-[e $ ! == -> _sequenceNumber `i -> 5 `i 545  ]
-[; ;main.c: 450: {
+[; ;main.c: 450: if (sequenceNumber == 5)
 "450
-{
-[; ;main.c: 451: sequenceNumber = 0;
+[e $ ! == -> _sequenceNumber `i -> 5 `i 545  ]
+[; ;main.c: 451: {
 "451
-[e = _sequenceNumber -> -> 0 `i `uc ]
-[; ;main.c: 452: sequenceRepeats++;
-"452
-[e ++ _sequenceRepeats -> 1 `i ]
-[; ;main.c: 453: if (sequenceRepeats > 30)
-"453
-[e $ ! > _sequenceRepeats -> 30 `i 546  ]
-[; ;main.c: 454: {
-"454
 {
-[; ;main.c: 455: sequenceRepeats = 0;
+[; ;main.c: 452: sequenceNumber = 0;
+"452
+[e = _sequenceNumber -> -> 0 `i `uc ]
+[; ;main.c: 453: sequenceRepeats++;
+"453
+[e ++ _sequenceRepeats -> 1 `i ]
+[; ;main.c: 454: if (sequenceRepeats > 30)
+"454
+[e $ ! > _sequenceRepeats -> 30 `i 546  ]
+[; ;main.c: 455: {
 "455
-[e = _sequenceRepeats -> 0 `i ]
-[; ;main.c: 456: patternNumber++;
+{
+[; ;main.c: 456: sequenceRepeats = 0;
 "456
-[e ++ _patternNumber -> -> 1 `i `uc ]
+[e = _sequenceRepeats -> 0 `i ]
+[; ;main.c: 457: patternNumber++;
 "457
-}
-[e :U 546 ]
+[e ++ _patternNumber -> -> 1 `i `uc ]
 "458
 }
-[e :U 545 ]
+[e :U 546 ]
 "459
 }
-[e :U 544 ]
+[e :U 545 ]
 "460
 }
-[e :U 543 ]
+[e :U 544 ]
 "461
 }
+[e :U 543 ]
+"462
+}
 [e :U 507 ]
-[; ;main.c: 457: }
 [; ;main.c: 458: }
 [; ;main.c: 459: }
 [; ;main.c: 460: }
 [; ;main.c: 461: }
-[; ;main.c: 464: if (patternNumber == 3)
-"464
-[e $ ! == -> _patternNumber `i -> 3 `i 547  ]
-[; ;main.c: 465: {
+[; ;main.c: 462: }
+[; ;main.c: 465: if (patternNumber == 3)
 "465
-{
-[; ;main.c: 466: if (sequenceNumber == 0)
+[e $ ! == -> _patternNumber `i -> 3 `i 547  ]
+[; ;main.c: 466: {
 "466
-[e $ ! == -> _sequenceNumber `i -> 0 `i 548  ]
-[; ;main.c: 467: {
+{
+[; ;main.c: 467: if (sequenceNumber == 0)
 "467
-{
-[; ;main.c: 468: if (currentStep != stepNumber)
+[e $ ! == -> _sequenceNumber `i -> 0 `i 548  ]
+[; ;main.c: 468: {
 "468
-[e $ ! != _currentStep _stepNumber 549  ]
-[; ;main.c: 469: {
-"469
 {
-[; ;main.c: 470: currentStep = stepNumber;
+[; ;main.c: 469: if (currentStep != stepNumber)
+"469
+[e $ ! != _currentStep _stepNumber 549  ]
+[; ;main.c: 470: {
 "470
-[e = _currentStep _stepNumber ]
-[; ;main.c: 471: if (currentStep < 16) brightness += 2; else brightness -= 2;
+{
+[; ;main.c: 471: currentStep = stepNumber;
 "471
+[e = _currentStep _stepNumber ]
+[; ;main.c: 472: if (currentStep < 16) brightness += 2; else brightness -= 2;
+"472
 [e $ ! < _currentStep -> 16 `i 550  ]
 [e =+ _brightness -> -> 2 `i `uc ]
 [e $U 551  ]
 [e :U 550 ]
 [e =- _brightness -> -> 2 `i `uc ]
 [e :U 551 ]
-"472
+"473
 }
 [e :U 549 ]
-[; ;main.c: 472: }
-[; ;main.c: 473: highPWM = brightness;
-"473
-[e = _highPWM -> _brightness `i ]
-[; ;main.c: 474: midPWM = brightness;
+[; ;main.c: 473: }
+[; ;main.c: 474: highPWM = brightness;
 "474
-[e = _midPWM -> _brightness `i ]
-[; ;main.c: 475: lowPWM = brightness;
+[e = _highPWM -> _brightness `i ]
+[; ;main.c: 475: midPWM = brightness;
 "475
-[e = _lowPWM -> _brightness `i ]
+[e = _midPWM -> _brightness `i ]
+[; ;main.c: 476: lowPWM = brightness;
 "476
+[e = _lowPWM -> _brightness `i ]
+"477
 }
 [e :U 548 ]
-[; ;main.c: 476: }
-[; ;main.c: 478: if (tickCounter > 3)
-"478
-[e $ ! > _tickCounter -> 3 `i 552  ]
-[; ;main.c: 479: {
+[; ;main.c: 477: }
+[; ;main.c: 479: if (tickCounter > 3)
 "479
-{
-[; ;main.c: 480: stepNumber++;
+[e $ ! > _tickCounter -> 3 `i 552  ]
+[; ;main.c: 480: {
 "480
-[e ++ _stepNumber -> 1 `i ]
-[; ;main.c: 481: tickCounter = 0;
+{
+[; ;main.c: 481: stepNumber++;
 "481
+[e ++ _stepNumber -> 1 `i ]
+[; ;main.c: 482: tickCounter = 0;
+"482
 [e = _tickCounter -> 0 `i ]
-[; ;main.c: 483: if (stepNumber == 31)
-"483
-[e $ ! == _stepNumber -> 31 `i 553  ]
-[; ;main.c: 484: {
+[; ;main.c: 484: if (stepNumber == 31)
 "484
-{
-[; ;main.c: 485: stepNumber = 0;
+[e $ ! == _stepNumber -> 31 `i 553  ]
+[; ;main.c: 485: {
 "485
-[e = _stepNumber -> 0 `i ]
-[; ;main.c: 486: sequenceNumber++;
+{
+[; ;main.c: 486: stepNumber = 0;
 "486
-[e ++ _sequenceNumber -> -> 1 `i `uc ]
-[; ;main.c: 487: brightness = 0;
+[e = _stepNumber -> 0 `i ]
+[; ;main.c: 487: sequenceNumber++;
 "487
+[e ++ _sequenceNumber -> -> 1 `i `uc ]
+[; ;main.c: 488: brightness = 0;
+"488
 [e = _brightness -> -> 0 `i `uc ]
-[; ;main.c: 489: if (sequenceNumber == 1)
-"489
-[e $ ! == -> _sequenceNumber `i -> 1 `i 554  ]
-[; ;main.c: 490: {
+[; ;main.c: 490: if (sequenceNumber == 1)
 "490
-{
-[; ;main.c: 491: sequenceNumber = 0;
+[e $ ! == -> _sequenceNumber `i -> 1 `i 554  ]
+[; ;main.c: 491: {
 "491
-[e = _sequenceNumber -> -> 0 `i `uc ]
-[; ;main.c: 492: sequenceRepeats++;
-"492
-[e ++ _sequenceRepeats -> 1 `i ]
-[; ;main.c: 493: if (sequenceRepeats > 60)
-"493
-[e $ ! > _sequenceRepeats -> 60 `i 555  ]
-[; ;main.c: 494: {
-"494
 {
-[; ;main.c: 495: sequenceRepeats = 0;
+[; ;main.c: 492: sequenceNumber = 0;
+"492
+[e = _sequenceNumber -> -> 0 `i `uc ]
+[; ;main.c: 493: sequenceRepeats++;
+"493
+[e ++ _sequenceRepeats -> 1 `i ]
+[; ;main.c: 494: if (sequenceRepeats > 60)
+"494
+[e $ ! > _sequenceRepeats -> 60 `i 555  ]
+[; ;main.c: 495: {
 "495
-[e = _sequenceRepeats -> 0 `i ]
-[; ;main.c: 496: patternNumber++;
+{
+[; ;main.c: 496: sequenceRepeats = 0;
 "496
-[e ++ _patternNumber -> -> 1 `i `uc ]
+[e = _sequenceRepeats -> 0 `i ]
+[; ;main.c: 497: patternNumber++;
 "497
-}
-[e :U 555 ]
+[e ++ _patternNumber -> -> 1 `i `uc ]
 "498
 }
-[e :U 554 ]
+[e :U 555 ]
 "499
 }
-[e :U 553 ]
+[e :U 554 ]
 "500
 }
-[e :U 552 ]
+[e :U 553 ]
 "501
 }
+[e :U 552 ]
+"502
+}
 [e :U 547 ]
-[; ;main.c: 497: }
 [; ;main.c: 498: }
 [; ;main.c: 499: }
 [; ;main.c: 500: }
 [; ;main.c: 501: }
-[; ;main.c: 504: if (patternNumber == 4)
-"504
-[e $ ! == -> _patternNumber `i -> 4 `i 556  ]
-[; ;main.c: 505: {
+[; ;main.c: 502: }
+[; ;main.c: 505: if (patternNumber == 4)
 "505
-{
-[; ;main.c: 506: if (sequenceNumber == 0)
+[e $ ! == -> _patternNumber `i -> 4 `i 556  ]
+[; ;main.c: 506: {
 "506
-[e $ ! == -> _sequenceNumber `i -> 0 `i 557  ]
-[; ;main.c: 507: {
-"507
 {
-[; ;main.c: 508: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+[; ;main.c: 507: if (sequenceNumber == 0)
+"507
+[e $ ! == -> _sequenceNumber `i -> 0 `i 557  ]
+[; ;main.c: 508: {
 "508
+{
+[; ;main.c: 509: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+"509
 [e $ ! == _stepNumber -> 0 `i 558  ]
 [e = _highPWM -> 31 `i ]
 [e $U 559  ]
 [e :U 558 ]
 [e = _highPWM -> 0 `i ]
 [e :U 559 ]
-[; ;main.c: 509: if (stepNumber == 1) midPWM = 31; else if (stepNumber != 3) midPWM = 0;
-"509
+[; ;main.c: 510: if (stepNumber == 1) midPWM = 31; else if (stepNumber != 3) midPWM = 0;
+"510
 [e $ ! == _stepNumber -> 1 `i 560  ]
 [e = _midPWM -> 31 `i ]
 [e $U 561  ]
@@ -5056,17 +5062,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != _stepNumber -> 3 `i 562  ]
 [e = _midPWM -> 0 `i ]
 [e :U 562 ]
-"510
+"511
 [e :U 561 ]
-[; ;main.c: 510: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
+[; ;main.c: 511: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
 [e $ ! == _stepNumber -> 2 `i 563  ]
 [e = _lowPWM -> 31 `i ]
 [e $U 564  ]
 [e :U 563 ]
 [e = _lowPWM -> 0 `i ]
 [e :U 564 ]
-[; ;main.c: 511: if (stepNumber == 3) midPWM = 31; else if (stepNumber != 1) midPWM = 0;
-"511
+[; ;main.c: 512: if (stepNumber == 3) midPWM = 31; else if (stepNumber != 1) midPWM = 0;
+"512
 [e $ ! == _stepNumber -> 3 `i 565  ]
 [e = _midPWM -> 31 `i ]
 [e $U 566  ]
@@ -5074,327 +5080,327 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $ ! != _stepNumber -> 1 `i 567  ]
 [e = _midPWM -> 0 `i ]
 [e :U 567 ]
-"512
+"513
 [e :U 566 ]
 }
 [e :U 557 ]
-[; ;main.c: 512: }
-[; ;main.c: 514: if (tickCounter > 8)
-"514
-[e $ ! > _tickCounter -> 8 `i 568  ]
-[; ;main.c: 515: {
+[; ;main.c: 513: }
+[; ;main.c: 515: if (tickCounter > 8)
 "515
-{
-[; ;main.c: 516: stepNumber++;
+[e $ ! > _tickCounter -> 8 `i 568  ]
+[; ;main.c: 516: {
 "516
-[e ++ _stepNumber -> 1 `i ]
-[; ;main.c: 517: tickCounter = 0;
+{
+[; ;main.c: 517: stepNumber++;
 "517
+[e ++ _stepNumber -> 1 `i ]
+[; ;main.c: 518: tickCounter = 0;
+"518
 [e = _tickCounter -> 0 `i ]
-[; ;main.c: 519: if (stepNumber == 4)
-"519
-[e $ ! == _stepNumber -> 4 `i 569  ]
-[; ;main.c: 520: {
+[; ;main.c: 520: if (stepNumber == 4)
 "520
-{
-[; ;main.c: 521: stepNumber = 0;
+[e $ ! == _stepNumber -> 4 `i 569  ]
+[; ;main.c: 521: {
 "521
-[e = _stepNumber -> 0 `i ]
-[; ;main.c: 522: sequenceNumber++;
+{
+[; ;main.c: 522: stepNumber = 0;
 "522
-[e ++ _sequenceNumber -> -> 1 `i `uc ]
-[; ;main.c: 523: brightness = 0;
+[e = _stepNumber -> 0 `i ]
+[; ;main.c: 523: sequenceNumber++;
 "523
+[e ++ _sequenceNumber -> -> 1 `i `uc ]
+[; ;main.c: 524: brightness = 0;
+"524
 [e = _brightness -> -> 0 `i `uc ]
-[; ;main.c: 525: if (sequenceNumber == 1)
-"525
-[e $ ! == -> _sequenceNumber `i -> 1 `i 570  ]
-[; ;main.c: 526: {
+[; ;main.c: 526: if (sequenceNumber == 1)
 "526
-{
-[; ;main.c: 527: sequenceNumber = 0;
+[e $ ! == -> _sequenceNumber `i -> 1 `i 570  ]
+[; ;main.c: 527: {
 "527
-[e = _sequenceNumber -> -> 0 `i `uc ]
-[; ;main.c: 528: sequenceRepeats++;
-"528
-[e ++ _sequenceRepeats -> 1 `i ]
-[; ;main.c: 529: if (sequenceRepeats > 100)
-"529
-[e $ ! > _sequenceRepeats -> 100 `i 571  ]
-[; ;main.c: 530: {
-"530
 {
-[; ;main.c: 531: sequenceRepeats = 0;
+[; ;main.c: 528: sequenceNumber = 0;
+"528
+[e = _sequenceNumber -> -> 0 `i `uc ]
+[; ;main.c: 529: sequenceRepeats++;
+"529
+[e ++ _sequenceRepeats -> 1 `i ]
+[; ;main.c: 530: if (sequenceRepeats > 100)
+"530
+[e $ ! > _sequenceRepeats -> 100 `i 571  ]
+[; ;main.c: 531: {
 "531
-[e = _sequenceRepeats -> 0 `i ]
-[; ;main.c: 532: patternNumber++;
+{
+[; ;main.c: 532: sequenceRepeats = 0;
 "532
-[e ++ _patternNumber -> -> 1 `i `uc ]
+[e = _sequenceRepeats -> 0 `i ]
+[; ;main.c: 533: patternNumber++;
 "533
-}
-[e :U 571 ]
+[e ++ _patternNumber -> -> 1 `i `uc ]
 "534
 }
-[e :U 570 ]
+[e :U 571 ]
 "535
 }
-[e :U 569 ]
+[e :U 570 ]
 "536
 }
-[e :U 568 ]
+[e :U 569 ]
 "537
 }
+[e :U 568 ]
+"538
+}
 [e :U 556 ]
-[; ;main.c: 533: }
 [; ;main.c: 534: }
 [; ;main.c: 535: }
 [; ;main.c: 536: }
 [; ;main.c: 537: }
-[; ;main.c: 540: if (patternNumber > 4) patternNumber = 0;
-"540
+[; ;main.c: 538: }
+[; ;main.c: 541: if (patternNumber > 4) patternNumber = 0;
+"541
 [e $ ! > -> _patternNumber `i -> 4 `i 572  ]
 [e = _patternNumber -> -> 0 `i `uc ]
 [e :U 572 ]
-[; ;main.c: 543: if (highPWM > PWMcount) TRISBbits.RB2 = 1; else TRISBbits.RB2 = 0;
-"543
+[; ;main.c: 544: if (highPWM > PWMcount) PORTBbits.RB2 = 1; else PORTBbits.RB2 = 0;
+"544
 [e $ ! > _highPWM _PWMcount 573  ]
-[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
 [e $U 574  ]
 [e :U 573 ]
-[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
 [e :U 574 ]
-[; ;main.c: 544: if (midPWM > PWMcount) TRISBbits.RB1 = 1; else TRISBbits.RB1 = 0;
-"544
+[; ;main.c: 545: if (midPWM > PWMcount) PORTBbits.RB1 = 1; else PORTBbits.RB1 = 0;
+"545
 [e $ ! > _midPWM _PWMcount 575  ]
-[e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
 [e $U 576  ]
 [e :U 575 ]
-[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
 [e :U 576 ]
-[; ;main.c: 545: if (lowPWM > PWMcount) TRISBbits.RB0 = 1; else TRISBbits.RB0 = 0;
-"545
+[; ;main.c: 546: if (lowPWM > PWMcount) PORTBbits.RB0 = 1; else PORTBbits.RB0 = 0;
+"546
 [e $ ! > _lowPWM _PWMcount 577  ]
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
 [e $U 578  ]
 [e :U 577 ]
-[e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
 [e :U 578 ]
-[; ;main.c: 548: PWMcount++;
-"548
-[e ++ _PWMcount -> 1 `i ]
-[; ;main.c: 549: if (PWMcount > 31) PWMcount = 0;
+[; ;main.c: 549: PWMcount++;
 "549
+[e ++ _PWMcount -> 1 `i ]
+[; ;main.c: 550: if (PWMcount > 31) PWMcount = 0;
+"550
 [e $ ! > _PWMcount -> 31 `i 579  ]
 [e = _PWMcount -> 0 `i ]
 [e :U 579 ]
-"550
+"551
 }
 [e :U 466 ]
-[; ;main.c: 550: }
-[; ;main.c: 553: if (mode == 2)
-"553
-[e $ ! == -> _mode `i -> 2 `i 580  ]
-[; ;main.c: 554: {
+[; ;main.c: 551: }
+[; ;main.c: 554: if (mode == 2)
 "554
+[e $ ! == -> _mode `i -> 2 `i 580  ]
+[; ;main.c: 555: {
+"555
 {
-[; ;main.c: 556: if (fadeCounter == 0)
-"556
-[e $ ! == _fadeCounter -> 0 `i 581  ]
-[; ;main.c: 557: {
+[; ;main.c: 557: if (fadeCounter == 0)
 "557
-{
-[; ;main.c: 558: if (highPWM > 0) highPWM--;
+[e $ ! == _fadeCounter -> 0 `i 581  ]
+[; ;main.c: 558: {
 "558
+{
+[; ;main.c: 559: if (highPWM > 0) highPWM--;
+"559
 [e $ ! > _highPWM -> 0 `i 582  ]
 [e -- _highPWM -> 1 `i ]
 [e :U 582 ]
-[; ;main.c: 559: if (midPWM > 0) midPWM--;
-"559
+[; ;main.c: 560: if (midPWM > 0) midPWM--;
+"560
 [e $ ! > _midPWM -> 0 `i 583  ]
 [e -- _midPWM -> 1 `i ]
 [e :U 583 ]
-[; ;main.c: 560: if (lowPWM > 0) lowPWM--;
-"560
+[; ;main.c: 561: if (lowPWM > 0) lowPWM--;
+"561
 [e $ ! > _lowPWM -> 0 `i 584  ]
 [e -- _lowPWM -> 1 `i ]
 [e :U 584 ]
-"561
+"562
 }
 [e :U 581 ]
-[; ;main.c: 561: }
-[; ;main.c: 564: if (highLevel > 150) highPWM = 31;
-"564
+[; ;main.c: 562: }
+[; ;main.c: 565: if (highLevel > 150) highPWM = 31;
+"565
 [e $ ! > _highLevel -> 150 `i 585  ]
 [e = _highPWM -> 31 `i ]
 [e :U 585 ]
-[; ;main.c: 565: if (midLevel > 520) midPWM = 31;
-"565
+[; ;main.c: 566: if (midLevel > 520) midPWM = 31;
+"566
 [e $ ! > _midLevel -> 520 `i 586  ]
 [e = _midPWM -> 31 `i ]
 [e :U 586 ]
-[; ;main.c: 566: if (lowLevel > 470) lowPWM = 31;
-"566
+[; ;main.c: 567: if (lowLevel > 470) lowPWM = 31;
+"567
 [e $ ! > _lowLevel -> 470 `i 587  ]
 [e = _lowPWM -> 31 `i ]
 [e :U 587 ]
-[; ;main.c: 569: if (highPWM > PWMcount) TRISBbits.RB2 = 1; else TRISBbits.RB2 = 0;
-"569
+[; ;main.c: 570: if (highPWM > PWMcount) PORTBbits.RB2 = 1; else PORTBbits.RB2 = 0;
+"570
 [e $ ! > _highPWM _PWMcount 588  ]
-[e = . . _TRISBbits 1 2 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 2 -> -> 1 `i `uc ]
 [e $U 589  ]
 [e :U 588 ]
-[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 2 -> -> 0 `i `uc ]
 [e :U 589 ]
-[; ;main.c: 570: if (midPWM > PWMcount) TRISBbits.RB1 = 1; else TRISBbits.RB1 = 0;
-"570
+[; ;main.c: 571: if (midPWM > PWMcount) PORTBbits.RB1 = 1; else PORTBbits.RB1 = 0;
+"571
 [e $ ! > _midPWM _PWMcount 590  ]
-[e = . . _TRISBbits 1 1 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 1 -> -> 1 `i `uc ]
 [e $U 591  ]
 [e :U 590 ]
-[e = . . _TRISBbits 1 1 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 1 -> -> 0 `i `uc ]
 [e :U 591 ]
-[; ;main.c: 571: if (lowPWM > PWMcount) TRISBbits.RB0 = 1; else TRISBbits.RB0 = 0;
-"571
+[; ;main.c: 572: if (lowPWM > PWMcount) PORTBbits.RB0 = 1; else PORTBbits.RB0 = 0;
+"572
 [e $ ! > _lowPWM _PWMcount 592  ]
-[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 0 -> -> 1 `i `uc ]
 [e $U 593  ]
 [e :U 592 ]
-[e = . . _TRISBbits 1 0 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 0 -> -> 0 `i `uc ]
 [e :U 593 ]
-[; ;main.c: 574: if (highPWM > PWMcount) TRISBbits.RB5 = 1; else TRISBbits.RB5 = 0;
-"574
+[; ;main.c: 575: if (highPWM > PWMcount) PORTBbits.RB5 = 1; else PORTBbits.RB5 = 0;
+"575
 [e $ ! > _highPWM _PWMcount 594  ]
-[e = . . _TRISBbits 1 5 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 5 -> -> 1 `i `uc ]
 [e $U 595  ]
 [e :U 594 ]
-[e = . . _TRISBbits 1 5 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 5 -> -> 0 `i `uc ]
 [e :U 595 ]
-[; ;main.c: 575: if (midPWM > PWMcount) TRISBbits.RB4 = 1; else TRISBbits.RB4 = 0;
-"575
+[; ;main.c: 576: if (midPWM > PWMcount) PORTBbits.RB4 = 1; else PORTBbits.RB4 = 0;
+"576
 [e $ ! > _midPWM _PWMcount 596  ]
-[e = . . _TRISBbits 1 4 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 4 -> -> 1 `i `uc ]
 [e $U 597  ]
 [e :U 596 ]
-[e = . . _TRISBbits 1 4 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 4 -> -> 0 `i `uc ]
 [e :U 597 ]
-[; ;main.c: 576: if (lowPWM > PWMcount) TRISBbits.RB3 = 1; else TRISBbits.RB3 = 0;
-"576
+[; ;main.c: 577: if (lowPWM > PWMcount) PORTBbits.RB3 = 1; else PORTBbits.RB3 = 0;
+"577
 [e $ ! > _lowPWM _PWMcount 598  ]
-[e = . . _TRISBbits 1 3 -> -> 1 `i `uc ]
+[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
 [e $U 599  ]
 [e :U 598 ]
-[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
+[e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
 [e :U 599 ]
-[; ;main.c: 579: PWMcount++;
-"579
-[e ++ _PWMcount -> 1 `i ]
-[; ;main.c: 580: if (PWMcount > 31) PWMcount = 0;
+[; ;main.c: 580: PWMcount++;
 "580
+[e ++ _PWMcount -> 1 `i ]
+[; ;main.c: 581: if (PWMcount > 31) PWMcount = 0;
+"581
 [e $ ! > _PWMcount -> 31 `i 600  ]
 [e = _PWMcount -> 0 `i ]
 [e :U 600 ]
-[; ;main.c: 583: fadeCounter++;
-"583
-[e ++ _fadeCounter -> 1 `i ]
-[; ;main.c: 584: if (fadeCounter > 30) fadeCounter = 0;
+[; ;main.c: 584: fadeCounter++;
 "584
+[e ++ _fadeCounter -> 1 `i ]
+[; ;main.c: 585: if (fadeCounter > 30) fadeCounter = 0;
+"585
 [e $ ! > _fadeCounter -> 30 `i 601  ]
 [e = _fadeCounter -> 0 `i ]
 [e :U 601 ]
-"585
+"586
 }
 [e :U 580 ]
-"586
+"587
 }
 [e :U 435 ]
 "133
 [e $U 436  ]
 [e :U 437 ]
-[; ;main.c: 585: }
 [; ;main.c: 586: }
 [; ;main.c: 587: }
-"587
+[; ;main.c: 588: }
+"588
 [e :UE 434 ]
 }
-"590
+"591
 [v _readMyADC `(i ~T0 @X0 1 ef1`uc ]
-"591
-{
-[; ;main.c: 590: int readMyADC(unsigned char ADCnumber)
-[; ;main.c: 591: {
-[e :U _readMyADC ]
-"590
-[v _ADCnumber `uc ~T0 @X0 1 r1 ]
-"591
-[f ]
 "592
-[v _result `i ~T0 @X0 1 a ]
-[; ;main.c: 592: int result;
-[; ;main.c: 595: switch(ADCnumber)
-"595
-[e $U 604  ]
-[; ;main.c: 596: {
-"596
 {
-[; ;main.c: 597: case 0: ADCON0 = 0b00000001;
+[; ;main.c: 591: int readMyADC(unsigned char ADCnumber)
+[; ;main.c: 592: {
+[e :U _readMyADC ]
+"591
+[v _ADCnumber `uc ~T0 @X0 1 r1 ]
+"592
+[f ]
+"593
+[v _result `i ~T0 @X0 1 a ]
+[; ;main.c: 593: int result;
+[; ;main.c: 596: switch(ADCnumber)
+"596
+[e $U 604  ]
+[; ;main.c: 597: {
 "597
+{
+[; ;main.c: 598: case 0: ADCON0 = 0b00000001;
+"598
 [e :U 605 ]
 [e = _ADCON0 -> -> 1 `i `uc ]
-[; ;main.c: 598: break;
-"598
-[e $U 603  ]
-[; ;main.c: 599: case 1: ADCON0 = 0b00000101;
+[; ;main.c: 599: break;
 "599
+[e $U 603  ]
+[; ;main.c: 600: case 1: ADCON0 = 0b00000101;
+"600
 [e :U 606 ]
 [e = _ADCON0 -> -> 5 `i `uc ]
-[; ;main.c: 600: break;
-"600
-[e $U 603  ]
-[; ;main.c: 601: case 2: ADCON0 = 0b00001001;
+[; ;main.c: 601: break;
 "601
+[e $U 603  ]
+[; ;main.c: 602: case 2: ADCON0 = 0b00001001;
+"602
 [e :U 607 ]
 [e = _ADCON0 -> -> 9 `i `uc ]
-[; ;main.c: 602: break;
-"602
-[e $U 603  ]
-[; ;main.c: 603: case 3: ADCON0 = 0b00001101;
+[; ;main.c: 603: break;
 "603
+[e $U 603  ]
+[; ;main.c: 604: case 3: ADCON0 = 0b00001101;
+"604
 [e :U 608 ]
 [e = _ADCON0 -> -> 13 `i `uc ]
-[; ;main.c: 604: break;
-"604
-[e $U 603  ]
+[; ;main.c: 605: break;
 "605
-}
-[; ;main.c: 605: }
 [e $U 603  ]
-"595
+"606
+}
+[; ;main.c: 606: }
+[e $U 603  ]
+"596
 [e :U 604 ]
 [e [\ _ADCnumber , $ -> -> 0 `i `uc 605
  , $ -> -> 1 `i `uc 606
  , $ -> -> 2 `i `uc 607
  , $ -> -> 3 `i `uc 608
  603 ]
-"605
+"606
 [e :U 603 ]
-[; ;main.c: 608: while(GODONE);
-"608
+[; ;main.c: 609: while(GODONE);
+"609
 [e $U 609  ]
 [e :U 610 ]
 [e :U 609 ]
 [e $ _GODONE 610  ]
 [e :U 611 ]
-[; ;main.c: 611: result = ADRESL;
-"611
-[e = _result -> _ADRESL `i ]
-[; ;main.c: 612: result += (ADRESH << 8);
+[; ;main.c: 612: result = ADRESL;
 "612
+[e = _result -> _ADRESL `i ]
+[; ;main.c: 613: result += (ADRESH << 8);
+"613
 [e =+ _result << -> _ADRESH `i -> 8 `i ]
-[; ;main.c: 614: return result;
-"614
+[; ;main.c: 615: return result;
+"615
 [e ) _result ]
 [e $UE 602  ]
-[; ;main.c: 615: }
-"615
+[; ;main.c: 616: }
+"616
 [e :UE 602 ]
 }

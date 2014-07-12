@@ -141,7 +141,7 @@
 [v _demoLEDs demoLEDs `(v  1 e 0 0 ]
 "45 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
 [v _main main `(v  1 e 0 0 ]
-"590
+"591
 [v _readMyADC readMyADC `(i  1 e 2 0 ]
 "3 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c
 [v _setupSPI setupSPI `(v  1 e 0 0 ]
@@ -151,23 +151,7 @@
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "230
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-"415
-[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
-"1013
-[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
-"1166
-[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S47 . 1 `uc 1 TRISB0 1 0 :1:0 
-`uc 1 TRISB1 1 0 :1:1 
-`uc 1 TRISB2 1 0 :1:2 
-`uc 1 TRISB3 1 0 :1:3 
-`uc 1 TRISB4 1 0 :1:4 
-`uc 1 TRISB5 1 0 :1:5 
-`uc 1 TRISB6 1 0 :1:6 
-`uc 1 TRISB7 1 0 :1:7 
-]
-"1198
-[s S56 . 1 `uc 1 RB0 1 0 :1:0 
+[s S47 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -176,13 +160,64 @@
 `uc 1 RB6 1 0 :1:6 
 `uc 1 RB7 1 0 :1:7 
 ]
-[u S65 . 1 `S47 1 . 1 0 `S56 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES65  1 e 1 @3987 ]
+"276
+[s S56 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 CCP2 1 0 :1:3 
+`uc 1 KBI0 1 0 :1:4 
+`uc 1 KBI1 1 0 :1:5 
+`uc 1 KBI2 1 0 :1:6 
+`uc 1 KBI3 1 0 :1:7 
+]
+[s S65 . 1 `uc 1 AN12 1 0 :1:0 
+`uc 1 AN10 1 0 :1:1 
+`uc 1 AN8 1 0 :1:2 
+`uc 1 AN9 1 0 :1:3 
+`uc 1 AN11 1 0 :1:4 
+`uc 1 T0CKI 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S74 . 1 `uc 1 FLT0 1 0 :1:0 
+`uc 1 . 1 0 :4:1 
+`uc 1 C1OUT 1 0 :1:5 
+]
+[s S78 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S81 . 1 `S47 1 . 1 0 `S56 1 . 1 0 `S65 1 . 1 0 `S74 1 . 1 0 `S78 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES81  1 e 1 @3969 ]
+"415
+[v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+"1013
+[v _TRISA TRISA `VEuc  1 e 1 @3986 ]
+"1166
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "1387
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S190 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
 "1419
-[v _TRISCbits TRISCbits `VES65  1 e 1 @3988 ]
-[s S219 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S199 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S208 . 1 `S190 1 . 1 0 `S199 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES208  1 e 1 @3988 ]
+[s S254 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -191,13 +226,13 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "1726
-[s S227 . 1 `uc 1 . 1 0 :3:0 
+[s S262 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIF 1 0 :1:3 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S232 . 1 `S219 1 . 1 0 `S227 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES232  1 e 1 @3998 ]
+[u S267 . 1 `S254 1 . 1 0 `S262 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES267  1 e 1 @3998 ]
 "3313
 [v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
 "3383
@@ -212,43 +247,43 @@
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
 "4068
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @4038 ]
-[s S249 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S284 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4253
-[s S255 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S290 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S260 . 1 `uc 1 . 1 0 :4:0 
+[s S295 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CKP1 1 0 :1:4 
 ]
-[s S263 . 1 `uc 1 . 1 0 :5:0 
+[s S298 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SSPEN1 1 0 :1:5 
 ]
-[s S266 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S301 . 1 `uc 1 SSPM01 1 0 :1:0 
 ]
-[s S268 . 1 `uc 1 . 1 0 :1:0 
+[s S303 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 ]
-[s S271 . 1 `uc 1 . 1 0 :2:0 
+[s S306 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 SSPM21 1 0 :1:2 
 ]
-[s S274 . 1 `uc 1 . 1 0 :3:0 
+[s S309 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPM31 1 0 :1:3 
 ]
-[s S277 . 1 `uc 1 . 1 0 :6:0 
+[s S312 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 SSPOV1 1 0 :1:6 
 ]
-[s S280 . 1 `uc 1 . 1 0 :7:0 
+[s S315 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S283 . 1 `S249 1 . 1 0 `S255 1 . 1 0 `S260 1 . 1 0 `S263 1 . 1 0 `S266 1 . 1 0 `S268 1 . 1 0 `S271 1 . 1 0 `S274 1 . 1 0 `S277 1 . 1 0 `S280 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES283  1 e 1 @4038 ]
+[u S318 . 1 `S284 1 . 1 0 `S290 1 . 1 0 `S295 1 . 1 0 `S298 1 . 1 0 `S301 1 . 1 0 `S303 1 . 1 0 `S306 1 . 1 0 `S309 1 . 1 0 `S312 1 . 1 0 `S315 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES318  1 e 1 @4038 ]
 "4342
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
 "5320
@@ -324,7 +359,7 @@
 [v main@mode mode `uc  1 a 1 52 ]
 "130
 [v main@soundFlag soundFlag `uc  1 a 1 37 ]
-"587
+"588
 } 0
 "3 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c
 [v _setupSPI setupSPI `(v  1 e 0 0 ]
@@ -340,16 +375,16 @@
 [v setGainLevel@gainLevel gainLevel `uc  1 a 1 0 ]
 "44
 } 0
-"590 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
+"591 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
 [v _readMyADC readMyADC `(i  1 e 2 0 ]
 {
 [v readMyADC@ADCnumber ADCnumber `uc  1 a 1 wreg ]
-"592
+"593
 [v readMyADC@result result `i  1 a 2 2 ]
-"590
+"591
 [v readMyADC@ADCnumber ADCnumber `uc  1 a 1 wreg ]
 [v readMyADC@ADCnumber ADCnumber `uc  1 a 1 4 ]
-"615
+"616
 } 0
 "8 /opt/microchip/xc8/v1.30/sources/common/aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]

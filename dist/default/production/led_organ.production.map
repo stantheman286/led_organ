@@ -5,7 +5,7 @@ Linker command line:
 --edf=/opt/microchip/xc8/v1.30/dat/en_msgs.txt -cs \
   -h+dist/default/production/led_organ.production.sym \
   --cmf=dist/default/production/led_organ.production.cmf -z -Q18F24J10 \
-  -o/tmp/cgtLy8TSS -Mdist/default/production/led_organ.production.map -E1 \
+  -o/tmp/cgtCaGnAG -Mdist/default/production/led_organ.production.map -E1 \
   -ver=XC8 -ASTACK=0100h-03ffh -pstack=STACK -ACODE=00h-03FF7h \
   -ACONST=00h-03FF7h -ASMALLCONST=0400h-04FFhx59,03F00h-03FF7h \
   -AMEDIUMCONST=0400h-03FF7h -ACOMRAM=01h-07Fh -AABS1=00h-03FFh \
@@ -18,7 +18,7 @@ Linker command line:
   -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
-  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtNcN0XI.obj \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtIVifdr.obj \
   dist/default/production/led_organ.production.obj 
 
 Object code version is 3.11
@@ -31,7 +31,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtNcN0XI.obj
+/tmp/cgtIVifdr.obj
                 end_init                              0        0        4        0       0
                 config                             3FF8     3FF8        6     3FF8       0
 dist/default/production/led_organ.production.obj
@@ -137,6 +137,7 @@ _GODONE                  (abs)         07E11
 _PIR1bits                (abs)         00F9E
 _PORTA                   (abs)         00F80
 _PORTB                   (abs)         00F81
+_PORTBbits               (abs)         00F81
 _PORTC                   (abs)         00F82
 _SSP1BUF                 (abs)         00FC9
 _SSP1CON1                (abs)         00FC6
@@ -151,7 +152,6 @@ _TMR0IF                  (abs)         07F92
 _TMR0L                   (abs)         00FD6
 _TRISA                   (abs)         00F92
 _TRISB                   (abs)         00F93
-_TRISBbits               (abs)         00F93
 _TRISC                   (abs)         00F94
 _TRISCbits               (abs)         00F94
 __CFG_CCP2MX$DEFAULT     (abs)         00000
@@ -483,7 +483,7 @@ Total ram usage:        1 bytes
 
  *************** function _readMyADC *****************
  Defined at:
-		line 590 in file "main.c"
+		line 591 in file "main.c"
  Parameters:    Size  Location     Type
   ADCnumber       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type

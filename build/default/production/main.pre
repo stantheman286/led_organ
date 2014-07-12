@@ -5016,7 +5016,7 @@ int clapCounter = 0;
 while(1)
 {
 
-# 140
+# 141
 if (TMR0IF == 1)
 {
 tickCounter++;
@@ -5031,7 +5031,7 @@ TMR0IF = 0;
 
 highLevel = readMyADC(0);
 
-# 158
+# 159
 if (0 == 1 && 0 == 0)
 {
 if (mode != 0)
@@ -5039,12 +5039,12 @@ if (mode != 0)
 mode = 0;
 
 
-TRISBbits.RB3 = 0;
-TRISBbits.RB4 = 0;
-TRISBbits.RB5 = 0;
-TRISBbits.RB0 = 0;
-TRISBbits.RB1 = 0;
-TRISBbits.RB2 = 0;
+PORTBbits.RB3 = 0;
+PORTBbits.RB4 = 0;
+PORTBbits.RB5 = 0;
+PORTBbits.RB0 = 0;
+PORTBbits.RB1 = 0;
+PORTBbits.RB2 = 0;
 
 
 patternNumber = 0;
@@ -5063,12 +5063,12 @@ if (mode != 1)
 mode = 1;
 
 
-TRISBbits.RB3 = 0;
-TRISBbits.RB4 = 0;
-TRISBbits.RB5 = 0;
-TRISBbits.RB0 = 0;
-TRISBbits.RB1 = 0;
-TRISBbits.RB2 = 0;
+PORTBbits.RB3 = 0;
+PORTBbits.RB4 = 0;
+PORTBbits.RB5 = 0;
+PORTBbits.RB0 = 0;
+PORTBbits.RB1 = 0;
+PORTBbits.RB2 = 0;
 }
 }
 
@@ -5079,12 +5079,12 @@ if (mode != 2)
 mode = 2;
 
 
-TRISBbits.RB3 = 0;
-TRISBbits.RB4 = 0;
-TRISBbits.RB5 = 0;
-TRISBbits.RB0 = 0;
-TRISBbits.RB1 = 0;
-TRISBbits.RB2 = 0;
+PORTBbits.RB3 = 0;
+PORTBbits.RB4 = 0;
+PORTBbits.RB5 = 0;
+PORTBbits.RB0 = 0;
+PORTBbits.RB1 = 0;
+PORTBbits.RB2 = 0;
 }
 }
 
@@ -5137,7 +5137,7 @@ soundDetectedCount = 0;
 }
 }
 
-if (soundFlag == 0) TRISBbits.RB3 = 1; else TRISBbits.RB3 = 0;
+if (soundFlag == 0) PORTBbits.RB3 = 1; else PORTBbits.RB3 = 0;
 
 
 if (soundFlag == 1) mode = 2; else mode = 0;
@@ -5170,7 +5170,7 @@ if (patternNumber > 4) patternNumber = 0;
 else clapCounter = 1;
 }
 
-if (clapCounter > 0) TRISBbits.RB5 = 1; else TRISBbits.RB5 = 0;
+if (clapCounter > 0) PORTBbits.RB5 = 1; else PORTBbits.RB5 = 0;
 
 
 if (patternNumber == 0)
@@ -5417,9 +5417,9 @@ patternNumber++;
 if (patternNumber > 4) patternNumber = 0;
 
 
-if (highPWM > PWMcount) TRISBbits.RB2 = 1; else TRISBbits.RB2 = 0;
-if (midPWM > PWMcount) TRISBbits.RB1 = 1; else TRISBbits.RB1 = 0;
-if (lowPWM > PWMcount) TRISBbits.RB0 = 1; else TRISBbits.RB0 = 0;
+if (highPWM > PWMcount) PORTBbits.RB2 = 1; else PORTBbits.RB2 = 0;
+if (midPWM > PWMcount) PORTBbits.RB1 = 1; else PORTBbits.RB1 = 0;
+if (lowPWM > PWMcount) PORTBbits.RB0 = 1; else PORTBbits.RB0 = 0;
 
 
 PWMcount++;
@@ -5443,14 +5443,14 @@ if (midLevel > 520) midPWM = 31;
 if (lowLevel > 470) lowPWM = 31;
 
 
-if (highPWM > PWMcount) TRISBbits.RB2 = 1; else TRISBbits.RB2 = 0;
-if (midPWM > PWMcount) TRISBbits.RB1 = 1; else TRISBbits.RB1 = 0;
-if (lowPWM > PWMcount) TRISBbits.RB0 = 1; else TRISBbits.RB0 = 0;
+if (highPWM > PWMcount) PORTBbits.RB2 = 1; else PORTBbits.RB2 = 0;
+if (midPWM > PWMcount) PORTBbits.RB1 = 1; else PORTBbits.RB1 = 0;
+if (lowPWM > PWMcount) PORTBbits.RB0 = 1; else PORTBbits.RB0 = 0;
 
 
-if (highPWM > PWMcount) TRISBbits.RB5 = 1; else TRISBbits.RB5 = 0;
-if (midPWM > PWMcount) TRISBbits.RB4 = 1; else TRISBbits.RB4 = 0;
-if (lowPWM > PWMcount) TRISBbits.RB3 = 1; else TRISBbits.RB3 = 0;
+if (highPWM > PWMcount) PORTBbits.RB5 = 1; else PORTBbits.RB5 = 0;
+if (midPWM > PWMcount) PORTBbits.RB4 = 1; else PORTBbits.RB4 = 0;
+if (lowPWM > PWMcount) PORTBbits.RB3 = 1; else PORTBbits.RB3 = 0;
 
 
 PWMcount++;

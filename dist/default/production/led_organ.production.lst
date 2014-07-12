@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.30 build 55553 
-                                                                                               Sat Jul 12 05:45:57 2014
+                                                                                               Sat Jul 12 06:19:30 2014
 
 Microchip Technology Omniscient Code Generator (Lite mode) build 55553
      1                           	processor	18F24J10
@@ -27,19 +27,19 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
     21  0000                     _PIR1bits	set	3998
     22  0000                     _PORTA	set	3968
     23  0000                     _PORTB	set	3969
-    24  0000                     _PORTC	set	3970
-    25  0000                     _SSP1BUF	set	4041
-    26  0000                     _SSP1CON1	set	4038
-    27  0000                     _SSP1CON1bits	set	4038
-    28  0000                     _SSPBUF	set	4041
-    29  0000                     _SSPCON1	set	4038
-    30  0000                     _SSPSTAT	set	4039
-    31  0000                     _T0CON	set	4053
-    32  0000                     _TMR0H	set	4055
-    33  0000                     _TMR0L	set	4054
-    34  0000                     _TRISA	set	3986
-    35  0000                     _TRISB	set	3987
-    36  0000                     _TRISBbits	set	3987
+    24  0000                     _PORTBbits	set	3969
+    25  0000                     _PORTC	set	3970
+    26  0000                     _SSP1BUF	set	4041
+    27  0000                     _SSP1CON1	set	4038
+    28  0000                     _SSP1CON1bits	set	4038
+    29  0000                     _SSPBUF	set	4041
+    30  0000                     _SSPCON1	set	4038
+    31  0000                     _SSPSTAT	set	4039
+    32  0000                     _T0CON	set	4053
+    33  0000                     _TMR0H	set	4055
+    34  0000                     _TMR0L	set	4054
+    35  0000                     _TRISA	set	3986
+    36  0000                     _TRISB	set	3987
     37  0000                     _TRISC	set	3988
     38  0000                     _TRISCbits	set	3988
     39  0000                     _GODONE	set	32273
@@ -316,16 +316,16 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    310  00357A                     l1314:
    311                           
    312                           ;main.c: 134: {
-   313                           ;main.c: 140: if (TMR0IF == 1)
+   313                           ;main.c: 141: if (TMR0IF == 1)
    314  00357A  A4F2               	btfss	intcon,2,c	;volatile
    315  00357C  D013               	goto	l1324
    316                           
-   317                           ;main.c: 141: {
-   318                           ;main.c: 142: tickCounter++;
+   317                           ;main.c: 142: {
+   318                           ;main.c: 143: tickCounter++;
    319  00357E  4A33               	infsnz	main@tickCounter,f,c
    320  003580  2A34               	incf	main@tickCounter+1,f,c
    321                           
-   322                           ;main.c: 143: if (tickCounter > 1000) tickCounter = 0;
+   322                           ;main.c: 144: if (tickCounter > 1000) tickCounter = 0;
    323  003582  5034               	movf	main@tickCounter+1,w,c
    324  003584  0A80               	xorlw	128
    325  003586  0F7D               	addlw	-131
@@ -340,96 +340,96 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    334  003598  6E33               	movwf	main@tickCounter,c
    335  00359A                     l45:
    336                           
-   337                           ;main.c: 146: TMR0H = 0xF9;
+   337                           ;main.c: 147: TMR0H = 0xF9;
    338  00359A  0EF9               	movlw	249
    339  00359C  6ED7               	movwf	4055,c	;volatile
    340                           
-   341                           ;main.c: 147: TMR0L = 0xE4;
+   341                           ;main.c: 148: TMR0L = 0xE4;
    342  00359E  0EE4               	movlw	228
    343  0035A0  6ED6               	movwf	4054,c	;volatile
    344                           
-   345                           ;main.c: 148: TMR0IF = 0;
+   345                           ;main.c: 149: TMR0IF = 0;
    346  0035A2  94F2               	bcf	intcon,2,c	;volatile
    347  0035A4                     l1324:
    348                           
-   349                           ;main.c: 149: }
-   350                           ;main.c: 152: highLevel = readMyADC(0);
+   349                           ;main.c: 150: }
+   350                           ;main.c: 153: highLevel = readMyADC(0);
    351  0035A4  0E00               	movlw	0
    352  0035A6  EC94  F019         	call	_readMyADC
    353  0035AA  C001  F024         	movff	?_readMyADC,main@highLevel
    354  0035AE  C002  F025         	movff	?_readMyADC+1,main@highLevel+1
    355                           
-   356                           ;main.c: 183: {
-   357                           ;main.c: 184: if (mode != 1)
+   356                           ;main.c: 184: {
+   357                           ;main.c: 185: if (mode != 1)
    358                           
-   359                           ;main.c: 179: }
-   360                           ;main.c: 180: }
-   361                           ;main.c: 182: if (0 == 0 && 0 == 0)
+   359                           ;main.c: 180: }
+   360                           ;main.c: 181: }
+   361                           ;main.c: 183: if (0 == 0 && 0 == 0)
    362                           
-   363                           ;main.c: 178: sequenceRepeats = 0;
+   363                           ;main.c: 179: sequenceRepeats = 0;
    364                           
-   365                           ;main.c: 177: brightness = 0;
+   365                           ;main.c: 178: brightness = 0;
    366                           
-   367                           ;main.c: 176: currentStep = 0;
+   367                           ;main.c: 177: currentStep = 0;
    368                           
-   369                           ;main.c: 175: stepNumber = 0;
+   369                           ;main.c: 176: stepNumber = 0;
    370                           
-   371                           ;main.c: 174: sequenceNumber = 0;
+   371                           ;main.c: 175: sequenceNumber = 0;
    372                           
-   373                           ;main.c: 173: patternNumber = 0;
+   373                           ;main.c: 174: patternNumber = 0;
    374                           
-   375                           ;main.c: 170: TRISBbits.RB2 = 0;
+   375                           ;main.c: 171: PORTBbits.RB2 = 0;
    376                           
-   377                           ;main.c: 169: TRISBbits.RB1 = 0;
+   377                           ;main.c: 170: PORTBbits.RB1 = 0;
    378                           
-   379                           ;main.c: 168: TRISBbits.RB0 = 0;
+   379                           ;main.c: 169: PORTBbits.RB0 = 0;
    380                           
-   381                           ;main.c: 167: TRISBbits.RB5 = 0;
+   381                           ;main.c: 168: PORTBbits.RB5 = 0;
    382                           
-   383                           ;main.c: 166: TRISBbits.RB4 = 0;
+   383                           ;main.c: 167: PORTBbits.RB4 = 0;
    384                           
-   385                           ;main.c: 165: TRISBbits.RB3 = 0;
+   385                           ;main.c: 166: PORTBbits.RB3 = 0;
    386                           
-   387                           ;main.c: 161: {
-   388                           ;main.c: 162: mode = 0;
+   387                           ;main.c: 162: {
+   388                           ;main.c: 163: mode = 0;
    389                           
-   390                           ;main.c: 159: {
-   391                           ;main.c: 160: if (mode != 0)
+   390                           ;main.c: 160: {
+   391                           ;main.c: 161: if (mode != 0)
    392                           
-   393                           ;main.c: 158: if (0 == 1 && 0 == 0)
+   393                           ;main.c: 159: if (0 == 1 && 0 == 0)
    394  0035B2  0435               	decf	main@mode,w,c
    395  0035B4  B4D8               	btfsc	status,2,c
    396  0035B6  D00A               	goto	l1380
    397                           
-   398                           ;main.c: 185: {
-   399                           ;main.c: 186: mode = 1;
+   398                           ;main.c: 186: {
+   399                           ;main.c: 187: mode = 1;
    400  0035B8  6E10               	movwf	??_main& (0+255),c
    401  0035BA  0E01               	movlw	1
    402  0035BC  6E35               	movwf	main@mode,c
    403  0035BE  5010               	movf	??_main& (0+255),w,c
    404                           
-   405                           ;main.c: 189: TRISBbits.RB3 = 0;
-   406  0035C0  9693               	bcf	3987,3,c	;volatile
+   405                           ;main.c: 190: PORTBbits.RB3 = 0;
+   406  0035C0  9681               	bcf	3969,3,c	;volatile
    407                           
-   408                           ;main.c: 190: TRISBbits.RB4 = 0;
-   409  0035C2  9893               	bcf	3987,4,c	;volatile
+   408                           ;main.c: 191: PORTBbits.RB4 = 0;
+   409  0035C2  9881               	bcf	3969,4,c	;volatile
    410                           
-   411                           ;main.c: 191: TRISBbits.RB5 = 0;
-   412  0035C4  9A93               	bcf	3987,5,c	;volatile
+   411                           ;main.c: 192: PORTBbits.RB5 = 0;
+   412  0035C4  9A81               	bcf	3969,5,c	;volatile
    413                           
-   414                           ;main.c: 192: TRISBbits.RB0 = 0;
-   415  0035C6  9093               	bcf	3987,0,c	;volatile
+   414                           ;main.c: 193: PORTBbits.RB0 = 0;
+   415  0035C6  9081               	bcf	3969,0,c	;volatile
    416                           
-   417                           ;main.c: 193: TRISBbits.RB1 = 0;
-   418  0035C8  9293               	bcf	3987,1,c	;volatile
+   417                           ;main.c: 194: PORTBbits.RB1 = 0;
+   418  0035C8  9281               	bcf	3969,1,c	;volatile
    419                           
-   420                           ;main.c: 194: TRISBbits.RB2 = 0;
-   421  0035CA  9493               	bcf	3987,2,c	;volatile
+   420                           ;main.c: 195: PORTBbits.RB2 = 0;
+   421  0035CA  9481               	bcf	3969,2,c	;volatile
    422  0035CC                     l1380:
    423                           
-   424                           ;main.c: 211: }
-   425                           ;main.c: 212: }
-   426                           ;main.c: 215: total += mainLevel;
+   424                           ;main.c: 212: }
+   425                           ;main.c: 213: }
+   426                           ;main.c: 216: total += mainLevel;
    427  0035CC  C018  F010         	movff	main@mainLevel,??_main
    428  0035D0  C019  F011         	movff	main@mainLevel+1,??_main+1
    429  0035D4  0E00               	movlw	0
@@ -446,19 +446,19 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    440  0035EA  5013               	movf	??_main+3,w,c
    441  0035EC  221D               	addwfc	main@total+3,f,c
    442                           
-   443                           ;main.c: 216: sampleCount++;
+   443                           ;main.c: 217: sampleCount++;
    444  0035EE  4A1E               	infsnz	main@sampleCount,f,c
    445  0035F0  2A1F               	incf	main@sampleCount+1,f,c
    446                           
-   447                           ;main.c: 218: if (sampleCount == 200)
+   447                           ;main.c: 219: if (sampleCount == 200)
    448  0035F2  501E               	movf	main@sampleCount,w,c
    449  0035F4  0AC8               	xorlw	200
    450  0035F6  101F               	iorwf	main@sampleCount+1,w,c
    451  0035F8  A4D8               	btfss	status,2,c
    452  0035FA  D075               	goto	l1412
    453                           
-   454                           ;main.c: 219: {
-   455                           ;main.c: 220: average = total / sampleCount;
+   454                           ;main.c: 220: {
+   455                           ;main.c: 221: average = total / sampleCount;
    456  0035FC  C01A  F001         	movff	main@total,___aldiv@dividend
    457  003600  C01B  F002         	movff	main@total+1,___aldiv@dividend+1
    458  003604  C01C  F003         	movff	main@total+2,___aldiv@dividend+2
@@ -478,7 +478,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    472  003632  C010  F027         	movff	??_main,main@average
    473  003636  C011  F028         	movff	??_main+1,main@average+1
    474                           
-   475                           ;main.c: 223: if (currentGainLevel <= 250 && currentGainLevel >= 10)
+   475                           ;main.c: 224: if (currentGainLevel <= 250 && currentGainLevel >= 10)
    476  00363A  502C               	movf	main@currentGainLevel+1,w,c
    477  00363C  0A80               	xorlw	128
    478  00363E  6EF3               	movwf	prodl,c
@@ -498,8 +498,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    492  00365A  A0D8               	btfss	status,0,c
    493  00365C  D01B               	goto	l1398
    494                           
-   495                           ;main.c: 224: {
-   496                           ;main.c: 225: if (average < 100) currentGainLevel += 4;
+   495                           ;main.c: 225: {
+   496                           ;main.c: 226: if (average < 100) currentGainLevel += 4;
    497  00365E  5028               	movf	main@average+1,w,c
    498  003660  0A80               	xorlw	128
    499  003662  6EF3               	movwf	prodl,c
@@ -516,7 +516,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    510  003678  222C               	addwfc	main@currentGainLevel+1,f,c
    511  00367A                     l54:
    512                           
-   513                           ;main.c: 226: if (average > 100) currentGainLevel -= 4;
+   513                           ;main.c: 227: if (average > 100) currentGainLevel -= 4;
    514  00367A  5028               	movf	main@average+1,w,c
    515  00367C  0A80               	xorlw	128
    516  00367E  0F80               	addlw	-128
@@ -532,9 +532,9 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    526  003692  D01A               	goto	l1406
    527  003694                     l1398:
    528                           
-   529                           ;main.c: 228: else
-   530                           ;main.c: 229: {
-   531                           ;main.c: 230: if (currentGainLevel < 10) currentGainLevel = 10 + 1;
+   529                           ;main.c: 229: else
+   530                           ;main.c: 230: {
+   531                           ;main.c: 231: if (currentGainLevel < 10) currentGainLevel = 10 + 1;
    532  003694  502C               	movf	main@currentGainLevel+1,w,c
    533  003696  0A80               	xorlw	128
    534  003698  6EF3               	movwf	prodl,c
@@ -551,7 +551,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    545  0036AE  6E2B               	movwf	main@currentGainLevel,c
    546  0036B0                     l1402:
    547                           
-   548                           ;main.c: 231: if (currentGainLevel > 250) currentGainLevel = 250 - 1;
+   548                           ;main.c: 232: if (currentGainLevel > 250) currentGainLevel = 250 - 1;
    549  0036B0  502C               	movf	main@currentGainLevel+1,w,c
    550  0036B2  0A80               	xorlw	128
    551  0036B4  0F80               	addlw	-128
@@ -566,18 +566,18 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    560  0036C6  6E2B               	movwf	main@currentGainLevel,c
    561  0036C8                     l1406:
    562                           
-   563                           ;main.c: 232: }
-   564                           ;main.c: 234: setGainLevel(currentGainLevel);
+   563                           ;main.c: 233: }
+   564                           ;main.c: 235: setGainLevel(currentGainLevel);
    565  0036C8  502B               	movf	main@currentGainLevel,w,c
    566  0036CA  EC81  F019         	call	_setGainLevel
    567                           
-   568                           ;main.c: 236: sampleCount = 0;
+   568                           ;main.c: 237: sampleCount = 0;
    569  0036CE  0E00               	movlw	0
    570  0036D0  6E1F               	movwf	main@sampleCount+1,c
    571  0036D2  0E00               	movlw	0
    572  0036D4  6E1E               	movwf	main@sampleCount,c
    573                           
-   574                           ;main.c: 237: total = 0;
+   574                           ;main.c: 238: total = 0;
    575  0036D6  0E00               	movlw	0
    576  0036D8  6E1A               	movwf	main@total,c
    577  0036DA  0E00               	movlw	0
@@ -588,19 +588,19 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    582  0036E4  6E1D               	movwf	main@total+3,c
    583  0036E6                     l1412:
    584                           
-   585                           ;main.c: 238: }
-   586                           ;main.c: 242: if (mode == 1)
+   585                           ;main.c: 239: }
+   586                           ;main.c: 243: if (mode == 1)
    587  0036E6  0435               	decf	main@mode,w,c
    588  0036E8  A4D8               	btfss	status,2,c
    589  0036EA  D04C               	goto	l1450
    590                           
-   591                           ;main.c: 243: {
-   592                           ;main.c: 244: if (soundFlag == 0)
+   591                           ;main.c: 244: {
+   592                           ;main.c: 245: if (soundFlag == 0)
    593  0036EC  6626               	tstfsz	main@soundFlag,c
    594  0036EE  D01A               	goto	l1428
    595                           
-   596                           ;main.c: 245: {
-   597                           ;main.c: 246: if (average >= 80) soundDetectedCount++; else soundDetectedCount = 0;
+   596                           ;main.c: 246: {
+   597                           ;main.c: 247: if (average >= 80) soundDetectedCount++; else soundDetectedCount = 0;
    598  0036F0  5028               	movf	main@average+1,w,c
    599  0036F2  0A80               	xorlw	128
    600  0036F4  0F80               	addlw	-128
@@ -619,7 +619,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    613  00370C  6E22               	movwf	main@soundDetectedCount,c
    614  00370E                     l1422:
    615                           
-   616                           ;main.c: 247: if (soundDetectedCount > 1500)
+   616                           ;main.c: 248: if (soundDetectedCount > 1500)
    617  00370E  5023               	movf	main@soundDetectedCount+1,w,c
    618  003710  0A80               	xorlw	128
    619  003712  0F7B               	addlw	-133
@@ -629,16 +629,16 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    623  00371A  A0D8               	btfss	status,0,c
    624  00371C  D024               	goto	l1440
    625                           
-   626                           ;main.c: 248: {
-   627                           ;main.c: 249: soundFlag = 1;
+   626                           ;main.c: 249: {
+   627                           ;main.c: 250: soundFlag = 1;
    628  00371E  6E10               	movwf	??_main& (0+255),c
    629  003720  0E01               	movlw	1
    630  003722  D01B               	goto	L1
    631  003724                     l1428:
    632                           
-   633                           ;main.c: 253: else
-   634                           ;main.c: 254: {
-   635                           ;main.c: 255: if (average < 50) soundDetectedCount++; else soundDetectedCount = 0;
+   633                           ;main.c: 254: else
+   634                           ;main.c: 255: {
+   635                           ;main.c: 256: if (average < 50) soundDetectedCount++; else soundDetectedCount = 0;
    636  003724  5028               	movf	main@average+1,w,c
    637  003726  0A80               	xorlw	128
    638  003728  6EF3               	movwf	prodl,c
@@ -659,7 +659,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    653  003744  6E22               	movwf	main@soundDetectedCount,c
    654  003746                     l1434:
    655                           
-   656                           ;main.c: 256: if (soundDetectedCount > 10000)
+   656                           ;main.c: 257: if (soundDetectedCount > 10000)
    657  003746  5023               	movf	main@soundDetectedCount+1,w,c
    658  003748  0A80               	xorlw	128
    659  00374A  0F59               	addlw	-167
@@ -669,33 +669,33 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    663  003752  A0D8               	btfss	status,0,c
    664  003754  D008               	goto	l1440
    665                           
-   666                           ;main.c: 257: {
-   667                           ;main.c: 258: soundFlag = 0;
+   666                           ;main.c: 258: {
+   667                           ;main.c: 259: soundFlag = 0;
    668  003756  6E10               	movwf	??_main& (0+255),c
    669  003758  0E00               	movlw	0
    670  00375A                     L1:
    671  00375A  6E26               	movwf	main@soundFlag,c
    672  00375C  5010               	movf	??_main& (0+255),w,c
    673                           
-   674                           ;main.c: 259: soundDetectedCount = 0;
+   674                           ;main.c: 260: soundDetectedCount = 0;
    675  00375E  0E00               	movlw	0
    676  003760  6E23               	movwf	main@soundDetectedCount+1,c
    677  003762  0E00               	movlw	0
    678  003764  6E22               	movwf	main@soundDetectedCount,c
    679  003766                     l1440:
    680                           
-   681                           ;main.c: 260: }
-   682                           ;main.c: 261: }
-   683                           ;main.c: 263: if (soundFlag == 0) TRISBbits.RB3 = 1; else TRISBbits.RB3 = 0;
+   681                           ;main.c: 261: }
+   682                           ;main.c: 262: }
+   683                           ;main.c: 264: if (soundFlag == 0) PORTBbits.RB3 = 1; else PORTBbits.RB3 = 0;
    684  003766  6626               	tstfsz	main@soundFlag,c
    685  003768  D002               	goto	l68
-   686  00376A  8693               	bsf	3987,3,c	;volatile
+   686  00376A  8681               	bsf	3969,3,c	;volatile
    687  00376C  D001               	goto	l1444
    688  00376E                     l68:
-   689  00376E  9693               	bcf	3987,3,c	;volatile
+   689  00376E  9681               	bcf	3969,3,c	;volatile
    690  003770                     l1444:
    691                           
-   692                           ;main.c: 266: if (soundFlag == 1) mode = 2; else mode = 0;
+   692                           ;main.c: 267: if (soundFlag == 1) mode = 2; else mode = 0;
    693  003770  0426               	decf	main@soundFlag,w,c
    694  003772  A4D8               	btfss	status,2,c
    695  003774  D003               	goto	l1448
@@ -710,13 +710,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    704  003782  5010               	movf	??_main& (0+255),w,c
    705  003784                     l1450:
    706                           
-   707                           ;main.c: 267: }
-   708                           ;main.c: 270: if (mode == 0)
+   707                           ;main.c: 268: }
+   708                           ;main.c: 271: if (mode == 0)
    709  003784  6635               	tstfsz	main@mode,c
    710  003786  D37D               	goto	l1856
    711                           
-   712                           ;main.c: 271: {
-   713                           ;main.c: 273: if ((highLevel > 600) && (clapCounter == 0))
+   712                           ;main.c: 272: {
+   713                           ;main.c: 274: if ((highLevel > 600) && (clapCounter == 0))
    714  003788  5025               	movf	main@highLevel+1,w,c
    715  00378A  0A80               	xorlw	128
    716  00378C  0F7E               	addlw	-130
@@ -730,16 +730,16 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    724  00379C  A4D8               	btfss	status,2,c
    725  00379E  D004               	goto	l1458
    726                           
-   727                           ;main.c: 274: {
-   728                           ;main.c: 275: clapCounter = 1;
+   727                           ;main.c: 275: {
+   728                           ;main.c: 276: clapCounter = 1;
    729  0037A0  0E00               	movlw	0
    730  0037A2  6E2A               	movwf	main@clapCounter+1,c
    731  0037A4  0E01               	movlw	1
    732  0037A6  6E29               	movwf	main@clapCounter,c
    733  0037A8                     l1458:
    734                           
-   735                           ;main.c: 276: }
-   736                           ;main.c: 278: if (clapCounter > 0) clapCounter++;
+   735                           ;main.c: 277: }
+   736                           ;main.c: 279: if (clapCounter > 0) clapCounter++;
    737  0037A8  502A               	movf	main@clapCounter+1,w,c
    738  0037AA  0A80               	xorlw	128
    739  0037AC  0F80               	addlw	-128
@@ -752,7 +752,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    746  0037BA  2A2A               	incf	main@clapCounter+1,f,c
    747  0037BC                     l1462:
    748                           
-   749                           ;main.c: 279: if (clapCounter > 1000)
+   749                           ;main.c: 280: if (clapCounter > 1000)
    750  0037BC  502A               	movf	main@clapCounter+1,w,c
    751  0037BE  0A80               	xorlw	128
    752  0037C0  0F7D               	addlw	-131
@@ -762,8 +762,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    756  0037C8  A0D8               	btfss	status,0,c
    757  0037CA  D02F               	goto	l1486
    758                           
-   759                           ;main.c: 280: {
-   760                           ;main.c: 281: if (highLevel < 600)
+   759                           ;main.c: 281: {
+   760                           ;main.c: 282: if (highLevel < 600)
    761  0037CC  5025               	movf	main@highLevel+1,w,c
    762  0037CE  0A80               	xorlw	128
    763  0037D0  6EF3               	movwf	prodl,c
@@ -775,47 +775,47 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    769  0037DC  B0D8               	btfsc	status,0,c
    770  0037DE  D021               	goto	l1484
    771                           
-   772                           ;main.c: 282: {
-   773                           ;main.c: 284: clapCounter = 0;
+   772                           ;main.c: 283: {
+   773                           ;main.c: 285: clapCounter = 0;
    774  0037E0  0E00               	movlw	0
    775  0037E2  6E2A               	movwf	main@clapCounter+1,c
    776  0037E4  0E00               	movlw	0
    777  0037E6  6E29               	movwf	main@clapCounter,c
    778                           
-   779                           ;main.c: 285: patternNumber++;
+   779                           ;main.c: 286: patternNumber++;
    780  0037E8  2A38               	incf	main@patternNumber,f,c
    781                           
-   782                           ;main.c: 286: sequenceNumber = 0;
+   782                           ;main.c: 287: sequenceNumber = 0;
    783  0037EA  6E10               	movwf	??_main& (0+255),c
    784  0037EC  0E00               	movlw	0
    785  0037EE  6E3E               	movwf	main@sequenceNumber,c
    786  0037F0  5010               	movf	??_main& (0+255),w,c
    787                           
-   788                           ;main.c: 287: stepNumber = 0;
+   788                           ;main.c: 288: stepNumber = 0;
    789  0037F2  0E00               	movlw	0
    790  0037F4  6E40               	movwf	main@stepNumber+1,c
    791  0037F6  0E00               	movlw	0
    792  0037F8  6E3F               	movwf	main@stepNumber,c
    793                           
-   794                           ;main.c: 288: currentStep = 0;
+   794                           ;main.c: 289: currentStep = 0;
    795  0037FA  0E00               	movlw	0
    796  0037FC  6E3B               	movwf	main@currentStep+1,c
    797  0037FE  0E00               	movlw	0
    798  003800  6E3A               	movwf	main@currentStep,c
    799                           
-   800                           ;main.c: 289: brightness = 0;
+   800                           ;main.c: 290: brightness = 0;
    801  003802  6E10               	movwf	??_main& (0+255),c
    802  003804  0E00               	movlw	0
    803  003806  6E39               	movwf	main@brightness,c
    804  003808  5010               	movf	??_main& (0+255),w,c
    805                           
-   806                           ;main.c: 290: sequenceRepeats = 0;
+   806                           ;main.c: 291: sequenceRepeats = 0;
    807  00380A  0E00               	movlw	0
    808  00380C  6E32               	movwf	main@sequenceRepeats+1,c
    809  00380E  0E00               	movlw	0
    810  003810  6E31               	movwf	main@sequenceRepeats,c
    811                           
-   812                           ;main.c: 291: if (patternNumber > 4) patternNumber = 0;
+   812                           ;main.c: 292: if (patternNumber > 4) patternNumber = 0;
    813  003812  0E04               	movlw	4
    814  003814  6438               	cpfsgt	main@patternNumber,c
    815  003816  D009               	goto	l1486
@@ -826,15 +826,15 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    820  003820  D004               	goto	l1486
    821  003822                     l1484:
    822                           
-   823                           ;main.c: 293: else clapCounter = 1;
+   823                           ;main.c: 294: else clapCounter = 1;
    824  003822  0E00               	movlw	0
    825  003824  6E2A               	movwf	main@clapCounter+1,c
    826  003826  0E01               	movlw	1
    827  003828  6E29               	movwf	main@clapCounter,c
    828  00382A                     l1486:
    829                           
-   830                           ;main.c: 294: }
-   831                           ;main.c: 296: if (clapCounter > 0) TRISBbits.RB5 = 1; else TRISBbits.RB5 = 0;
+   830                           ;main.c: 295: }
+   831                           ;main.c: 297: if (clapCounter > 0) PORTBbits.RB5 = 1; else PORTBbits.RB5 = 0;
    832  00382A  502A               	movf	main@clapCounter+1,w,c
    833  00382C  0A80               	xorlw	128
    834  00382E  0F80               	addlw	-128
@@ -843,23 +843,23 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    837  003834  5C29               	subwf	main@clapCounter,w,c
    838  003836  A0D8               	btfss	status,0,c
    839  003838  D002               	goto	l79
-   840  00383A  8A93               	bsf	3987,5,c	;volatile
+   840  00383A  8A81               	bsf	3969,5,c	;volatile
    841  00383C  D001               	goto	l80
    842  00383E                     l79:
-   843  00383E  9A93               	bcf	3987,5,c	;volatile
+   843  00383E  9A81               	bcf	3969,5,c	;volatile
    844  003840                     l80:
    845                           
-   846                           ;main.c: 299: if (patternNumber == 0)
+   846                           ;main.c: 300: if (patternNumber == 0)
    847  003840  6638               	tstfsz	main@patternNumber,c
    848  003842  D0CF               	goto	l1582
    849                           
-   850                           ;main.c: 300: {
-   851                           ;main.c: 301: if (sequenceNumber == 0)
+   850                           ;main.c: 301: {
+   851                           ;main.c: 302: if (sequenceNumber == 0)
    852  003844  663E               	tstfsz	main@sequenceNumber,c
    853  003846  D01E               	goto	l1504
    854                           
-   855                           ;main.c: 302: {
-   856                           ;main.c: 303: if (currentStep != stepNumber)
+   855                           ;main.c: 303: {
+   856                           ;main.c: 304: if (currentStep != stepNumber)
    857  003848  5040               	movf	main@stepNumber+1,w,c
    858  00384A  183B               	xorwf	main@currentStep+1,w,c
    859  00384C  E102               	bnz	u785
@@ -869,12 +869,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    863  003852  B4D8               	btfsc	status,2,c
    864  003854  D013               	goto	l1502
    865                           
-   866                           ;main.c: 304: {
-   867                           ;main.c: 305: currentStep = stepNumber;
+   866                           ;main.c: 305: {
+   867                           ;main.c: 306: currentStep = stepNumber;
    868  003856  C03F  F03A         	movff	main@stepNumber,main@currentStep
    869  00385A  C040  F03B         	movff	main@stepNumber+1,main@currentStep+1
    870                           
-   871                           ;main.c: 306: if (currentStep < 16) brightness += 2; else brightness -= 2;
+   871                           ;main.c: 307: if (currentStep < 16) brightness += 2; else brightness -= 2;
    872  00385E  503B               	movf	main@currentStep+1,w,c
    873  003860  0A80               	xorlw	128
    874  003862  6EF3               	movwf	prodl,c
@@ -893,12 +893,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    887  00387A  5E39               	subwf	main@brightness,f,c
    888  00387C                     l1502:
    889                           
-   890                           ;main.c: 307: }
-   891                           ;main.c: 308: highPWM = brightness;
+   890                           ;main.c: 308: }
+   891                           ;main.c: 309: highPWM = brightness;
    892  00387C  C039  F02F         	movff	main@brightness,main@highPWM
    893  003880  6A30               	clrf	main@highPWM+1,c
    894                           
-   895                           ;main.c: 309: } else highPWM = 0;
+   895                           ;main.c: 310: } else highPWM = 0;
    896  003882  D004               	goto	l1506
    897  003884                     l1504:
    898  003884  0E00               	movlw	0
@@ -907,13 +907,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    901  00388A  6E2F               	movwf	main@highPWM,c
    902  00388C                     l1506:
    903                           
-   904                           ;main.c: 311: if (sequenceNumber == 1)
+   904                           ;main.c: 312: if (sequenceNumber == 1)
    905  00388C  043E               	decf	main@sequenceNumber,w,c
    906  00388E  A4D8               	btfss	status,2,c
    907  003890  D01E               	goto	l1520
    908                           
-   909                           ;main.c: 312: {
-   910                           ;main.c: 313: if (currentStep != stepNumber)
+   909                           ;main.c: 313: {
+   910                           ;main.c: 314: if (currentStep != stepNumber)
    911  003892  5040               	movf	main@stepNumber+1,w,c
    912  003894  183B               	xorwf	main@currentStep+1,w,c
    913  003896  E102               	bnz	u815
@@ -923,12 +923,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    917  00389C  B4D8               	btfsc	status,2,c
    918  00389E  D013               	goto	l1518
    919                           
-   920                           ;main.c: 314: {
-   921                           ;main.c: 315: currentStep = stepNumber;
+   920                           ;main.c: 315: {
+   921                           ;main.c: 316: currentStep = stepNumber;
    922  0038A0  C03F  F03A         	movff	main@stepNumber,main@currentStep
    923  0038A4  C040  F03B         	movff	main@stepNumber+1,main@currentStep+1
    924                           
-   925                           ;main.c: 317: if (currentStep < 16) brightness += 2; else brightness -= 2;
+   925                           ;main.c: 318: if (currentStep < 16) brightness += 2; else brightness -= 2;
    926  0038A8  503B               	movf	main@currentStep+1,w,c
    927  0038AA  0A80               	xorlw	128
    928  0038AC  6EF3               	movwf	prodl,c
@@ -947,12 +947,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    941  0038C4  5E39               	subwf	main@brightness,f,c
    942  0038C6                     l1518:
    943                           
-   944                           ;main.c: 318: }
-   945                           ;main.c: 319: midPWM = brightness;
+   944                           ;main.c: 319: }
+   945                           ;main.c: 320: midPWM = brightness;
    946  0038C6  C039  F036         	movff	main@brightness,main@midPWM
    947  0038CA  6A37               	clrf	main@midPWM+1,c
    948                           
-   949                           ;main.c: 320: } else if (sequenceNumber != 3) midPWM = 0;
+   949                           ;main.c: 321: } else if (sequenceNumber != 3) midPWM = 0;
    950  0038CC  D008               	goto	l1524
    951  0038CE                     l1520:
    952  0038CE  503E               	movf	main@sequenceNumber,w,c
@@ -965,14 +965,14 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    959  0038DC  6E36               	movwf	main@midPWM,c
    960  0038DE                     l1524:
    961                           
-   962                           ;main.c: 322: if (sequenceNumber == 2)
+   962                           ;main.c: 323: if (sequenceNumber == 2)
    963  0038DE  503E               	movf	main@sequenceNumber,w,c
    964  0038E0  0A02               	xorlw	2
    965  0038E2  A4D8               	btfss	status,2,c
    966  0038E4  D01E               	goto	l1538
    967                           
-   968                           ;main.c: 323: {
-   969                           ;main.c: 324: if (currentStep != stepNumber)
+   968                           ;main.c: 324: {
+   969                           ;main.c: 325: if (currentStep != stepNumber)
    970  0038E6  5040               	movf	main@stepNumber+1,w,c
    971  0038E8  183B               	xorwf	main@currentStep+1,w,c
    972  0038EA  E102               	bnz	u855
@@ -982,12 +982,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
    976  0038F0  B4D8               	btfsc	status,2,c
    977  0038F2  D013               	goto	l1536
    978                           
-   979                           ;main.c: 325: {
-   980                           ;main.c: 326: currentStep = stepNumber;
+   979                           ;main.c: 326: {
+   980                           ;main.c: 327: currentStep = stepNumber;
    981  0038F4  C03F  F03A         	movff	main@stepNumber,main@currentStep
    982  0038F8  C040  F03B         	movff	main@stepNumber+1,main@currentStep+1
    983                           
-   984                           ;main.c: 327: if (currentStep < 16) brightness += 2; else brightness -= 2;
+   984                           ;main.c: 328: if (currentStep < 16) brightness += 2; else brightness -= 2;
    985  0038FC  503B               	movf	main@currentStep+1,w,c
    986  0038FE  0A80               	xorlw	128
    987  003900  6EF3               	movwf	prodl,c
@@ -1006,12 +1006,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1000  003918  5E39               	subwf	main@brightness,f,c
   1001  00391A                     l1536:
   1002                           
-  1003                           ;main.c: 328: }
-  1004                           ;main.c: 329: lowPWM = brightness;
+  1003                           ;main.c: 329: }
+  1004                           ;main.c: 330: lowPWM = brightness;
   1005  00391A  C039  F02D         	movff	main@brightness,main@lowPWM
   1006  00391E  6A2E               	clrf	main@lowPWM+1,c
   1007                           
-  1008                           ;main.c: 330: } else lowPWM = 0;
+  1008                           ;main.c: 331: } else lowPWM = 0;
   1009  003920  D004               	goto	l1540
   1010  003922                     l1538:
   1011  003922  0E00               	movlw	0
@@ -1020,14 +1020,14 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1014  003928  6E2D               	movwf	main@lowPWM,c
   1015  00392A                     l1540:
   1016                           
-  1017                           ;main.c: 332: if (sequenceNumber == 3)
+  1017                           ;main.c: 333: if (sequenceNumber == 3)
   1018  00392A  503E               	movf	main@sequenceNumber,w,c
   1019  00392C  0A03               	xorlw	3
   1020  00392E  A4D8               	btfss	status,2,c
   1021  003930  D01E               	goto	l1554
   1022                           
-  1023                           ;main.c: 333: {
-  1024                           ;main.c: 334: if (currentStep != stepNumber)
+  1023                           ;main.c: 334: {
+  1024                           ;main.c: 335: if (currentStep != stepNumber)
   1025  003932  5040               	movf	main@stepNumber+1,w,c
   1026  003934  183B               	xorwf	main@currentStep+1,w,c
   1027  003936  E102               	bnz	u885
@@ -1037,12 +1037,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1031  00393C  B4D8               	btfsc	status,2,c
   1032  00393E  D013               	goto	l1552
   1033                           
-  1034                           ;main.c: 335: {
-  1035                           ;main.c: 336: currentStep = stepNumber;
+  1034                           ;main.c: 336: {
+  1035                           ;main.c: 337: currentStep = stepNumber;
   1036  003940  C03F  F03A         	movff	main@stepNumber,main@currentStep
   1037  003944  C040  F03B         	movff	main@stepNumber+1,main@currentStep+1
   1038                           
-  1039                           ;main.c: 338: if (currentStep < 16) brightness += 2; else brightness -= 2;
+  1039                           ;main.c: 339: if (currentStep < 16) brightness += 2; else brightness -= 2;
   1040  003948  503B               	movf	main@currentStep+1,w,c
   1041  00394A  0A80               	xorlw	128
   1042  00394C  6EF3               	movwf	prodl,c
@@ -1061,12 +1061,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1055  003964  5E39               	subwf	main@brightness,f,c
   1056  003966                     l1552:
   1057                           
-  1058                           ;main.c: 339: }
-  1059                           ;main.c: 340: midPWM = brightness;
+  1058                           ;main.c: 340: }
+  1059                           ;main.c: 341: midPWM = brightness;
   1060  003966  C039  F036         	movff	main@brightness,main@midPWM
   1061  00396A  6A37               	clrf	main@midPWM+1,c
   1062                           
-  1063                           ;main.c: 341: } else if (sequenceNumber != 1) midPWM = 0;
+  1063                           ;main.c: 342: } else if (sequenceNumber != 1) midPWM = 0;
   1064  00396C  D007               	goto	l1558
   1065  00396E                     l1554:
   1066  00396E  043E               	decf	main@sequenceNumber,w,c
@@ -1078,7 +1078,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1072  00397A  6E36               	movwf	main@midPWM,c
   1073  00397C                     l1558:
   1074                           
-  1075                           ;main.c: 343: if (tickCounter > 6)
+  1075                           ;main.c: 344: if (tickCounter > 6)
   1076  00397C  5034               	movf	main@tickCounter+1,w,c
   1077  00397E  0A80               	xorlw	128
   1078  003980  0F80               	addlw	-128
@@ -1088,58 +1088,58 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1082  003988  A0D8               	btfss	status,0,c
   1083  00398A  D02B               	goto	l1582
   1084                           
-  1085                           ;main.c: 344: {
-  1086                           ;main.c: 345: stepNumber++;
+  1085                           ;main.c: 345: {
+  1086                           ;main.c: 346: stepNumber++;
   1087  00398C  4A3F               	infsnz	main@stepNumber,f,c
   1088  00398E  2A40               	incf	main@stepNumber+1,f,c
   1089                           
-  1090                           ;main.c: 346: tickCounter = 0;
+  1090                           ;main.c: 347: tickCounter = 0;
   1091  003990  0E00               	movlw	0
   1092  003992  6E34               	movwf	main@tickCounter+1,c
   1093  003994  0E00               	movlw	0
   1094  003996  6E33               	movwf	main@tickCounter,c
   1095                           
-  1096                           ;main.c: 348: if (stepNumber == 31)
+  1096                           ;main.c: 349: if (stepNumber == 31)
   1097  003998  503F               	movf	main@stepNumber,w,c
   1098  00399A  0A1F               	xorlw	31
   1099  00399C  1040               	iorwf	main@stepNumber+1,w,c
   1100  00399E  A4D8               	btfss	status,2,c
   1101  0039A0  D020               	goto	l1582
   1102                           
-  1103                           ;main.c: 349: {
-  1104                           ;main.c: 350: stepNumber = 0;
+  1103                           ;main.c: 350: {
+  1104                           ;main.c: 351: stepNumber = 0;
   1105  0039A2  0E00               	movlw	0
   1106  0039A4  6E40               	movwf	main@stepNumber+1,c
   1107  0039A6  0E00               	movlw	0
   1108  0039A8  6E3F               	movwf	main@stepNumber,c
   1109                           
-  1110                           ;main.c: 351: sequenceNumber++;
+  1110                           ;main.c: 352: sequenceNumber++;
   1111  0039AA  2A3E               	incf	main@sequenceNumber,f,c
   1112                           
-  1113                           ;main.c: 352: brightness = 0;
+  1113                           ;main.c: 353: brightness = 0;
   1114  0039AC  6E10               	movwf	??_main& (0+255),c
   1115  0039AE  0E00               	movlw	0
   1116  0039B0  6E39               	movwf	main@brightness,c
   1117  0039B2  5010               	movf	??_main& (0+255),w,c
   1118                           
-  1119                           ;main.c: 354: if (sequenceNumber == 4)
+  1119                           ;main.c: 355: if (sequenceNumber == 4)
   1120  0039B4  503E               	movf	main@sequenceNumber,w,c
   1121  0039B6  0A04               	xorlw	4
   1122  0039B8  A4D8               	btfss	status,2,c
   1123  0039BA  D013               	goto	l1582
   1124                           
-  1125                           ;main.c: 355: {
-  1126                           ;main.c: 356: sequenceNumber = 0;
+  1125                           ;main.c: 356: {
+  1126                           ;main.c: 357: sequenceNumber = 0;
   1127  0039BC  6E10               	movwf	??_main& (0+255),c
   1128  0039BE  0E00               	movlw	0
   1129  0039C0  6E3E               	movwf	main@sequenceNumber,c
   1130  0039C2  5010               	movf	??_main& (0+255),w,c
   1131                           
-  1132                           ;main.c: 357: sequenceRepeats++;
+  1132                           ;main.c: 358: sequenceRepeats++;
   1133  0039C4  4A31               	infsnz	main@sequenceRepeats,f,c
   1134  0039C6  2A32               	incf	main@sequenceRepeats+1,f,c
   1135                           
-  1136                           ;main.c: 358: if (sequenceRepeats > 10)
+  1136                           ;main.c: 359: if (sequenceRepeats > 10)
   1137  0039C8  5032               	movf	main@sequenceRepeats+1,w,c
   1138  0039CA  0A80               	xorlw	128
   1139  0039CC  0F80               	addlw	-128
@@ -1149,47 +1149,47 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1143  0039D4  A0D8               	btfss	status,0,c
   1144  0039D6  D005               	goto	l1582
   1145                           
-  1146                           ;main.c: 359: {
-  1147                           ;main.c: 360: sequenceRepeats = 0;
+  1146                           ;main.c: 360: {
+  1147                           ;main.c: 361: sequenceRepeats = 0;
   1148  0039D8  0E00               	movlw	0
   1149  0039DA  6E32               	movwf	main@sequenceRepeats+1,c
   1150  0039DC  0E00               	movlw	0
   1151  0039DE  6E31               	movwf	main@sequenceRepeats,c
   1152                           
-  1153                           ;main.c: 361: patternNumber++;
+  1153                           ;main.c: 362: patternNumber++;
   1154  0039E0  2A38               	incf	main@patternNumber,f,c
   1155  0039E2                     l1582:
   1156                           
-  1157                           ;main.c: 362: }
-  1158                           ;main.c: 363: }
-  1159                           ;main.c: 364: }
-  1160                           ;main.c: 365: }
-  1161                           ;main.c: 366: }
-  1162                           ;main.c: 369: if (patternNumber == 1)
+  1157                           ;main.c: 363: }
+  1158                           ;main.c: 364: }
+  1159                           ;main.c: 365: }
+  1160                           ;main.c: 366: }
+  1161                           ;main.c: 367: }
+  1162                           ;main.c: 370: if (patternNumber == 1)
   1163  0039E2  0438               	decf	main@patternNumber,w,c
   1164  0039E4  A4D8               	btfss	status,2,c
   1165  0039E6  D03F               	goto	l1610
   1166                           
-  1167                           ;main.c: 370: {
-  1168                           ;main.c: 371: highPWM = 31;
+  1167                           ;main.c: 371: {
+  1168                           ;main.c: 372: highPWM = 31;
   1169  0039E8  0E00               	movlw	0
   1170  0039EA  6E30               	movwf	main@highPWM+1,c
   1171  0039EC  0E1F               	movlw	31
   1172  0039EE  6E2F               	movwf	main@highPWM,c
   1173                           
-  1174                           ;main.c: 372: midPWM = 31;
+  1174                           ;main.c: 373: midPWM = 31;
   1175  0039F0  0E00               	movlw	0
   1176  0039F2  6E37               	movwf	main@midPWM+1,c
   1177  0039F4  0E1F               	movlw	31
   1178  0039F6  6E36               	movwf	main@midPWM,c
   1179                           
-  1180                           ;main.c: 373: lowPWM = 31;
+  1180                           ;main.c: 374: lowPWM = 31;
   1181  0039F8  0E00               	movlw	0
   1182  0039FA  6E2E               	movwf	main@lowPWM+1,c
   1183  0039FC  0E1F               	movlw	31
   1184  0039FE  6E2D               	movwf	main@lowPWM,c
   1185                           
-  1186                           ;main.c: 375: if (tickCounter > 8)
+  1186                           ;main.c: 376: if (tickCounter > 8)
   1187  003A00  5034               	movf	main@tickCounter+1,w,c
   1188  003A02  0A80               	xorlw	128
   1189  003A04  0F80               	addlw	-128
@@ -1199,58 +1199,58 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1193  003A0C  A0D8               	btfss	status,0,c
   1194  003A0E  D02B               	goto	l1610
   1195                           
-  1196                           ;main.c: 376: {
-  1197                           ;main.c: 377: stepNumber++;
+  1196                           ;main.c: 377: {
+  1197                           ;main.c: 378: stepNumber++;
   1198  003A10  4A3F               	infsnz	main@stepNumber,f,c
   1199  003A12  2A40               	incf	main@stepNumber+1,f,c
   1200                           
-  1201                           ;main.c: 378: tickCounter = 0;
+  1201                           ;main.c: 379: tickCounter = 0;
   1202  003A14  0E00               	movlw	0
   1203  003A16  6E34               	movwf	main@tickCounter+1,c
   1204  003A18  0E00               	movlw	0
   1205  003A1A  6E33               	movwf	main@tickCounter,c
   1206                           
-  1207                           ;main.c: 380: if (stepNumber == 3)
+  1207                           ;main.c: 381: if (stepNumber == 3)
   1208  003A1C  503F               	movf	main@stepNumber,w,c
   1209  003A1E  0A03               	xorlw	3
   1210  003A20  1040               	iorwf	main@stepNumber+1,w,c
   1211  003A22  A4D8               	btfss	status,2,c
   1212  003A24  D020               	goto	l1610
   1213                           
-  1214                           ;main.c: 381: {
-  1215                           ;main.c: 382: stepNumber = 0;
+  1214                           ;main.c: 382: {
+  1215                           ;main.c: 383: stepNumber = 0;
   1216  003A26  0E00               	movlw	0
   1217  003A28  6E40               	movwf	main@stepNumber+1,c
   1218  003A2A  0E00               	movlw	0
   1219  003A2C  6E3F               	movwf	main@stepNumber,c
   1220                           
-  1221                           ;main.c: 383: sequenceNumber++;
+  1221                           ;main.c: 384: sequenceNumber++;
   1222  003A2E  2A3E               	incf	main@sequenceNumber,f,c
   1223                           
-  1224                           ;main.c: 384: brightness = 0;
+  1224                           ;main.c: 385: brightness = 0;
   1225  003A30  6E10               	movwf	??_main& (0+255),c
   1226  003A32  0E00               	movlw	0
   1227  003A34  6E39               	movwf	main@brightness,c
   1228  003A36  5010               	movf	??_main& (0+255),w,c
   1229                           
-  1230                           ;main.c: 386: if (sequenceNumber == 5)
+  1230                           ;main.c: 387: if (sequenceNumber == 5)
   1231  003A38  503E               	movf	main@sequenceNumber,w,c
   1232  003A3A  0A05               	xorlw	5
   1233  003A3C  A4D8               	btfss	status,2,c
   1234  003A3E  D013               	goto	l1610
   1235                           
-  1236                           ;main.c: 387: {
-  1237                           ;main.c: 388: sequenceNumber = 0;
+  1236                           ;main.c: 388: {
+  1237                           ;main.c: 389: sequenceNumber = 0;
   1238  003A40  6E10               	movwf	??_main& (0+255),c
   1239  003A42  0E00               	movlw	0
   1240  003A44  6E3E               	movwf	main@sequenceNumber,c
   1241  003A46  5010               	movf	??_main& (0+255),w,c
   1242                           
-  1243                           ;main.c: 389: sequenceRepeats++;
+  1243                           ;main.c: 390: sequenceRepeats++;
   1244  003A48  4A31               	infsnz	main@sequenceRepeats,f,c
   1245  003A4A  2A32               	incf	main@sequenceRepeats+1,f,c
   1246                           
-  1247                           ;main.c: 390: if (sequenceRepeats > 40)
+  1247                           ;main.c: 391: if (sequenceRepeats > 40)
   1248  003A4C  5032               	movf	main@sequenceRepeats+1,w,c
   1249  003A4E  0A80               	xorlw	128
   1250  003A50  0F80               	addlw	-128
@@ -1260,35 +1260,35 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1254  003A58  A0D8               	btfss	status,0,c
   1255  003A5A  D005               	goto	l1610
   1256                           
-  1257                           ;main.c: 391: {
-  1258                           ;main.c: 392: sequenceRepeats = 0;
+  1257                           ;main.c: 392: {
+  1258                           ;main.c: 393: sequenceRepeats = 0;
   1259  003A5C  0E00               	movlw	0
   1260  003A5E  6E32               	movwf	main@sequenceRepeats+1,c
   1261  003A60  0E00               	movlw	0
   1262  003A62  6E31               	movwf	main@sequenceRepeats,c
   1263                           
-  1264                           ;main.c: 393: patternNumber++;
+  1264                           ;main.c: 394: patternNumber++;
   1265  003A64  2A38               	incf	main@patternNumber,f,c
   1266  003A66                     l1610:
   1267                           
-  1268                           ;main.c: 394: }
-  1269                           ;main.c: 395: }
-  1270                           ;main.c: 396: }
-  1271                           ;main.c: 397: }
-  1272                           ;main.c: 398: }
-  1273                           ;main.c: 401: if (patternNumber == 2)
+  1268                           ;main.c: 395: }
+  1269                           ;main.c: 396: }
+  1270                           ;main.c: 397: }
+  1271                           ;main.c: 398: }
+  1272                           ;main.c: 399: }
+  1273                           ;main.c: 402: if (patternNumber == 2)
   1274  003A66  5038               	movf	main@patternNumber,w,c
   1275  003A68  0A02               	xorlw	2
   1276  003A6A  A4D8               	btfss	status,2,c
   1277  003A6C  D100               	goto	l1736
   1278                           
-  1279                           ;main.c: 402: {
-  1280                           ;main.c: 403: if (sequenceNumber == 0)
+  1279                           ;main.c: 403: {
+  1280                           ;main.c: 404: if (sequenceNumber == 0)
   1281  003A6E  663E               	tstfsz	main@sequenceNumber,c
   1282  003A70  D025               	goto	l1632
   1283                           
-  1284                           ;main.c: 404: {
-  1285                           ;main.c: 405: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+  1284                           ;main.c: 405: {
+  1285                           ;main.c: 406: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
   1286  003A72  5040               	movf	main@stepNumber+1,w,c
   1287  003A74  103F               	iorwf	main@stepNumber,w,c
   1288  003A76  A4D8               	btfss	status,2,c
@@ -1304,7 +1304,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1298  003A88                     L3:
   1299  003A88  6E2F               	movwf	main@highPWM,c
   1300                           
-  1301                           ;main.c: 406: if (stepNumber == 1) midPWM = 31; else midPWM = 0;
+  1301                           ;main.c: 407: if (stepNumber == 1) midPWM = 31; else midPWM = 0;
   1302  003A8A  043F               	decf	main@stepNumber,w,c
   1303  003A8C  1040               	iorwf	main@stepNumber+1,w,c
   1304  003A8E  A4D8               	btfss	status,2,c
@@ -1320,7 +1320,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1314  003AA0                     L4:
   1315  003AA0  6E36               	movwf	main@midPWM,c
   1316                           
-  1317                           ;main.c: 407: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
+  1317                           ;main.c: 408: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
   1318  003AA2  503F               	movf	main@stepNumber,w,c
   1319  003AA4  0A02               	xorlw	2
   1320  003AA6  1040               	iorwf	main@stepNumber+1,w,c
@@ -1338,14 +1338,14 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1332  003ABA  6E2D               	movwf	main@lowPWM,c
   1333  003ABC                     l1632:
   1334                           
-  1335                           ;main.c: 408: }
-  1336                           ;main.c: 410: if (sequenceNumber == 1)
+  1335                           ;main.c: 409: }
+  1336                           ;main.c: 411: if (sequenceNumber == 1)
   1337  003ABC  043E               	decf	main@sequenceNumber,w,c
   1338  003ABE  A4D8               	btfss	status,2,c
   1339  003AC0  D025               	goto	l1652
   1340                           
-  1341                           ;main.c: 411: {
-  1342                           ;main.c: 412: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+  1341                           ;main.c: 412: {
+  1342                           ;main.c: 413: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
   1343  003AC2  5040               	movf	main@stepNumber+1,w,c
   1344  003AC4  103F               	iorwf	main@stepNumber,w,c
   1345  003AC6  A4D8               	btfss	status,2,c
@@ -1361,7 +1361,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1355  003AD8                     L6:
   1356  003AD8  6E2F               	movwf	main@highPWM,c
   1357                           
-  1358                           ;main.c: 413: if (stepNumber == 1) lowPWM = 31; else lowPWM = 0;
+  1358                           ;main.c: 414: if (stepNumber == 1) lowPWM = 31; else lowPWM = 0;
   1359  003ADA  043F               	decf	main@stepNumber,w,c
   1360  003ADC  1040               	iorwf	main@stepNumber+1,w,c
   1361  003ADE  A4D8               	btfss	status,2,c
@@ -1377,7 +1377,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1371  003AF0                     L7:
   1372  003AF0  6E2D               	movwf	main@lowPWM,c
   1373                           
-  1374                           ;main.c: 414: if (stepNumber == 2) midPWM = 31; else midPWM = 0;
+  1374                           ;main.c: 415: if (stepNumber == 2) midPWM = 31; else midPWM = 0;
   1375  003AF2  503F               	movf	main@stepNumber,w,c
   1376  003AF4  0A02               	xorlw	2
   1377  003AF6  1040               	iorwf	main@stepNumber+1,w,c
@@ -1395,15 +1395,15 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1389  003B0A  6E36               	movwf	main@midPWM,c
   1390  003B0C                     l1652:
   1391                           
-  1392                           ;main.c: 415: }
-  1393                           ;main.c: 417: if (sequenceNumber == 2)
+  1392                           ;main.c: 416: }
+  1393                           ;main.c: 418: if (sequenceNumber == 2)
   1394  003B0C  503E               	movf	main@sequenceNumber,w,c
   1395  003B0E  0A02               	xorlw	2
   1396  003B10  A4D8               	btfss	status,2,c
   1397  003B12  D025               	goto	l1672
   1398                           
-  1399                           ;main.c: 418: {
-  1400                           ;main.c: 419: if (stepNumber == 0) lowPWM = 31; else lowPWM = 0;
+  1399                           ;main.c: 419: {
+  1400                           ;main.c: 420: if (stepNumber == 0) lowPWM = 31; else lowPWM = 0;
   1401  003B14  5040               	movf	main@stepNumber+1,w,c
   1402  003B16  103F               	iorwf	main@stepNumber,w,c
   1403  003B18  A4D8               	btfss	status,2,c
@@ -1419,7 +1419,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1413  003B2A                     L9:
   1414  003B2A  6E2D               	movwf	main@lowPWM,c
   1415                           
-  1416                           ;main.c: 420: if (stepNumber == 1) highPWM = 31; else highPWM = 0;
+  1416                           ;main.c: 421: if (stepNumber == 1) highPWM = 31; else highPWM = 0;
   1417  003B2C  043F               	decf	main@stepNumber,w,c
   1418  003B2E  1040               	iorwf	main@stepNumber+1,w,c
   1419  003B30  A4D8               	btfss	status,2,c
@@ -1435,7 +1435,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1429  003B42                     L10:
   1430  003B42  6E2F               	movwf	main@highPWM,c
   1431                           
-  1432                           ;main.c: 421: if (stepNumber == 2) midPWM = 31; else midPWM = 0;
+  1432                           ;main.c: 422: if (stepNumber == 2) midPWM = 31; else midPWM = 0;
   1433  003B44  503F               	movf	main@stepNumber,w,c
   1434  003B46  0A02               	xorlw	2
   1435  003B48  1040               	iorwf	main@stepNumber+1,w,c
@@ -1453,15 +1453,15 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1447  003B5C  6E36               	movwf	main@midPWM,c
   1448  003B5E                     l1672:
   1449                           
-  1450                           ;main.c: 422: }
-  1451                           ;main.c: 424: if (sequenceNumber == 3)
+  1450                           ;main.c: 423: }
+  1451                           ;main.c: 425: if (sequenceNumber == 3)
   1452  003B5E  503E               	movf	main@sequenceNumber,w,c
   1453  003B60  0A03               	xorlw	3
   1454  003B62  A4D8               	btfss	status,2,c
   1455  003B64  D028               	goto	l1692
   1456                           
-  1457                           ;main.c: 425: {
-  1458                           ;main.c: 426: if (stepNumber == 0) lowPWM = 31; else highPWM = 0;
+  1457                           ;main.c: 426: {
+  1458                           ;main.c: 427: if (stepNumber == 0) lowPWM = 31; else highPWM = 0;
   1459  003B66  5040               	movf	main@stepNumber+1,w,c
   1460  003B68  103F               	iorwf	main@stepNumber,w,c
   1461  003B6A  A4D8               	btfss	status,2,c
@@ -1478,7 +1478,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1472  003B7E  6E2F               	movwf	main@highPWM,c
   1473  003B80                     l1680:
   1474                           
-  1475                           ;main.c: 427: if (stepNumber == 1) midPWM = 31; else lowPWM = 0;
+  1475                           ;main.c: 428: if (stepNumber == 1) midPWM = 31; else lowPWM = 0;
   1476  003B80  043F               	decf	main@stepNumber,w,c
   1477  003B82  1040               	iorwf	main@stepNumber+1,w,c
   1478  003B84  A4D8               	btfss	status,2,c
@@ -1495,7 +1495,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1489  003B98  6E2D               	movwf	main@lowPWM,c
   1490  003B9A                     l1686:
   1491                           
-  1492                           ;main.c: 428: if (stepNumber == 2) highPWM = 31; else midPWM = 0;
+  1492                           ;main.c: 429: if (stepNumber == 2) highPWM = 31; else midPWM = 0;
   1493  003B9A  503F               	movf	main@stepNumber,w,c
   1494  003B9C  0A02               	xorlw	2
   1495  003B9E  1040               	iorwf	main@stepNumber+1,w,c
@@ -1513,15 +1513,15 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1507  003BB4  6E36               	movwf	main@midPWM,c
   1508  003BB6                     l1692:
   1509                           
-  1510                           ;main.c: 429: }
-  1511                           ;main.c: 431: if (sequenceNumber == 4)
+  1510                           ;main.c: 430: }
+  1511                           ;main.c: 432: if (sequenceNumber == 4)
   1512  003BB6  503E               	movf	main@sequenceNumber,w,c
   1513  003BB8  0A04               	xorlw	4
   1514  003BBA  A4D8               	btfss	status,2,c
   1515  003BBC  D025               	goto	l1712
   1516                           
-  1517                           ;main.c: 432: {
-  1518                           ;main.c: 433: if (stepNumber == 0) midPWM = 31; else midPWM = 0;
+  1517                           ;main.c: 433: {
+  1518                           ;main.c: 434: if (stepNumber == 0) midPWM = 31; else midPWM = 0;
   1519  003BBE  5040               	movf	main@stepNumber+1,w,c
   1520  003BC0  103F               	iorwf	main@stepNumber,w,c
   1521  003BC2  A4D8               	btfss	status,2,c
@@ -1537,7 +1537,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1531  003BD4                     L12:
   1532  003BD4  6E36               	movwf	main@midPWM,c
   1533                           
-  1534                           ;main.c: 434: if (stepNumber == 1) highPWM = 31; else highPWM = 0;
+  1534                           ;main.c: 435: if (stepNumber == 1) highPWM = 31; else highPWM = 0;
   1535  003BD6  043F               	decf	main@stepNumber,w,c
   1536  003BD8  1040               	iorwf	main@stepNumber+1,w,c
   1537  003BDA  A4D8               	btfss	status,2,c
@@ -1553,7 +1553,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1547  003BEC                     L13:
   1548  003BEC  6E2F               	movwf	main@highPWM,c
   1549                           
-  1550                           ;main.c: 435: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
+  1550                           ;main.c: 436: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
   1551  003BEE  503F               	movf	main@stepNumber,w,c
   1552  003BF0  0A02               	xorlw	2
   1553  003BF2  1040               	iorwf	main@stepNumber+1,w,c
@@ -1571,8 +1571,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1565  003C06  6E2D               	movwf	main@lowPWM,c
   1566  003C08                     l1712:
   1567                           
-  1568                           ;main.c: 436: }
-  1569                           ;main.c: 438: if (tickCounter > 8)
+  1568                           ;main.c: 437: }
+  1569                           ;main.c: 439: if (tickCounter > 8)
   1570  003C08  5034               	movf	main@tickCounter+1,w,c
   1571  003C0A  0A80               	xorlw	128
   1572  003C0C  0F80               	addlw	-128
@@ -1582,58 +1582,58 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1576  003C14  A0D8               	btfss	status,0,c
   1577  003C16  D02B               	goto	l1736
   1578                           
-  1579                           ;main.c: 439: {
-  1580                           ;main.c: 440: stepNumber++;
+  1579                           ;main.c: 440: {
+  1580                           ;main.c: 441: stepNumber++;
   1581  003C18  4A3F               	infsnz	main@stepNumber,f,c
   1582  003C1A  2A40               	incf	main@stepNumber+1,f,c
   1583                           
-  1584                           ;main.c: 441: tickCounter = 0;
+  1584                           ;main.c: 442: tickCounter = 0;
   1585  003C1C  0E00               	movlw	0
   1586  003C1E  6E34               	movwf	main@tickCounter+1,c
   1587  003C20  0E00               	movlw	0
   1588  003C22  6E33               	movwf	main@tickCounter,c
   1589                           
-  1590                           ;main.c: 443: if (stepNumber == 3)
+  1590                           ;main.c: 444: if (stepNumber == 3)
   1591  003C24  503F               	movf	main@stepNumber,w,c
   1592  003C26  0A03               	xorlw	3
   1593  003C28  1040               	iorwf	main@stepNumber+1,w,c
   1594  003C2A  A4D8               	btfss	status,2,c
   1595  003C2C  D020               	goto	l1736
   1596                           
-  1597                           ;main.c: 444: {
-  1598                           ;main.c: 445: stepNumber = 0;
+  1597                           ;main.c: 445: {
+  1598                           ;main.c: 446: stepNumber = 0;
   1599  003C2E  0E00               	movlw	0
   1600  003C30  6E40               	movwf	main@stepNumber+1,c
   1601  003C32  0E00               	movlw	0
   1602  003C34  6E3F               	movwf	main@stepNumber,c
   1603                           
-  1604                           ;main.c: 446: sequenceNumber++;
+  1604                           ;main.c: 447: sequenceNumber++;
   1605  003C36  2A3E               	incf	main@sequenceNumber,f,c
   1606                           
-  1607                           ;main.c: 447: brightness = 0;
+  1607                           ;main.c: 448: brightness = 0;
   1608  003C38  6E10               	movwf	??_main& (0+255),c
   1609  003C3A  0E00               	movlw	0
   1610  003C3C  6E39               	movwf	main@brightness,c
   1611  003C3E  5010               	movf	??_main& (0+255),w,c
   1612                           
-  1613                           ;main.c: 449: if (sequenceNumber == 5)
+  1613                           ;main.c: 450: if (sequenceNumber == 5)
   1614  003C40  503E               	movf	main@sequenceNumber,w,c
   1615  003C42  0A05               	xorlw	5
   1616  003C44  A4D8               	btfss	status,2,c
   1617  003C46  D013               	goto	l1736
   1618                           
-  1619                           ;main.c: 450: {
-  1620                           ;main.c: 451: sequenceNumber = 0;
+  1619                           ;main.c: 451: {
+  1620                           ;main.c: 452: sequenceNumber = 0;
   1621  003C48  6E10               	movwf	??_main& (0+255),c
   1622  003C4A  0E00               	movlw	0
   1623  003C4C  6E3E               	movwf	main@sequenceNumber,c
   1624  003C4E  5010               	movf	??_main& (0+255),w,c
   1625                           
-  1626                           ;main.c: 452: sequenceRepeats++;
+  1626                           ;main.c: 453: sequenceRepeats++;
   1627  003C50  4A31               	infsnz	main@sequenceRepeats,f,c
   1628  003C52  2A32               	incf	main@sequenceRepeats+1,f,c
   1629                           
-  1630                           ;main.c: 453: if (sequenceRepeats > 30)
+  1630                           ;main.c: 454: if (sequenceRepeats > 30)
   1631  003C54  5032               	movf	main@sequenceRepeats+1,w,c
   1632  003C56  0A80               	xorlw	128
   1633  003C58  0F80               	addlw	-128
@@ -1643,35 +1643,35 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1637  003C60  A0D8               	btfss	status,0,c
   1638  003C62  D005               	goto	l1736
   1639                           
-  1640                           ;main.c: 454: {
-  1641                           ;main.c: 455: sequenceRepeats = 0;
+  1640                           ;main.c: 455: {
+  1641                           ;main.c: 456: sequenceRepeats = 0;
   1642  003C64  0E00               	movlw	0
   1643  003C66  6E32               	movwf	main@sequenceRepeats+1,c
   1644  003C68  0E00               	movlw	0
   1645  003C6A  6E31               	movwf	main@sequenceRepeats,c
   1646                           
-  1647                           ;main.c: 456: patternNumber++;
+  1647                           ;main.c: 457: patternNumber++;
   1648  003C6C  2A38               	incf	main@patternNumber,f,c
   1649  003C6E                     l1736:
   1650                           
-  1651                           ;main.c: 457: }
-  1652                           ;main.c: 458: }
-  1653                           ;main.c: 459: }
-  1654                           ;main.c: 460: }
-  1655                           ;main.c: 461: }
-  1656                           ;main.c: 464: if (patternNumber == 3)
+  1651                           ;main.c: 458: }
+  1652                           ;main.c: 459: }
+  1653                           ;main.c: 460: }
+  1654                           ;main.c: 461: }
+  1655                           ;main.c: 462: }
+  1656                           ;main.c: 465: if (patternNumber == 3)
   1657  003C6E  5038               	movf	main@patternNumber,w,c
   1658  003C70  0A03               	xorlw	3
   1659  003C72  A4D8               	btfss	status,2,c
   1660  003C74  D057               	goto	l1778
   1661                           
-  1662                           ;main.c: 465: {
-  1663                           ;main.c: 466: if (sequenceNumber == 0)
+  1662                           ;main.c: 466: {
+  1663                           ;main.c: 467: if (sequenceNumber == 0)
   1664  003C76  663E               	tstfsz	main@sequenceNumber,c
   1665  003C78  D023               	goto	l154
   1666                           
-  1667                           ;main.c: 467: {
-  1668                           ;main.c: 468: if (currentStep != stepNumber)
+  1667                           ;main.c: 468: {
+  1668                           ;main.c: 469: if (currentStep != stepNumber)
   1669  003C7A  5040               	movf	main@stepNumber+1,w,c
   1670  003C7C  183B               	xorwf	main@currentStep+1,w,c
   1671  003C7E  E102               	bnz	u1275
@@ -1681,12 +1681,12 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1675  003C84  B4D8               	btfsc	status,2,c
   1676  003C86  D013               	goto	l1750
   1677                           
-  1678                           ;main.c: 469: {
-  1679                           ;main.c: 470: currentStep = stepNumber;
+  1678                           ;main.c: 470: {
+  1679                           ;main.c: 471: currentStep = stepNumber;
   1680  003C88  C03F  F03A         	movff	main@stepNumber,main@currentStep
   1681  003C8C  C040  F03B         	movff	main@stepNumber+1,main@currentStep+1
   1682                           
-  1683                           ;main.c: 471: if (currentStep < 16) brightness += 2; else brightness -= 2;
+  1683                           ;main.c: 472: if (currentStep < 16) brightness += 2; else brightness -= 2;
   1684  003C90  503B               	movf	main@currentStep+1,w,c
   1685  003C92  0A80               	xorlw	128
   1686  003C94  6EF3               	movwf	prodl,c
@@ -1705,22 +1705,22 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1699  003CAC  5E39               	subwf	main@brightness,f,c
   1700  003CAE                     l1750:
   1701                           
-  1702                           ;main.c: 472: }
-  1703                           ;main.c: 473: highPWM = brightness;
+  1702                           ;main.c: 473: }
+  1703                           ;main.c: 474: highPWM = brightness;
   1704  003CAE  C039  F02F         	movff	main@brightness,main@highPWM
   1705  003CB2  6A30               	clrf	main@highPWM+1,c
   1706                           
-  1707                           ;main.c: 474: midPWM = brightness;
+  1707                           ;main.c: 475: midPWM = brightness;
   1708  003CB4  C039  F036         	movff	main@brightness,main@midPWM
   1709  003CB8  6A37               	clrf	main@midPWM+1,c
   1710                           
-  1711                           ;main.c: 475: lowPWM = brightness;
+  1711                           ;main.c: 476: lowPWM = brightness;
   1712  003CBA  C039  F02D         	movff	main@brightness,main@lowPWM
   1713  003CBE  6A2E               	clrf	main@lowPWM+1,c
   1714  003CC0                     l154:
   1715                           
-  1716                           ;main.c: 476: }
-  1717                           ;main.c: 478: if (tickCounter > 3)
+  1716                           ;main.c: 477: }
+  1717                           ;main.c: 479: if (tickCounter > 3)
   1718  003CC0  5034               	movf	main@tickCounter+1,w,c
   1719  003CC2  0A80               	xorlw	128
   1720  003CC4  0F80               	addlw	-128
@@ -1730,57 +1730,57 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1724  003CCC  A0D8               	btfss	status,0,c
   1725  003CCE  D02A               	goto	l1778
   1726                           
-  1727                           ;main.c: 479: {
-  1728                           ;main.c: 480: stepNumber++;
+  1727                           ;main.c: 480: {
+  1728                           ;main.c: 481: stepNumber++;
   1729  003CD0  4A3F               	infsnz	main@stepNumber,f,c
   1730  003CD2  2A40               	incf	main@stepNumber+1,f,c
   1731                           
-  1732                           ;main.c: 481: tickCounter = 0;
+  1732                           ;main.c: 482: tickCounter = 0;
   1733  003CD4  0E00               	movlw	0
   1734  003CD6  6E34               	movwf	main@tickCounter+1,c
   1735  003CD8  0E00               	movlw	0
   1736  003CDA  6E33               	movwf	main@tickCounter,c
   1737                           
-  1738                           ;main.c: 483: if (stepNumber == 31)
+  1738                           ;main.c: 484: if (stepNumber == 31)
   1739  003CDC  503F               	movf	main@stepNumber,w,c
   1740  003CDE  0A1F               	xorlw	31
   1741  003CE0  1040               	iorwf	main@stepNumber+1,w,c
   1742  003CE2  A4D8               	btfss	status,2,c
   1743  003CE4  D01F               	goto	l1778
   1744                           
-  1745                           ;main.c: 484: {
-  1746                           ;main.c: 485: stepNumber = 0;
+  1745                           ;main.c: 485: {
+  1746                           ;main.c: 486: stepNumber = 0;
   1747  003CE6  0E00               	movlw	0
   1748  003CE8  6E40               	movwf	main@stepNumber+1,c
   1749  003CEA  0E00               	movlw	0
   1750  003CEC  6E3F               	movwf	main@stepNumber,c
   1751                           
-  1752                           ;main.c: 486: sequenceNumber++;
+  1752                           ;main.c: 487: sequenceNumber++;
   1753  003CEE  2A3E               	incf	main@sequenceNumber,f,c
   1754                           
-  1755                           ;main.c: 487: brightness = 0;
+  1755                           ;main.c: 488: brightness = 0;
   1756  003CF0  6E10               	movwf	??_main& (0+255),c
   1757  003CF2  0E00               	movlw	0
   1758  003CF4  6E39               	movwf	main@brightness,c
   1759  003CF6  5010               	movf	??_main& (0+255),w,c
   1760                           
-  1761                           ;main.c: 489: if (sequenceNumber == 1)
+  1761                           ;main.c: 490: if (sequenceNumber == 1)
   1762  003CF8  043E               	decf	main@sequenceNumber,w,c
   1763  003CFA  A4D8               	btfss	status,2,c
   1764  003CFC  D013               	goto	l1778
   1765                           
-  1766                           ;main.c: 490: {
-  1767                           ;main.c: 491: sequenceNumber = 0;
+  1766                           ;main.c: 491: {
+  1767                           ;main.c: 492: sequenceNumber = 0;
   1768  003CFE  6E10               	movwf	??_main& (0+255),c
   1769  003D00  0E00               	movlw	0
   1770  003D02  6E3E               	movwf	main@sequenceNumber,c
   1771  003D04  5010               	movf	??_main& (0+255),w,c
   1772                           
-  1773                           ;main.c: 492: sequenceRepeats++;
+  1773                           ;main.c: 493: sequenceRepeats++;
   1774  003D06  4A31               	infsnz	main@sequenceRepeats,f,c
   1775  003D08  2A32               	incf	main@sequenceRepeats+1,f,c
   1776                           
-  1777                           ;main.c: 493: if (sequenceRepeats > 60)
+  1777                           ;main.c: 494: if (sequenceRepeats > 60)
   1778  003D0A  5032               	movf	main@sequenceRepeats+1,w,c
   1779  003D0C  0A80               	xorlw	128
   1780  003D0E  0F80               	addlw	-128
@@ -1790,35 +1790,35 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1784  003D16  A0D8               	btfss	status,0,c
   1785  003D18  D005               	goto	l1778
   1786                           
-  1787                           ;main.c: 494: {
-  1788                           ;main.c: 495: sequenceRepeats = 0;
+  1787                           ;main.c: 495: {
+  1788                           ;main.c: 496: sequenceRepeats = 0;
   1789  003D1A  0E00               	movlw	0
   1790  003D1C  6E32               	movwf	main@sequenceRepeats+1,c
   1791  003D1E  0E00               	movlw	0
   1792  003D20  6E31               	movwf	main@sequenceRepeats,c
   1793                           
-  1794                           ;main.c: 496: patternNumber++;
+  1794                           ;main.c: 497: patternNumber++;
   1795  003D22  2A38               	incf	main@patternNumber,f,c
   1796  003D24                     l1778:
   1797                           
-  1798                           ;main.c: 497: }
-  1799                           ;main.c: 498: }
-  1800                           ;main.c: 499: }
-  1801                           ;main.c: 500: }
-  1802                           ;main.c: 501: }
-  1803                           ;main.c: 504: if (patternNumber == 4)
+  1798                           ;main.c: 498: }
+  1799                           ;main.c: 499: }
+  1800                           ;main.c: 500: }
+  1801                           ;main.c: 501: }
+  1802                           ;main.c: 502: }
+  1803                           ;main.c: 505: if (patternNumber == 4)
   1804  003D24  5038               	movf	main@patternNumber,w,c
   1805  003D26  0A04               	xorlw	4
   1806  003D28  A4D8               	btfss	status,2,c
   1807  003D2A  D06F               	goto	l1834
   1808                           
-  1809                           ;main.c: 505: {
-  1810                           ;main.c: 506: if (sequenceNumber == 0)
+  1809                           ;main.c: 506: {
+  1810                           ;main.c: 507: if (sequenceNumber == 0)
   1811  003D2C  663E               	tstfsz	main@sequenceNumber,c
   1812  003D2E  D03B               	goto	l1810
   1813                           
-  1814                           ;main.c: 507: {
-  1815                           ;main.c: 508: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
+  1814                           ;main.c: 508: {
+  1815                           ;main.c: 509: if (stepNumber == 0) highPWM = 31; else highPWM = 0;
   1816  003D30  5040               	movf	main@stepNumber+1,w,c
   1817  003D32  103F               	iorwf	main@stepNumber,w,c
   1818  003D34  A4D8               	btfss	status,2,c
@@ -1834,7 +1834,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1828  003D46                     L15:
   1829  003D46  6E2F               	movwf	main@highPWM,c
   1830                           
-  1831                           ;main.c: 509: if (stepNumber == 1) midPWM = 31; else if (stepNumber != 3) midPWM = 0;
+  1831                           ;main.c: 510: if (stepNumber == 1) midPWM = 31; else if (stepNumber != 3) midPWM = 0;
   1832  003D48  043F               	decf	main@stepNumber,w,c
   1833  003D4A  1040               	iorwf	main@stepNumber+1,w,c
   1834  003D4C  A4D8               	btfss	status,2,c
@@ -1856,7 +1856,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1850  003D68  6E36               	movwf	main@midPWM,c
   1851  003D6A                     l1796:
   1852                           
-  1853                           ;main.c: 510: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
+  1853                           ;main.c: 511: if (stepNumber == 2) lowPWM = 31; else lowPWM = 0;
   1854  003D6A  503F               	movf	main@stepNumber,w,c
   1855  003D6C  0A02               	xorlw	2
   1856  003D6E  1040               	iorwf	main@stepNumber+1,w,c
@@ -1873,7 +1873,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1867  003D82                     L17:
   1868  003D82  6E2D               	movwf	main@lowPWM,c
   1869                           
-  1870                           ;main.c: 511: if (stepNumber == 3) midPWM = 31; else if (stepNumber != 1) midPWM = 0;
+  1870                           ;main.c: 512: if (stepNumber == 3) midPWM = 31; else if (stepNumber != 1) midPWM = 0;
   1871  003D84  503F               	movf	main@stepNumber,w,c
   1872  003D86  0A03               	xorlw	3
   1873  003D88  1040               	iorwf	main@stepNumber+1,w,c
@@ -1895,8 +1895,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1889  003DA4  6E36               	movwf	main@midPWM,c
   1890  003DA6                     l1810:
   1891                           
-  1892                           ;main.c: 512: }
-  1893                           ;main.c: 514: if (tickCounter > 8)
+  1892                           ;main.c: 513: }
+  1893                           ;main.c: 515: if (tickCounter > 8)
   1894  003DA6  5034               	movf	main@tickCounter+1,w,c
   1895  003DA8  0A80               	xorlw	128
   1896  003DAA  0F80               	addlw	-128
@@ -1906,57 +1906,57 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1900  003DB2  A0D8               	btfss	status,0,c
   1901  003DB4  D02A               	goto	l1834
   1902                           
-  1903                           ;main.c: 515: {
-  1904                           ;main.c: 516: stepNumber++;
+  1903                           ;main.c: 516: {
+  1904                           ;main.c: 517: stepNumber++;
   1905  003DB6  4A3F               	infsnz	main@stepNumber,f,c
   1906  003DB8  2A40               	incf	main@stepNumber+1,f,c
   1907                           
-  1908                           ;main.c: 517: tickCounter = 0;
+  1908                           ;main.c: 518: tickCounter = 0;
   1909  003DBA  0E00               	movlw	0
   1910  003DBC  6E34               	movwf	main@tickCounter+1,c
   1911  003DBE  0E00               	movlw	0
   1912  003DC0  6E33               	movwf	main@tickCounter,c
   1913                           
-  1914                           ;main.c: 519: if (stepNumber == 4)
+  1914                           ;main.c: 520: if (stepNumber == 4)
   1915  003DC2  503F               	movf	main@stepNumber,w,c
   1916  003DC4  0A04               	xorlw	4
   1917  003DC6  1040               	iorwf	main@stepNumber+1,w,c
   1918  003DC8  A4D8               	btfss	status,2,c
   1919  003DCA  D01F               	goto	l1834
   1920                           
-  1921                           ;main.c: 520: {
-  1922                           ;main.c: 521: stepNumber = 0;
+  1921                           ;main.c: 521: {
+  1922                           ;main.c: 522: stepNumber = 0;
   1923  003DCC  0E00               	movlw	0
   1924  003DCE  6E40               	movwf	main@stepNumber+1,c
   1925  003DD0  0E00               	movlw	0
   1926  003DD2  6E3F               	movwf	main@stepNumber,c
   1927                           
-  1928                           ;main.c: 522: sequenceNumber++;
+  1928                           ;main.c: 523: sequenceNumber++;
   1929  003DD4  2A3E               	incf	main@sequenceNumber,f,c
   1930                           
-  1931                           ;main.c: 523: brightness = 0;
+  1931                           ;main.c: 524: brightness = 0;
   1932  003DD6  6E10               	movwf	??_main& (0+255),c
   1933  003DD8  0E00               	movlw	0
   1934  003DDA  6E39               	movwf	main@brightness,c
   1935  003DDC  5010               	movf	??_main& (0+255),w,c
   1936                           
-  1937                           ;main.c: 525: if (sequenceNumber == 1)
+  1937                           ;main.c: 526: if (sequenceNumber == 1)
   1938  003DDE  043E               	decf	main@sequenceNumber,w,c
   1939  003DE0  A4D8               	btfss	status,2,c
   1940  003DE2  D013               	goto	l1834
   1941                           
-  1942                           ;main.c: 526: {
-  1943                           ;main.c: 527: sequenceNumber = 0;
+  1942                           ;main.c: 527: {
+  1943                           ;main.c: 528: sequenceNumber = 0;
   1944  003DE4  6E10               	movwf	??_main& (0+255),c
   1945  003DE6  0E00               	movlw	0
   1946  003DE8  6E3E               	movwf	main@sequenceNumber,c
   1947  003DEA  5010               	movf	??_main& (0+255),w,c
   1948                           
-  1949                           ;main.c: 528: sequenceRepeats++;
+  1949                           ;main.c: 529: sequenceRepeats++;
   1950  003DEC  4A31               	infsnz	main@sequenceRepeats,f,c
   1951  003DEE  2A32               	incf	main@sequenceRepeats+1,f,c
   1952                           
-  1953                           ;main.c: 529: if (sequenceRepeats > 100)
+  1953                           ;main.c: 530: if (sequenceRepeats > 100)
   1954  003DF0  5032               	movf	main@sequenceRepeats+1,w,c
   1955  003DF2  0A80               	xorlw	128
   1956  003DF4  0F80               	addlw	-128
@@ -1966,23 +1966,23 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1960  003DFC  A0D8               	btfss	status,0,c
   1961  003DFE  D005               	goto	l1834
   1962                           
-  1963                           ;main.c: 530: {
-  1964                           ;main.c: 531: sequenceRepeats = 0;
+  1963                           ;main.c: 531: {
+  1964                           ;main.c: 532: sequenceRepeats = 0;
   1965  003E00  0E00               	movlw	0
   1966  003E02  6E32               	movwf	main@sequenceRepeats+1,c
   1967  003E04  0E00               	movlw	0
   1968  003E06  6E31               	movwf	main@sequenceRepeats,c
   1969                           
-  1970                           ;main.c: 532: patternNumber++;
+  1970                           ;main.c: 533: patternNumber++;
   1971  003E08  2A38               	incf	main@patternNumber,f,c
   1972  003E0A                     l1834:
   1973                           
-  1974                           ;main.c: 533: }
-  1975                           ;main.c: 534: }
-  1976                           ;main.c: 535: }
-  1977                           ;main.c: 536: }
-  1978                           ;main.c: 537: }
-  1979                           ;main.c: 540: if (patternNumber > 4) patternNumber = 0;
+  1974                           ;main.c: 534: }
+  1975                           ;main.c: 535: }
+  1976                           ;main.c: 536: }
+  1977                           ;main.c: 537: }
+  1978                           ;main.c: 538: }
+  1979                           ;main.c: 541: if (patternNumber > 4) patternNumber = 0;
   1980  003E0A  0E04               	movlw	4
   1981  003E0C  6438               	cpfsgt	main@patternNumber,c
   1982  003E0E  D004               	goto	l1838
@@ -1992,7 +1992,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1986  003E16  5010               	movf	??_main& (0+255),w,c
   1987  003E18                     l1838:
   1988                           
-  1989                           ;main.c: 543: if (highPWM > PWMcount) TRISBbits.RB2 = 1; else TRISBbits.RB2 = 0;
+  1989                           ;main.c: 544: if (highPWM > PWMcount) PORTBbits.RB2 = 1; else PORTBbits.RB2 = 0;
   1990  003E18  503D               	movf	main@PWMcount+1,w,c
   1991  003E1A  0A80               	xorlw	128
   1992  003E1C  6E10               	movwf	??_main& (0+255),c
@@ -2003,13 +2003,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   1997  003E26  5810               	subwfb	??_main& (0+255),w,c
   1998  003E28  B0D8               	btfsc	status,0,c
   1999  003E2A  D002               	goto	l179
-  2000  003E2C  8493               	bsf	3987,2,c	;volatile
+  2000  003E2C  8481               	bsf	3969,2,c	;volatile
   2001  003E2E  D001               	goto	l1842
   2002  003E30                     l179:
-  2003  003E30  9493               	bcf	3987,2,c	;volatile
+  2003  003E30  9481               	bcf	3969,2,c	;volatile
   2004  003E32                     l1842:
   2005                           
-  2006                           ;main.c: 544: if (midPWM > PWMcount) TRISBbits.RB1 = 1; else TRISBbits.RB1 = 0;
+  2006                           ;main.c: 545: if (midPWM > PWMcount) PORTBbits.RB1 = 1; else PORTBbits.RB1 = 0;
   2007  003E32  503D               	movf	main@PWMcount+1,w,c
   2008  003E34  0A80               	xorlw	128
   2009  003E36  6E10               	movwf	??_main& (0+255),c
@@ -2020,13 +2020,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2014  003E40  5810               	subwfb	??_main& (0+255),w,c
   2015  003E42  B0D8               	btfsc	status,0,c
   2016  003E44  D002               	goto	l181
-  2017  003E46  8293               	bsf	3987,1,c	;volatile
+  2017  003E46  8281               	bsf	3969,1,c	;volatile
   2018  003E48  D001               	goto	l1846
   2019  003E4A                     l181:
-  2020  003E4A  9293               	bcf	3987,1,c	;volatile
+  2020  003E4A  9281               	bcf	3969,1,c	;volatile
   2021  003E4C                     l1846:
   2022                           
-  2023                           ;main.c: 545: if (lowPWM > PWMcount) TRISBbits.RB0 = 1; else TRISBbits.RB0 = 0;
+  2023                           ;main.c: 546: if (lowPWM > PWMcount) PORTBbits.RB0 = 1; else PORTBbits.RB0 = 0;
   2024  003E4C  503D               	movf	main@PWMcount+1,w,c
   2025  003E4E  0A80               	xorlw	128
   2026  003E50  6E10               	movwf	??_main& (0+255),c
@@ -2037,17 +2037,17 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2031  003E5A  5810               	subwfb	??_main& (0+255),w,c
   2032  003E5C  B0D8               	btfsc	status,0,c
   2033  003E5E  D002               	goto	l183
-  2034  003E60  8093               	bsf	3987,0,c	;volatile
+  2034  003E60  8081               	bsf	3969,0,c	;volatile
   2035  003E62  D001               	goto	l1850
   2036  003E64                     l183:
-  2037  003E64  9093               	bcf	3987,0,c	;volatile
+  2037  003E64  9081               	bcf	3969,0,c	;volatile
   2038  003E66                     l1850:
   2039                           
-  2040                           ;main.c: 548: PWMcount++;
+  2040                           ;main.c: 549: PWMcount++;
   2041  003E66  4A3C               	infsnz	main@PWMcount,f,c
   2042  003E68  2A3D               	incf	main@PWMcount+1,f,c
   2043                           
-  2044                           ;main.c: 549: if (PWMcount > 31) PWMcount = 0;
+  2044                           ;main.c: 550: if (PWMcount > 31) PWMcount = 0;
   2045  003E6A  503D               	movf	main@PWMcount+1,w,c
   2046  003E6C  0A80               	xorlw	128
   2047  003E6E  0F80               	addlw	-128
@@ -2062,22 +2062,22 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2056  003E80  6E3C               	movwf	main@PWMcount,c
   2057  003E82                     l1856:
   2058                           
-  2059                           ;main.c: 550: }
-  2060                           ;main.c: 553: if (mode == 2)
+  2059                           ;main.c: 551: }
+  2060                           ;main.c: 554: if (mode == 2)
   2061  003E82  5035               	movf	main@mode,w,c
   2062  003E84  0A02               	xorlw	2
   2063  003E86  A4D8               	btfss	status,2,c
   2064  003E88  EFBD  F01A         	goto	l1314
   2065                           
-  2066                           ;main.c: 554: {
-  2067                           ;main.c: 556: if (fadeCounter == 0)
+  2066                           ;main.c: 555: {
+  2067                           ;main.c: 557: if (fadeCounter == 0)
   2068  003E8C  5021               	movf	main@fadeCounter+1,w,c
   2069  003E8E  1020               	iorwf	main@fadeCounter,w,c
   2070  003E90  A4D8               	btfss	status,2,c
   2071  003E92  D021               	goto	l1872
   2072                           
-  2073                           ;main.c: 557: {
-  2074                           ;main.c: 558: if (highPWM > 0) highPWM--;
+  2073                           ;main.c: 558: {
+  2074                           ;main.c: 559: if (highPWM > 0) highPWM--;
   2075  003E94  5030               	movf	main@highPWM+1,w,c
   2076  003E96  0A80               	xorlw	128
   2077  003E98  0F80               	addlw	-128
@@ -2091,7 +2091,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2085  003EA8  0630               	decf	main@highPWM+1,f,c
   2086  003EAA                     l1864:
   2087                           
-  2088                           ;main.c: 559: if (midPWM > 0) midPWM--;
+  2088                           ;main.c: 560: if (midPWM > 0) midPWM--;
   2089  003EAA  5037               	movf	main@midPWM+1,w,c
   2090  003EAC  0A80               	xorlw	128
   2091  003EAE  0F80               	addlw	-128
@@ -2105,7 +2105,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2099  003EBE  0637               	decf	main@midPWM+1,f,c
   2100  003EC0                     l1868:
   2101                           
-  2102                           ;main.c: 560: if (lowPWM > 0) lowPWM--;
+  2102                           ;main.c: 561: if (lowPWM > 0) lowPWM--;
   2103  003EC0  502E               	movf	main@lowPWM+1,w,c
   2104  003EC2  0A80               	xorlw	128
   2105  003EC4  0F80               	addlw	-128
@@ -2119,8 +2119,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2113  003ED4  062E               	decf	main@lowPWM+1,f,c
   2114  003ED6                     l1872:
   2115                           
-  2116                           ;main.c: 561: }
-  2117                           ;main.c: 564: if (highLevel > 150) highPWM = 31;
+  2116                           ;main.c: 562: }
+  2117                           ;main.c: 565: if (highLevel > 150) highPWM = 31;
   2118  003ED6  5025               	movf	main@highLevel+1,w,c
   2119  003ED8  0A80               	xorlw	128
   2120  003EDA  0F80               	addlw	-128
@@ -2135,7 +2135,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2129  003EEC  6E2F               	movwf	main@highPWM,c
   2130  003EEE                     l1876:
   2131                           
-  2132                           ;main.c: 565: if (midLevel > 520) midPWM = 31;
+  2132                           ;main.c: 566: if (midLevel > 520) midPWM = 31;
   2133  003EEE  5015               	movf	main@midLevel+1,w,c
   2134  003EF0  0A80               	xorlw	128
   2135  003EF2  0F7E               	addlw	-130
@@ -2150,7 +2150,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2144  003F04  6E36               	movwf	main@midPWM,c
   2145  003F06                     l1880:
   2146                           
-  2147                           ;main.c: 566: if (lowLevel > 470) lowPWM = 31;
+  2147                           ;main.c: 567: if (lowLevel > 470) lowPWM = 31;
   2148  003F06  5017               	movf	main@lowLevel+1,w,c
   2149  003F08  0A80               	xorlw	128
   2150  003F0A  0F7F               	addlw	-129
@@ -2165,7 +2165,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2159  003F1C  6E2D               	movwf	main@lowPWM,c
   2160  003F1E                     l1884:
   2161                           
-  2162                           ;main.c: 569: if (highPWM > PWMcount) TRISBbits.RB2 = 1; else TRISBbits.RB2 = 0;
+  2162                           ;main.c: 570: if (highPWM > PWMcount) PORTBbits.RB2 = 1; else PORTBbits.RB2 = 0;
   2163  003F1E  503D               	movf	main@PWMcount+1,w,c
   2164  003F20  0A80               	xorlw	128
   2165  003F22  6E10               	movwf	??_main& (0+255),c
@@ -2176,13 +2176,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2170  003F2C  5810               	subwfb	??_main& (0+255),w,c
   2171  003F2E  B0D8               	btfsc	status,0,c
   2172  003F30  D002               	goto	l194
-  2173  003F32  8493               	bsf	3987,2,c	;volatile
+  2173  003F32  8481               	bsf	3969,2,c	;volatile
   2174  003F34  D001               	goto	l1888
   2175  003F36                     l194:
-  2176  003F36  9493               	bcf	3987,2,c	;volatile
+  2176  003F36  9481               	bcf	3969,2,c	;volatile
   2177  003F38                     l1888:
   2178                           
-  2179                           ;main.c: 570: if (midPWM > PWMcount) TRISBbits.RB1 = 1; else TRISBbits.RB1 = 0;
+  2179                           ;main.c: 571: if (midPWM > PWMcount) PORTBbits.RB1 = 1; else PORTBbits.RB1 = 0;
   2180  003F38  503D               	movf	main@PWMcount+1,w,c
   2181  003F3A  0A80               	xorlw	128
   2182  003F3C  6E10               	movwf	??_main& (0+255),c
@@ -2193,13 +2193,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2187  003F46  5810               	subwfb	??_main& (0+255),w,c
   2188  003F48  B0D8               	btfsc	status,0,c
   2189  003F4A  D002               	goto	l196
-  2190  003F4C  8293               	bsf	3987,1,c	;volatile
+  2190  003F4C  8281               	bsf	3969,1,c	;volatile
   2191  003F4E  D001               	goto	l1892
   2192  003F50                     l196:
-  2193  003F50  9293               	bcf	3987,1,c	;volatile
+  2193  003F50  9281               	bcf	3969,1,c	;volatile
   2194  003F52                     l1892:
   2195                           
-  2196                           ;main.c: 571: if (lowPWM > PWMcount) TRISBbits.RB0 = 1; else TRISBbits.RB0 = 0;
+  2196                           ;main.c: 572: if (lowPWM > PWMcount) PORTBbits.RB0 = 1; else PORTBbits.RB0 = 0;
   2197  003F52  503D               	movf	main@PWMcount+1,w,c
   2198  003F54  0A80               	xorlw	128
   2199  003F56  6E10               	movwf	??_main& (0+255),c
@@ -2210,13 +2210,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2204  003F60  5810               	subwfb	??_main& (0+255),w,c
   2205  003F62  B0D8               	btfsc	status,0,c
   2206  003F64  D002               	goto	l198
-  2207  003F66  8093               	bsf	3987,0,c	;volatile
+  2207  003F66  8081               	bsf	3969,0,c	;volatile
   2208  003F68  D001               	goto	l1896
   2209  003F6A                     l198:
-  2210  003F6A  9093               	bcf	3987,0,c	;volatile
+  2210  003F6A  9081               	bcf	3969,0,c	;volatile
   2211  003F6C                     l1896:
   2212                           
-  2213                           ;main.c: 574: if (highPWM > PWMcount) TRISBbits.RB5 = 1; else TRISBbits.RB5 = 0;
+  2213                           ;main.c: 575: if (highPWM > PWMcount) PORTBbits.RB5 = 1; else PORTBbits.RB5 = 0;
   2214  003F6C  503D               	movf	main@PWMcount+1,w,c
   2215  003F6E  0A80               	xorlw	128
   2216  003F70  6E10               	movwf	??_main& (0+255),c
@@ -2227,13 +2227,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2221  003F7A  5810               	subwfb	??_main& (0+255),w,c
   2222  003F7C  B0D8               	btfsc	status,0,c
   2223  003F7E  D002               	goto	l200
-  2224  003F80  8A93               	bsf	3987,5,c	;volatile
+  2224  003F80  8A81               	bsf	3969,5,c	;volatile
   2225  003F82  D001               	goto	l1900
   2226  003F84                     l200:
-  2227  003F84  9A93               	bcf	3987,5,c	;volatile
+  2227  003F84  9A81               	bcf	3969,5,c	;volatile
   2228  003F86                     l1900:
   2229                           
-  2230                           ;main.c: 575: if (midPWM > PWMcount) TRISBbits.RB4 = 1; else TRISBbits.RB4 = 0;
+  2230                           ;main.c: 576: if (midPWM > PWMcount) PORTBbits.RB4 = 1; else PORTBbits.RB4 = 0;
   2231  003F86  503D               	movf	main@PWMcount+1,w,c
   2232  003F88  0A80               	xorlw	128
   2233  003F8A  6E10               	movwf	??_main& (0+255),c
@@ -2244,13 +2244,13 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2238  003F94  5810               	subwfb	??_main& (0+255),w,c
   2239  003F96  B0D8               	btfsc	status,0,c
   2240  003F98  D002               	goto	l202
-  2241  003F9A  8893               	bsf	3987,4,c	;volatile
+  2241  003F9A  8881               	bsf	3969,4,c	;volatile
   2242  003F9C  D001               	goto	l1904
   2243  003F9E                     l202:
-  2244  003F9E  9893               	bcf	3987,4,c	;volatile
+  2244  003F9E  9881               	bcf	3969,4,c	;volatile
   2245  003FA0                     l1904:
   2246                           
-  2247                           ;main.c: 576: if (lowPWM > PWMcount) TRISBbits.RB3 = 1; else TRISBbits.RB3 = 0;
+  2247                           ;main.c: 577: if (lowPWM > PWMcount) PORTBbits.RB3 = 1; else PORTBbits.RB3 = 0;
   2248  003FA0  503D               	movf	main@PWMcount+1,w,c
   2249  003FA2  0A80               	xorlw	128
   2250  003FA4  6E10               	movwf	??_main& (0+255),c
@@ -2261,17 +2261,17 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2255  003FAE  5810               	subwfb	??_main& (0+255),w,c
   2256  003FB0  B0D8               	btfsc	status,0,c
   2257  003FB2  D002               	goto	l204
-  2258  003FB4  8693               	bsf	3987,3,c	;volatile
+  2258  003FB4  8681               	bsf	3969,3,c	;volatile
   2259  003FB6  D001               	goto	l1908
   2260  003FB8                     l204:
-  2261  003FB8  9693               	bcf	3987,3,c	;volatile
+  2261  003FB8  9681               	bcf	3969,3,c	;volatile
   2262  003FBA                     l1908:
   2263                           
-  2264                           ;main.c: 579: PWMcount++;
+  2264                           ;main.c: 580: PWMcount++;
   2265  003FBA  4A3C               	infsnz	main@PWMcount,f,c
   2266  003FBC  2A3D               	incf	main@PWMcount+1,f,c
   2267                           
-  2268                           ;main.c: 580: if (PWMcount > 31) PWMcount = 0;
+  2268                           ;main.c: 581: if (PWMcount > 31) PWMcount = 0;
   2269  003FBE  503D               	movf	main@PWMcount+1,w,c
   2270  003FC0  0A80               	xorlw	128
   2271  003FC2  0F80               	addlw	-128
@@ -2286,11 +2286,11 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2280  003FD4  6E3C               	movwf	main@PWMcount,c
   2281  003FD6                     l1914:
   2282                           
-  2283                           ;main.c: 583: fadeCounter++;
+  2283                           ;main.c: 584: fadeCounter++;
   2284  003FD6  4A20               	infsnz	main@fadeCounter,f,c
   2285  003FD8  2A21               	incf	main@fadeCounter+1,f,c
   2286                           
-  2287                           ;main.c: 584: if (fadeCounter > 30) fadeCounter = 0;
+  2287                           ;main.c: 585: if (fadeCounter > 30) fadeCounter = 0;
   2288  003FDA  5021               	movf	main@fadeCounter+1,w,c
   2289  003FDC  0A80               	xorlw	128
   2290  003FDE  0F80               	addlw	-128
@@ -2701,7 +2701,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2695                           
   2696 ;; *************** function _readMyADC *****************
   2697 ;; Defined at:
-  2698 ;;		line 590 in file "main.c"
+  2698 ;;		line 591 in file "main.c"
   2699 ;; Parameters:    Size  Location     Type
   2700 ;;  ADCnumber       1    wreg     unsigned char 
   2701 ;; Auto vars:     Size  Location     Type
@@ -2739,8 +2739,8 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2733                           ;readMyADC@ADCnumber stored from wreg
   2734  003328  CFE8 F005          	movff	wreg,readMyADC@ADCnumber
   2735                           
-  2736                           ;main.c: 592: int result;
-  2737                           ;main.c: 595: switch(ADCnumber)
+  2736                           ;main.c: 593: int result;
+  2737                           ;main.c: 596: switch(ADCnumber)
   2738  00332C  D009               	goto	l1010
   2739  00332E                     l1000:
   2740  00332E  0E01               	movlw	1
@@ -2756,7 +2756,7 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2750  00333C                     L21:
   2751  00333C  6EC2               	movwf	4034,c	;volatile
   2752                           
-  2753                           ;main.c: 604: break;
+  2753                           ;main.c: 605: break;
   2754  00333E  D00D               	goto	l219
   2755  003340                     l1010:
   2756  003340  5005               	movf	readMyADC@ADCnumber,w,c
@@ -2783,15 +2783,15 @@ Microchip Technology Omniscient Code Generator (Lite mode) build 55553
   2777  00335A  B2C2               	btfsc	4034,1,c	;volatile
   2778  00335C  D7FE               	goto	l219
   2779                           
-  2780                           ;main.c: 611: result = ADRESL;
+  2780                           ;main.c: 612: result = ADRESL;
   2781  00335E  CFC3 F003          	movff	4035,readMyADC@result	;volatile
   2782  003362  6A04               	clrf	readMyADC@result+1,c
   2783                           
-  2784                           ;main.c: 612: result += (ADRESH << 8);
+  2784                           ;main.c: 613: result += (ADRESH << 8);
   2785  003364  50C4               	movf	4036,w,c	;volatile
   2786  003366  2604               	addwf	readMyADC@result+1,f,c
   2787                           
-  2788                           ;main.c: 614: return result;
+  2788                           ;main.c: 615: return result;
   2789  003368  C003  F001         	movff	readMyADC@result,?_readMyADC
   2790  00336C  C004  F002         	movff	readMyADC@result+1,?_readMyADC+1
   2791  003370  0012               	return	
@@ -3102,7 +3102,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.30 build 55553 
-Symbol Table                                                                                   Sat Jul 12 05:45:57 2014
+Symbol Table                                                                                   Sat Jul 12 06:19:30 2014
 
                      l45 359A                       l54 367A                       l80 3840  
                      l68 376E                       l79 383E             __CFG_CP0$OFF 000000  
@@ -3175,7 +3175,7 @@ __end_of__initialization 32F8           __pcstackCOMRAM 0001            ?_setGai
       __end_of_readMyADC 3372         ___aldiv@dividend 0001     end_of_initialization 32F8  
           __Lmediumconst 0000         _led_strip_colors 0080               ??_setupSPI 0001  
        ___aldiv@quotient 000C           main@stepNumber 003F                  postinc0 000FEE  
-              _TRISBbits 000F93                _TRISCbits 000F94     __end_of_setGainLevel 3328  
+              _PORTBbits 000F81                _TRISCbits 000F94     __end_of_setGainLevel 3328  
              main@midPWM 0036          main@fadeCounter 0020               main@lowPWM 002D  
     start_initialization 32E2          main@clapCounter 0029              __pbssCOMRAM 0041  
     __CFG_CCP2MX$DEFAULT 000000                 ?___aldiv 0001        __size_of_setupSPI 0012  

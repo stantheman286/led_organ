@@ -132,7 +132,8 @@ void main(void)
 
 	while(1)
 	{
-        
+
+            
     // MS: TODO Demo LED Bar
     //    demoLEDs();
 
