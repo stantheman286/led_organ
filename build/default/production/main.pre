@@ -4935,7 +4935,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config CCP2MX = DEFAULT
 
-# 111
+# 112
 extern void demoLEDs();
 extern void setupSPI();
 extern void writeLEDSPI(uint8_t);
@@ -4947,7 +4947,12 @@ void main(void)
 {
 
 
+
 ADCON1 = 0x0B;
+
+
+
+ADCON0 = 0x01;
 
 
 ADCON2 = 0xB5;
@@ -4957,12 +4962,12 @@ TRISA = 0x0F;
 TRISB = 0x00;
 TRISC = 0x00;
 
-# 64
+# 69
 PORTA = 0x00;
 PORTB = 0x00;
 PORTC = 0x00;
 
-# 73
+# 78
 setupSPI();
 
 
@@ -4971,7 +4976,7 @@ int midLevel = 0;
 int lowLevel = 0;
 int mainLevel = 0;
 
-# 92
+# 97
 TMR0IF = 0;
 TMR0H = 0xF9;
 TMR0L = 0xE4;
@@ -5016,7 +5021,7 @@ int clapCounter = 0;
 while(1)
 {
 
-# 141
+# 146
 if (TMR0IF == 1)
 {
 tickCounter++;
@@ -5030,9 +5035,12 @@ TMR0IF = 0;
 
 
 highLevel = readMyADC(0);
+midLevel = readMyADC(1);
+lowLevel = readMyADC(2);
+mainLevel = readMyADC(3);
 
-# 159
-if (0 == 1 && 0 == 0)
+
+if (1 == 1 && 0 == 0)
 {
 if (mode != 0)
 {
@@ -5056,7 +5064,7 @@ sequenceRepeats = 0;
 }
 }
 
-if (0 == 0 && 0 == 0)
+if (1 == 0 && 0 == 0)
 {
 if (mode != 1)
 {
@@ -5072,7 +5080,7 @@ PORTBbits.RB2 = 0;
 }
 }
 
-if (0 == 0 && 0 == 1)
+if (1 == 0 && 0 == 1)
 {
 if (mode != 2)
 {
@@ -5480,6 +5488,9 @@ break;
 case 3: ADCON0 = 0b00001101;
 break;
 }
+
+
+ADCON0 |= 0x02;
 
 
 while(GODONE);

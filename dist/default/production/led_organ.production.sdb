@@ -141,7 +141,7 @@
 [v _demoLEDs demoLEDs `(v  1 e 0 0 ]
 "45 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
 [v _main main `(v  1 e 0 0 ]
-"591
+"596
 [v _readMyADC readMyADC `(i  1 e 2 0 ]
 "3 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c
 [v _setupSPI setupSPI `(v  1 e 0 0 ]
@@ -151,7 +151,7 @@
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "230
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
-[s S47 . 1 `uc 1 RB0 1 0 :1:0 
+[s S48 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -161,7 +161,7 @@
 `uc 1 RB7 1 0 :1:7 
 ]
 "276
-[s S56 . 1 `uc 1 INT0 1 0 :1:0 
+[s S57 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CCP2 1 0 :1:3 
@@ -170,7 +170,7 @@
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S65 . 1 `uc 1 AN12 1 0 :1:0 
+[s S66 . 1 `uc 1 AN12 1 0 :1:0 
 `uc 1 AN10 1 0 :1:1 
 `uc 1 AN8 1 0 :1:2 
 `uc 1 AN9 1 0 :1:3 
@@ -179,15 +179,15 @@
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S74 . 1 `uc 1 FLT0 1 0 :1:0 
+[s S75 . 1 `uc 1 FLT0 1 0 :1:0 
 `uc 1 . 1 0 :4:1 
 `uc 1 C1OUT 1 0 :1:5 
 ]
-[s S78 . 1 `uc 1 . 1 0 :3:0 
+[s S79 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S81 . 1 `S47 1 . 1 0 `S56 1 . 1 0 `S65 1 . 1 0 `S74 1 . 1 0 `S78 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES81  1 e 1 @3969 ]
+[u S82 . 1 `S48 1 . 1 0 `S57 1 . 1 0 `S66 1 . 1 0 `S75 1 . 1 0 `S79 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES82  1 e 1 @3969 ]
 "415
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
 "1013
@@ -311,55 +311,55 @@
 "45 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"104
-[v main@total total `l  1 a 4 25 ]
-"123
-[v main@stepNumber stepNumber `i  1 a 2 62 ]
-"108
-[v main@PWMcount PWMcount `i  1 a 2 59 ]
-"124
-[v main@currentStep currentStep `i  1 a 2 57 ]
-"110
-[v main@midPWM midPWM `i  1 a 2 53 ]
-"118
-[v main@tickCounter tickCounter `i  1 a 2 50 ]
-"126
-[v main@sequenceRepeats sequenceRepeats `i  1 a 2 48 ]
-"111
-[v main@highPWM highPWM `i  1 a 2 46 ]
 "109
-[v main@lowPWM lowPWM `i  1 a 2 44 ]
-"99
-[v main@currentGainLevel currentGainLevel `i  1 a 2 42 ]
-"131
-[v main@clapCounter clapCounter `i  1 a 2 40 ]
-"105
-[v main@average average `i  1 a 2 38 ]
-"76
-[v main@highLevel highLevel `i  1 a 2 35 ]
+[v main@total total `l  1 a 4 19 ]
+"128
+[v main@stepNumber stepNumber `i  1 a 2 62 ]
+"113
+[v main@PWMcount PWMcount `i  1 a 2 59 ]
 "129
-[v main@soundDetectedCount soundDetectedCount `i  1 a 2 33 ]
-"112
-[v main@fadeCounter fadeCounter `i  1 a 2 31 ]
-"103
-[v main@sampleCount sampleCount `i  1 a 2 29 ]
-"79
-[v main@mainLevel mainLevel `i  1 a 2 23 ]
-"78
-[v main@lowLevel lowLevel `i  1 a 2 21 ]
-"77
-[v main@midLevel midLevel `i  1 a 2 19 ]
-"122
-[v main@sequenceNumber sequenceNumber `uc  1 a 1 61 ]
-"125
-[v main@brightness brightness `uc  1 a 1 56 ]
-"121
-[v main@patternNumber patternNumber `uc  1 a 1 55 ]
+[v main@currentStep currentStep `i  1 a 2 57 ]
 "115
-[v main@mode mode `uc  1 a 1 52 ]
+[v main@midPWM midPWM `i  1 a 2 53 ]
+"123
+[v main@tickCounter tickCounter `i  1 a 2 50 ]
+"131
+[v main@sequenceRepeats sequenceRepeats `i  1 a 2 48 ]
+"116
+[v main@highPWM highPWM `i  1 a 2 46 ]
+"114
+[v main@lowPWM lowPWM `i  1 a 2 44 ]
+"104
+[v main@currentGainLevel currentGainLevel `i  1 a 2 42 ]
+"136
+[v main@clapCounter clapCounter `i  1 a 2 40 ]
+"110
+[v main@average average `i  1 a 2 38 ]
+"81
+[v main@highLevel highLevel `i  1 a 2 35 ]
+"134
+[v main@soundDetectedCount soundDetectedCount `i  1 a 2 33 ]
+"117
+[v main@fadeCounter fadeCounter `i  1 a 2 31 ]
+"108
+[v main@sampleCount sampleCount `i  1 a 2 29 ]
+"84
+[v main@mainLevel mainLevel `i  1 a 2 27 ]
+"83
+[v main@lowLevel lowLevel `i  1 a 2 25 ]
+"82
+[v main@midLevel midLevel `i  1 a 2 23 ]
+"127
+[v main@sequenceNumber sequenceNumber `uc  1 a 1 61 ]
 "130
+[v main@brightness brightness `uc  1 a 1 56 ]
+"126
+[v main@patternNumber patternNumber `uc  1 a 1 55 ]
+"120
+[v main@mode mode `uc  1 a 1 52 ]
+"135
 [v main@soundFlag soundFlag `uc  1 a 1 37 ]
-"588
+"593
 } 0
 "3 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c
 [v _setupSPI setupSPI `(v  1 e 0 0 ]
@@ -375,16 +375,16 @@
 [v setGainLevel@gainLevel gainLevel `uc  1 a 1 0 ]
 "44
 } 0
-"591 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
+"596 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
 [v _readMyADC readMyADC `(i  1 e 2 0 ]
 {
 [v readMyADC@ADCnumber ADCnumber `uc  1 a 1 wreg ]
-"593
+"598
 [v readMyADC@result result `i  1 a 2 2 ]
-"591
+"596
 [v readMyADC@ADCnumber ADCnumber `uc  1 a 1 wreg ]
 [v readMyADC@ADCnumber ADCnumber `uc  1 a 1 4 ]
-"616
+"624
 } 0
 "8 /opt/microchip/xc8/v1.30/sources/common/aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]

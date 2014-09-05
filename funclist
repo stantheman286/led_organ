@@ -1,7 +1,7 @@
-___aldiv: CODE, 13170 0 264
-_setGainLevel: CODE, 13058 0 38
-_main: CODE, 13434 0 2942
-_setupSPI: CODE, 13008 0 18
-__initialization: CODE, 13026 0 22
-_readMyADC: CODE, 13096 0 74
-Total: 3358
+___aldiv: CODE, 13076 0 264
+_setGainLevel: CODE, 12962 0 38
+_main: CODE, 13340 0 3036
+_setupSPI: CODE, 12912 0 18
+__initialization: CODE, 12930 0 22
+_readMyADC: CODE, 13000 0 76
+Total: 3454

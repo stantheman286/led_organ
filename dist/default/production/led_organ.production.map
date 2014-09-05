@@ -5,7 +5,7 @@ Linker command line:
 --edf=/opt/microchip/xc8/v1.30/dat/en_msgs.txt -cs \
   -h+dist/default/production/led_organ.production.sym \
   --cmf=dist/default/production/led_organ.production.cmf -z -Q18F24J10 \
-  -o/tmp/cgtCaGnAG -Mdist/default/production/led_organ.production.map -E1 \
+  -o/tmp/cgteJeD4D -Mdist/default/production/led_organ.production.map -E1 \
   -ver=XC8 -ASTACK=0100h-03ffh -pstack=STACK -ACODE=00h-03FF7h \
   -ACONST=00h-03FF7h -ASMALLCONST=0400h-04FFhx59,03F00h-03FF7h \
   -AMEDIUMCONST=0400h-03FF7h -ACOMRAM=01h-07Fh -AABS1=00h-03FFh \
@@ -18,7 +18,7 @@ Linker command line:
   -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
-  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtIVifdr.obj \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtu4OREE.obj \
   dist/default/production/led_organ.production.obj 
 
 Object code version is 3.11
@@ -31,31 +31,31 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtIVifdr.obj
+/tmp/cgtu4OREE.obj
                 end_init                              0        0        4        0       0
                 config                             3FF8     3FF8        6     3FF8       0
 dist/default/production/led_organ.production.obj
-                text4                              3372     3372      108     19B9       0
-                text3                              3328     3328       4A     1994       0
-                text2                              3302     3302       26     1981       0
-                text1                              32D0     32D0       12     1968       0
+                text4                              3314     3314      108     198A       0
+                text3                              32C8     32C8       4C     1964       0
+                text2                              32A2     32A2       26     1951       0
+                text1                              3270     3270       12     1938       0
                 cstackCOMRAM                          1        1       40        1       1
                 bssBANK0                             80       80       80       80       1
                 bssCOMRAM                            41       41        5        1       1
-                cinit                              32E2     32E2       20     1971       0
-                text0                              347A     347A      B7E     1A3D       0
+                cinit                              3282     3282       20     1941       0
+                text0                              341C     341C      BDC     1A0E       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              0        0        4         0
-                text4                              3372     3372      108         0
-                text3                              3328     3328       4A         0
-                text2                              3302     3302       26         0
-                text1                              32D0     32D0       12         0
-                cinit                              32E2     32E2       20         0
-                text0                              347A     347A      B7E         0
+                text4                              3314     3314      108         0
+                text3                              32C8     32C8       4C         0
+                text2                              32A2     32A2       26         0
+                text1                              3270     3270       12         0
+                cinit                              3282     3282       20         0
+                text0                              341C     341C      BDC         0
 
         CLASS   CONST          
 
@@ -98,12 +98,12 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000045  000046         1       1  COMRAM  
                 bssBANK0                       000080  000080  000100        80       1  BANK0   
-                text1                          0032D0  000012  0032E2      1968       0  CODE    
-                cinit                          0032E2  000020  003302      1971       0  CODE    
-                text2                          003302  000026  003328      1981       0  CODE    
-                text3                          003328  00004A  003372      1994       0  CODE    
-                text4                          003372  000108  00347A      19B9       0  CODE    
-                text0                          00347A  000B7E  003FF8      1A3D       0  CODE    
+                text1                          003270  000012  003282      1938       0  CODE    
+                cinit                          003282  000020  0032A2      1941       0  CODE    
+                text2                          0032A2  000026  0032C8      1951       0  CODE    
+                text3                          0032C8  00004C  003314      1964       0  CODE    
+                text4                          003314  000108  00341C      198A       0  CODE    
+                text0                          00341C  000BDC  003FF8      1A0E       0  CODE    
                 config                         003FF8  000006  003FFE      3FF8       0  CONFIG  
 
 
@@ -115,13 +115,13 @@ UNUSED ADDRESS RANGES
         BANK3            00300-003FF             100
         BIGRAM           00046-0007F              3A
                          00100-003FF             300
-        CODE             00004-032CF            32CC
+        CODE             00004-0326F            326C
         COMRAM           00046-0007F              3A
-        CONST            00004-032CF            32CC
-        MEDIUMCONST      00400-032CF            2ED0
+        CONST            00004-0326F            326C
+        MEDIUMCONST      00400-0326F            2E70
         RAM              00100-003FF             100
         SFR              00F80-00FFF              80
-        SMALLCONST       00400-032CF             100
+        SMALLCONST       00400-0326F             100
         STACK            00100-003FF             300
 
                                   Symbol Table
@@ -285,7 +285,7 @@ __Ltext4                 text4         00000
 __S0                     (abs)         03FFE
 __S1                     (abs)         00100
 __S2                     (abs)         00000
-___aldiv                 text4         03372
+___aldiv                 text4         03314
 ___aldiv@counter         cstackCOMRAM  0000A
 ___aldiv@dividend        cstackCOMRAM  00001
 ___aldiv@divisor         cstackCOMRAM  00005
@@ -297,23 +297,23 @@ ___intlo_sp              stack         00000
 ___sp                    stack         00000
 __accesstop              (abs)         00080
 __activetblptr           (abs)         00002
-__end_of___aldiv         text4         0347A
-__end_of__initialization cinit         032F8
+__end_of___aldiv         text4         0341C
+__end_of__initialization cinit         03298
 __end_of_main            text0         03FF8
-__end_of_readMyADC       text3         03372
-__end_of_setGainLevel    text2         03328
-__end_of_setupSPI        text1         032E2
-__initialization         cinit         032E2
+__end_of_readMyADC       text3         03314
+__end_of_setGainLevel    text2         032C8
+__end_of_setupSPI        text1         03282
+__initialization         cinit         03282
 __mediumconst            mediumconst   00000
 __pbssBANK0              bssBANK0      00080
 __pbssCOMRAM             bssCOMRAM     00041
-__pcinit                 cinit         032E2
+__pcinit                 cinit         03282
 __pcstackCOMRAM          cstackCOMRAM  00001
-__ptext0                 text0         0347A
-__ptext1                 text1         032D0
-__ptext2                 text2         03302
-__ptext3                 text3         03328
-__ptext4                 text4         03372
+__ptext0                 text0         0341C
+__ptext1                 text1         03270
+__ptext2                 text2         032A2
+__ptext3                 text3         032C8
+__ptext4                 text4         03314
 __ramtop                 ramtop        00400
 __size_of___aldiv        (abs)         00000
 __size_of_main           (abs)         00000
@@ -322,13 +322,13 @@ __size_of_setGainLevel   (abs)         00000
 __size_of_setupSPI       (abs)         00000
 __smallconst             smallconst    00000
 _led_strip_colors        bssBANK0      00080
-_main                    text0         0347A
+_main                    text0         0341C
 _randf                   bssCOMRAM     00045
 _randx                   bssCOMRAM     00041
-_readMyADC               text3         03328
-_setGainLevel            text2         03302
-_setupSPI                text1         032D0
-end_of_initialization    cinit         032F8
+_readMyADC               text3         032C8
+_setGainLevel            text2         032A2
+_setupSPI                text1         03270
+end_of_initialization    cinit         03298
 intlevel0                text          00000
 intlevel1                text          00000
 intlevel2                text          00000
@@ -342,10 +342,10 @@ main@currentStep         cstackCOMRAM  0003A
 main@fadeCounter         cstackCOMRAM  00020
 main@highLevel           cstackCOMRAM  00024
 main@highPWM             cstackCOMRAM  0002F
-main@lowLevel            cstackCOMRAM  00016
+main@lowLevel            cstackCOMRAM  0001A
 main@lowPWM              cstackCOMRAM  0002D
-main@mainLevel           cstackCOMRAM  00018
-main@midLevel            cstackCOMRAM  00014
+main@mainLevel           cstackCOMRAM  0001C
+main@midLevel            cstackCOMRAM  00018
 main@midPWM              cstackCOMRAM  00036
 main@mode                cstackCOMRAM  00035
 main@patternNumber       cstackCOMRAM  00038
@@ -356,14 +356,14 @@ main@soundDetectedCount  cstackCOMRAM  00022
 main@soundFlag           cstackCOMRAM  00026
 main@stepNumber          cstackCOMRAM  0003F
 main@tickCounter         cstackCOMRAM  00033
-main@total               cstackCOMRAM  0001A
+main@total               cstackCOMRAM  00014
 readMyADC@ADCnumber      cstackCOMRAM  00005
 readMyADC@result         cstackCOMRAM  00003
 setGainLevel@gainLevel   cstackCOMRAM  00001
 stackhi                  (abs)         003FF
 stacklo                  (abs)         00100
 start                    init          00000
-start_initialization     cinit         032E2
+start_initialization     cinit         03282
 
 
 FUNCTION INFORMATION:
@@ -374,7 +374,7 @@ FUNCTION INFORMATION:
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  total           4   25[COMRAM] long 
+  total           4   19[COMRAM] long 
   stepNumber      2   62[COMRAM] int 
   PWMcount        2   59[COMRAM] int 
   currentStep     2   57[COMRAM] int 
@@ -390,9 +390,9 @@ FUNCTION INFORMATION:
   soundDetecte    2   33[COMRAM] int 
   fadeCounter     2   31[COMRAM] int 
   sampleCount     2   29[COMRAM] int 
-  mainLevel       2   23[COMRAM] int 
-  lowLevel        2   21[COMRAM] int 
-  midLevel        2   19[COMRAM] int 
+  mainLevel       2   27[COMRAM] int 
+  lowLevel        2   25[COMRAM] int 
+  midLevel        2   23[COMRAM] int 
   sequenceNumb    1   61[COMRAM] unsigned char 
   brightness      1   56[COMRAM] unsigned char 
   patternNumbe    1   55[COMRAM] unsigned char 
@@ -483,7 +483,7 @@ Total ram usage:        1 bytes
 
  *************** function _readMyADC *****************
  Defined at:
-		line 591 in file "main.c"
+		line 596 in file "main.c"
  Parameters:    Size  Location     Type
   ADCnumber       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -548,24 +548,24 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 shared
-		__initializatio		CODE           	32E2	0000	22
+		__initializatio		CODE           	3282	0000	22
 
 shared estimated size: 22
 
 main.c
-		_main          		CODE           	347A	0000	2942
-		_readMyADC     		CODE           	3328	0000	74
+		_main          		CODE           	341C	0000	3036
+		_readMyADC     		CODE           	32C8	0000	76
 
-main.c estimated size: 3016
+main.c estimated size: 3112
 
 /opt/microchip/xc8/v1.30/sources/common/aldiv.c
-		___aldiv       		CODE           	3372	0000	264
+		___aldiv       		CODE           	3314	0000	264
 
 /opt/microchip/xc8/v1.30/sources/common/aldiv.c estimated size: 264
 
 spi.c
-		_setGainLevel  		CODE           	3302	0000	38
-		_setupSPI      		CODE           	32D0	0000	18
+		_setGainLevel  		CODE           	32A2	0000	38
+		_setupSPI      		CODE           	3270	0000	18
 
 spi.c estimated size: 56
 

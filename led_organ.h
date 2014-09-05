@@ -63,12 +63,13 @@ extern "C" {
 #define LOWPEAK		PORTBbits.RB3
 
 // LED string outputs
+#define ALLSTRING       PORTCbits.RC7 // Testing ALL output
 #define HIGHSTRING	PORTBbits.RB2
 #define MIDSTRING	PORTBbits.RB1
 #define LOWSTRING	PORTBbits.RB0
 
 // Toggle Switch pins
-#define SWITCHLOW   0 //MS: manually assigned for now instead of pins
+#define SWITCHLOW   1 //MS: manually assigned for now instead of pins
 #define SWITCHHIGH  0
 
 // ADC defintions

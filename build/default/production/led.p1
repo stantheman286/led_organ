@@ -3736,11 +3736,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x WDTPS=32768 ]
 "43
 [p x CCP2MX=DEFAULT ]
-[; ;led_organ.h: 111: extern void demoLEDs();
-[; ;led_organ.h: 112: extern void setupSPI();
-[; ;led_organ.h: 113: extern void writeLEDSPI(uint8_t);
-[; ;led_organ.h: 114: extern void setGainLevel(unsigned char);
-[; ;led_organ.h: 115: extern int readMyADC(unsigned char);
+[; ;led_organ.h: 112: extern void demoLEDs();
+[; ;led_organ.h: 113: extern void setupSPI();
+[; ;led_organ.h: 114: extern void writeLEDSPI(uint8_t);
+[; ;led_organ.h: 115: extern void setGainLevel(unsigned char);
+[; ;led_organ.h: 116: extern int readMyADC(unsigned char);
 "20 led.c
 [v _led_strip_colors `ul ~T0 @X0 -> 32 `i e ]
 [; ;led.c: 20: uint32_t led_strip_colors[32];

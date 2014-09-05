@@ -44,16 +44,21 @@
 
 void main(void)
 {
+
   // Configure on-board ADC
   // Enable AN3-0, Vss and Vdd as voltage references
   ADCON1 = 0x0B;
+  
+  // Enable ADC, but don't start conversion
+  // Start with AN0, just to set something
+  ADCON0 = 0x01;
 
   // Configure the ADC acquisition time according to the datasheet
   ADCON2 = 0xB5; // Note: output is right justified
   
   // Configure ports as inputs (1) or outputs(0)
   TRISA = 0x0F; // Set AN0-3 set as inputs
-	TRISB = 0x00; // RB5, LED output
+  TRISB = 0x00; // RB5, LED output
   TRISC = 0x00;
   
   //MS: TODO, add my other code
@@ -151,9 +156,9 @@ void main(void)
 
 		// Read the volume levels
 		highLevel = readMyADC(HIGHADC);
-		//midLevel  = readMyADC(MIDADC);
-		//lowLevel = readMyADC(LOWADC);
-		//mainLevel = readMyADC(MAINADC);
+		midLevel  = readMyADC(MIDADC);
+		lowLevel = readMyADC(LOWADC);
+		mainLevel = readMyADC(MAINADC);
 
 		// Read the mode toggle switch
 		if (SWITCHLOW == 1 && SWITCHHIGH == 0)
@@ -605,6 +610,9 @@ int readMyADC(unsigned char ADCnumber)
                   break;
   }
 
+  // Start conversion
+  ADCON0 |= 0x02;
+  
   // Wait for the ADC conversion to complete
   while(GODONE);
 
