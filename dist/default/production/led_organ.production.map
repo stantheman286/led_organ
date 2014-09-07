@@ -5,7 +5,7 @@ Linker command line:
 --edf=/opt/microchip/xc8/v1.30/dat/en_msgs.txt -cs \
   -h+dist/default/production/led_organ.production.sym \
   --cmf=dist/default/production/led_organ.production.cmf -z -Q18F24J10 \
-  -o/tmp/cgteJeD4D -Mdist/default/production/led_organ.production.map -E1 \
+  -o/tmp/cgtWyzDTY -Mdist/default/production/led_organ.production.map -E1 \
   -ver=XC8 -ASTACK=0100h-03ffh -pstack=STACK -ACODE=00h-03FF7h \
   -ACONST=00h-03FF7h -ASMALLCONST=0400h-04FFhx59,03F00h-03FF7h \
   -AMEDIUMCONST=0400h-03FF7h -ACOMRAM=01h-07Fh -AABS1=00h-03FFh \
@@ -18,7 +18,7 @@ Linker command line:
   -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
-  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgtu4OREE.obj \
+  -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE /tmp/cgt8oLFEv.obj \
   dist/default/production/led_organ.production.obj 
 
 Object code version is 3.11
@@ -31,14 +31,14 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/cgtu4OREE.obj
+/tmp/cgt8oLFEv.obj
                 end_init                              0        0        4        0       0
                 config                             3FF8     3FF8        6     3FF8       0
 dist/default/production/led_organ.production.obj
                 text4                              3314     3314      108     198A       0
                 text3                              32C8     32C8       4C     1964       0
                 text2                              32A2     32A2       26     1951       0
-                text1                              3270     3270       12     1938       0
+                text1                              326E     326E       14     1937       0
                 cstackCOMRAM                          1        1       40        1       1
                 bssBANK0                             80       80       80       80       1
                 bssCOMRAM                            41       41        5        1       1
@@ -53,7 +53,7 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text4                              3314     3314      108         0
                 text3                              32C8     32C8       4C         0
                 text2                              32A2     32A2       26         0
-                text1                              3270     3270       12         0
+                text1                              326E     326E       14         0
                 cinit                              3282     3282       20         0
                 text0                              341C     341C      BDC         0
 
@@ -98,7 +98,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000045  000046         1       1  COMRAM  
                 bssBANK0                       000080  000080  000100        80       1  BANK0   
-                text1                          003270  000012  003282      1938       0  CODE    
+                text1                          00326E  000014  003282      1937       0  CODE    
                 cinit                          003282  000020  0032A2      1941       0  CODE    
                 text2                          0032A2  000026  0032C8      1951       0  CODE    
                 text3                          0032C8  00004C  003314      1964       0  CODE    
@@ -115,13 +115,13 @@ UNUSED ADDRESS RANGES
         BANK3            00300-003FF             100
         BIGRAM           00046-0007F              3A
                          00100-003FF             300
-        CODE             00004-0326F            326C
+        CODE             00004-0326D            326A
         COMRAM           00046-0007F              3A
-        CONST            00004-0326F            326C
-        MEDIUMCONST      00400-0326F            2E70
+        CONST            00004-0326D            326A
+        MEDIUMCONST      00400-0326D            2E6E
         RAM              00100-003FF             100
         SFR              00F80-00FFF              80
-        SMALLCONST       00400-0326F             100
+        SMALLCONST       00400-0326D             100
         STACK            00100-003FF             300
 
                                   Symbol Table
@@ -139,6 +139,7 @@ _PORTA                   (abs)         00F80
 _PORTB                   (abs)         00F81
 _PORTBbits               (abs)         00F81
 _PORTC                   (abs)         00F82
+_PORTCbits               (abs)         00F82
 _SSP1BUF                 (abs)         00FC9
 _SSP1CON1                (abs)         00FC6
 _SSP1CON1bits            (abs)         00FC6
@@ -310,7 +311,7 @@ __pbssCOMRAM             bssCOMRAM     00041
 __pcinit                 cinit         03282
 __pcstackCOMRAM          cstackCOMRAM  00001
 __ptext0                 text0         0341C
-__ptext1                 text1         03270
+__ptext1                 text1         0326E
 __ptext2                 text2         032A2
 __ptext3                 text3         032C8
 __ptext4                 text4         03314
@@ -327,7 +328,7 @@ _randf                   bssCOMRAM     00045
 _randx                   bssCOMRAM     00041
 _readMyADC               text3         032C8
 _setGainLevel            text2         032A2
-_setupSPI                text1         03270
+_setupSPI                text1         0326E
 end_of_initialization    cinit         03298
 intlevel0                text          00000
 intlevel1                text          00000
@@ -454,7 +455,7 @@ Total ram usage:        0 bytes
 
  *************** function _setGainLevel *****************
  Defined at:
-		line 20 in file "spi.c"
+		line 21 in file "spi.c"
  Parameters:    Size  Location     Type
   gainLevel       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -483,7 +484,7 @@ Total ram usage:        1 bytes
 
  *************** function _readMyADC *****************
  Defined at:
-		line 596 in file "main.c"
+		line 597 in file "main.c"
  Parameters:    Size  Location     Type
   ADCnumber       1    wreg     unsigned char 
  Auto vars:     Size  Location     Type
@@ -565,7 +566,7 @@ main.c estimated size: 3112
 
 spi.c
 		_setGainLevel  		CODE           	32A2	0000	38
-		_setupSPI      		CODE           	3270	0000	18
+		_setupSPI      		CODE           	326E	0000	20
 
-spi.c estimated size: 56
+spi.c estimated size: 58
 

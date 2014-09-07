@@ -11,14 +11,14 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$/tmp/cgtu4OREE.obj
+$/tmp/cgt8oLFEv.obj
 end_init CODE 0 0 0 4 1
 config CONFIG 0 3FF8 3FF8 6 1
 $dist/default/production/led_organ.production.obj
 text4 CODE 0 3314 3314 108 1
 text3 CODE 0 32C8 32C8 4C 1
 text2 CODE 0 32A2 32A2 26 1
-text1 CODE 0 3270 3270 12 1
+text1 CODE 0 326E 326E 14 1
 cstackCOMRAM COMRAM 1 1 1 40 1
 bssBANK0 BANK0 1 80 80 80 1
 bssCOMRAM COMRAM 1 41 41 5 1
@@ -35,13 +35,13 @@ BANK2 00200-002FF 1
 BANK3 00300-003FF 1
 BIGRAM 00046-0007F 1
 BIGRAM 00100-003FF 1
-CODE 00004-0326F 1
+CODE 00004-0326D 1
 COMRAM 00046-0007F 1
-CONST 00004-0326F 1
-MEDIUMCONST 00400-0326F 1
+CONST 00004-0326D 1
+MEDIUMCONST 00400-0326D 1
 RAM 00100-003FF 1
 SFR 00F80-00FFF 1
-SMALLCONST 00400-0326F 1
+SMALLCONST 00400-0326D 1
 STACK 00100-003FF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -57,62 +57,63 @@ STACK 00100-003FF 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/led_organ.production.obj
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":3 3270 text1 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":6 3270 text1 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":7 3272 text1 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":8 3274 text1 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":11 3276 text1 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":14 3278 text1 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":15 327C text1 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":17 3280 text1 CODE
-"/tmp/cgtb2EVUN":993 3282 cinit CODE
-"/tmp/cgtb2EVUN":995 3282 cinit CODE
-"/tmp/cgtb2EVUN":998 3282 cinit CODE
-"/tmp/cgtb2EVUN":1016 3282 cinit CODE
-"/tmp/cgtb2EVUN":1017 3286 cinit CODE
-"/tmp/cgtb2EVUN":1018 3288 cinit CODE
-"/tmp/cgtb2EVUN":1019 3288 cinit CODE
-"/tmp/cgtb2EVUN":1020 328A cinit CODE
-"/tmp/cgtb2EVUN":1021 328C cinit CODE
-"/tmp/cgtb2EVUN":1024 328E cinit CODE
-"/tmp/cgtb2EVUN":1025 3290 cinit CODE
-"/tmp/cgtb2EVUN":1026 3292 cinit CODE
-"/tmp/cgtb2EVUN":1027 3294 cinit CODE
-"/tmp/cgtb2EVUN":1028 3296 cinit CODE
-"/tmp/cgtb2EVUN":1034 3298 cinit CODE
-"/tmp/cgtb2EVUN":1035 3298 cinit CODE
-"/tmp/cgtb2EVUN":1036 3298 cinit CODE
-"/tmp/cgtb2EVUN":1037 329A cinit CODE
-"/tmp/cgtb2EVUN":1038 329C cinit CODE
-"/tmp/cgtb2EVUN":1039 329E cinit CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":20 32A2 text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":23 32A6 text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":26 32AA text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":30 32AE text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":33 32B0 text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":34 32B2 text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":35 32B6 text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":38 32BA text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":39 32BC text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":40 32C0 text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":43 32C4 text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":44 32C6 text2 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":596 32C8 text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":601 32CC text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":603 32CE text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":605 32D2 text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":607 32D6 text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":609 32DA text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":610 32DE text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":601 32E0 text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":614 32FA text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":617 32FC text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":620 3300 text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":621 3306 text3 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":623 330A text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":3 326E text1 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":6 326E text1 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":7 3270 text1 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":8 3272 text1 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":11 3274 text1 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":12 3276 text1 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":15 3278 text1 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":16 327C text1 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":18 3280 text1 CODE
+"/tmp/cgtv4GaJY":995 3282 cinit CODE
+"/tmp/cgtv4GaJY":997 3282 cinit CODE
+"/tmp/cgtv4GaJY":1000 3282 cinit CODE
+"/tmp/cgtv4GaJY":1018 3282 cinit CODE
+"/tmp/cgtv4GaJY":1019 3286 cinit CODE
+"/tmp/cgtv4GaJY":1020 3288 cinit CODE
+"/tmp/cgtv4GaJY":1021 3288 cinit CODE
+"/tmp/cgtv4GaJY":1022 328A cinit CODE
+"/tmp/cgtv4GaJY":1023 328C cinit CODE
+"/tmp/cgtv4GaJY":1026 328E cinit CODE
+"/tmp/cgtv4GaJY":1027 3290 cinit CODE
+"/tmp/cgtv4GaJY":1028 3292 cinit CODE
+"/tmp/cgtv4GaJY":1029 3294 cinit CODE
+"/tmp/cgtv4GaJY":1030 3296 cinit CODE
+"/tmp/cgtv4GaJY":1036 3298 cinit CODE
+"/tmp/cgtv4GaJY":1037 3298 cinit CODE
+"/tmp/cgtv4GaJY":1038 3298 cinit CODE
+"/tmp/cgtv4GaJY":1039 329A cinit CODE
+"/tmp/cgtv4GaJY":1040 329C cinit CODE
+"/tmp/cgtv4GaJY":1041 329E cinit CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":21 32A2 text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":24 32A6 text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":27 32AA text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":31 32AE text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":34 32B0 text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":35 32B2 text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":36 32B6 text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":39 32BA text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":40 32BC text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":41 32C0 text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":44 32C4 text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c":45 32C6 text2 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":597 32C8 text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":602 32CC text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":604 32CE text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":606 32D2 text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":608 32D6 text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":610 32DA text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":611 32DE text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":602 32E0 text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":615 32FA text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":618 32FC text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":621 3300 text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":622 3306 text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":624 330A text3 CODE
 "/opt/microchip/xc8/v1.30/sources/common/aldiv.c":8 3314 text4 CODE
 "/opt/microchip/xc8/v1.30/sources/common/aldiv.c":14 3314 text4 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":624 3314 text3 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":625 3314 text3 CODE
 "/opt/microchip/xc8/v1.30/sources/common/aldiv.c":15 331C text4 CODE
 "/opt/microchip/xc8/v1.30/sources/common/aldiv.c":16 3338 text4 CODE
 "/opt/microchip/xc8/v1.30/sources/common/aldiv.c":17 3348 text4 CODE
@@ -157,244 +158,244 @@ $dist/default/production/led_organ.production.obj
 "/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":99 346A text0 CODE
 "/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":101 346E text0 CODE
 "/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":104 3472 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":105 347A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":108 3480 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":109 3488 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":110 3498 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":113 34A0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":114 34A8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":115 34B0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":116 34B8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":117 34C0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":120 34C8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":123 34D0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":126 34D8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":127 34E0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":128 34E8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":129 34F0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":130 34F8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":131 3500 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":134 3508 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":135 3510 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":136 3518 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":146 3520 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":148 3524 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":149 3528 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":152 3540 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":153 3544 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":154 3548 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":158 354A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":159 3558 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":160 3566 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":161 3574 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":166 3582 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":168 3588 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":171 3590 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":172 3592 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":173 3594 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":174 3596 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":175 3598 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":176 359A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":179 359C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":180 35A4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":181 35AC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":182 35B4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":183 35BC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":184 35C4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":221 35CC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":222 35EE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":224 35F2 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":226 35FC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":229 363A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":231 365E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":232 367A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":236 3694 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":237 36B0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":240 36C8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":242 36CE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":243 36D6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":248 36E6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":250 36EC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":252 36F0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":253 370E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":255 371E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":261 3724 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":262 3746 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":264 3756 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":265 375E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":269 3766 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":272 3770 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":276 3784 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":279 3788 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":281 37A0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":284 37A8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":285 37BC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":287 37CC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":290 37E0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":291 37E8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":292 37EA text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":293 37F2 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":294 37FA text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":295 3802 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":296 380A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":297 3812 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":299 3822 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":302 382A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":305 3840 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":307 3844 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":309 3848 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":311 3856 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":312 385E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":314 387C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":315 3882 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":317 388C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":319 3892 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":321 38A0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":323 38A8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":325 38C6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":326 38CC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":328 38DE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":330 38E6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":332 38F4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":333 38FC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":335 391A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":336 3920 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":338 392A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":340 3932 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":342 3940 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":344 3948 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":346 3966 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":347 396C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":349 397C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":351 398C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":352 3990 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":354 3998 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":356 39A2 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":357 39AA text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":358 39AC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":360 39B4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":362 39BC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":363 39C4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":364 39C8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":366 39D8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":367 39E0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":375 39E2 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":377 39E8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":378 39F0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":379 39F8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":381 3A00 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":383 3A10 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":384 3A14 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":386 3A1C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":388 3A26 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":389 3A2E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":390 3A30 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":392 3A38 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":394 3A40 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":395 3A48 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":396 3A4C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":398 3A5C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":399 3A64 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":407 3A66 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":409 3A6E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":411 3A72 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":412 3A8A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":413 3AA2 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":416 3ABC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":418 3AC2 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":419 3ADA text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":420 3AF2 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":423 3B0C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":425 3B14 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":426 3B2C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":427 3B44 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":430 3B5E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":432 3B66 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":433 3B80 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":434 3B9A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":437 3BB6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":439 3BBE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":440 3BD6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":441 3BEE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":444 3C08 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":446 3C18 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":447 3C1C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":449 3C24 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":451 3C2E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":452 3C36 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":453 3C38 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":455 3C40 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":457 3C48 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":458 3C50 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":459 3C54 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":461 3C64 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":462 3C6C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":470 3C6E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":472 3C76 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":474 3C7A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":476 3C88 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":477 3C90 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":479 3CAE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":480 3CB4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":481 3CBA text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":482 3CC0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":484 3CC0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":486 3CD0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":487 3CD4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":489 3CDC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":491 3CE6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":492 3CEE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":493 3CF0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":495 3CF8 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":497 3CFE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":498 3D06 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":499 3D0A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":501 3D1A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":502 3D22 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":510 3D24 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":512 3D2C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":514 3D30 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":515 3D48 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":516 3D6A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":517 3D84 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":520 3DA6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":522 3DB6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":523 3DBA text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":525 3DC2 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":527 3DCC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":528 3DD4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":529 3DD6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":531 3DDE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":533 3DE4 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":534 3DEC text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":535 3DF0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":537 3E00 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":538 3E08 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":546 3E0A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":549 3E18 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":550 3E32 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":551 3E4C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":554 3E66 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":555 3E6A text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":559 3E82 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":562 3E8C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":564 3E94 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":565 3EAA text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":566 3EC0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":570 3ED6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":571 3EEE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":572 3F06 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":575 3F1E text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":576 3F38 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":577 3F52 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":580 3F6C text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":581 3F86 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":582 3FA0 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":585 3FBA text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":586 3FBE text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":589 3FD6 text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":590 3FDA text0 CODE
-"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":593 3FF8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":106 347A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":109 3480 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":110 3488 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":111 3498 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":114 34A0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":115 34A8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":116 34B0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":117 34B8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":118 34C0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":121 34C8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":124 34D0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":127 34D8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":128 34E0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":129 34E8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":130 34F0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":131 34F8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":132 3500 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":135 3508 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":136 3510 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":137 3518 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":147 3520 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":149 3524 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":150 3528 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":153 3540 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":154 3544 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":155 3548 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":159 354A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":160 3558 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":161 3566 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":162 3574 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":167 3582 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":169 3588 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":172 3590 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":173 3592 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":174 3594 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":175 3596 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":176 3598 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":177 359A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":180 359C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":181 35A4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":182 35AC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":183 35B4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":184 35BC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":185 35C4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":222 35CC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":223 35EE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":225 35F2 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":227 35FC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":230 363A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":232 365E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":233 367A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":237 3694 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":238 36B0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":241 36C8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":243 36CE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":244 36D6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":249 36E6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":251 36EC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":253 36F0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":254 370E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":256 371E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":262 3724 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":263 3746 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":265 3756 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":266 375E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":270 3766 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":273 3770 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":277 3784 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":280 3788 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":282 37A0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":285 37A8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":286 37BC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":288 37CC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":291 37E0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":292 37E8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":293 37EA text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":294 37F2 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":295 37FA text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":296 3802 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":297 380A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":298 3812 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":300 3822 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":303 382A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":306 3840 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":308 3844 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":310 3848 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":312 3856 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":313 385E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":315 387C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":316 3882 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":318 388C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":320 3892 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":322 38A0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":324 38A8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":326 38C6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":327 38CC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":329 38DE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":331 38E6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":333 38F4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":334 38FC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":336 391A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":337 3920 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":339 392A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":341 3932 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":343 3940 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":345 3948 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":347 3966 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":348 396C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":350 397C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":352 398C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":353 3990 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":355 3998 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":357 39A2 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":358 39AA text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":359 39AC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":361 39B4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":363 39BC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":364 39C4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":365 39C8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":367 39D8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":368 39E0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":376 39E2 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":378 39E8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":379 39F0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":380 39F8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":382 3A00 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":384 3A10 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":385 3A14 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":387 3A1C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":389 3A26 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":390 3A2E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":391 3A30 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":393 3A38 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":395 3A40 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":396 3A48 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":397 3A4C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":399 3A5C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":400 3A64 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":408 3A66 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":410 3A6E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":412 3A72 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":413 3A8A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":414 3AA2 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":417 3ABC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":419 3AC2 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":420 3ADA text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":421 3AF2 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":424 3B0C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":426 3B14 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":427 3B2C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":428 3B44 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":431 3B5E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":433 3B66 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":434 3B80 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":435 3B9A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":438 3BB6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":440 3BBE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":441 3BD6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":442 3BEE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":445 3C08 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":447 3C18 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":448 3C1C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":450 3C24 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":452 3C2E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":453 3C36 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":454 3C38 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":456 3C40 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":458 3C48 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":459 3C50 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":460 3C54 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":462 3C64 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":463 3C6C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":471 3C6E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":473 3C76 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":475 3C7A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":477 3C88 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":478 3C90 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":480 3CAE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":481 3CB4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":482 3CBA text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":483 3CC0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":485 3CC0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":487 3CD0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":488 3CD4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":490 3CDC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":492 3CE6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":493 3CEE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":494 3CF0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":496 3CF8 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":498 3CFE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":499 3D06 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":500 3D0A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":502 3D1A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":503 3D22 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":511 3D24 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":513 3D2C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":515 3D30 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":516 3D48 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":517 3D6A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":518 3D84 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":521 3DA6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":523 3DB6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":524 3DBA text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":526 3DC2 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":528 3DCC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":529 3DD4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":530 3DD6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":532 3DDE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":534 3DE4 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":535 3DEC text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":536 3DF0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":538 3E00 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":539 3E08 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":547 3E0A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":550 3E18 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":551 3E32 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":552 3E4C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":555 3E66 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":556 3E6A text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":560 3E82 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":563 3E8C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":565 3E94 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":566 3EAA text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":567 3EC0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":571 3ED6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":572 3EEE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":573 3F06 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":576 3F1E text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":577 3F38 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":578 3F52 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":581 3F6C text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":582 3F86 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":583 3FA0 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":586 3FBA text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":587 3FBE text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":590 3FD6 text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":591 3FDA text0 CODE
+"/home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c":594 3FF8 text0 CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -415,8 +416,8 @@ __S2 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 __Hintentry 0 0 ABS 0 intentry dist/default/production/led_organ.production.obj
 __Lintentry 0 0 ABS 0 intentry dist/default/production/led_organ.production.obj
 _main 341C 0 CODE 0 text0 dist/default/production/led_organ.production.obj
-___sp 0 0 STACK 2 stack /tmp/cgtu4OREE.obj
-start 0 0 CODE 0 init /tmp/cgtu4OREE.obj
+___sp 0 0 STACK 2 stack /tmp/cgt8oLFEv.obj
+start 0 0 CODE 0 init /tmp/cgt8oLFEv.obj
 setGainLevel@gainLevel 1 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
 ?_readMyADC 1 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
 __CFG_FOSC$EC 0 0 ABS 0 - dist/default/production/led_organ.production.obj
@@ -503,10 +504,10 @@ main@sequenceNumber 3E 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ
 __Hdata 0 0 ABS 0 data dist/default/production/led_organ.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production/led_organ.production.obj
 main@total 14 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
-stackhi 3FF 0 ABS 0 - /tmp/cgtu4OREE.obj
+stackhi 3FF 0 ABS 0 - /tmp/cgt8oLFEv.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production/led_organ.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production/led_organ.production.obj
-stacklo 100 0 ABS 0 - /tmp/cgtu4OREE.obj
+stacklo 100 0 ABS 0 - /tmp/cgt8oLFEv.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production/led_organ.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production/led_organ.production.obj
 main@currentGainLevel 2B 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
@@ -524,6 +525,7 @@ ___aldiv@sign B 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.produc
 _SSPCON1 FC6 0 ABS 0 - dist/default/production/led_organ.production.obj
 _TRISCbits F94 0 ABS 0 - dist/default/production/led_organ.production.obj
 _PORTBbits F81 0 ABS 0 - dist/default/production/led_organ.production.obj
+_PORTCbits F82 0 ABS 0 - dist/default/production/led_organ.production.obj
 __end_of_setupSPI 3282 0 CODE 0 text1 dist/default/production/led_organ.production.obj
 main@PWMcount 3C 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
 _SSP1BUF FC9 0 ABS 0 - dist/default/production/led_organ.production.obj
@@ -552,7 +554,7 @@ __Ltext1 0 0 ABS 0 text1 dist/default/production/led_organ.production.obj
 __ptext0 341C 0 CODE 0 text0 dist/default/production/led_organ.production.obj
 __Htext2 0 0 ABS 0 text2 dist/default/production/led_organ.production.obj
 __Ltext2 0 0 ABS 0 text2 dist/default/production/led_organ.production.obj
-__ptext1 3270 0 CODE 0 text1 dist/default/production/led_organ.production.obj
+__ptext1 326E 0 CODE 0 text1 dist/default/production/led_organ.production.obj
 __Htext3 0 0 ABS 0 text3 dist/default/production/led_organ.production.obj
 __Ltext3 0 0 ABS 0 text3 dist/default/production/led_organ.production.obj
 __ptext2 32A2 0 CODE 0 text2 dist/default/production/led_organ.production.obj
@@ -597,8 +599,8 @@ __Hcinit 0 0 ABS 0 cinit dist/default/production/led_organ.production.obj
 __Lcinit 0 0 ABS 0 cinit dist/default/production/led_organ.production.obj
 ___aldiv 3314 0 CODE 0 text4 dist/default/production/led_organ.production.obj
 __pcinit 3282 0 CODE 0 cinit dist/default/production/led_organ.production.obj
-__ramtop 400 0 RAM 0 ramtop /tmp/cgtu4OREE.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgtu4OREE.obj
+__ramtop 400 0 RAM 0 ramtop /tmp/cgt8oLFEv.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst /tmp/cgt8oLFEv.obj
 __size_of_main 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 __Hconst 0 0 CODE 0 const dist/default/production/led_organ.production.obj
 __Lconst 0 0 CODE 0 const dist/default/production/led_organ.production.obj
@@ -610,10 +612,10 @@ __pbssBANK0 80 0 BANK0 1 bssBANK0 dist/default/production/led_organ.production.o
 main@sampleCount 1E 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
 __size_of_setupSPI 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 readMyADC@ADCnumber 5 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
-___extmem_base 20000 0 ABS 0 - /tmp/cgtu4OREE.obj
-___inthi_sp 0 0 STACK 2 stack /tmp/cgtu4OREE.obj
+___extmem_base 20000 0 ABS 0 - /tmp/cgt8oLFEv.obj
+___inthi_sp 0 0 STACK 2 stack /tmp/cgt8oLFEv.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production/led_organ.production.obj
-___intlo_sp 0 0 STACK 2 stack /tmp/cgtu4OREE.obj
+___intlo_sp 0 0 STACK 2 stack /tmp/cgt8oLFEv.obj
 __Hend_init 4 0 CODE 0 end_init dist/default/production/led_organ.production.obj
 __Lend_init 0 0 CODE 0 end_init dist/default/production/led_organ.production.obj
 main@average 27 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
@@ -622,22 +624,22 @@ __Hjflash_buffer 3800 0 CODE 0 jflash_buffer dist/default/production/led_organ.p
 __Ljflash_buffer 3800 0 CODE 0 jflash_buffer dist/default/production/led_organ.production.obj
 main@fadeCounter 20 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
 __CFG_CP0$OFF 0 0 ABS 0 - dist/default/production/led_organ.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgtu4OREE.obj
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/cgt8oLFEv.obj
 __Hreset_vec 0 0 CODE 0 reset_vec dist/default/production/led_organ.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production/led_organ.production.obj
-__accesstop 80 0 ABS 0 - /tmp/cgtu4OREE.obj
+__accesstop 80 0 ABS 0 - /tmp/cgt8oLFEv.obj
 __end_of_readMyADC 3314 0 CODE 0 text3 dist/default/production/led_organ.production.obj
 __size_of___aldiv 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/led_organ.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/led_organ.production.obj
-intlevel0 0 0 CODE 0 text /tmp/cgtu4OREE.obj
-intlevel1 0 0 CODE 0 text /tmp/cgtu4OREE.obj
+intlevel0 0 0 CODE 0 text /tmp/cgt8oLFEv.obj
+intlevel1 0 0 CODE 0 text /tmp/cgt8oLFEv.obj
 main@tickCounter 33 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
-intlevel2 0 0 CODE 0 text /tmp/cgtu4OREE.obj
-intlevel3 0 0 CODE 0 text /tmp/cgtu4OREE.obj
+intlevel2 0 0 CODE 0 text /tmp/cgt8oLFEv.obj
+intlevel3 0 0 CODE 0 text /tmp/cgt8oLFEv.obj
 main@clapCounter 29 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
 _SSP1CON1bits FC6 0 ABS 0 - dist/default/production/led_organ.production.obj
-_setupSPI 3270 0 CODE 0 text1 dist/default/production/led_organ.production.obj
+_setupSPI 326E 0 CODE 0 text1 dist/default/production/led_organ.production.obj
 __size_of_setGainLevel 0 0 ABS 0 - dist/default/production/led_organ.production.obj
 start_initialization 3282 0 CODE 0 cinit dist/default/production/led_organ.production.obj
 ___aldiv@quotient C 0 COMRAM 1 cstackCOMRAM dist/default/production/led_organ.production.obj
@@ -678,4 +680,4 @@ text4 0 3314 3314 108 1
 text3 0 32C8 32C8 4C 1
 text2 0 32A2 32A2 26 1
 cinit 0 3282 3282 20 1
-text1 0 3270 3270 12 1
+text1 0 326E 326E 14 1

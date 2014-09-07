@@ -102,7 +102,8 @@ void main(void)
 
 	// Set the initial input gain level
 	int currentGainLevel = 80; // 0-255
-	setGainLevel(currentGainLevel);
+
+        setGainLevel(currentGainLevel);
 
 	// Variables for Automatic Gain Control (AGC)
 	int sampleCount = 0;

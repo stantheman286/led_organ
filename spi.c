@@ -7,8 +7,9 @@ void setupSPI() {
     TRISCbits.TRISC4 = 1;   // RC4/SDI - Input (Serial Data In)
     TRISCbits.TRISC3 = 0;   // RC3/SCK - Output (Clock)
 
-    // Disable CS for MP41010
-    TRISCbits.TRISC0 = 1;
+    // Setup and disable CS for MP41010
+    TRISCbits.TRISC0 = 0;
+    PORTCbits.RC0 = 1;
 
     // Setup Registers
     SSPSTAT = 0x40;        // Set SMP=0 and CKE=1. Notes: The lower 6 bits are read-only
@@ -27,7 +28,7 @@ void setGainLevel(unsigned char gainLevel)
 							    // Speed is Fosc/4
 
 	// Enable chip serial
-	TRISCbits.RC0 = 0;
+	PORTCbits.RC0 = 0;
 
 	// Send SET command
 	SSPIF = 0;
@@ -38,8 +39,8 @@ void setGainLevel(unsigned char gainLevel)
 	SSPIF = 0;
 	SSPBUF = gainLevel;
 	while(!SSPIF); // Wait for transmit to complete
-
+        
 	// Disable chip serial
-	TRISCbits.RC0 = 1;
+	PORTCbits.RC0 = 1;
 }
 

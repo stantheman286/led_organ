@@ -141,11 +141,11 @@
 [v _demoLEDs demoLEDs `(v  1 e 0 0 ]
 "45 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
 [v _main main `(v  1 e 0 0 ]
-"596
+"597
 [v _readMyADC readMyADC `(i  1 e 2 0 ]
 "3 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c
 [v _setupSPI setupSPI `(v  1 e 0 0 ]
-"20
+"21
 [v _setGainLevel setGainLevel `(v  1 e 0 0 ]
 "44 /opt/microchip/xc8/v1.30/include/pic18f24j10.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
@@ -190,6 +190,51 @@
 [v _PORTBbits PORTBbits `VES82  1 e 1 @3969 ]
 "415
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+[s S199 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+"471
+[s S239 . 1 `uc 1 T1OSO 1 0 :1:0 
+`uc 1 T1OSI 1 0 :1:1 
+`uc 1 CCP1 1 0 :1:2 
+`uc 1 SCK1 1 0 :1:3 
+`uc 1 SDI1 1 0 :1:4 
+`uc 1 SDO1 1 0 :1:5 
+`uc 1 TX 1 0 :1:6 
+`uc 1 RX 1 0 :1:7 
+]
+[s S248 . 1 `uc 1 T1CKI 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+`uc 1 P1A 1 0 :1:2 
+`uc 1 SCL1 1 0 :1:3 
+`uc 1 SDA1 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 CK 1 0 :1:6 
+`uc 1 DT 1 0 :1:7 
+]
+[s S257 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SCK 1 0 :1:3 
+`uc 1 SDI 1 0 :1:4 
+`uc 1 SDO 1 0 :1:5 
+]
+[s S262 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SCL 1 0 :1:3 
+`uc 1 SDA 1 0 :1:4 
+]
+[s S266 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S269 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S272 . 1 `S199 1 . 1 0 `S239 1 . 1 0 `S248 1 . 1 0 `S257 1 . 1 0 `S262 1 . 1 0 `S266 1 . 1 0 `S269 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES272  1 e 1 @3970 ]
 "1013
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "1166
@@ -206,18 +251,9 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1419
-[s S199 . 1 `uc 1 RC0 1 0 :1:0 
-`uc 1 RC1 1 0 :1:1 
-`uc 1 RC2 1 0 :1:2 
-`uc 1 RC3 1 0 :1:3 
-`uc 1 RC4 1 0 :1:4 
-`uc 1 RC5 1 0 :1:5 
-`uc 1 RC6 1 0 :1:6 
-`uc 1 RC7 1 0 :1:7 
-]
 [u S208 . 1 `S190 1 . 1 0 `S199 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES208  1 e 1 @3988 ]
-[s S254 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[s S347 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSP1IF 1 0 :1:3 
@@ -226,13 +262,13 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "1726
-[s S262 . 1 `uc 1 . 1 0 :3:0 
+[s S355 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIF 1 0 :1:3 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
-[u S267 . 1 `S254 1 . 1 0 `S262 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES267  1 e 1 @3998 ]
+[u S360 . 1 `S347 1 . 1 0 `S355 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES360  1 e 1 @3998 ]
 "3313
 [v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
 "3383
@@ -247,43 +283,43 @@
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
 "4068
 [v _SSP1CON1 SSP1CON1 `VEuc  1 e 1 @4038 ]
-[s S284 . 1 `uc 1 SSPM 1 0 :4:0 
+[s S377 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "4253
-[s S290 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S383 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[s S295 . 1 `uc 1 . 1 0 :4:0 
+[s S388 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CKP1 1 0 :1:4 
 ]
-[s S298 . 1 `uc 1 . 1 0 :5:0 
+[s S391 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SSPEN1 1 0 :1:5 
 ]
-[s S301 . 1 `uc 1 SSPM01 1 0 :1:0 
+[s S394 . 1 `uc 1 SSPM01 1 0 :1:0 
 ]
-[s S303 . 1 `uc 1 . 1 0 :1:0 
+[s S396 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SSPM11 1 0 :1:1 
 ]
-[s S306 . 1 `uc 1 . 1 0 :2:0 
+[s S399 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 SSPM21 1 0 :1:2 
 ]
-[s S309 . 1 `uc 1 . 1 0 :3:0 
+[s S402 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPM31 1 0 :1:3 
 ]
-[s S312 . 1 `uc 1 . 1 0 :6:0 
+[s S405 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 SSPOV1 1 0 :1:6 
 ]
-[s S315 . 1 `uc 1 . 1 0 :7:0 
+[s S408 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 WCOL1 1 0 :1:7 
 ]
-[u S318 . 1 `S284 1 . 1 0 `S290 1 . 1 0 `S295 1 . 1 0 `S298 1 . 1 0 `S301 1 . 1 0 `S303 1 . 1 0 `S306 1 . 1 0 `S309 1 . 1 0 `S312 1 . 1 0 `S315 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES318  1 e 1 @4038 ]
+[u S411 . 1 `S377 1 . 1 0 `S383 1 . 1 0 `S388 1 . 1 0 `S391 1 . 1 0 `S394 1 . 1 0 `S396 1 . 1 0 `S399 1 . 1 0 `S402 1 . 1 0 `S405 1 . 1 0 `S408 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES411  1 e 1 @4038 ]
 "4342
 [v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
 "5320
@@ -311,37 +347,37 @@
 "45 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"109
+"110
 [v main@total total `l  1 a 4 19 ]
-"128
-[v main@stepNumber stepNumber `i  1 a 2 62 ]
-"113
-[v main@PWMcount PWMcount `i  1 a 2 59 ]
 "129
-[v main@currentStep currentStep `i  1 a 2 57 ]
-"115
-[v main@midPWM midPWM `i  1 a 2 53 ]
-"123
-[v main@tickCounter tickCounter `i  1 a 2 50 ]
-"131
-[v main@sequenceRepeats sequenceRepeats `i  1 a 2 48 ]
-"116
-[v main@highPWM highPWM `i  1 a 2 46 ]
+[v main@stepNumber stepNumber `i  1 a 2 62 ]
 "114
+[v main@PWMcount PWMcount `i  1 a 2 59 ]
+"130
+[v main@currentStep currentStep `i  1 a 2 57 ]
+"116
+[v main@midPWM midPWM `i  1 a 2 53 ]
+"124
+[v main@tickCounter tickCounter `i  1 a 2 50 ]
+"132
+[v main@sequenceRepeats sequenceRepeats `i  1 a 2 48 ]
+"117
+[v main@highPWM highPWM `i  1 a 2 46 ]
+"115
 [v main@lowPWM lowPWM `i  1 a 2 44 ]
 "104
 [v main@currentGainLevel currentGainLevel `i  1 a 2 42 ]
-"136
+"137
 [v main@clapCounter clapCounter `i  1 a 2 40 ]
-"110
+"111
 [v main@average average `i  1 a 2 38 ]
 "81
 [v main@highLevel highLevel `i  1 a 2 35 ]
-"134
+"135
 [v main@soundDetectedCount soundDetectedCount `i  1 a 2 33 ]
-"117
+"118
 [v main@fadeCounter fadeCounter `i  1 a 2 31 ]
-"108
+"109
 [v main@sampleCount sampleCount `i  1 a 2 29 ]
 "84
 [v main@mainLevel mainLevel `i  1 a 2 27 ]
@@ -349,42 +385,42 @@
 [v main@lowLevel lowLevel `i  1 a 2 25 ]
 "82
 [v main@midLevel midLevel `i  1 a 2 23 ]
-"127
+"128
 [v main@sequenceNumber sequenceNumber `uc  1 a 1 61 ]
-"130
+"131
 [v main@brightness brightness `uc  1 a 1 56 ]
-"126
+"127
 [v main@patternNumber patternNumber `uc  1 a 1 55 ]
-"120
+"121
 [v main@mode mode `uc  1 a 1 52 ]
-"135
+"136
 [v main@soundFlag soundFlag `uc  1 a 1 37 ]
-"593
+"594
 } 0
 "3 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/spi.c
 [v _setupSPI setupSPI `(v  1 e 0 0 ]
 {
-"17
+"18
 } 0
-"20
+"21
 [v _setGainLevel setGainLevel `(v  1 e 0 0 ]
 {
 [v setGainLevel@gainLevel gainLevel `uc  1 a 1 wreg ]
 [v setGainLevel@gainLevel gainLevel `uc  1 a 1 wreg ]
-"23
+"24
 [v setGainLevel@gainLevel gainLevel `uc  1 a 1 0 ]
-"44
+"45
 } 0
-"596 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
+"597 /home/matt/Dropbox/Documents/Projects/LED_Organ/led_organ/main.c
 [v _readMyADC readMyADC `(i  1 e 2 0 ]
 {
 [v readMyADC@ADCnumber ADCnumber `uc  1 a 1 wreg ]
-"598
+"599
 [v readMyADC@result result `i  1 a 2 2 ]
-"596
+"597
 [v readMyADC@ADCnumber ADCnumber `uc  1 a 1 wreg ]
 [v readMyADC@ADCnumber ADCnumber `uc  1 a 1 4 ]
-"624
+"625
 } 0
 "8 /opt/microchip/xc8/v1.30/sources/common/aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]

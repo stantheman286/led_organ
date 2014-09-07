@@ -4951,7 +4951,8 @@ TRISCbits.TRISC4 = 1;
 TRISCbits.TRISC3 = 0;
 
 
-TRISCbits.TRISC0 = 1;
+TRISCbits.TRISC0 = 0;
+PORTCbits.RC0 = 1;
 
 
 SSPSTAT = 0x40;
@@ -4970,7 +4971,7 @@ SSPCON1 = 0x20;
 
 
 
-TRISCbits.RC0 = 0;
+PORTCbits.RC0 = 0;
 
 
 SSPIF = 0;
@@ -4983,6 +4984,6 @@ SSPBUF = gainLevel;
 while(!SSPIF);
 
 
-TRISCbits.RC0 = 1;
+PORTCbits.RC0 = 1;
 }
 
