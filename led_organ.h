@@ -63,14 +63,13 @@ extern "C" {
 #define LOWPEAK		PORTBbits.RB3
 
 // LED string outputs
-#define ALLSTRING       PORTCbits.RC7 // Testing ALL output
 #define HIGHSTRING	PORTBbits.RB2
 #define MIDSTRING	PORTBbits.RB1
 #define LOWSTRING	PORTBbits.RB0
 
 // Toggle Switch pins
-#define SWITCHLOW   1 //MS: manually assigned for now instead of pins
-#define SWITCHHIGH  0
+#define SWITCHLOW   PORTCbits.RC6
+#define SWITCHHIGH  PORTCbits.RC7
 
 // ADC defintions
 #define HIGHADC		0
@@ -100,8 +99,8 @@ extern "C" {
 // make a tone level light up more or less (for a given stable gain level)
 // Range is 0-1023
 #define LOWPEAK_VALUE	470
-#define MIDPEAK_VALUE	520
-#define HIGHPEAK_VALUE	150
+#define MIDPEAK_VALUE	1000//520
+#define HIGHPEAK_VALUE	300//150
 
 // Sound watermark level
 // This is the input gain at which TOMTE switches to colour organ mode

@@ -4935,7 +4935,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 #pragma config CCP2MX = DEFAULT
 
-# 112
+# 111
 extern void demoLEDs();
 extern void setupSPI();
 extern void writeLEDSPI(uint8_t);
@@ -4960,7 +4960,7 @@ ADCON2 = 0xB5;
 
 TRISA = 0x0F;
 TRISB = 0x00;
-TRISC = 0x00;
+TRISC = 0xC0;
 
 # 69
 PORTA = 0x00;
@@ -5041,7 +5041,7 @@ lowLevel = readMyADC(2);
 mainLevel = readMyADC(3);
 
 
-if (1 == 1 && 0 == 0)
+if (PORTCbits.RC6 == 1 && PORTCbits.RC7 == 0)
 {
 if (mode != 0)
 {
@@ -5065,7 +5065,7 @@ sequenceRepeats = 0;
 }
 }
 
-if (1 == 0 && 0 == 0)
+if (PORTCbits.RC6 == 0 && PORTCbits.RC7 == 0)
 {
 if (mode != 1)
 {
@@ -5081,7 +5081,7 @@ PORTBbits.RB2 = 0;
 }
 }
 
-if (1 == 0 && 0 == 1)
+if (PORTCbits.RC6 == 0 && PORTCbits.RC7 == 1)
 {
 if (mode != 2)
 {
@@ -5447,8 +5447,8 @@ if (lowPWM > 0) lowPWM--;
 }
 
 
-if (highLevel > 150) highPWM = 31;
-if (midLevel > 520) midPWM = 31;
+if (highLevel > 300) highPWM = 31;
+if (midLevel > 1000) midPWM = 31;
 if (lowLevel > 470) lowPWM = 31;
 
 

@@ -59,7 +59,7 @@ void main(void)
   // Configure ports as inputs (1) or outputs(0)
   TRISA = 0x0F; // Set AN0-3 set as inputs
   TRISB = 0x00; // RB5, LED output
-  TRISC = 0x00;
+  TRISC = 0xC0; // RC6-7, switch inputs
   
   //MS: TODO, add my other code
 
